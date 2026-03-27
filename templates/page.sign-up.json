@@ -23,6 +23,7 @@
     },
     "dashboard_NUhDF9": {
       "type": "dashboard",
+      "disabled": true,
       "name": "Customer Dashboard",
       "settings": {
         "background_color": "#ffffff"
