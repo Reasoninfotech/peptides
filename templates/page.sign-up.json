@@ -1,0 +1,53 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "full": false,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20
+      }
+    },
+    "apps": {
+      "type": "apps",
+      "settings": {
+        "full": false,
+        "padding_top": 40,
+        "padding_bottom": 0,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 0
+      }
+    },
+    "custom_liquid": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "",
+        "full": false,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "padding_top_mobile": 10,
+        "padding_bottom_mobile": 10
+      }
+    },
+    "sign_in_button": {
+      "type": "sign-in-button",
+      "settings": {
+        "text": "Already have an account?",
+        "button_label": "Sign In Here",
+        "padding_top": 20,
+        "padding_bottom": 60,
+        "padding_top_mobile": 10,
+        "padding_bottom_mobile": 40
+      }
+    }
+  },
+  "order": [
+    "main",
+    "apps",
+    "custom_liquid",
+    "sign_in_button"
+  ]
+}

@@ -98,13 +98,13 @@
 						{{- 'customer.register.submit' | t -}}
 					</button>
 
-					<p>
-						{{- 'customer.login_page.already_account' | t }}
+					<div class="login-prompt" style="margin-top: 24px; padding-top: 24px; border-top: 1px solid #f3f4f6;">
+						<p>{{- 'customer.login_page.already_account' | t }}</p>
 
-						<a href="{{ routes.account_login_url }}" aria-label="{{- 'general.text.link' | t -}}" class="sign-in">
+						<a href="{{ routes.account_login_url }}" aria-label="{{- 'general.text.link' | t -}}" class="button medium-button secondary-button" style="display: inline-block; margin-top: 12px; width: 100%;">
 							{{- 'customer.login_page.sign_in_here' | t -}}
 						</a>
-					</p>
+					</div>
 				{%- endform -%}
 			</div>
 		</div>
