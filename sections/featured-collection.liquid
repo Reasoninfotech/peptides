@@ -32,6 +32,7 @@
 	}
 </style>
 
+{%- if customer -%}
 {%- if section.blocks.size > 0 -%}
 	<div class="featured-collection-tab color-{{ section.settings.color_scheme }}">
 		<div class="{% if full %}stretch-section stretch-padding{% else %} container{% endif %}">
@@ -210,6 +211,235 @@
 		</div>
 	</div>
 {%- endif -%}
+{%- else -%}
+  {%- liquid
+    assign global_prod = all_products[section.settings.global_product]
+    assign american_prod = all_products[section.settings.american_product]
+  -%}
+  <style>
+    .comparison-section {
+      padding: 60px 0;
+      background: #ffffff;
+      text-align: center;
+    }
+    .comparison-header {
+      max-width: 800px;
+      margin: 0 auto 50px;
+      padding: 0 20px;
+    }
+    .comparison-header h2 {
+      font-size: 32px;
+      font-weight: 600;
+      margin-bottom: 15px;
+      color: #000;
+      letter-spacing: -0.5px;
+    }
+    .comparison-header p {
+      color: #666;
+      line-height: 1.6;
+      font-size: 16px;
+    }
+    .comparison-grid {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .comparison-card {
+      flex: 1;
+      border-radius: 16px;
+      padding: 35px;
+      text-align: left;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+      border: 1px solid #f0f0f0;
+    }
+    .comparison-card.premium {
+      background: #1a4d2e;
+      color: #fff;
+      border: none;
+    }
+    .card-header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .card-title {
+      font-size: 20px;
+      font-weight: 600;
+      margin: 0;
+	  color: #0A0A0A;
+    }
+    .card-badge {
+      font-size: 11px;
+      padding: 6px 14px;
+      border-radius: 30px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .standard .card-badge {
+      background: #f4f6f8;
+      color: #5c5f62;
+      border: 1px solid #dfe3e8;
+    }
+    .premium .card-badge {
+      background: #e9bc47;
+      color: #000;
+    }
+    .card-subtitle {
+      font-size: 13px;
+      opacity: 0.8;
+      margin-bottom: 25px;
+    }
+    .card-image-box {
+      background: #f9fafb;
+      border-radius: 12px;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      overflow: hidden;
+    }
+    .premium .card-image-box {
+      background: rgba(255,255,255,0.06);
+    }
+    .card-image-box img {
+      max-height: 80%;
+      object-fit: contain;
+    }
+    .comparison-table {
+      margin-bottom: 30px;
+      flex-grow: 1;
+    }
+    .comparison-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 13px;
+    }
+    .premium .comparison-item {
+      border-bottom-color: rgba(255,255,255,0.1);
+    }
+    .item-label {
+      opacity: 0.7;
+    }
+    .item-value {
+      font-weight: 500;
+    }
+    .card-action-btn {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      border-radius: 8px;
+      text-align: center;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.2s;
+    }
+    .standard .card-action-btn {
+      background: #111827;
+      color: #fff;
+    }
+    .premium .card-action-btn {
+      background: #fff;
+      color: #1a4d2e;
+    }
+    .grade-tip {
+      max-width: 1140px;
+      margin: 40px auto 0;
+      background: #f9fafb;
+      padding: 20px 30px;
+      border-radius: 12px;
+      font-size: 13px;
+      color: #5c5f62;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 900px) {
+      .comparison-grid {
+        flex-direction: column;
+        gap: 20px;
+      }
+    }
+  </style>
+
+  <div class="comparison-section">
+    <div class="container">
+      <div class="comparison-header">
+        <h2>{{ section.settings.guest_heading }}</h2>
+        <p>{{ section.settings.guest_subtext }}</p>
+      </div>
+
+      <div class="comparison-grid">
+        <!-- GLOBAL -->
+        <div class="comparison-card standard">
+          <div class="card-header-top">
+            <h3 class="card-title">{{ section.settings.global_title }}</h3>
+            <span class="card-badge">{{ section.settings.global_badge }}</span>
+          </div>
+          <p class="card-subtitle" style="color: #4A5565;">{{ section.settings.global_subtitle }}</p>
+          <div class="card-image-box">
+             {% if global_prod and global_prod.featured_image %}
+               <img src="{{ global_prod.featured_image | img_url: '400x' }}" alt="{{ global_prod.title }}" loading="lazy">
+             {% else %}
+               <img src="https://cdn.shopify.com/s/files/1/0805/0013/7979/files/glp-1_international.png?v=1710925000" alt="Global" loading="lazy">
+             {% endif %}
+          </div>
+          <div class="comparison-table">
+            <div class="comparison-item"><span class="item-label">Origin</span><span class="item-value">{{ section.settings.global_origin }}</span></div>
+            <div class="comparison-item"><span class="item-label">Purity Level</span><span class="item-value">{{ section.settings.global_purity }}</span></div>
+            <div class="comparison-item"><span class="item-label">Testing Standards</span><span class="item-value">{{ section.settings.global_testing }}</span></div>
+            <div class="comparison-item"><span class="item-label">Lead Time</span><span class="item-value">{{ section.settings.global_lead_time }}</span></div>
+            <div class="comparison-item"><span class="item-label">Price Point</span><span class="item-value">{{ section.settings.global_price }}</span></div>
+            <div class="comparison-item"><span class="item-label">COA Available</span><span class="item-value">{{ section.settings.global_coa }}</span></div>
+          </div>
+          <a href="/pages/sign-up" class="card-action-btn">Browse Global Collection</a>
+        </div>
+
+        <!-- AMERICAN -->
+        <div class="comparison-card premium">
+          <div class="card-header-top">
+            <h3 class="card-title" style="color: #fff;">{{ section.settings.american_title }}</h3>
+            <span class="card-badge">⭐ {{ section.settings.american_badge }}</span>
+          </div>
+          <p class="card-subtitle" style="color: #E5E7EB;">{{ section.settings.american_subtitle }}</p>
+          <div class="card-image-box">
+             {% if american_prod and american_prod.featured_image %}
+               <img src="{{ american_prod.featured_image | img_url: '400x' }}" alt="{{ american_prod.title }}" loading="lazy">
+             {% else %}
+               <img src="https://cdn.shopify.com/s/files/1/0805/0013/7979/files/glp-1_usa.png?v=1710925000" alt="USA" loading="lazy">
+             {% endif %}
+          </div>
+          <div class="comparison-table">
+            <div class="comparison-item"><span class="item-label">Origin</span><span class="item-value">{{ section.settings.american_origin }}</span></div>
+            <div class="comparison-item"><span class="item-label">Purity Level</span><span class="item-value">{{ section.settings.american_purity }}</span></div>
+            <div class="comparison-item"><span class="item-label">Testing Standards</span><span class="item-value">{{ section.settings.american_testing }}</span></div>
+            <div class="comparison-item"><span class="item-label">Lead Time</span><span class="item-value">{{ section.settings.american_lead_time }}</span></div>
+            <div class="comparison-item"><span class="item-label">Price Point</span><span class="item-value">{{ section.settings.american_price }}</span></div>
+            <div class="comparison-item"><span class="item-label">COA Available</span><span class="item-value" style="color: #D4AF37;">{{ section.settings.american_coa }}</span></div>
+          </div>
+          <a href="/pages/sign-up" class="card-action-btn">Browse US Collection</a>
+        </div>
+      </div>
+
+      <div class="grade-tip">
+        {{ section.settings.guest_tip }}
+      </div>
+    </div>
+  </div>
+{%- endif -%}
 
 {% schema %}
 {
@@ -369,7 +599,155 @@
 			"default": 20,
 			"unit": "px",
 			"label": "t:general.padding.bottom.label"
-		}
+		},
+    {
+      "type": "header",
+      "content": "Guest View Settings"
+    },
+    {
+      "type": "text",
+      "id": "guest_heading",
+      "label": "Guest Heading",
+      "default": "Choose Your Research Grade"
+    },
+    {
+      "type": "textarea",
+      "id": "guest_subtext",
+      "label": "Guest Subtext",
+      "default": "Not sure which peptide line is right for your research? Compare the key benefits of International Peptides and America-made Peptides to find the perfect solution for your laboratory requirements."
+    },
+    {
+      "type": "richtext",
+      "id": "guest_tip",
+      "label": "Bottom Help Text",
+      "default": "<p><strong>Need help deciding?</strong> Our America-made Peptides line offers superior purity (≥99%), faster shipping (2-3 days vs 7-10 days), and enhanced quality documentation from FDA-registered facilities.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Left Card (Global Grade)"
+    },
+    {
+      "type": "text",
+      "id": "global_title",
+      "label": "Title",
+      "default": "Global Clinical Grade"
+    },
+    {
+      "type": "text",
+      "id": "global_badge",
+      "label": "Badge",
+      "default": "Standard Line"
+    },
+    {
+      "type": "text",
+      "id": "global_subtitle",
+      "label": "Subtitle",
+      "default": "Cost-effective research peptides for standard laboratory protocols"
+    },
+    {
+      "type": "product",
+      "id": "global_product",
+      "label": "Select Product for Image"
+    },
+    {
+      "type": "text",
+      "id": "global_origin",
+      "label": "Origin Value",
+      "default": "International"
+    },
+    {
+      "type": "text",
+      "id": "global_purity",
+      "label": "Purity Value",
+      "default": "≥98% (HPLC)"
+    },
+    {
+      "type": "text",
+      "id": "global_testing",
+      "label": "Testing Value",
+      "default": "ISO Certified"
+    },
+    {
+      "type": "text",
+      "id": "global_lead_time",
+      "label": "Lead Time Value",
+      "default": "7-10 business days"
+    },
+    {
+      "type": "text",
+      "id": "global_price",
+      "label": "Price Value",
+      "default": "Standard pricing"
+    },
+    {
+      "type": "text",
+      "id": "global_coa",
+      "label": "COA Value",
+      "default": "✓ Yes"
+    },
+    {
+      "type": "header",
+      "content": "Right Card (American Grade)"
+    },
+    {
+      "type": "text",
+      "id": "american_title",
+      "label": "Title",
+      "default": "American Clinical Grade"
+    },
+    {
+      "type": "text",
+      "id": "american_badge",
+      "label": "Badge",
+      "default": "RECOMMENDED"
+    },
+    {
+      "type": "text",
+      "id": "american_subtitle",
+      "label": "Subtitle",
+      "default": "Premium USA-manufactured peptides with superior quality standards"
+    },
+    {
+      "type": "product",
+      "id": "american_product",
+      "label": "Select Product for Image"
+    },
+    {
+      "type": "text",
+      "id": "american_origin",
+      "label": "Origin Value",
+      "default": "USA 🇺🇸"
+    },
+    {
+      "type": "text",
+      "id": "american_purity",
+      "label": "Purity Value",
+      "default": "≥99% (HPLC + MS)"
+    },
+    {
+      "type": "text",
+      "id": "american_testing",
+      "label": "Testing Value",
+      "default": "FDA-Registered"
+    },
+    {
+      "type": "text",
+      "id": "american_lead_time",
+      "label": "Lead Time Value",
+      "default": "2-3 business days"
+    },
+    {
+      "type": "text",
+      "id": "american_price",
+      "label": "Price Value",
+      "default": "Premium (15% more)"
+    },
+    {
+      "type": "text",
+      "id": "american_coa",
+      "label": "COA Value",
+      "default": "✓ Enhanced Docs"
+    }
 	],
 	"blocks": [
 		{
