@@ -1,0 +1,122 @@
+{%- liquid
+  assign default_qty_id = 'quantity-' | append: product.id
+  assign variant = product.selected_or_first_available_variant
+  assign moq = product.metafields.custom.moq.value | default: 1
+  assign moq_step = product.metafields.custom.moq_step.value
+  if moq_step
+    assign qty_step = moq
+  else
+    assign qty_step = 1
+  endif
+-%}
+
+<div class="quantity-wrapper">
+  <div class="quantity">
+    <button class="quantity-button qty-custom-btn" name="minus" type="button">
+      <span class="sr-only">{{ 'products.product.quantity.decrease' | t: product: product.title | escape }}</span>
+      {% render 'icon', code: 'minus' %}
+    </button>
+
+    <label for="{{ qty_id | default: default_qty_id }}" class="sr-only">{{- 'products.product.quantity.label' -}}</label>
+
+    <input
+      class="quantity-input"
+      type="number"
+      name="quantity"
+      id="{{ qty_id | default: default_qty_id }}"
+      min="{{ moq }}"
+      {% if variant.quantity_rule.max != null %}
+        max="{{ variant.quantity_rule.max }}"
+      {% endif %}
+      step="{{ qty_step }}"
+      value="{{ moq }}"
+      data-moq="{{ moq }}"
+      data-step="{{ qty_step }}"
+      data-noui
+      readonly
+    >
+
+    <button class="quantity-button qty-custom-btn" name="plus" type="button">
+      <span class="sr-only">{{ 'products.product.quantity.increase' | t: product: product.title | escape }}</span>
+      {% render 'icon', code: 'plus' %}
+    </button>
+  </div>
+  {% if product.metafields.custom.moq %}
+    <span style="margin-left: 10px; font-size: 14px; color: oklch(44.6% .03 256.802);">
+      MOQ: {{ product.metafields.custom.moq }} vial
+    </span>
+  {% endif %}
+  <p class="quantity-moq-error" style="display:none; color:red; font-size:0.85em; margin-top:4px;"></p>
+</div>
+
+<script>
+  (function () {
+    if (window.__qtyHandlerInit) return;
+    window.__qtyHandlerInit = true;
+
+    function initQtyWrapper(wrapper) {
+      if (wrapper.dataset.qtyInit) return;
+      wrapper.dataset.qtyInit = 'true';
+
+      const minusBtn = wrapper.querySelector('.qty-custom-btn[name="minus"]');
+      const plusBtn  = wrapper.querySelector('.qty-custom-btn[name="plus"]');
+      const input    = wrapper.querySelector('.quantity-input');
+      const errorEl  = wrapper.querySelector('.quantity-moq-error');
+
+      function showError(msg) {
+        errorEl.textContent = msg;
+        errorEl.style.display = 'block';
+        clearTimeout(errorEl._timer);
+        errorEl._timer = setTimeout(function () {
+          errorEl.style.display = 'none';
+        }, 3000);
+      }
+
+      minusBtn.addEventListener('click', function (e) {
+        e.stopImmediatePropagation();
+        const moq     = parseInt(input.dataset.moq)  || 1;
+        const step    = parseInt(input.dataset.step) || 1;
+        const current = parseInt(input.value) || moq;
+        const newVal  = current - step;
+
+        if (newVal < moq) {
+          input.value = moq;
+          showError('Minimum order quantity is ' + moq + '.');
+        } else {
+          input.value = newVal;
+          errorEl.style.display = 'none';
+        }
+      }, true); // capture phase — fires before theme JS
+
+      plusBtn.addEventListener('click', function (e) {
+        e.stopImmediatePropagation();
+        const step    = parseInt(input.dataset.step) || 1;
+        const max     = input.max !== '' ? parseInt(input.max) : Infinity;
+        const current = parseInt(input.value);
+        const newVal  = current + step;
+
+        if (newVal > max) {
+          showError('Maximum order quantity is ' + max + '.');
+        } else {
+          input.value = newVal;
+          errorEl.style.display = 'none';
+        }
+      }, true); // capture phase — fires before theme JS
+    }
+
+    function initAll() {
+      document.querySelectorAll('.quantity-wrapper').forEach(initQtyWrapper);
+    }
+
+    // Init on load
+    initAll();
+
+    // Re-init after AJAX cart updates (side-cart, dynamic sections)
+    document.addEventListener('DOMContentLoaded', initAll);
+
+    const observer = new MutationObserver(function () {
+      document.querySelectorAll('.quantity-wrapper:not([data-qty-init])').forEach(initQtyWrapper);
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+  })();
+</script>

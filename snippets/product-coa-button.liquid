@@ -1,0 +1,45 @@
+{%- assign coa_url = product.metafields.custom.coa_url -%}
+
+<div class="product-coa-wrapper">
+   {%- if coa_url != blank -%}
+    <a href="{{ coa_url }}" target="_blank" rel="noopener noreferrer" class="coa-button" style="margin:0;">
+      Request Certificate of Analysis
+    </a>
+  {%- else -%}
+    <a href="mailto:{{ shop.email }}?subject=Certificate of Analysis Request - {{ product.title | url_encode }}" class="coa-button" style="margin:0;">
+      Request Certificate of Analysis
+    </a>
+  {%- endif -%} 
+</div>
+
+<style>
+  .product-coa-wrapper {
+    width: 100%;
+  }
+
+  .coa-button {
+    margin-bottom: 24px;
+    display: block;
+    width: 100%;
+    padding: 14px 24px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 500;
+    border: 1.5px solid #000000;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background-color 0.5s ease, color 0.5s ease;
+    cursor: pointer;
+    box-sizing: border-box;
+  }
+  .coa-button:hover {
+    background-color: #000000;
+    color: #ffffff!important;
+  }
+</style>
+
+<script>
+  document.querySelectorAll('.summary-item.coa-button').forEach(el => {
+  el.style.padding = '0';
+});
+</script>

@@ -1,0 +1,148 @@
+<style>
+      .quality-section {
+    padding: 60px 20px;
+    background: #f8f8f8;
+    text-align: center;
+  }
+
+  .section-heading {
+    font-size: 30px;
+    margin:0px 0px 10px 0px;
+  }
+
+  .section-subtext {
+    max-width: 700px;
+    margin: 0 auto 40px;
+    color: #666;
+  }
+
+  .quality-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+  }
+
+  .quality-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 16px;
+    border: 1px solid #eee;
+  }
+
+  .icon-circle {
+    width: 70px;
+    height: 70px;
+    border: 2px solid #1f5d3a;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    color: #1f5d3a;
+    font-size: 24px;
+  }
+
+  .quality-card .title {
+    color: black;
+    margin:0px 0px 12px 0px;
+    font-size: 20px;
+  }
+
+  .quality-card p {
+    color: #666;
+    font-size: 14px;
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .quality-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+<div class="quality-section">
+  <div class="container">
+    {% if section.settings.heading != blank %}
+      <h2 class="section-heading">
+        {{ section.settings.heading }}
+      </h2>
+    {% endif %}
+
+    {% if section.settings.subtext != blank %}
+      <p class="section-subtext">
+        {{ section.settings.subtext| replace: "/", "<br>" | raw }}
+      </p>
+    {% endif %}
+
+    <div class="quality-grid">
+      {% for block in section.blocks %}
+        <div class="quality-card">
+          <div class="icon-circle">
+            {{ block.settings.icon }}
+          </div>
+
+          <p class="title">{{ block.settings.title }}</p>
+          <p>{{ block.settings.text }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "Quality Features",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Dedicated to quality assurance"
+    },
+    {
+      "type": "textarea",
+      "id": "subtext",
+      "label": "Sub Text",
+      "default": "Our commitment to research excellence..."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icon (use emoji or SVG)",
+          "default": "✓"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Feature title"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Description",
+          "default": "Feature description"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Quality Features",
+      "blocks": [
+        { "type": "feature" },
+        { "type": "feature" },
+        { "type": "feature" }
+      ]
+    }
+  ]
+}
+{% endschema %}

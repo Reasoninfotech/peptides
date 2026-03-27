@@ -1,0 +1,375 @@
+{%- liquid
+assign section_id = '#shopify-section-' | append: section.id
+assign full = section.settings.full
+assign animation = settings.section_animation
+assign sub_heading = section.settings.sub_heading
+assign heading = section.settings.heading_text
+assign heading_size = section.settings.heading_size
+assign description = section.settings.description
+-%}
+
+<style>
+    #shopify-section-{{ section.id }} .section-wrapper {
+        padding-top: {{ section.settings.padding_top_mobile }}px;
+        padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+        background-color: #fff;
+    }
+
+    @media (min-width: 992px) {
+        #shopify-section-{{ section.id }} .section-wrapper {
+            padding-top: {{ section.settings.padding_top }}px;
+            padding-bottom: {{ section.settings.padding_bottom }}px;
+        }
+    }
+
+    .container-contact {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .contact-wrapper {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    @media (min-width: 992px) {
+        .contact-wrapper {
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: flex-start;
+        }
+    }
+
+    .title-wrapper-1 {
+        text-align: left;
+    }
+
+    .title-wrapper-1 h2.heading {
+        font-size: 32px;
+        font-weight: 500;
+        margin-bottom: 24px;
+        color: #000;
+    }
+
+    .title-wrapper-1 .description {
+        font-size: 16px;
+        line-height: 1.6;
+        color: #4a4a4a;
+        margin-bottom: 40px;
+        max-width: 500px;
+    }
+
+    .contact-info-block {
+        margin-bottom: 24px;
+    }
+
+    .contact-info-block h3 {
+        font-size: 14px;
+        font-weight: 500;
+        color: #888;
+        margin-bottom: 4px;
+        text-transform: none;
+    }
+
+    .contact-info-block p {
+        font-size: 16px;
+        color: #000;
+        margin: 0;
+        line-height: 1.5;
+    }
+
+    .form-wrapper {
+        background: #fff;
+        padding: 32px;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        border: 1px solid #f0f0f0;
+    }
+
+    .form-wrapper .form-heading {
+        font-size: 20px;
+        font-weight: 500;
+        margin:0px 0px 24px 0px;
+        color: #000;
+    }
+
+    .form-fields {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .field-form {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .field-form label {
+        font-size: 14px;
+        font-weight: 500;
+        color: #4a4a4a;
+        order: -1;
+    }
+
+    .field-form input, 
+    .field-form textarea,
+    .field-form select {
+        width: 100%;
+        padding: 12px 16px;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        font-size: 16px;
+        color: #000;
+        background: #fff;
+        transition: border-color 0.2s;
+    }
+
+    .field-form input:focus, 
+    .field-form textarea:focus {
+        outline: none;
+        border-color: #1a4d2e;
+    }
+
+    .field-form textarea {
+        min-height: 120px;
+        resize: vertical;
+    }
+
+    .field-button {
+        margin-top: 10px;
+    }
+
+    .field-button button {
+        width: 100%;
+        background-color: #1a4d2e;
+        color: #fff;
+        border: none;
+        padding: 16px;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.2s;
+    }
+
+    .field-button button:hover {
+        background-color: #143d24;
+    }
+
+    .field-content {
+        display: none; /* Hide spam detection disclaimer if not needed or style it minimally */
+    }
+</style>
+
+<div class="section-wrapper color-{{ section.settings.color_scheme }}">
+    <div class="container-contact">
+        <div class="contact-wrapper">
+            <div class="title-wrapper-1">
+                {%- if heading != blank -%}
+                <h2 class="heading">{{- heading -}}</h2>
+                {%- endif -%}
+
+                {%- if description != blank -%}
+                <div class="description">{{- description -}}</div>
+                {%- endif -%}
+
+                <div class="contact-info-blocks">
+                    {%- for block in section.blocks -%}
+                        {%- if block.type == 'contact-press' -%}
+                            <div class="contact-info-block" {{ block.shopify_attributes }}>
+                                {%- if block.settings.label != blank -%}
+                                    <h3>{{ block.settings.label }}</h3>
+                                {%- endif -%}
+                                {%- if block.settings.text != blank -%}
+                                    {{- block.settings.text -}}
+                                {%- endif -%}
+                            </div>
+                        {%- endif -%}
+                    {%- endfor -%}
+                </div>
+            </div>
+
+            <div class="form-wrapper">
+                {%- if section.settings.form_heading != blank -%}
+                    <h2 class="form-heading">{{ section.settings.form_heading }}</h2>
+                {%- endif -%}
+                {%- form 'contact', id: nil, class: 'contact-form' -%}
+                {%- if form.posted_successfully? -%}
+                <p class="message success-message" tabindex="-1" autofocus>
+                    {%- liquid
+                    render 'icon', code: 'success'
+                    echo 'templates.form.contact_success' | t
+                    -%}
+                </p>
+                {%- elsif form.errors -%}
+                <p class="message error-message">
+                    {%- liquid
+                    render 'icon', code: 'error'
+                    echo 'templates.form.error_heading' | t
+                    -%}
+                </p>
+
+                <ul class="error-list" role="list">
+                    <li>
+                        <a href="#form-field-email-error{{ section_id }}" aria-label="{{- 'general.text.link' | t -}}"
+                            class="link">
+                            {{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email']
+                            }}
+                        </a>
+                    </li>
+                </ul>
+                {%- endif -%}
+
+                <div class="form-fields">
+                    <div class="field-form">
+                        <label for="form-field-name-{{ section.id }}">Institution Name</label>
+                        <input type="text" id="form-field-name-{{ section.id }}" name="contact[name]"
+                            value="{{ form.name }}" autocomplete="name"
+                             required>
+                    </div>
+
+                    <div class="field-form">
+                        <label for="form-field-email-{{ section.id }}">Email Address</label>
+                        <input autocomplete="email" type="email" id="form-field-email-{{ section.id }}"
+                            name="contact[email]"
+                            spellcheck="false" autocapitalize="off"
+                            value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+                            aria-required="true" {% if form.errors contains 'email' %} aria-invalid="true"
+                            aria-describedby="form-field-email-error{{ section_id }}" {% endif %}
+                            required>
+                    </div>
+
+                    <div class="field-form">
+                        <label for="form-field-body-{{ section.id }}">Message</label>
+                        <textarea id="form-field-body-{{ section.id }}" name="contact[body]"
+                            required>
+                            {{- form.body -}}
+                        </textarea>
+                    </div>
+                </div>
+
+                <div class="field-button">
+                    <button type="submit" class="button" style="text-transform: capitalize;">
+                        Submit Inquiry
+                    </button>
+                </div>
+                {%- endform -%}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "Contact Section",
+  "tag": "section",
+  "class": "contact-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading_text",
+      "default": "Contact Us",
+      "label": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "default": "<p>For research inquiries, bulk orders, or technical support, please contact our scientific team.</p>",
+      "label": "Description"
+    },
+    {
+      "type": "text",
+      "id": "form_heading",
+      "default": "Research Inquiry Form",
+      "label": "Form Heading"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 80,
+      "unit": "px",
+      "label": "Top Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 80,
+      "unit": "px",
+      "label": "Bottom Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 40,
+      "unit": "px",
+      "label": "Top Padding (Mobile)"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 40,
+      "unit": "px",
+      "label": "Bottom Padding (Mobile)"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "contact-press",
+      "name": "Contact Info",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label (e.g. Email)"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Content"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Contact Section",
+      "blocks": [
+        {
+          "type": "contact-press",
+          "settings": {
+            "label": "Phone (Research Inquiries)",
+            "text": "<p>+1 (555) 123-4567</p>"
+          }
+        },
+        {
+          "type": "contact-press",
+          "settings": {
+            "label": "Email",
+            "text": "<p>research@lngvtylabs.com</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
