@@ -36,10 +36,10 @@
           "settings": {
             "vendor": false,
             "collections": false,
-            "tags": true,
-            "type": true,
-            "sku": true,
-            "barcode": true,
+            "tags": false,
+            "type": false,
+            "sku": false,
+            "barcode": false,
             "padding_bottom": 8
           }
         },
