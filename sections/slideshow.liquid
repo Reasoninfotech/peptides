@@ -152,12 +152,12 @@
 
 														{%- if button != blank -%}
 														    <div class="slider-element slider-button" style="margin: 0px;">
-																{% if customer %}
+																{% if customer.tags contains 'approved' %}
 																<span class="button" tabindex="0" style="background-color: #1a4d2e!important; border-radius: 10px!important; padding: 16px 32px; font-size: 16px; color: white;">
 																	{{- button | escape -}}
 																</span>
 																{% else %}
-																	<a href="{{ routes.storefront_login_url }}&return_to=/pages/dashboard" aria-label="{{- 'general.text.link' | t -}}" class="button{{ new_customer_account }}" style="background-color: #1a4d2e!important; border-radius: 10px!important; padding: 16px 32px; font-size: 16px; color: white;">
+																	<a href="pages/sign-up" aria-label="{{- 'general.text.link' | t -}}" class="button{{ new_customer_account }}" style="background-color: #1a4d2e!important; border-radius: 10px!important; padding: 16px 32px; font-size: 16px; color: white;">
 																		{{- button | escape -}}
 																	</a>
 																{% endif %}

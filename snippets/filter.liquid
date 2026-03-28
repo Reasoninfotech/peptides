@@ -632,6 +632,26 @@
 			{%- for item in products -%}
 				{%- assign image_ratio = ssettings.image_ratio | default: settings.card_image_ratio -%}
 
+                {%- liquid
+                  assign show_this_item = true
+                  if item.object_type == 'product'
+                    assign preferred_type = customer.metafields.custom.type_of_peptides.value | default: customer.metafields.custom.type_of_peptides
+                    assign target_tag = ""
+                    if preferred_type == "America-made Peptides"
+                      assign target_tag = "America-made-peptides"
+                    elsif preferred_type == "International Peptides"
+                      assign target_tag = "international-peptides"
+                    endif
+                    
+                    if customer.tags contains 'approved' and target_tag != blank
+                      unless item.tags contains target_tag
+                        assign show_this_item = false
+                      endunless
+                    endif
+                  endif
+                -%}
+
+                {%- if show_this_item -%}
 				{%- case item.object_type -%}
 					{%- when 'product' -%}
 						{%- render 'product-card', product: item, image_ratio: image_ratio -%}
@@ -683,6 +703,7 @@
 							</div>
 						</div>
 				{%- endcase -%}
+                {%- endif -%}
 			{%- endfor -%}
 		</div>
 	{%- else -%}

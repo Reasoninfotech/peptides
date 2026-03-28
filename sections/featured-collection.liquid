@@ -32,7 +32,7 @@
 	}
 </style>
 
-{%- if customer -%}
+{%- if customer.tags contains 'approved' -%}
 {%- if section.blocks.size > 0 -%}
 	<div class="featured-collection-tab color-{{ section.settings.color_scheme }}">
 		<div class="{% if full %}stretch-section stretch-padding{% else %} container{% endif %}">
@@ -184,9 +184,27 @@
 									<div class="unity-slider-viewport">
 										<div class="unity-slider-container tab-content{% if forloop.index == 1 %} active{% endif %}" data-id="{{ block.id }}" data-index="{{ forloop.index }}">
 											{%- for product in collection.products limit: total -%}
-												<div class="unity-slide">
-													{%- render 'product-card', product: product -%}
-												</div>
+                                                {%- liquid
+                                                  assign preferred_type = customer.metafields.custom.type_of_peptides.value | default: customer.metafields.custom.type_of_peptides
+                                                  assign target_tag = ""
+                                                  if preferred_type == "America-made Peptides"
+                                                    assign target_tag = "America-made-peptides"
+                                                  elsif preferred_type == "International Peptides"
+                                                    assign target_tag = "international-peptides"
+                                                  endif
+                                                  
+                                                  assign show_this_product = true
+                                                  if customer.tags contains 'approved' and target_tag != blank
+                                                    unless product.tags contains target_tag
+                                                      assign show_this_product = false
+                                                    endunless
+                                                  endif
+                                                -%}
+                                                {%- if show_this_product -%}
+  												<div class="unity-slide">
+  													{%- render 'product-card', product: product -%}
+  												</div>
+                                                {%- endif -%}
 											{%- else -%}
 												{%- for i in (1..total) -%}
 													<div class="unity-slide">
@@ -405,7 +423,7 @@
             <div class="comparison-item"><span class="item-label">Price Point</span><span class="item-value">{{ section.settings.global_price }}</span></div>
             <div class="comparison-item"><span class="item-label">COA Available</span><span class="item-value">{{ section.settings.global_coa }}</span></div>
           </div>
-          <a href="/pages/sign-up" class="card-action-btn">Browse Global Collection</a>
+          <a href="{{ section.settings.global_collection.url | default: '/pages/sign-up' }}" class="card-action-btn">{{ section.settings.global_btn_label | default: 'Browse Global Collection' }}</a>
         </div>
 
         <!-- AMERICAN -->
@@ -430,7 +448,7 @@
             <div class="comparison-item"><span class="item-label">Price Point</span><span class="item-value">{{ section.settings.american_price }}</span></div>
             <div class="comparison-item"><span class="item-label">COA Available</span><span class="item-value" style="color: #D4AF37;">{{ section.settings.american_coa }}</span></div>
           </div>
-          <a href="/pages/sign-up" class="card-action-btn">Browse US Collection</a>
+          <a href="{{ section.settings.american_collection.url | default: '/pages/sign-up' }}" class="card-action-btn">{{ section.settings.american_btn_label | default: 'Browse US Collection' }}</a>
         </div>
       </div>
 
@@ -650,6 +668,17 @@
       "label": "Select Product for Image"
     },
     {
+      "type": "collection",
+      "id": "global_collection",
+      "label": "Select Collection for Button"
+    },
+    {
+      "type": "text",
+      "id": "global_btn_label",
+      "label": "Button Label",
+      "default": "Browse Global Collection"
+    },
+    {
       "type": "text",
       "id": "global_origin",
       "label": "Origin Value",
@@ -713,6 +742,17 @@
       "label": "Select Product for Image"
     },
     {
+      "type": "collection",
+      "id": "american_collection",
+      "label": "Select Collection for Button"
+    },
+    {
+      "type": "text",
+      "id": "american_btn_label",
+      "label": "Button Label",
+      "default": "Browse US Collection"
+    },
+    {
       "type": "text",
       "id": "american_origin",
       "label": "Origin Value",
@@ -746,7 +786,7 @@
       "type": "text",
       "id": "american_coa",
       "label": "COA Value",
-      "default": "✓ Enhanced Docs"
+      "default": "✓ Enhanced Documentation"
     }
 	],
 	"blocks": [

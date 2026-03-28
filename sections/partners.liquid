@@ -73,14 +73,22 @@
           {%- endif -%}
 
           {%- if customer -%}
+          {% if customer.tags contains 'approved' %}
             {%- if section.settings.logged_in_button_text != blank -%}
               <a href="{{ section.settings.logged_in_button_link }}" class="custom-btn" style="color: #1a4d2e; font-size: 16px; padding: 16px 32px; background-color: white; border-radius: 10px;">
                 {{- section.settings.logged_in_button_text -}}
               </a>
             {%- endif -%}
+          {% else %}
+            {%- if section.settings.logged_out_button_text != blank -%}
+              <a href="/pages/sign-up" class="custom-btn" style="color: #1a4d2e; font-size: 16px; padding: 16px 32px; background-color: white; border-radius: 10px;">
+                {{- section.settings.logged_out_button_text -}}
+              </a>
+            {%- endif -%}
+          {% endif %}
           {%- else -%}
             {%- if section.settings.logged_out_button_text != blank -%}
-              <a href="{{ routes.storefront_login_url }}&return_to=/pages/dashboard" class="custom-btn" style="color: #1a4d2e; font-size: 16px; padding: 16px 32px; background-color: white; border-radius: 10px;">
+              <a href="/pages/sign-up" class="custom-btn" style="color: #1a4d2e; font-size: 16px; padding: 16px 32px; background-color: white; border-radius: 10px;">
                 {{- section.settings.logged_out_button_text -}}
               </a>
             {%- endif -%}

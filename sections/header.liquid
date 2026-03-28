@@ -195,7 +195,7 @@
 
   
     {%- if shop.customer_accounts_enabled -%}
-			<a href="{%- if customer -%}/pages/dashboard{%- else -%}/pages/sign-up{%- endif -%}" aria-label="{{- 'general.text.link' | t -}}" class="header-icon action-account{{ new_customer_account }}">
+			<a href="{%- if customer -%}{%- if customer.tags contains 'approved' -%}/pages/dashboard{% else %}/pages/sign-up{%- endif -%}{%- else -%}/pages/sign-up{%- endif -%}" aria-label="{{- 'general.text.link' | t -}}" class="header-icon action-account{{ new_customer_account }}">
 				{%- render 'icon', code: 'account' -%}
 
 				<span class="sr-only">
@@ -240,7 +240,7 @@
 {%- capture header_primary_navigation -%}
 	{%- if primary_menu != blank -%}
 		<nav class="site-navigation">
-      {% if customer %}
+      {% if customer.tags contains 'approved' %}
 			{%- render 'menu-details', menu: primary_menu.links, class: 'header-navigation menu', full: full, scheme: section.settings.menu_color_scheme -%}
       {% endif %}
 		</nav>

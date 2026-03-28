@@ -1,3 +1,6 @@
+{% unless customer.tags contains 'approved' %}
+  <script>window.location.href = '/';</script>
+{% endunless %}
 <meta name="robots" content="noindex, nofollow">
 <style>
     .dashboard-container {

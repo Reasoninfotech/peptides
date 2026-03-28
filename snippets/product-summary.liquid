@@ -611,7 +611,7 @@
                   </div>
                 {%- endif -%}
 
-                {% if customer %}
+                {% if customer.tags contains 'approved' %}
                   <button
                     type="submit"
                     name="add"
@@ -632,7 +632,7 @@
                   </button>
                 {% else %}
                   <a
-                    href="{{ routes.account_login_url }}"
+                    href="/pages/sign-up"
                     class="button primary-button account-login-btn{{ new_customer_account }}"
                     style="padding-top: 16px; padding-bottom: 16px;"
                   >

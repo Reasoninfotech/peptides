@@ -297,6 +297,23 @@
                         {%- for product in settings.card_product_recommendations
                           limit: settings.cart_recommendations_limit
                         -%}
+                          {%- liquid
+                            assign preferred_type = customer.metafields.custom.type_of_peptides.value | default: customer.metafields.custom.type_of_peptides
+                            assign target_tag = ""
+                            if preferred_type == "America-made Peptides"
+                              assign target_tag = "America-made-peptides"
+                            elsif preferred_type == "International Peptides"
+                              assign target_tag = "international-peptides"
+                            endif
+                            
+                            assign show_this_product = true
+                            if customer.tags contains 'approved' and target_tag != blank
+                              unless product.tags contains target_tag
+                                assign show_this_product = false
+                              endunless
+                            endif
+                          -%}
+                          {%- if show_this_product -%}
                           <div class="unity-slide">
                             <div class="product-card">
                               {%- liquid
@@ -397,9 +414,27 @@
                               {%- endform -%}
                             </div>
                           </div>
+                          {%- endif -%}
                         {%- endfor -%}
                       {%- else -%}
                         {%- for product in recommendations.products limit: settings.cart_recommendations_limit -%}
+                          {%- liquid
+                            assign preferred_type = customer.metafields.custom.type_of_peptides.value | default: customer.metafields.custom.type_of_peptides
+                            assign target_tag = ""
+                            if preferred_type == "America-made Peptides"
+                              assign target_tag = "America-made-peptides"
+                            elsif preferred_type == "International Peptides"
+                              assign target_tag = "international-peptides"
+                            endif
+                            
+                            assign show_this_product = true
+                            if customer.tags contains 'approved' and target_tag != blank
+                              unless product.tags contains target_tag
+                                assign show_this_product = false
+                              endunless
+                            endif
+                          -%}
+                          {%- if show_this_product -%}
                           <div class="unity-slide">
                             <div class="product-card">
                               {%- liquid
@@ -500,6 +535,7 @@
                               {%- endform -%}
                             </div>
                           </div>
+                          {%- endif -%}
                         {%- endfor -%}
                       {%- endif -%}
                     </div>

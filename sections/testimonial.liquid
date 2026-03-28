@@ -103,6 +103,23 @@
                   -%}
 
                   {%- if product != blank -%}
+                    {%- liquid
+                      assign preferred_type = customer.metafields.custom.type_of_peptides.value | default: customer.metafields.custom.type_of_peptides
+                      assign target_tag = ""
+                      if preferred_type == "America-made Peptides"
+                        assign target_tag = "America-made-peptides"
+                      elsif preferred_type == "International Peptides"
+                        assign target_tag = "international-peptides"
+                      endif
+                      
+                      assign show_this_product = true
+                      if customer.tags contains 'approved' and target_tag != blank
+                        unless product.tags contains target_tag
+                          assign show_this_product = false
+                        endunless
+                      endif
+                    -%}
+                    {%- if show_this_product -%}
                     <div class="product-card color-{{ block.settings.product_color_scheme }}">
                       {%- liquid
                         assign featured_image = product.selected_or_first_available_variant.featured_image | default: product.featured_media
@@ -158,7 +175,7 @@
                             {%- endif -%}
                             <input type="hidden" name="quantity" value="{{ moq }}">
 
-                            {%- if customer -%}
+                            {%- if customer.tags contains 'approved' -%}
                               {%- if product.available -%}
                                 {%- if product.available and product.has_only_default_variant -%}
                                   <button
@@ -188,7 +205,7 @@
                                 </button>
                               {%- endif -%}
                             {%- else -%}
-                              <a href="{{ routes.account_login_url }}" class="button primary-button add-to-cart-button">
+                              <a href="/pages/sign-up" class="button primary-button add-to-cart-button">
                                 {%- render 'icon', code: 'product-add-to-cart' -%}
                               </a>
                             {%- endif -%}
@@ -205,6 +222,7 @@
                         </div>
                       </div>
                     </div>
+                    {%- endif -%}
                   {%- endif -%}
 
                   {% unless star_reviews == '0' %}

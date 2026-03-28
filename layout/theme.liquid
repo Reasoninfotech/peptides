@@ -124,7 +124,7 @@
       }
     </script>
     <script>
-      {% if customer %}
+      {% if customer and customer.tags contains 'approved' %}
         // User logged in - show price
       {% else %}
         // User NOT logged in - hide price
