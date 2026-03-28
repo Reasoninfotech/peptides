@@ -58,37 +58,41 @@
             "img_link": ""
           }
         },
-        "image_fPQLPa": {
+        "image_qytRkh": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/fda-approved-icon-set-food-600nw-2612693055.webp",
             "img_link": ""
           }
         },
-        "image_p6XRyQ": {
+        "image_7Epiiy": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/fda-approved-icon-set-food-600nw-2612693055.webp",
             "img_link": ""
           }
         },
-        "image_AtPrbP": {
+        "image_bjyfgR": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/fda-approved-icon-set-food-600nw-2612693055.webp",
             "img_link": ""
           }
         },
-        "image_RNYNDz": {
+        "image_LH4abj": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/fda-approved-icon-set-food-600nw-2612693055.webp",
             "img_link": ""
           }
         }
       },
       "block_order": [
         "image_j8gDXz",
-        "image_fPQLPa",
-        "image_p6XRyQ",
-        "image_AtPrbP",
-        "image_RNYNDz"
+        "image_qytRkh",
+        "image_7Epiiy",
+        "image_bjyfgR",
+        "image_LH4abj"
       ],
       "custom_css": [
         ".section-wrapper {background-color: #fff !important; padding: 50px 16px !important;}",
