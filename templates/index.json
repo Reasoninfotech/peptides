@@ -1,1 +1,478 @@
-{"sections":{"slideshow":{"type":"slideshow","blocks":{"slide-3":{"type":"slide","settings":{"image":"shopify:\/\/shop_images\/photo-1631556760646-50241850eb25.jpg","overlay_opacity":0,"caption":"","heading":"Peptides That Deliver.\/ No Compromise.","heading_size":"h1","text":"<p>Empowering preclinical investigation with premium-grade peptides, validated purity standards, and professional laboratory support<br\/><br\/><\/p>","description_size":"h4","button":"Access Catalog","use_custom_button":true,"link":"shopify:\/\/collections\/all-products","button_style":"primary","content_width":100,"position_x":"center","position_y":"center","text_align":"center","mobile_text_align":"center","description_line":"2"}}},"block_order":["slide-3"],"settings":{"color_scheme":"","full":true,"height":"medium","padding_top":0,"padding_bottom":0,"padding_top_mobile":0,"padding_bottom_mobile":0}},"partners_FYdBNT":{"type":"partners","blocks":{"image_j8gDXz":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/fda-approved-icon-set-food-600nw-2612693055.webp","img_link":""}},"image_fPQLPa":{"type":"image","settings":{"img_link":""}},"image_p6XRyQ":{"type":"image","settings":{"img_link":""}},"image_AtPrbP":{"type":"image","settings":{"img_link":""}},"image_RNYNDz":{"type":"image","settings":{"img_link":""}}},"block_order":["image_j8gDXz","image_fPQLPa","image_p6XRyQ","image_AtPrbP","image_RNYNDz"],"custom_css":[".section-wrapper {background-color: #fff !important; padding: 50px 16px !important;}",".heading,.description {color: #000 !important;}","@media (max-width: 749px) {.section-wrapper {padding: 20px 16px !important; }}"],"name":"t:sections.partners.name","settings":{"color_scheme":"scheme-1","heading_text":"Built on Trust, Backed by Science","heading_size":"h5","text":"","text_align":"center","mobile_align":"center","logged_out_button_text":"","logged_out_button_link":"","logged_in_button_text":"","logged_in_button_link":"","column":4,"loop":false,"autoplay":false,"delay":5,"enable_border":false,"item_color_scheme":"scheme-2","padding_top":50,"padding_bottom":50,"padding_top_mobile":20,"padding_bottom_mobile":20}},"featured_collection":{"type":"featured-collection","blocks":{"tab-1":{"type":"tab","settings":{"name":"Access Catalog","collection":"all-products"}},"tab-2":{"type":"tab","settings":{"name":"Peptides","collection":"peptides"}},"tab-3":{"type":"tab","settings":{"name":" Longevity Devices","collection":"longevity-devices"}}},"block_order":["tab-1","tab-2","tab-3"],"settings":{"full":false,"color_scheme":"","sub_heading":"","heading":"Explore Our Premium Peptide Selection","heading_size":"h3","columns":4,"total":8,"dots":false,"loop":true,"autoplay":false,"delay":2,"padding_top":50,"padding_bottom":50,"padding_top_mobile":20,"padding_bottom_mobile":20}},"image_banner_gXgkNz":{"type":"image-banner","name":"t:sections.image-banner.name","settings":{"color_scheme":"scheme-3","image":"shopify:\/\/shop_images\/photo-1580982172477-9373ff52ae43.jpg","mobile_image":"shopify:\/\/shop_images\/photo-1580982172477-9373ff52ae43.jpg","height":"medium","overlay":50,"has_bgcolor":false,"position_x":"center","position_y":"center","text_align":"center","mobile_text_align":"left","sub_heading_text":"","heading_text":"<p>Our Commitment to <br\/>Uncompromising Quality<\/p>","heading_size":"h3","text":"<p>At LNGVTY LABS, we redefine peptide quality with verified purity, consistency, and precision. Through our longstanding partnership with an FDA-licensed California drug manufacturer, every peptide we provide is crafted using Liquid Phase Peptide Synthesis (LPPS), ensuring cleaner, more reliable results for your research.<\/p><p>We believe in full transparency. That’s why our independent Certificates of Analysis (COAs) show both purity and true peptide content, so you know exactly what you’re working with.<\/p>","button_label":"Access Catalog","button_link":"shopify:\/\/collections\/all-products","padding_top":40,"padding_bottom":40,"padding_top_mobile":20,"padding_bottom_mobile":20}},"rich_text_XpJCLc":{"type":"rich-text","blocks":{"heading_TbgLqc":{"type":"heading","settings":{"content":"The Peptide Revolution: Know What’s Inside","tag":"h4","font_size":"medium","vertical":0}}},"block_order":["heading_TbgLqc"],"name":"t:sections.rich-text.name","settings":{"full":false,"color_scheme":"","align":"center","width":100,"padding_top":50,"padding_bottom":1,"padding_top_mobile":20,"padding_bottom_mobile":20}},"multimedia_collage":{"type":"multimedia-collage","blocks":{"image-1":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/photo-1576091160651-e028ca26a943.jpg"}}},"block_order":["image-1"],"settings":{"color_scheme":"","full":false,"image_position":"second","caption":"","heading_text":"<strong>The COA Purity Scam<\/strong>","heading_size":"h3","text":"<p>A \"99% purity\" chart spike doesn’t reveal the full truth. It shows the molecular structure match, but doesn’t tell you how much actual peptide is in the vial. Fillers, salts, and contaminants can account for a significant portion, leaving you guessing about the quality of the product.<\/p>","button_label":"","button_link":"","desktop_layout":"left","mobile_layout":"multimedia-collage","padding_top":30,"padding_bottom":50,"padding_top_mobile":20,"padding_bottom_mobile":20}},"multimedia_collage_bfDpBC":{"type":"multimedia-collage","blocks":{"image_kAgezK":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/photo-1614934273038-8829c68de36c.jpg"}}},"block_order":["image_kAgezK"],"settings":{"color_scheme":"","full":false,"image_position":"first","caption":"","heading_text":"<strong>Liquid Phase Peptide Synthesis (LPPS)<\/strong>","heading_size":"h3","text":"<p>While most peptides on the market use cheaper Solid Phase Peptide Synthesis (SPPS), we use LPPS. This method offers step-by-step purification, eliminating impurities and ensuring that the peptide you’re buying is as pure as possible. The result? Reliable, high-quality peptides you can trust.<\/p>","button_label":"","button_link":"","desktop_layout":"left","mobile_layout":"multimedia-collage","padding_top":50,"padding_bottom":50,"padding_top_mobile":20,"padding_bottom_mobile":20}},"collection_list":{"type":"collection-list","disabled":true,"settings":{"color_scheme":"","height":"750px","sub_heading":"<p>sub heading<\/p>","heading":"Shop by collections","heading_size":"h2","collection_list":[],"summary_vertical_align":"start","padding_top":80,"padding_bottom":80,"padding_top_mobile":60,"padding_bottom_mobile":60}},"partners":{"type":"partners","settings":{"color_scheme":"","heading_text":"<strong> <\/strong>Ready to Elevate Your Peptide Selection?","heading_size":"h5","text":"<p>With LNGVTY LABS, you’re not just getting peptides. You’re getting a partner in your research.<\/p><p>Access Your Dashboard and Start Ordering High-Purity Peptides<br\/><\/p>","text_align":"center","mobile_align":"center","logged_out_button_text":"Sign Up","logged_out_button_link":"","logged_in_button_text":"My Account","logged_in_button_link":"shopify:\/\/pages\/dashboard","column":4,"loop":false,"autoplay":false,"delay":5,"enable_border":false,"item_color_scheme":"","padding_top":50,"padding_bottom":50,"padding_top_mobile":20,"padding_bottom_mobile":20}},"quality_features_yxMY7W":{"type":"quality-features","blocks":{"feature_WkiFAC":{"type":"feature","settings":{"icon":"✓","title":"Third-Party Verified","text":"Independent laboratory analysis confirms molecular structure and purity standards for every production batch."}},"feature_BA7hXy":{"type":"feature","settings":{"icon":"≥98%","title":"Purity Standards","text":"Minimum 98% purity verified through high-performance liquid chromatography and mass spectrometry analysis."}},"feature_Phahhy":{"type":"feature","settings":{"icon":"CoA","title":"Complete Documentation","text":"Comprehensive certificates of analysis provided with detailed spectral data and analytical results for full traceability."}}},"block_order":["feature_WkiFAC","feature_BA7hXy","feature_Phahhy"],"name":"Quality Features","settings":{"heading":"Dedicated to quality assurance","subtext":"Our commitment to research excellence is demonstrated through rigorous quality control protocols and comprehensive analytical verification of every batch."}},"faqs_BXjA7p":{"type":"faqs","blocks":{"tab_rKzQA7":{"type":"tab","settings":{"question":"Are your peptides suitable for human consumption?","answer":"<p>No. All research peptides are intended strictly for laboratory research and in vitro study only. These compounds are not approved for human or animal consumption.<br\/><br\/><\/p>"}},"tab_kzhKWM":{"type":"tab","settings":{"question":"What purity standards do you maintain?","answer":"<p>All peptides undergo rigorous third-party testing and maintain ≥98% purity verified by HPLC and mass spectrometry analysis. Complete certificates of analysis are available upon request.<br\/><br\/><\/p>"}},"tab_nrwLna":{"type":"tab","settings":{"question":"How should research peptides be stored?","answer":"<p>Lyophilized peptides should be stored at -20°C in the original sealed vial. Once reconstituted, store at 2-8°C and use within the timeframe specified in the product documentation.<br\/><br\/><\/p>"}},"tab_ert8Kx":{"type":"tab","settings":{"question":"Do you ship internationally?","answer":"<p>We currently ship to qualifying research institutions within the United States. International shipping may be available for verified organizations. Contact us for specific requirements.<br\/><br\/><\/p>"}}},"block_order":["tab_rKzQA7","tab_kzhKWM","tab_nrwLna","tab_ert8Kx"],"name":"t:sections.faqs.name","settings":{"color_scheme":"","sub_heading_text":"","heading_text":"Research Compound Information","heading_size":"h3","text":"","enable_contact":false,"contact_color_scheme":"","contact_heading":"Didn’t find your answer?","contact_heading_size":"h6","contact_text":"<p>Do not hesitate to contact us.<\/p>","padding_top":50,"padding_bottom":50,"padding_top_mobile":50,"padding_bottom_mobile":50}},"contact_jBLgwG":{"type":"contact","name":"t:sections.contact.name","settings":{"heading_text":"Contact Us","description":"<p>For research inquiries, bulk orders, or technical support, please contact our scientific team.<br\/><br\/>Phone (Research Inquiries)<\/p><p>+1 (555) 123-4567<\/p><p>Email<\/p><p>research@lngvtylabs.com<\/p><p>Laboratory Address<\/p><p>155 Willowbrook Boulevard<\/p><p>New Jersey, 07095<\/p><p>Business Hours<\/p><p>Monday – Friday: 9:00 AM 6:00 PM EST<\/p>","form_heading":"Research Inquiry Form","padding_top":50,"padding_bottom":50,"padding_top_mobile":20,"padding_bottom_mobile":60}}},"order":["slideshow","partners_FYdBNT","featured_collection","image_banner_gXgkNz","rich_text_XpJCLc","multimedia_collage","multimedia_collage_bfDpBC","collection_list","partners","quality_features_yxMY7W","faqs_BXjA7p","contact_jBLgwG"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "slideshow": {
+      "type": "slideshow",
+      "blocks": {
+        "slide-3": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/photo-1631556760646-50241850eb25.jpg",
+            "overlay_opacity": 0,
+            "caption": "",
+            "heading": "Peptides That Deliver./ No Compromise.",
+            "heading_size": "h1",
+            "text": "<p>Empowering preclinical investigation with premium-grade peptides, validated purity standards, and professional laboratory support<br/><br/></p>",
+            "description_size": "h4",
+            "button": "Access Catalog",
+            "use_custom_button": true,
+            "link": "shopify://collections/all-products",
+            "button_style": "primary",
+            "content_width": 100,
+            "position_x": "center",
+            "position_y": "center",
+            "text_align": "center",
+            "mobile_text_align": "center",
+            "description_line": "2"
+          }
+        }
+      },
+      "block_order": [
+        "slide-3"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "full": true,
+        "height": "medium",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0
+      }
+    },
+    "partners_FYdBNT": {
+      "type": "partners",
+      "blocks": {
+        "image_j8gDXz": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/fda-approved-icon-set-food-600nw-2612693055.webp",
+            "img_link": ""
+          }
+        },
+        "image_fPQLPa": {
+          "type": "image",
+          "settings": {
+            "img_link": ""
+          }
+        },
+        "image_p6XRyQ": {
+          "type": "image",
+          "settings": {
+            "img_link": ""
+          }
+        },
+        "image_AtPrbP": {
+          "type": "image",
+          "settings": {
+            "img_link": ""
+          }
+        },
+        "image_RNYNDz": {
+          "type": "image",
+          "settings": {
+            "img_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_j8gDXz",
+        "image_fPQLPa",
+        "image_p6XRyQ",
+        "image_AtPrbP",
+        "image_RNYNDz"
+      ],
+      "custom_css": [
+        ".section-wrapper {background-color: #fff !important; padding: 50px 16px !important;}",
+        ".heading,.description {color: #000 !important;}",
+        "@media (max-width: 749px) {.section-wrapper {padding: 20px 16px !important; }}"
+      ],
+      "name": "t:sections.partners.name",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "heading_text": "Built on Trust, Backed by Science",
+        "heading_size": "h5",
+        "text": "",
+        "text_align": "center",
+        "mobile_align": "center",
+        "logged_out_button_text": "",
+        "logged_out_button_link": "",
+        "logged_in_button_text": "",
+        "logged_in_button_link": "",
+        "column": 4,
+        "loop": false,
+        "autoplay": false,
+        "delay": 5,
+        "enable_border": false,
+        "item_color_scheme": "scheme-2",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20
+      }
+    },
+    "featured_collection": {
+      "type": "featured-collection",
+      "blocks": {
+        "tab-1": {
+          "type": "tab",
+          "settings": {
+            "name": "Access Catalog",
+            "collection": "all-products"
+          }
+        },
+        "tab-2": {
+          "type": "tab",
+          "settings": {
+            "name": "Peptides",
+            "collection": "peptides"
+          }
+        },
+        "tab-3": {
+          "type": "tab",
+          "settings": {
+            "name": " Longevity Devices",
+            "collection": "longevity-devices"
+          }
+        }
+      },
+      "block_order": [
+        "tab-1",
+        "tab-2",
+        "tab-3"
+      ],
+      "settings": {
+        "full": false,
+        "color_scheme": "",
+        "sub_heading": "",
+        "heading": "Explore Our Premium Peptide Selection",
+        "heading_size": "h3",
+        "columns": 4,
+        "total": 8,
+        "dots": false,
+        "loop": true,
+        "autoplay": false,
+        "delay": 2,
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
+        "guest_heading": "Choose Your Research Grade",
+        "guest_subtext": "Not sure which peptide line is right for your research? Compare the key benefits of International Peptides and America-made Peptides to find the perfect solution for your laboratory requirements.",
+        "guest_tip": "<p><strong>Need help deciding?</strong> Our America-made Peptides line offers superior purity (≥99%), faster shipping (2-3 days vs 7-10 days), and enhanced quality documentation from FDA-registered facilities.</p>",
+        "global_title": "Global Clinical Grade",
+        "global_badge": "Standard Line",
+        "global_subtitle": "Cost-effective research peptides for standard laboratory protocols",
+        "global_product": "bpc-157",
+        "global_collection": "international-peptides",
+        "global_btn_label": "Browse Global Collection",
+        "global_origin": "International",
+        "global_purity": "≥98% (HPLC)",
+        "global_testing": "ISO Certified",
+        "global_lead_time": "7-10 business days",
+        "global_price": "Standard pricing",
+        "global_coa": "✓ Yes",
+        "american_title": "American Clinical Grade",
+        "american_badge": "RECOMMENDED",
+        "american_subtitle": "Premium USA-manufactured peptides with superior quality standards",
+        "american_product": "bpc-158",
+        "american_collection": "america-made-peptides",
+        "american_btn_label": "Browse US Collection",
+        "american_origin": "USA 🇺🇸",
+        "american_purity": "≥99% (HPLC + MS)",
+        "american_testing": "FDA-Registered",
+        "american_lead_time": "2-3 business days",
+        "american_price": "Premium (15% more)",
+        "american_coa": "✓ Enhanced Documentation"
+      }
+    },
+    "image_banner_gXgkNz": {
+      "type": "image-banner",
+      "name": "t:sections.image-banner.name",
+      "settings": {
+        "color_scheme": "scheme-3",
+        "image": "shopify://shop_images/photo-1580982172477-9373ff52ae43.jpg",
+        "mobile_image": "shopify://shop_images/photo-1580982172477-9373ff52ae43.jpg",
+        "height": "medium",
+        "overlay": 50,
+        "has_bgcolor": false,
+        "position_x": "center",
+        "position_y": "center",
+        "text_align": "center",
+        "mobile_text_align": "left",
+        "sub_heading_text": "",
+        "heading_text": "<p>Our Commitment to <br/>Uncompromising Quality</p>",
+        "heading_size": "h3",
+        "text": "<p>At LNGVTY LABS, we redefine peptide quality with verified purity, consistency, and precision. Through our longstanding partnership with an FDA-licensed California drug manufacturer, every peptide we provide is crafted using Liquid Phase Peptide Synthesis (LPPS), ensuring cleaner, more reliable results for your research.</p><p>We believe in full transparency. That’s why our independent Certificates of Analysis (COAs) show both purity and true peptide content, so you know exactly what you’re working with.</p>",
+        "button_label": "Access Catalog",
+        "button_link": "shopify://collections/all-products",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20
+      }
+    },
+    "rich_text_XpJCLc": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_TbgLqc": {
+          "type": "heading",
+          "settings": {
+            "content": "The Peptide Revolution: Know What’s Inside",
+            "tag": "h4",
+            "font_size": "medium",
+            "vertical": 0
+          }
+        }
+      },
+      "block_order": [
+        "heading_TbgLqc"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "full": false,
+        "color_scheme": "",
+        "align": "center",
+        "width": 100,
+        "padding_top": 50,
+        "padding_bottom": 1,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20
+      }
+    },
+    "multimedia_collage": {
+      "type": "multimedia-collage",
+      "blocks": {
+        "image-1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/photo-1576091160651-e028ca26a943.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "image-1"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "full": false,
+        "image_position": "second",
+        "caption": "",
+        "heading_text": "<strong>The COA Purity Scam</strong>",
+        "heading_size": "h3",
+        "text": "<p>A \"99% purity\" chart spike doesn’t reveal the full truth. It shows the molecular structure match, but doesn’t tell you how much actual peptide is in the vial. Fillers, salts, and contaminants can account for a significant portion, leaving you guessing about the quality of the product.</p>",
+        "button_label": "",
+        "button_link": "",
+        "desktop_layout": "left",
+        "mobile_layout": "multimedia-collage",
+        "padding_top": 30,
+        "padding_bottom": 50,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20
+      }
+    },
+    "multimedia_collage_bfDpBC": {
+      "type": "multimedia-collage",
+      "blocks": {
+        "image_kAgezK": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/photo-1614934273038-8829c68de36c.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "image_kAgezK"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "full": false,
+        "image_position": "first",
+        "caption": "",
+        "heading_text": "<strong>Liquid Phase Peptide Synthesis (LPPS)</strong>",
+        "heading_size": "h3",
+        "text": "<p>While most peptides on the market use cheaper Solid Phase Peptide Synthesis (SPPS), we use LPPS. This method offers step-by-step purification, eliminating impurities and ensuring that the peptide you’re buying is as pure as possible. The result? Reliable, high-quality peptides you can trust.</p>",
+        "button_label": "",
+        "button_link": "",
+        "desktop_layout": "left",
+        "mobile_layout": "multimedia-collage",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20
+      }
+    },
+    "collection_list": {
+      "type": "collection-list",
+      "disabled": true,
+      "settings": {
+        "color_scheme": "",
+        "height": "750px",
+        "sub_heading": "<p>sub heading</p>",
+        "heading": "Shop by collections",
+        "heading_size": "h2",
+        "collection_list": [],
+        "summary_vertical_align": "start",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60
+      }
+    },
+    "partners": {
+      "type": "partners",
+      "settings": {
+        "color_scheme": "",
+        "heading_text": "<strong> </strong>Ready to Elevate Your Peptide Selection?",
+        "heading_size": "h5",
+        "text": "<p>With LNGVTY LABS, you’re not just getting peptides. You’re getting a partner in your research.</p><p>Access Your Dashboard and Start Ordering High-Purity Peptides<br/></p>",
+        "text_align": "center",
+        "mobile_align": "center",
+        "logged_out_button_text": "Sign Up",
+        "logged_out_button_link": "",
+        "logged_in_button_text": "My Account",
+        "logged_in_button_link": "shopify://pages/dashboard",
+        "column": 4,
+        "loop": false,
+        "autoplay": false,
+        "delay": 5,
+        "enable_border": false,
+        "item_color_scheme": "",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20
+      }
+    },
+    "quality_features_yxMY7W": {
+      "type": "quality-features",
+      "blocks": {
+        "feature_WkiFAC": {
+          "type": "feature",
+          "settings": {
+            "icon": "✓",
+            "title": "Third-Party Verified",
+            "text": "Independent laboratory analysis confirms molecular structure and purity standards for every production batch."
+          }
+        },
+        "feature_BA7hXy": {
+          "type": "feature",
+          "settings": {
+            "icon": "≥98%",
+            "title": "Purity Standards",
+            "text": "Minimum 98% purity verified through high-performance liquid chromatography and mass spectrometry analysis."
+          }
+        },
+        "feature_Phahhy": {
+          "type": "feature",
+          "settings": {
+            "icon": "CoA",
+            "title": "Complete Documentation",
+            "text": "Comprehensive certificates of analysis provided with detailed spectral data and analytical results for full traceability."
+          }
+        }
+      },
+      "block_order": [
+        "feature_WkiFAC",
+        "feature_BA7hXy",
+        "feature_Phahhy"
+      ],
+      "name": "Quality Features",
+      "settings": {
+        "heading": "Dedicated to quality assurance",
+        "subtext": "Our commitment to research excellence is demonstrated through rigorous quality control protocols and comprehensive analytical verification of every batch."
+      }
+    },
+    "faqs_BXjA7p": {
+      "type": "faqs",
+      "blocks": {
+        "tab_rKzQA7": {
+          "type": "tab",
+          "settings": {
+            "question": "Are your peptides suitable for human consumption?",
+            "answer": "<p>No. All research peptides are intended strictly for laboratory research and in vitro study only. These compounds are not approved for human or animal consumption.<br/><br/></p>"
+          }
+        },
+        "tab_kzhKWM": {
+          "type": "tab",
+          "settings": {
+            "question": "What purity standards do you maintain?",
+            "answer": "<p>All peptides undergo rigorous third-party testing and maintain ≥98% purity verified by HPLC and mass spectrometry analysis. Complete certificates of analysis are available upon request.<br/><br/></p>"
+          }
+        },
+        "tab_nrwLna": {
+          "type": "tab",
+          "settings": {
+            "question": "How should research peptides be stored?",
+            "answer": "<p>Lyophilized peptides should be stored at -20°C in the original sealed vial. Once reconstituted, store at 2-8°C and use within the timeframe specified in the product documentation.<br/><br/></p>"
+          }
+        },
+        "tab_ert8Kx": {
+          "type": "tab",
+          "settings": {
+            "question": "Do you ship internationally?",
+            "answer": "<p>We currently ship to qualifying research institutions within the United States. International shipping may be available for verified organizations. Contact us for specific requirements.<br/><br/></p>"
+          }
+        }
+      },
+      "block_order": [
+        "tab_rKzQA7",
+        "tab_kzhKWM",
+        "tab_nrwLna",
+        "tab_ert8Kx"
+      ],
+      "name": "t:sections.faqs.name",
+      "settings": {
+        "color_scheme": "",
+        "sub_heading_text": "",
+        "heading_text": "Research Compound Information",
+        "heading_size": "h3",
+        "text": "",
+        "enable_contact": false,
+        "contact_color_scheme": "",
+        "contact_heading": "Didn’t find your answer?",
+        "contact_heading_size": "h6",
+        "contact_text": "<p>Do not hesitate to contact us.</p>",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "padding_top_mobile": 50,
+        "padding_bottom_mobile": 50
+      }
+    },
+    "contact_jBLgwG": {
+      "type": "contact",
+      "name": "t:sections.contact.name",
+      "settings": {
+        "heading_text": "Contact Us",
+        "description": "<p>For research inquiries, bulk orders, or technical support, please contact our scientific team.<br/><br/>Phone (Research Inquiries)</p><p>+1 (555) 123-4567</p><p>Email</p><p>research@lngvtylabs.com</p><p>Laboratory Address</p><p>155 Willowbrook Boulevard</p><p>New Jersey, 07095</p><p>Business Hours</p><p>Monday – Friday: 9:00 AM 6:00 PM EST</p>",
+        "form_heading": "Research Inquiry Form",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 60
+      }
+    }
+  },
+  "order": [
+    "slideshow",
+    "partners_FYdBNT",
+    "featured_collection",
+    "image_banner_gXgkNz",
+    "rich_text_XpJCLc",
+    "multimedia_collage",
+    "multimedia_collage_bfDpBC",
+    "collection_list",
+    "partners",
+    "quality_features_yxMY7W",
+    "faqs_BXjA7p",
+    "contact_jBLgwG"
+  ]
+}
