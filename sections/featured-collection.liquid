@@ -32,7 +32,7 @@
 	}
 </style>
 
-{%- if customer.tags contains 'approved' -%}
+{%- if customer.tags contains 'approved' or section.settings.hide_comparison_for_guests -%}
 {%- if section.blocks.size > 0 -%}
 	<div class="featured-collection-tab color-{{ section.settings.color_scheme }}">
 		<div class="{% if full %}stretch-section stretch-padding{% else %} container{% endif %}">
@@ -230,6 +230,7 @@
 	</div>
 {%- endif -%}
 {%- else -%}
+  {%- comment -%} Show Comparison Grid for Guests by default {%- endcomment -%}
   {%- liquid
     assign global_prod = all_products[section.settings.global_product]
     assign american_prod = all_products[section.settings.american_product]
@@ -621,6 +622,12 @@
     {
       "type": "header",
       "content": "Guest View Settings"
+    },
+    {
+       "type": "checkbox",
+       "id": "hide_comparison_for_guests",
+       "label": "Hide Comparison and show product collection (Guest)",
+       "default": false
     },
     {
       "type": "text",
