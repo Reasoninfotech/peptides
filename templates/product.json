@@ -144,25 +144,17 @@
             "collection": "all-products"
           }
         },
-        "tab_CG8QYb": {
+        "tab_yYag4B": {
           "type": "tab",
           "settings": {
-            "name": "Peptides",
-            "collection": "peptides"
-          }
-        },
-        "tab_Vn7bht": {
-          "type": "tab",
-          "settings": {
-            "name": " Longevity Devices",
-            "collection": "longevity-devices"
+            "name": "",
+            "collection": "america-made-peptides"
           }
         }
       },
       "block_order": [
         "tab_dwLm9C",
-        "tab_CG8QYb",
-        "tab_Vn7bht"
+        "tab_yYag4B"
       ],
       "name": "Featured Collection PDP",
       "settings": {
