@@ -134,36 +134,29 @@
         "padding_bottom_mobile": 24
       }
     },
-    "featured_collection_p6hnMm": {
-      "type": "featured-collection",
+    "featured_collection_pdp_tKnpeF": {
+      "type": "featured-collection-pdp",
       "blocks": {
-        "tab_VRCz8t": {
+        "tab_dwLm9C": {
           "type": "tab",
           "settings": {
             "name": "Access Catalog",
             "collection": "all-products"
           }
         },
-        "tab_yjygGU": {
+        "tab_yYag4B": {
           "type": "tab",
           "settings": {
-            "name": "Peptides",
-            "collection": "peptides"
-          }
-        },
-        "tab_CTqEUg": {
-          "type": "tab",
-          "settings": {
-            "name": " Longevity Devices",
-            "collection": "longevity-devices"
+            "name": "",
+            "collection": "america-made-peptides"
           }
         }
       },
       "block_order": [
-        "tab_VRCz8t",
-        "tab_yjygGU",
-        "tab_CTqEUg"
+        "tab_dwLm9C",
+        "tab_yYag4B"
       ],
+      "name": "Featured Collection PDP",
       "settings": {
         "full": false,
         "color_scheme": "",
@@ -173,21 +166,22 @@
         "columns": 4,
         "total": 8,
         "dots": false,
-        "loop": true,
+        "loop": false,
         "autoplay": false,
         "delay": 2,
         "padding_top": 50,
         "padding_bottom": 50,
         "padding_top_mobile": 20,
         "padding_bottom_mobile": 20,
+        "hide_comparison_for_guests": true,
         "guest_heading": "Choose Your Research Grade",
         "guest_subtext": "Not sure which peptide line is right for your research? Compare the key benefits of International Peptides and America-made Peptides to find the perfect solution for your laboratory requirements.",
         "guest_tip": "<p><strong>Need help deciding?</strong> Our America-made Peptides line offers superior purity (≥99%), faster shipping (2-3 days vs 7-10 days), and enhanced quality documentation from FDA-registered facilities.</p>",
         "global_title": "Global Clinical Grade",
         "global_badge": "Standard Line",
         "global_subtitle": "Cost-effective research peptides for standard laboratory protocols",
-        "global_product": "bpc-157",
-        "global_collection": "international-peptides",
+        "global_product": "",
+        "global_collection": "",
         "global_btn_label": "Browse Global Collection",
         "global_origin": "International",
         "global_purity": "≥98% (HPLC)",
@@ -198,8 +192,8 @@
         "american_title": "American Clinical Grade",
         "american_badge": "RECOMMENDED",
         "american_subtitle": "Premium USA-manufactured peptides with superior quality standards",
-        "american_product": "bpc-158",
-        "american_collection": "america-made-peptides",
+        "american_product": "",
+        "american_collection": "",
         "american_btn_label": "Browse US Collection",
         "american_origin": "USA 🇺🇸",
         "american_purity": "≥99% (HPLC + MS)",
@@ -588,7 +582,7 @@
   "order": [
     "breadcrumb",
     "main",
-    "featured_collection_p6hnMm",
+    "featured_collection_pdp_tKnpeF",
     "scrolling_promotion",
     "feature_box",
     "multimedia_collage_M7TNQQ",
