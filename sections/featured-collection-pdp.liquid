@@ -18,6 +18,15 @@
 			endif
 		endif
 	endif
+
+    assign display_heading = section.settings.heading
+    if customer.tags contains 'approved'
+        if preferred_type == "America-made Peptides"
+            assign display_heading = "Recommended other America-made Peptides"
+        elsif preferred_type == "International Peptides"
+            assign display_heading = "Out of stock? Try America-made Peptides"
+        endif
+    endif
 -%}
 
 {%- if render_section -%}
@@ -66,9 +75,9 @@
 					</div>
 				{%- endif -%}
 
-				{%- if heading != blank -%}
+				{%- if display_heading != blank -%}
 					<div class="heading" style="color: black; font-size: 30px; line-height: 1.2; ">
-						{{ heading }}
+						{{ display_heading }}
 					</div>
 					{% comment %} <div class="heading {{ heading_size }}">
 						{{ heading }}
@@ -349,13 +358,17 @@
     .comparison-table {
       margin-bottom: 30px;
       flex-grow: 1;
+      display: flex;
+      flex-direction: column;
     }
     .comparison-item {
       display: flex;
       justify-content: space-between;
+      align-items: center;
       padding: 12px 0;
       border-bottom: 1px solid #f0f0f0;
       font-size: 13px;
+      min-height: 48px;
     }
     .premium .comparison-item {
       border-bottom-color: rgba(255,255,255,0.1);

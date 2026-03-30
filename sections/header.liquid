@@ -36,6 +36,23 @@
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     display: inline-block;
   }
+  @media (min-width: 992px) {
+    .site-navigation .header-navigation {
+      display: flex !important;
+      flex-wrap: nowrap !important;
+      align-items: center;
+      gap: 5px;
+    }
+    .header-navigation > .menu-item {
+      display: block !important;
+      padding: 0 !important;
+    }
+    .header-navigation > .menu-item > .menu-link,
+    .header-navigation > .menu-item > .menu-toggle {
+       padding: 1rem 1.2rem !important; /* Reduced padding slightly to save space */
+       white-space: nowrap;
+    }
+  }
 </style>
 {%- liquid
   assign section_id = '#shopify-section-' | append: section.id
