@@ -51,6 +51,38 @@
   [data-testid="btn-form-submit"]:hover {
     background-color: #143b22 !important;
   }
+
+  .under-review-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background: #fdfdfd;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+
+  .under-review-container h2 {
+    color: #1a4d2e;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+
+  .under-review-container p {
+    color: #4b5563;
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* Hide apps section (form) when under review */
+  .customer-under-review #shopify-section-apps,
+  .customer-under-review .shopify-section-apps,
+  .customer-under-review [id^="shopify-section-template--"][id$="__apps"] {
+    display: none !important;
+  }
 </style>
 
 <style>
@@ -93,12 +125,38 @@
     <div class="wave-item"></div>
   </div>
 
-  <div class="login-prompt">
-    <p style="margin-bottom: 12px;">{{ section.settings.text }}</p>
-    <a href="{{ routes.storefront_login_url }}&return_to=/pages/dashboard" class="sign-in-btn">
-      {{ section.settings.button_label }}
-    </a>
-  </div>
+  {%- if customer -%}
+    {%- if customer.tags contains 'approved' -%}
+      <div class="login-prompt">
+        <p style="margin-bottom: 12px;">Logged in as {{ customer.first_name }}. Looking for your products?</p>
+        <a href="/pages/dashboard" class="sign-in-btn">
+          Go to Dashboard
+        </a>
+      </div>
+      {%- if request.path == '/pages/sign-up' -%}
+        <script>window.location.href = '/pages/dashboard';</script>
+      {%- endif -%}
+    {%- else -%}
+      <div class="under-review-container">
+        <h2>{{ section.settings.review_heading }}</h2>
+        <p>{{ section.settings.review_text }}</p>
+      </div>
+      
+      <script>
+        document.body.classList.add('customer-under-review');
+        {%- if request.path != '/pages/sign-up' -%}
+          window.location.href = '/pages/sign-up';
+        {%- endif -%}
+      </script>
+    {%- endif -%}
+  {%- else -%}
+    <div class="login-prompt">
+      <p style="margin-bottom: 12px;">{{ section.settings.text }}</p>
+      <a href="{{ routes.storefront_login_url }}&return_to=/pages/sign-up" class="sign-in-btn">
+        {{ section.settings.button_label }}
+      </a>
+    </div>
+  {%- endif -%}
 </div>
 
 <script>
@@ -234,6 +292,22 @@
       "default": 20,
       "unit": "px",
       "label": "Padding Bottom Mobile"
+    },
+    {
+      "type": "header",
+      "content": "Under Review Settings"
+    },
+    {
+      "type": "text",
+      "id": "review_heading",
+      "label": "Under Review Heading",
+      "default": "Thank you for joining us"
+    },
+    {
+      "type": "textarea",
+      "id": "review_text",
+      "label": "Under Review Text",
+      "default": "Thank you for your submission. Your application is under review. After approval, you will receive a welcome email and You can sign in."
     }
   ],
   "presets": [
