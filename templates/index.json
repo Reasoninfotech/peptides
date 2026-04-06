@@ -15,21 +15,21 @@
         "slide-3": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/photo-1631556760646-50241850eb25.jpg",
+            "image": "shopify://shop_images/hf_20260323_041702_808a5154-9241-4c32-b285-ae974ed246c7.jpg",
             "overlay_opacity": 0,
             "caption": "",
             "heading": "Peptides That Deliver./ No Compromise.",
             "heading_size": "h1",
-            "text": "<p>Empowering preclinical investigation with premium-grade peptides, validated purity standards, and professional laboratory support<br/><br/></p>",
+            "text": "<p>Empowering preclinical investigation <br/>with premium-grade peptides, <br/>validated purity standards, <br/>and professional laboratory support<br/><br/></p>",
             "description_size": "h4",
             "button": "Access Catalog",
             "use_custom_button": true,
             "link": "shopify://collections/all-products",
             "button_style": "primary",
             "content_width": 100,
-            "position_x": "center",
+            "position_x": "start",
             "position_y": "center",
-            "text_align": "center",
+            "text_align": "left",
             "mobile_text_align": "center",
             "description_line": "2"
           }
@@ -204,7 +204,7 @@
       "name": "t:sections.image-banner.name",
       "settings": {
         "color_scheme": "scheme-3",
-        "image": "shopify://shop_images/photo-1580982172477-9373ff52ae43.jpg",
+        "image": "shopify://shop_images/hf_20260406_042809_81a2f568-d85a-4ccd-aebf-298b0d88dad5.png",
         "mobile_image": "shopify://shop_images/photo-1580982172477-9373ff52ae43.jpg",
         "height": "medium",
         "overlay": 50,
@@ -259,7 +259,7 @@
         "image-1": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/photo-1576091160651-e028ca26a943.jpg"
+            "image": "shopify://shop_images/hf_20260406_043446_8ba29a37-1716-478c-8b8d-30e742f92333.png"
           }
         }
       },
@@ -290,7 +290,7 @@
         "image_kAgezK": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/photo-1614934273038-8829c68de36c.jpg"
+            "image": "shopify://shop_images/hf_20260406_044955_b758ecf5-ebc5-4e4f-96a5-9334432ae037.png"
           }
         }
       },
