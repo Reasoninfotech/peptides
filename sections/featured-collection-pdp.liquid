@@ -256,163 +256,202 @@
   -%}
   <style>
     .comparison-section {
-      padding: 60px 0;
-      background: #ffffff;
+      padding: 80px 0;
+      background: #fafafa;
       text-align: center;
     }
     .comparison-header {
       max-width: 800px;
-      margin: 0 auto 50px;
+      margin: 0 auto 60px;
       padding: 0 20px;
     }
     .comparison-header h2 {
-      font-size: 32px;
-      font-weight: 500;
-      margin-bottom: 15px;
+      font-size: 34px;
+      font-weight: 700;
+      margin-bottom: 16px;
       color: #000;
-      letter-spacing: -0.5px;
+      letter-spacing: -0.02em;
     }
     .comparison-header p {
       color: #666;
       line-height: 1.6;
-      font-size: 16px;
+      font-size: 17px;
     }
     .comparison-grid {
       display: flex;
       justify-content: center;
       gap: 30px;
-      max-width: 1140px;
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 0 20px;
+      padding: 20px;
     }
     .comparison-card {
       flex: 1;
-      border-radius: 16px;
-      padding: 35px;
+      border-radius: 20px;
+      padding: 40px;
       text-align: left;
       position: relative;
       display: flex;
       flex-direction: column;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+      background: #fff;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
       border: 1px solid #f0f0f0;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .comparison-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
     }
     .comparison-card.premium {
-      background: #1a4d2e;
+      background: #1A4D2E;
       color: #fff;
-      border: none;
+      border: 2px solid #E9BC47;
+      box-shadow: 0 4px 20.9px rgba(212, 175, 55, 0.6);
     }
-    .card-header-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 8px;
+    .premium:hover {
+      box-shadow: 0 8px 30px rgba(212, 175, 55, 0.7);
+    }
+    .card-header {
+      margin-bottom: 25px;
     }
     .card-title {
-      font-size: 20px;
-      font-weight: 600;
+      font-size: 24px;
+      font-weight: 700;
+      margin: 0 0 8px 0;
+      color: inherit;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .card-subtitle {
+      font-size: 14px;
+      opacity: 0.6;
       margin: 0;
-	  color: #0A0A0A;
+      font-weight: 500;
+    }
+    .premium .card-subtitle {
+       color: #E5E7EB;
+    }
+    .card-badge-wrapper {
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
     }
     .card-badge {
       font-size: 11px;
-      padding: 6px 14px;
-      border-radius: 30px;
-      font-weight: 500;
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.05em;
       display: inline-flex;
       align-items: center;
-      gap: 5px;
-    }
-    .standard .card-badge {
-      background: #f4f6f8;
-      color: #5c5f62;
-      border: 1px solid #dfe3e8;
+      gap: 6px;
+      white-space: nowrap;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
     .premium .card-badge {
-      background: #e9bc47;
-      color: #000;
-    }
-    .card-subtitle {
-      font-size: 13px;
-      opacity: 0.8;
-      margin-bottom: 25px;
+      background: #E9BC47;
+      color: #1A4D2E;
     }
     .card-image-box {
-      background: #f9fafb;
-      border-radius: 12px;
-      height: 200px;
+      background: #F9FAFB;
+      border-radius: 16px;
+      height: 180px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 24px;
+      margin-bottom: 30px;
       overflow: hidden;
-    }
-    .premium .card-image-box {
-      background: rgba(255,255,255,0.06);
+      border: 1px solid #f0f0f0;
     }
     .card-image-box img {
-      max-height: 80%;
+      max-height: 85%;
+      width: auto;
       object-fit: contain;
     }
-    .comparison-table {
-      margin-bottom: 30px;
+    .comparison-benefits {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 40px 0;
       flex-grow: 1;
+    }
+    .benefit-item {
       display: flex;
-      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 15px;
+      font-size: 15px;
+      line-height: 1.4;
+      color: #4B5563;
+      font-weight: 400;
     }
-    .comparison-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px 0;
-      border-bottom: 1px solid #f0f0f0;
-      font-size: 13px;
-      min-height: 48px;
+    .premium .benefit-item {
+      color: #fff;
     }
-    .premium .comparison-item {
-      border-bottom-color: rgba(255,255,255,0.1);
+    .benefit-item svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      margin-top: 2px;
     }
-    .item-label {
-      opacity: 0.7;
+    .standard .benefit-item svg {
+      color: #9CA3AF;
     }
-    .item-value {
-      font-weight: 500;
+    .premium .benefit-item svg {
+      color: #fff;
     }
     .card-action-btn {
       display: block;
       width: 100%;
-      padding: 14px;
-      border-radius: 8px;
+      padding: 16px;
+      border-radius: 12px;
       text-align: center;
       text-decoration: none;
-      font-weight: 600;
-      font-size: 14px;
-      transition: all 0.2s;
+      font-weight: 700;
+      font-size: 16px;
+      transition: all 0.3s ease;
     }
     .standard .card-action-btn {
-      background: #111827;
+      background: #000;
       color: #fff;
     }
     .premium .card-action-btn {
       background: #fff;
-      color: #1a4d2e;
+      color: #1A4D2E;
+    }
+    .card-action-btn:hover {
+      opacity: 0.9;
+      transform: scale(0.98);
+    }
+    .card-footer-text {
+       text-align: center;
+       margin-top: 15px;
+       font-size: 13px;
+       font-weight: 500;
+       opacity: 0.5;
+    }
+    .premium .card-footer-text {
+       color: #E9BC47;
+       opacity: 1;
     }
     .grade-tip {
-      max-width: 1140px;
+      max-width: 1100px;
       margin: 40px auto 0;
-      background: #f9fafb;
-      padding: 20px 30px;
-      border-radius: 12px;
-      font-size: 13px;
-      color: #5c5f62;
-      line-height: 1.6;
+      font-size: 14px;
+      color: #666;
     }
 
     @media (max-width: 900px) {
       .comparison-grid {
         flex-direction: column;
-        gap: 20px;
+        gap: 40px;
+        padding: 20px;
+      }
+      .comparison-card {
+        padding: 30px;
       }
     }
   </style>
@@ -427,11 +466,10 @@
       <div class="comparison-grid">
         <!-- GLOBAL -->
         <div class="comparison-card standard">
-          <div class="card-header-top">
+          <div class="card-header">
             <h3 class="card-title">{{ section.settings.global_title }}</h3>
-            <span class="card-badge">{{ section.settings.global_badge }}</span>
+            <p class="card-subtitle">{{ section.settings.global_badge }}</p>
           </div>
-          <p class="card-subtitle" style="color: #4A5565;">{{ section.settings.global_subtitle }}</p>
           <div class="card-image-box">
              {% if global_prod and global_prod.featured_image %}
                <img src="{{ global_prod.featured_image | img_url: '400x' }}" alt="{{ global_prod.title }}" loading="lazy">
@@ -439,24 +477,27 @@
                <img src="https://cdn.shopify.com/s/files/1/0805/0013/7979/files/glp-1_international.png?v=1710925000" alt="Global" loading="lazy">
              {% endif %}
           </div>
-          <div class="comparison-table">
-            <div class="comparison-item"><span class="item-label">Origin</span><span class="item-value">{{ section.settings.global_origin }}</span></div>
-            <div class="comparison-item"><span class="item-label">Purity Level</span><span class="item-value">{{ section.settings.global_purity }}</span></div>
-            <div class="comparison-item"><span class="item-label">Testing Standards</span><span class="item-value">{{ section.settings.global_testing }}</span></div>
-            <div class="comparison-item"><span class="item-label">Lead Time</span><span class="item-value">{{ section.settings.global_lead_time }}</span></div>
-            <div class="comparison-item"><span class="item-label">Price Point</span><span class="item-value">{{ section.settings.global_price }}</span></div>
-            <div class="comparison-item"><span class="item-label">COA Available</span><span class="item-value">{{ section.settings.global_coa }}</span></div>
-          </div>
-          <a href="{{ section.settings.global_collection.url | default: '/pages/sign-up' }}" class="card-action-btn">{{ section.settings.global_btn_label | default: 'Browse Global Collection' }}</a>
+          <ul class="comparison-benefits">
+            <li class="benefit-item">{% render 'icon', code: 'checkmark' %} {{ section.settings.global_origin }} origin</li>
+            <li class="benefit-item">{% render 'icon', code: 'checkmark' %} {{ section.settings.global_purity }} (HPLC verified)</li>
+            <li class="benefit-item">{% render 'icon', code: 'checkmark' %} {{ section.settings.global_testing }} manufacturing</li>
+            <li class="benefit-item">{% render 'icon', code: 'checkmark' %} {{ section.settings.global_lead_time }} shipping</li>
+            <li class="benefit-item">{% render 'icon', code: 'checkmark' %} {{ section.settings.global_price }}</li>
+            <li class="benefit-item">{% render 'icon', code: 'checkmark' %} Certificate of Analysis included</li>
+          </ul>
+          <a href="{{ section.settings.global_collection.url | default: '/pages/sign-up' }}" class="card-action-btn">View {{ section.settings.global_title | split: ' ' | first }} Line</a>
+          <div class="card-footer-text">Standard research grade</div>
         </div>
 
         <!-- AMERICAN -->
         <div class="comparison-card premium">
-          <div class="card-header-top">
-            <h3 class="card-title" style="color: #fff;">{{ section.settings.american_title }}</h3>
-            <span class="card-badge">⭐ {{ section.settings.american_badge }}</span>
+          <div class="card-badge-wrapper">
+             <span class="card-badge">★ {{ section.settings.american_badge }}</span>
           </div>
-          <p class="card-subtitle" style="color: #E5E7EB;">{{ section.settings.american_subtitle }}</p>
+          <div class="card-header">
+            <h3 class="card-title">🇺🇸 {{ section.settings.american_title }}</h3>
+            <p class="card-subtitle">Premium Line • {{ section.settings.american_testing }}</p>
+          </div>
           <div class="card-image-box">
              {% if american_prod and american_prod.featured_image %}
                <img src="{{ american_prod.featured_image | img_url: '400x' }}" alt="{{ american_prod.title }}" loading="lazy">
@@ -464,15 +505,52 @@
                <img src="https://cdn.shopify.com/s/files/1/0805/0013/7979/files/glp-1_usa.png?v=1710925000" alt="USA" loading="lazy">
              {% endif %}
           </div>
-          <div class="comparison-table">
-            <div class="comparison-item"><span class="item-label">Origin</span><span class="item-value">{{ section.settings.american_origin }}</span></div>
-            <div class="comparison-item"><span class="item-label">Purity Level</span><span class="item-value">{{ section.settings.american_purity }}</span></div>
-            <div class="comparison-item"><span class="item-label">Testing Standards</span><span class="item-value">{{ section.settings.american_testing }}</span></div>
-            <div class="comparison-item"><span class="item-label">Lead Time</span><span class="item-value">{{ section.settings.american_lead_time }}</span></div>
-            <div class="comparison-item"><span class="item-label">Price Point</span><span class="item-value">{{ section.settings.american_price }}</span></div>
-            <div class="comparison-item"><span class="item-label">COA Available</span><span class="item-value" style="color: #D4AF37;">{{ section.settings.american_coa }}</span></div>
-          </div>
-          <a href="{{ section.settings.american_collection.url | default: '/pages/sign-up' }}" class="card-action-btn">{{ section.settings.american_btn_label | default: 'Browse US Collection' }}</a>
+          <ul class="comparison-benefits">
+            <li class="benefit-item">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="10" cy="10" r="10" fill="white"/>
+                <path d="M6 10L9 13L14 7" stroke="#1A4D2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              {{ section.settings.american_origin | remove: '🇺🇸' | strip }} manufactured
+            </li>
+            <li class="benefit-item">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="10" cy="10" r="10" fill="white"/>
+                <path d="M6 10L9 13L14 7" stroke="#1A4D2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              {{ section.settings.american_purity }} (HPLC + MS verified)
+            </li>
+            <li class="benefit-item">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="10" cy="10" r="10" fill="white"/>
+                <path d="M6 10L9 13L14 7" stroke="#1A4D2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              {{ section.settings.american_testing }} facility
+            </li>
+            <li class="benefit-item">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="10" cy="10" r="10" fill="white"/>
+                <path d="M6 10L9 13L14 7" stroke="#1A4D2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              {{ section.settings.american_lead_time }} shipping
+            </li>
+            <li class="benefit-item">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="10" cy="10" r="10" fill="white"/>
+                <path d="M6 10L9 13L14 7" stroke="#1A4D2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Premium quality (+15%)
+            </li>
+            <li class="benefit-item">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="10" cy="10" r="10" fill="white"/>
+                <path d="M6 10L9 13L14 7" stroke="#1A4D2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              {{ section.settings.american_coa }}
+            </li>
+          </ul>
+          <a href="{{ section.settings.american_collection.url | default: '/pages/sign-up' }}" class="card-action-btn">View {{ section.settings.american_title | split: ' ' | first }} Line</a>
+          <div class="card-footer-text">Premium research grade</div>
         </div>
       </div>
 

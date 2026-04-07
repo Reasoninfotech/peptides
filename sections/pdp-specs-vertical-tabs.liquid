@@ -1,0 +1,444 @@
+{%- liquid
+  assign section_id = '#shopify-section-' | append: section.id
+-%}
+
+<style>
+  {{ section_id }} {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    background-color: {{ section.settings.bg_color }};
+  }
+
+  .pdp-tabs {
+    display: flex;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* Sidebar Navigation */
+  .pdp-tabs__nav {
+    flex: 0 0 260px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .pdp-tabs__nav-item {
+    padding: 14px 20px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #4B5563;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: #fff;
+    border: 1px solid #f3f4f6;
+    text-align: left;
+  }
+
+  .pdp-tabs__nav-item:hover {
+    background: #f9fafb;
+  }
+
+  .pdp-tabs__nav-item.active {
+    background: #1A4D2E;
+    color: #ffffff;
+    border-color: #1A4D2E;
+  }
+
+  /* Content Area */
+  .pdp-tabs__content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .pdp-tabs__panel {
+    display: none;
+  }
+
+  .pdp-tabs__panel.active {
+    display: block;
+    animation: fadeIn 0.4s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .pdp-tabs__panel h2 {
+    font-size: 24px;
+    font-weight: 500;
+    margin: 0 0 20px 0;
+    color: #111827;
+  }
+
+  .pdp-tabs__description {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #4B5563;
+    margin-bottom: 30px;
+  }
+
+  .pdp-tabs__description p {
+    margin-bottom: 15px;
+  }
+
+  /* Specs Table */
+  .pdp-tabs__table-wrapper {
+    margin-top: 0px;
+    border: 1px solid #f3f4f6;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .pdp-tabs__table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .pdp-tabs__table-row {
+    border-bottom: 1px solid #f3f4f6;
+  }
+
+  .pdp-tabs__table-row:last-child {
+    border-bottom: none;
+  }
+
+  .pdp-tabs__table-label {
+    width: 35%;
+    padding: 16px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #6B7280;
+    background: #fafafa;
+  }
+
+  .pdp-tabs__table-value {
+    padding: 16px 20px;
+    font-size: 14px;
+    color: #111827;
+    line-height: 1.4;
+    word-break: break-word;
+  }
+
+  .pdp-tabs__footer-note {
+    margin-top: 20px;
+    font-size: 12px;
+    font-style: italic;
+    color: #9CA3AF;
+  }
+
+  @media (max-width: 767px) {
+    .pdp-tabs {
+      flex-direction: column;
+      gap: 30px;
+    }
+    .pdp-tabs__nav {
+      flex: none;
+      flex-direction: row;
+      overflow-x: auto;
+      padding-bottom: 10px;
+      -webkit-overflow-scrolling: touch;
+    }
+    .pdp-tabs__nav-item {
+       flex: 0 0 auto;
+       white-space: nowrap;
+       padding: 10px 16px;
+       font-size: 13px;
+    }
+  }
+</style>
+
+<div class="pdp-tabs">
+  <div class="pdp-tabs__nav">
+    {%- for block in section.blocks -%}
+      <div class="pdp-tabs__nav-item {% if forloop.first %}active{% endif %}" data-tab="{{ block.id }}">
+        {{ block.settings.title }}
+      </div>
+    {%- endfor -%}
+  </div>
+
+  <div class="pdp-tabs__content">
+    {%- for block in section.blocks -%}
+      <div class="pdp-tabs__panel {% if forloop.first %}active{% endif %}" id="tab-{{ block.id }}">
+        {%- if block.settings.content_heading != blank -%}
+          <h2>{{ block.settings.content_heading | replace: '[product]', product.title }}</h2>
+        {%- endif -%}
+
+        <div class="pdp-tabs__description rte">
+          {%- liquid
+            assign m_key = block.settings.metafield_key
+            assign m_obj = product.metafields.custom[m_key]
+            
+            if m_key != blank and m_obj != blank
+              if m_obj.type == 'richtext'
+                echo m_obj | metafield_tag
+              else
+                echo m_obj.value | newline_to_br
+              endif
+            else
+              echo block.settings.text
+            endif
+          -%}
+        </div>
+
+        {%- if block.type == 'specs' -%}
+          {%- if block.settings.table_heading != blank -%}
+            <h2>{{ block.settings.table_heading | replace: '[product]', product.title }}</h2>
+          {%- endif -%}
+          
+          <div class="pdp-tabs__table-wrapper">
+            <table class="pdp-tabs__table" style="margin: 0px;">
+              {%- liquid
+                assign t_key = block.settings.table_metafield_key
+                assign m_obj = product.metafields.custom[t_key]
+                assign m_value = m_obj.value
+                
+                if t_key != blank and m_value != blank
+                  if m_obj.type contains 'list'
+                    for item in m_value
+                      if item contains ':'
+                        assign parts = item | split: ':'
+                        assign label = parts[0] | strip
+                        assign value = item | split: ':' | last | strip
+                        if label != blank
+                          echo '<tr class="pdp-tabs__table-row"><td class="pdp-tabs__table-label">' | append: label | append: '</td><td class="pdp-tabs__table-value">' | append: value | append: '</td></tr>'
+                        endif
+                      endif
+                    endfor
+                  else
+                    assign rows = m_value | newline_to_br | split: '<br />'
+                    for row in rows
+                      if row contains ':'
+                        assign parts = row | split: ':'
+                        assign label = parts[0] | strip
+                        assign value = row | split: ':' | last | strip
+                        if label != blank
+                          echo '<tr class="pdp-tabs__table-row"><td class="pdp-tabs__table-label">' | append: label | append: '</td><td class="pdp-tabs__table-value">' | append: value | append: '</td></tr>'
+                        endif
+                      endif
+                    endfor
+                  endif
+                else
+                  if block.settings.row_1_label != blank
+                    echo '<tr class="pdp-tabs__table-row"><td class="pdp-tabs__table-label">' | append: block.settings.row_1_label | append: '</td><td class="pdp-tabs__table-value">' | append: block.settings.row_1_value | append: '</td></tr>'
+                  endif
+                  if block.settings.row_2_label != blank
+                    echo '<tr class="pdp-tabs__table-row"><td class="pdp-tabs__table-label">' | append: block.settings.row_2_label | append: '</td><td class="pdp-tabs__table-value">' | append: block.settings.row_2_value | append: '</td></tr>'
+                  endif
+                  if block.settings.row_3_label != blank
+                    echo '<tr class="pdp-tabs__table-row"><td class="pdp-tabs__table-label">' | append: block.settings.row_3_label | append: '</td><td class="pdp-tabs__table-value">' | append: block.settings.row_3_value | append: '</td></tr>'
+                  endif
+                  if block.settings.row_4_label != blank
+                    echo '<tr class="pdp-tabs__table-row"><td class="pdp-tabs__table-label">' | append: block.settings.row_4_label | append: '</td><td class="pdp-tabs__table-value">' | append: block.settings.row_4_value | append: '</td></tr>'
+                  endif
+                  if block.settings.row_5_label != blank
+                    echo '<tr class="pdp-tabs__table-row"><td class="pdp-tabs__table-label">' | append: block.settings.row_5_label | append: '</td><td class="pdp-tabs__table-value">' | append: block.settings.row_5_value | append: '</td></tr>'
+                  endif
+                  if block.settings.row_6_label != blank
+                    echo '<tr class="pdp-tabs__table-row"><td class="pdp-tabs__table-label">' | append: block.settings.row_6_label | append: '</td><td class="pdp-tabs__table-value">' | append: block.settings.row_6_value | append: '</td></tr>'
+                  endif
+                  if block.settings.row_7_label != blank
+                    echo '<tr class="pdp-tabs__table-row"><td class="pdp-tabs__table-label">' | append: block.settings.row_7_label | append: '</td><td class="pdp-tabs__table-value">' | append: block.settings.row_7_value | append: '</td></tr>'
+                  endif
+                  if block.settings.row_8_label != blank
+                    echo '<tr class="pdp-tabs__table-row"><td class="pdp-tabs__table-label">' | append: block.settings.row_8_label | append: '</td><td class="pdp-tabs__table-value">' | append: block.settings.row_8_value | append: '</td></tr>'
+                  endif
+                  if block.settings.row_9_label != blank
+                    echo '<tr class="pdp-tabs__table-row"><td class="pdp-tabs__table-label">' | append: block.settings.row_9_label | append: '</td><td class="pdp-tabs__table-value">' | append: block.settings.row_9_value | append: '</td></tr>'
+                  endif
+                  if block.settings.row_10_label != blank
+                    echo '<tr class="pdp-tabs__table-row"><td class="pdp-tabs__table-label">' | append: block.settings.row_10_label | append: '</td><td class="pdp-tabs__table-value">' | append: block.settings.row_10_value | append: '</td></tr>'
+                  endif
+                endif
+              -%}
+            </table>
+          </div>
+          
+          {%- if block.settings.footer_note != blank -%}
+             <p class="pdp-tabs__footer-note">{{ block.settings.footer_note }}</p>
+          {%- endif -%}
+        {%- endif -%}
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('{{ section_id }} .pdp-tabs__nav-item').forEach(button => {
+    button.addEventListener('click', () => {
+      const tabId = button.getAttribute('data-tab');
+      
+      // Update nav
+      document.querySelectorAll('{{ section_id }} .pdp-tabs__nav-item').forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+      
+      // Update panels
+      document.querySelectorAll('{{ section_id }} .pdp-tabs__panel').forEach(panel => panel.classList.remove('active'));
+      document.getElementById('tab-' + tabId).classList.add('active');
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "PDP Vertical Tabs",
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "content",
+      "name": "Simple Content",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Tab Title",
+          "default": "Tab"
+        },
+        {
+          "type": "text",
+          "id": "content_heading",
+          "label": "Content Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text content"
+        },
+        {
+          "type": "text",
+          "id": "metafield_key",
+          "label": "Metafield Key (Namespace: custom)",
+          "info": "Enter key like 'coa' or 'how_to_pay'. Data pulled from product.metafields.custom[key]"
+        }
+      ]
+    },
+    {
+      "type": "specs",
+      "name": "Specs Table",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Tab Title",
+          "default": "Description"
+        },
+        {
+          "type": "text",
+          "id": "content_heading",
+          "label": "Overview Heading",
+          "default": "Overview of [product]"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Overview Text"
+        },
+        {
+          "type": "text",
+          "id": "metafield_key",
+          "label": "Overview Metafield Key",
+          "info": "Enter key like 'overview'. Data pulled from product.metafields.custom[key]"
+        },
+        {
+          "type": "text",
+          "id": "table_metafield_key",
+          "label": "Table Content Metafield Key",
+          "info": "Enter key like 'chemical_properties'. Format: Label: Value per line."
+        },
+        {
+          "type": "text",
+          "id": "table_heading",
+          "label": "Table Heading",
+          "default": "Chemical Properties of [product]"
+        },
+        { "type": "text", "id": "row_1_label", "label": "Row 1 Name", "default": "CAS Number" },
+        { "type": "text", "id": "row_1_value", "label": "Row 1 Value" },
+        { "type": "text", "id": "row_2_label", "label": "Row 2 Name", "default": "Molecular Formula" },
+        { "type": "text", "id": "row_2_value", "label": "Row 2 Value" },
+        { "type": "text", "id": "row_3_label", "label": "Row 3 Name", "default": "Synonyms" },
+        { "type": "text", "id": "row_3_value", "label": "Row 3 Value" },
+        { "type": "text", "id": "row_4_label", "label": "Row 4 Name", "default": "Molecular Mass" },
+        { "type": "text", "id": "row_4_value", "label": "Row 4 Value" },
+        { "type": "text", "id": "row_5_label", "label": "Row 5 Name", "default": "IUPAC Name" },
+        { "type": "text", "id": "row_5_value", "label": "Row 5 Value" },
+        { "type": "text", "id": "row_6_label", "label": "Row 6 Name", "default": "Storage" },
+        { "type": "text", "id": "row_6_value", "label": "Row 6 Value" },
+        { "type": "text", "id": "row_7_label", "label": "Row 7 Name", "default": "Purity" },
+        { "type": "text", "id": "row_7_value", "label": "Row 7 Value" },
+        { "type": "text", "id": "row_8_label", "label": "Row 8 Name", "default": "Appearance" },
+        { "type": "text", "id": "row_8_value", "label": "Row 8 Value" },
+        { "type": "text", "id": "row_9_label", "label": "Row 9 Name" },
+        { "type": "text", "id": "row_9_value", "label": "Row 9 Value" },
+        { "type": "text", "id": "row_10_label", "label": "Row 10 Name" },
+        { "type": "text", "id": "row_10_value", "label": "Row 10 Value" },
+        {
+          "type": "textarea",
+          "id": "footer_note",
+          "label": "Footer Note",
+          "default": "Note: All specifications are for research-grade material intended for in vitro laboratory use only."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "PDP Vertical Tabs",
+      "blocks": [
+        { 
+          "type": "specs", 
+          "settings": { 
+            "title": "Description",
+            "metafield_key": "product_description",
+            "table_metafield_key": "chemical_properties"
+          } 
+        },
+        { 
+          "type": "content", 
+          "settings": { 
+            "title": "COA",
+            "metafield_key": "coa"
+          } 
+        },
+        { 
+          "type": "content", 
+          "settings": { 
+            "title": "How to Pay",
+            "metafield_key": "how_to_pay"
+          } 
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
