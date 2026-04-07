@@ -134,6 +134,131 @@
         "padding_bottom_mobile": 24
       }
     },
+    "service_bar_FVyEa7": {
+      "type": "service-bar",
+      "blocks": {
+        "item_9dHfjc": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Container.png",
+            "icon": "shipping",
+            "custom_icon": "",
+            "title": "FAST SHIPPING",
+            "subtitle": "2-3 business days"
+          }
+        },
+        "item_mFPNYQ": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Container_1.png",
+            "icon": "tested",
+            "custom_icon": "",
+            "title": "3RD PARTY TESTED",
+            "subtitle": "Independent verification"
+          }
+        },
+        "item_8RCNBy": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Container_2.png",
+            "icon": "support",
+            "custom_icon": "",
+            "title": "RESEARCH SUPPORT",
+            "subtitle": "Expert guidance"
+          }
+        },
+        "item_iaBHz6": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Container_3.png",
+            "icon": "secure",
+            "custom_icon": "",
+            "title": "SECURE PAYMENT",
+            "subtitle": "Encrypted transactions"
+          }
+        }
+      },
+      "block_order": [
+        "item_9dHfjc",
+        "item_mFPNYQ",
+        "item_8RCNBy",
+        "item_iaBHz6"
+      ],
+      "name": "Service Bar",
+      "settings": {
+        "bg_color": "#1A4D2E",
+        "text_color": "#ffffff",
+        "icon_color": "#f3d05d",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "pdp_specs_vertical_tabs_rXPN74": {
+      "type": "pdp-specs-vertical-tabs",
+      "blocks": {
+        "specs_tPXaca": {
+          "type": "specs",
+          "settings": {
+            "title": "Description",
+            "content_heading": "Overview of [product]",
+            "text": "",
+            "metafield_key": "description",
+            "table_metafield_key": "chemical_properties",
+            "table_heading": "Chemical Properties of [product]",
+            "row_1_label": "CAS Number",
+            "row_1_value": "",
+            "row_2_label": "Molecular Formula",
+            "row_2_value": "",
+            "row_3_label": "Synonyms",
+            "row_3_value": "",
+            "row_4_label": "Molecular Mass",
+            "row_4_value": "",
+            "row_5_label": "IUPAC Name",
+            "row_5_value": "",
+            "row_6_label": "Storage",
+            "row_6_value": "",
+            "row_7_label": "Purity",
+            "row_7_value": "",
+            "row_8_label": "Appearance",
+            "row_8_value": "",
+            "row_9_label": "",
+            "row_9_value": "",
+            "row_10_label": "",
+            "row_10_value": "",
+            "footer_note": "Note: All specifications are for research-grade material intended for in vitro laboratory use only."
+          }
+        },
+        "content_Re99yY": {
+          "type": "content",
+          "settings": {
+            "title": "COA",
+            "content_heading": "",
+            "text": "",
+            "metafield_key": "coa"
+          }
+        },
+        "content_WgYyBE": {
+          "type": "content",
+          "settings": {
+            "title": "How to Pay",
+            "content_heading": "",
+            "text": "",
+            "metafield_key": "how_to_pay"
+          }
+        }
+      },
+      "block_order": [
+        "specs_tPXaca",
+        "content_Re99yY",
+        "content_WgYyBE"
+      ],
+      "name": "PDP Vertical Tabs",
+      "settings": {
+        "bg_color": "#ffffff",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "featured_collection_pdp_tKnpeF": {
       "type": "featured-collection-pdp",
       "blocks": {
@@ -582,6 +707,8 @@
   "order": [
     "breadcrumb",
     "main",
+    "service_bar_FVyEa7",
+    "pdp_specs_vertical_tabs_rXPN74",
     "featured_collection_pdp_tKnpeF",
     "scrolling_promotion",
     "feature_box",
