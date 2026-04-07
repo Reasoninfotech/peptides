@@ -529,49 +529,48 @@
         "subtext": "Our commitment to research excellence is demonstrated through rigorous quality control protocols and comprehensive analytical verification of every batch."
       }
     },
-    "faqs_BXjA7p": {
+    "faqs_pE8Pr8": {
       "type": "faqs",
       "blocks": {
-        "tab_rKzQA7": {
+        "tab_MikhJN": {
           "type": "tab",
           "settings": {
-            "question": "Are your peptides suitable for human consumption?",
-            "answer": "<p>No. All research peptides are intended strictly for laboratory research and in vitro study only. These compounds are not approved for human or animal consumption.<br/><br/></p>"
+            "question": "What is BPC-157?",
+            "answer": "<p>BPC-157 is a synthetic peptide derived from a protective protein found in gastric juice. In preclinical models, it has been suggested to support tissue repair mechanisms and cellular regeneration processes. This compound is intended strictly for laboratory research purposes.<br/><br/></p>"
           }
         },
-        "tab_kzhKWM": {
-          "type": "tab",
-          "settings": {
-            "question": "What purity standards do you maintain?",
-            "answer": "<p>All peptides undergo rigorous third-party testing and maintain ≥98% purity verified by HPLC and mass spectrometry analysis. Complete certificates of analysis are available upon request.<br/><br/></p>"
-          }
-        },
-        "tab_nrwLna": {
+        "tab_UYJR8P": {
           "type": "tab",
           "settings": {
             "question": "How should research peptides be stored?",
-            "answer": "<p>Lyophilized peptides should be stored at -20°C in the original sealed vial. Once reconstituted, store at 2-8°C and use within the timeframe specified in the product documentation.<br/><br/></p>"
+            "answer": "<p>Lyophilized peptides should be stored at -20°C in the original sealed vial, protected from light and moisture. Once reconstituted with bacteriostatic water, store at 2-8°C and use within the timeframe specified in the product documentation.<br/><br/></p>"
           }
         },
-        "tab_ert8Kx": {
+        "tab_ctQbdM": {
           "type": "tab",
           "settings": {
-            "question": "Do you ship internationally?",
-            "answer": "<p>We currently ship to qualifying research institutions within the United States. International shipping may be available for verified organizations. Contact us for specific requirements.<br/><br/></p>"
+            "question": "What purity level is guaranteed?",
+            "answer": "<p>This research-grade peptide maintains ≥98% purity as verified through high-performance liquid chromatography (HPLC) and mass spectrometry analysis. Complete certificates of analysis are provided with each batch.<br/><br/></p>"
+          }
+        },
+        "tab_FAk9PP": {
+          "type": "tab",
+          "settings": {
+            "question": "Is this suitable for human use?",
+            "answer": "<p>No. This compound is intended strictly for in vitro research and laboratory investigation only. It is not approved for human or animal consumption, therapeutic use, or clinical application.<br/><br/></p>"
           }
         }
       },
       "block_order": [
-        "tab_rKzQA7",
-        "tab_kzhKWM",
-        "tab_nrwLna",
-        "tab_ert8Kx"
+        "tab_MikhJN",
+        "tab_UYJR8P",
+        "tab_ctQbdM",
+        "tab_FAk9PP"
       ],
-      "name": "t:sections.faqs.name",
       "settings": {
         "color_scheme": "",
         "sub_heading_text": "",
-        "heading_text": "Research Compound Information",
+        "heading_text": "FAQs",
         "heading_size": "h3",
         "text": "",
         "enable_contact": false,
@@ -612,7 +611,7 @@
     "collection_list",
     "partners",
     "quality_features_yxMY7W",
-    "faqs_BXjA7p",
+    "faqs_pE8Pr8",
     "contact_jBLgwG"
   ]
 }
