@@ -657,6 +657,37 @@
         "padding_top_mobile": 50,
         "padding_bottom_mobile": 50
       }
+    },
+    "partners_qq8LdR": {
+      "type": "partners",
+      "custom_css": [
+        ".section-wrapper {background-color: #fff !important; padding: 50px 16px !important;}",
+        ".heading,.description {color: #000 !important;}",
+        "@media (max-width: 749px) {.section-wrapper {padding: 20px 16px !important; }}"
+      ],
+      "name": "t:sections.partners.name",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "heading_text": "Join the research community",
+        "heading_size": "h5",
+        "text": "<p>Access premium research-grade peptides with comprehensive analytical documentation and professional scientific support.<br/><br/></p>",
+        "text_align": "center",
+        "mobile_align": "center",
+        "logged_out_button_text": "Create Research Account",
+        "logged_out_button_link": "",
+        "logged_in_button_text": "",
+        "logged_in_button_link": "",
+        "column": 4,
+        "loop": false,
+        "autoplay": false,
+        "delay": 5,
+        "enable_border": false,
+        "item_color_scheme": "scheme-1",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20
+      }
     }
   },
   "order": [
@@ -670,6 +701,7 @@
     "multimedia_collage_M7TNQQ",
     "multimedia_collage_QLXpDe",
     "testimonial",
-    "faqs"
+    "faqs",
+    "partners_qq8LdR"
   ]
 }
