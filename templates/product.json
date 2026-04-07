@@ -657,51 +657,6 @@
         "padding_top_mobile": 50,
         "padding_bottom_mobile": 50
       }
-    },
-    "partners_BtyfYd": {
-      "type": "partners",
-      "settings": {
-        "color_scheme": "",
-        "heading_text": "Ready to Elevate Your Peptide Selection?",
-        "heading_size": "h5",
-        "text": "<p>With LNGVTY LABS, you’re not just getting peptides. You’re getting a partner in your research.<br/>Access Your Dashboard and Start Ordering High-Purity Peptides<br/></p>",
-        "text_align": "center",
-        "mobile_align": "center",
-        "logged_out_button_text": "Sign Up",
-        "logged_out_button_link": "",
-        "logged_in_button_text": "My Account",
-        "logged_in_button_link": "shopify://pages/dashboard",
-        "column": 4,
-        "loop": false,
-        "autoplay": false,
-        "delay": 5,
-        "enable_border": false,
-        "item_color_scheme": "",
-        "padding_top": 50,
-        "padding_bottom": 50,
-        "padding_top_mobile": 20,
-        "padding_bottom_mobile": 20
-      }
-    },
-    "product_recommendations_6fFnmd": {
-      "type": "product-recommendations",
-      "name": "t:sections.product-recommendations.name",
-      "settings": {
-        "color_scheme": "",
-        "full": false,
-        "heading": "You may also like...",
-        "heading_size": "h2",
-        "layout": "slider",
-        "rows": 1,
-        "columns": 4,
-        "show_arrows": true,
-        "autoplay": false,
-        "delay": 2,
-        "padding_top": 50,
-        "padding_bottom": 50,
-        "padding_top_mobile": 20,
-        "padding_bottom_mobile": 20
-      }
     }
   },
   "order": [
@@ -715,8 +670,6 @@
     "multimedia_collage_M7TNQQ",
     "multimedia_collage_QLXpDe",
     "testimonial",
-    "faqs",
-    "partners_BtyfYd",
-    "product_recommendations_6fFnmd"
+    "faqs"
   ]
 }
