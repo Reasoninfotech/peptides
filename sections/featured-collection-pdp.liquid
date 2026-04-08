@@ -561,6 +561,21 @@
   </div>
 {%- endif -%}
 {%- endif -%}
+<script>
+  document.addEventListener('click', function (event) {
+    var card = event.target.closest('.featured-collection-section .product-card');
+    if (!card) return;
+
+    var link = event.target.closest('a[href]');
+    if (!link) {
+      link = card.querySelector('.product-image, .product-title a, .product-link');
+    }
+    if (!link) return;
+
+    event.preventDefault();
+    window.location.href = link.getAttribute('href');
+  }, true);
+</script>
 
 {% schema %}
 {
