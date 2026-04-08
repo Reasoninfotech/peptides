@@ -239,7 +239,7 @@
         "global_collection": "international-peptides",
         "global_btn_label": "Browse Global Collection",
         "global_origin": "International",
-        "global_purity": "≥98% Purity",
+        "global_purity": "<98% Purity",
         "global_testing": "ISO Certified",
         "global_lead_time": "7-10 business days",
         "global_price": "Standard pricing",
