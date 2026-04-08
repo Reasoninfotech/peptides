@@ -403,6 +403,10 @@
       "block_order": [
         "image-1"
       ],
+      "custom_css": [
+        ".button.primary-button {border-radius: 10px; background: #1a4d2e; border: none; }",
+        ".button.primary-button:hover {color: #ffffff;}"
+      ],
       "settings": {
         "color_scheme": "",
         "full": false,
