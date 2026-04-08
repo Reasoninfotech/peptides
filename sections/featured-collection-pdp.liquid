@@ -251,8 +251,8 @@
 {%- else -%}
   {%- comment -%} Show Comparison Grid for Guests by default {%- endcomment -%}
   {%- liquid
-    assign global_prod = all_products[section.settings.global_product]
-    assign american_prod = all_products[section.settings.american_product]
+    assign global_image = section.settings.global_image
+    assign american_image = section.settings.american_image
   -%}
   <style>
     .comparison-section {
@@ -471,8 +471,8 @@
             <p class="card-subtitle">{{ section.settings.global_badge }}</p>
           </div>
           <div class="card-image-box">
-             {% if global_prod and global_prod.featured_image %}
-               <img src="{{ global_prod.featured_image | img_url: '400x' }}" alt="{{ global_prod.title }}" loading="lazy">
+             {% if global_image %}
+               <img src="{{ global_image | img_url: '400x' }}" alt="{{ global_image.alt | default: section.settings.global_title }}" loading="lazy">
              {% else %}
                <img src="https://cdn.shopify.com/s/files/1/0805/0013/7979/files/glp-1_international.png?v=1710925000" alt="Global" loading="lazy">
              {% endif %}
@@ -499,8 +499,8 @@
             <p class="card-subtitle">Premium Line • {{ section.settings.american_testing }}</p>
           </div>
           <div class="card-image-box">
-             {% if american_prod and american_prod.featured_image %}
-               <img src="{{ american_prod.featured_image | img_url: '400x' }}" alt="{{ american_prod.title }}" loading="lazy">
+             {% if american_image %}
+               <img src="{{ american_image | img_url: '400x' }}" alt="{{ american_image.alt | default: section.settings.american_title }}" loading="lazy">
              {% else %}
                <img src="https://cdn.shopify.com/s/files/1/0805/0013/7979/files/glp-1_usa.png?v=1710925000" alt="USA" loading="lazy">
              {% endif %}
@@ -772,9 +772,9 @@
       "default": "Cost-effective research peptides for standard laboratory protocols"
     },
     {
-      "type": "product",
-      "id": "global_product",
-      "label": "Select Product for Image"
+      "type": "image_picker",
+      "id": "global_image",
+      "label": "Select Image"
     },
     {
       "type": "collection",
@@ -846,9 +846,9 @@
       "default": "Premium USA-manufactured peptides with superior quality standards"
     },
     {
-      "type": "product",
-      "id": "american_product",
-      "label": "Select Product for Image"
+      "type": "image_picker",
+      "id": "american_image",
+      "label": "Select Image"
     },
     {
       "type": "collection",
