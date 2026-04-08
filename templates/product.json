@@ -124,7 +124,7 @@
         "width": 50,
         "layout": "layout-2",
         "media_fit": "cover",
-        "media_ratio": "square",
+        "media_ratio": "adapt",
         "lightbox": true,
         "video_looping": false,
         "alignment": "left",
