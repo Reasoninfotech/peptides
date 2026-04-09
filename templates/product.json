@@ -79,6 +79,7 @@
         },
         "fetures_BGXwjy": {
           "type": "fetures",
+          "disabled": true,
           "settings": {}
         },
         "add-to-cart": {
@@ -186,7 +187,7 @@
       ],
       "name": "Service Bar",
       "settings": {
-        "bg_color": "#1A4D2E",
+        "bg_color": "#1a4d2e",
         "text_color": "#ffffff",
         "icon_color": "#f3d05d",
         "padding_top": 36,
@@ -305,7 +306,6 @@
         "global_title": "Global Clinical Grade",
         "global_badge": "Standard Line",
         "global_subtitle": "Cost-effective research peptides for standard laboratory protocols",
-        "global_product": "",
         "global_collection": "",
         "global_btn_label": "Browse Global Collection",
         "global_origin": "International",
@@ -317,7 +317,6 @@
         "american_title": "American Clinical Grade",
         "american_badge": "RECOMMENDED",
         "american_subtitle": "Premium USA-manufactured peptides with superior quality standards",
-        "american_product": "",
         "american_collection": "",
         "american_btn_label": "Browse US Collection",
         "american_origin": "USA 🇺🇸",
@@ -665,7 +664,7 @@
         ".heading,.description {color: #000 !important;}",
         "@media (max-width: 749px) {.section-wrapper {padding: 20px 16px !important; }}",
         ".partners-section .title-wrapper .description p {color: black !important;}",
-        ".custom-btn{color: white!important; background: black!important;}"
+        ".custom-btn {color: white !important; background: black !important;}"
       ],
       "name": "t:sections.partners.name",
       "settings": {
