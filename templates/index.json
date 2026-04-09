@@ -54,7 +54,6 @@
         "item_8RpQj3": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/Container.png",
             "icon": "shipping",
             "custom_icon": "",
             "title": "FAST SHIPPING",
@@ -64,7 +63,6 @@
         "item_rxC8Ny": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/Container_1.png",
             "icon": "tested",
             "custom_icon": "",
             "title": "3RD PARTY TESTED",
@@ -74,7 +72,6 @@
         "item_PwKQhf": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/Container_2.png",
             "icon": "support",
             "custom_icon": "",
             "title": "RESEARCH SUPPORT",
@@ -84,9 +81,8 @@
         "item_T3Pmty": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/Container_3.png",
             "icon": "secure",
-            "custom_icon": "",
+            "custom_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"26\" viewbox=\"0 0 24 26\" fill=\"none\">\n<path d=\"M11.6655 16.9981V19.6645M3.66638 24.9973H19.6646C20.3718 24.9973 21.05 24.7164 21.5501 24.2163C22.0501 23.7163 22.331 23.0381 22.331 22.3309V14.3318C22.331 13.6246 22.0501 12.9464 21.5501 12.4464C21.05 11.9463 20.3718 11.6654 19.6646 11.6654H3.66638C2.95921 11.6654 2.28101 11.9463 1.78096 12.4464C1.28092 12.9464 1 13.6246 1 14.3318V22.3309C1 23.0381 1.28092 23.7163 1.78096 24.2163C2.28101 24.7164 2.95921 24.9973 3.66638 24.9973ZM16.9983 11.6654V6.33263C16.9983 4.9183 16.4364 3.56189 15.4363 2.56181C14.4363 1.56172 13.0798 0.999878 11.6655 0.999878C10.2512 0.999878 8.89477 1.56172 7.89468 2.56181C6.8946 3.56189 6.33275 4.9183 6.33275 6.33263V11.6654H16.9983Z\" stroke=\"#D4AF37\" stroke-width=\"1.99978\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n</svg>",
             "title": "SECURE PAYMENT",
             "subtitle": "Encrypted transactions"
           }
