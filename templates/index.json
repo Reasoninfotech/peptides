@@ -48,6 +48,65 @@
         "padding_bottom_mobile": 0
       }
     },
+    "service_bar_xJhBPa": {
+      "type": "service-bar",
+      "blocks": {
+        "item_8RpQj3": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Container.png",
+            "icon": "shipping",
+            "custom_icon": "",
+            "title": "FAST SHIPPING",
+            "subtitle": "2-3 business days"
+          }
+        },
+        "item_rxC8Ny": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Container_1.png",
+            "icon": "tested",
+            "custom_icon": "",
+            "title": "3RD PARTY TESTED",
+            "subtitle": "Independent verification"
+          }
+        },
+        "item_PwKQhf": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Container_2.png",
+            "icon": "support",
+            "custom_icon": "",
+            "title": "RESEARCH SUPPORT",
+            "subtitle": "Expert guidance"
+          }
+        },
+        "item_T3Pmty": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Container_3.png",
+            "icon": "secure",
+            "custom_icon": "",
+            "title": "SECURE PAYMENT",
+            "subtitle": "Encrypted transactions"
+          }
+        }
+      },
+      "block_order": [
+        "item_8RpQj3",
+        "item_rxC8Ny",
+        "item_PwKQhf",
+        "item_T3Pmty"
+      ],
+      "name": "Service Bar",
+      "settings": {
+        "bg_color": "#1a4d2e",
+        "text_color": "#ffffff",
+        "icon_color": "#f3d05d",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "partners_FYdBNT": {
       "type": "partners",
       "blocks": {
@@ -121,65 +180,6 @@
         "padding_bottom": 50,
         "padding_top_mobile": 20,
         "padding_bottom_mobile": 20
-      }
-    },
-    "service_bar_xJhBPa": {
-      "type": "service-bar",
-      "blocks": {
-        "item_8RpQj3": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Container.png",
-            "icon": "shipping",
-            "custom_icon": "",
-            "title": "FAST SHIPPING",
-            "subtitle": "2-3 business days"
-          }
-        },
-        "item_rxC8Ny": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Container_1.png",
-            "icon": "tested",
-            "custom_icon": "",
-            "title": "3RD PARTY TESTED",
-            "subtitle": "Independent verification"
-          }
-        },
-        "item_PwKQhf": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Container_2.png",
-            "icon": "support",
-            "custom_icon": "",
-            "title": "RESEARCH SUPPORT",
-            "subtitle": "Expert guidance"
-          }
-        },
-        "item_T3Pmty": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Container_3.png",
-            "icon": "secure",
-            "custom_icon": "",
-            "title": "SECURE PAYMENT",
-            "subtitle": "Encrypted transactions"
-          }
-        }
-      },
-      "block_order": [
-        "item_8RpQj3",
-        "item_rxC8Ny",
-        "item_PwKQhf",
-        "item_T3Pmty"
-      ],
-      "name": "Service Bar",
-      "settings": {
-        "bg_color": "#1a4d2e",
-        "text_color": "#ffffff",
-        "icon_color": "#f3d05d",
-        "padding_top": 36,
-        "padding_bottom": 36
       }
     },
     "featured_collection": {
@@ -608,8 +608,8 @@
   },
   "order": [
     "slideshow",
-    "partners_FYdBNT",
     "service_bar_xJhBPa",
+    "partners_FYdBNT",
     "featured_collection",
     "testimonial_rzXeCw",
     "image_banner_gXgkNz",
