@@ -55,7 +55,7 @@
           "type": "item",
           "settings": {
             "icon": "shipping",
-            "custom_icon": "",
+            "custom_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"26\" viewbox=\"0 0 24 26\" fill=\"none\">\n<path d=\"M22.331 6.33263L11.6655 0.999878L1 6.33263M22.331 6.33263L11.6655 11.6654M22.331 6.33263V19.6645L11.6655 24.9973M1 6.33263L11.6655 11.6654M1 6.33263V19.6645L11.6655 24.9973M11.6655 11.6654V24.9973\" stroke=\"#D4AF37\" stroke-width=\"1.99978\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n</svg>",
             "title": "FAST SHIPPING",
             "subtitle": "2-3 business days"
           }
@@ -64,7 +64,7 @@
           "type": "item",
           "settings": {
             "icon": "tested",
-            "custom_icon": "",
+            "custom_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"26\" height=\"26\" viewbox=\"0 0 26 26\" fill=\"none\">\n<path d=\"M8.99914 13.0732L11.6655 15.7396L16.9983 10.4069M24.4881 5.05277C20.2727 5.27663 16.1407 3.81906 12.9987 0.999878C9.85673 3.81906 5.72469 5.27663 1.50928 5.05277C1.17003 6.36611 0.998903 7.71722 1.00001 9.07367C1.00001 16.5275 6.09812 22.7922 12.9987 24.568C19.8993 22.7922 24.9974 16.5289 24.9974 9.07367C24.9974 7.68449 24.8201 6.33797 24.4881 5.05277Z\" stroke=\"#D4AF37\" stroke-width=\"1.99978\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n</svg>",
             "title": "3RD PARTY TESTED",
             "subtitle": "Independent verification"
           }
@@ -73,7 +73,7 @@
           "type": "item",
           "settings": {
             "icon": "support",
-            "custom_icon": "",
+            "custom_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"26\" height=\"24\" viewbox=\"0 0 26 24\" fill=\"none\">\n<path d=\"M7.66594 11.6654H7.67928M12.9987 11.6654H13.012M18.3315 11.6654H18.3448M24.9974 11.6654C24.9974 17.5554 19.6246 22.3309 12.9987 22.3309C11.0371 22.3376 9.09884 21.9053 7.32598 21.0657L1 22.3309L2.8598 17.3714C1.68259 15.7209 1 13.7638 1 11.6654C1 5.77536 6.37275 0.999878 12.9987 0.999878C19.6246 0.999878 24.9974 5.77536 24.9974 11.6654Z\" stroke=\"#D4AF37\" stroke-width=\"1.99978\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n</svg>",
             "title": "RESEARCH SUPPORT",
             "subtitle": "Expert guidance"
           }
