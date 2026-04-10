@@ -119,29 +119,29 @@
       opacity: 0 !important;
     }
     .sign-in-btn.loading {
-      pointer-events: none;
-      opacity: 0.8;
-      position: relative;
-      color: transparent !important;
-    }
+  pointer-events: none;
+  opacity: 0.8;
+  position: relative;
+  color: transparent !important;
+}
 
-    .sign-in-btn.loading::after {
-      content: '';
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      top: 50%;
-      left: 50%;
-      margin: -10px 0 0 -10px;
-      border: 3px solid rgba(255, 255, 255, 0.3);
-      border-top-color: #ffffff;
-      border-radius: 50%;
-      animation: btn-spin 0.8s linear infinite;
-    }
+.sign-in-btn.loading::after {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: btn-spin 0.8s linear infinite;
+}
 
-    @keyframes btn-spin {
-      to { transform: rotate(360deg); }
-    }
+@keyframes btn-spin {
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
 </style>
 
 <div class="container {% if settings.section_animation %}scroll-trigger{% endif %}">
@@ -191,34 +191,26 @@
     }
   }, 700);
   document.addEventListener('DOMContentLoaded', function () {
-    const btn = document.getElementById('sign-in-btn');
+  const btn = document.getElementById('sign-in-btn');
+  let clicked = false;
 
-    if (btn) {
-      btn.addEventListener('click', function (e) {
-        // If we've already done the wait, allow this click to proceed naturally
-        if (this.getAttribute('data-ready') === 'true') {
-          return;
-        }
+  if (btn) {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
 
-        // First click: prevent default and start the loader
-        e.preventDefault();
-
-        // Prevent multiple simultaneous waits
-        if (this.classList.contains('loading')) return;
-
-        this.classList.add('loading');
-
-        setTimeout(() => {
-          // Reset state and mark as ready
-          this.classList.remove('loading');
-          this.setAttribute('data-ready', 'true');
-
-          // Automatically click the second time as requested
-          this.click();
+      if (clicked) {
+        clicked = false;
+        window.location.href = '{{ routes.account_login_url }}?return_to=/pages/sign-up';
+      } else {
+        clicked = true;
+        btn.classList.add('loading');  // Spinner sharu - continuously rotate thay
+        setTimeout(function () {
+          btn.click();  // 2 second pachi auto second click
         }, 2000);
-      });
-    }
-  });
+      }
+    });
+  }
+});
   (function () {
     function styleButton(button) {
       if (button.closest('.login-prompt')) return; // Don't style our own if it were a button
