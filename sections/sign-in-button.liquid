@@ -152,7 +152,7 @@
   {%- else -%}
     <div class="login-prompt">
       <p style="margin-bottom: 12px;">{{ section.settings.text }}</p>
-      <a href="{{ routes.storefront_login_url }}&return_to=/pages/sign-up" class="sign-in-btn">
+      <a href="{{ routes.account_login_url }}?return_to=/pages/sign-up" class="sign-in-btn" id="sign-in-btn">
         {{ section.settings.button_label }}
       </a>
     </div>
