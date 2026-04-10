@@ -156,7 +156,7 @@
   {%- else -%}
     <div class="login-prompt">
       <p style="margin-bottom: 12px;">{{ section.settings.text }}</p>
-      <a href="account/login?return_to=/pages/sign-up" class="sign-in-btn" id="sign-in-btn">
+      <a href="{{ routes.account_login_url }}?return_to=/pages/sign-up" class="sign-in-btn" id="sign-in-btn">
         {{ section.settings.button_label }}
       </a>
     </div>
@@ -172,11 +172,23 @@
   }, 700);
   document.addEventListener('DOMContentLoaded', function () {
     const btn = document.getElementById('sign-in-btn');
+    let clicked = false;
 
     if (btn) {
       btn.addEventListener('click', function (e) {
         e.preventDefault();
-        window.location.href = '/account/login?return_to=/pages/sign-up';
+
+        if (clicked) {
+          // Second click - redirect karo
+          clicked = false;
+          window.location.href = btn.getAttribute('href');
+        } else {
+          // First click - flag set karo ane fari click trigger karo
+          clicked = true;
+          setTimeout(function () {
+            btn.click(); // Automatically second click trigger karo
+          }, 100); // 100ms pachi auto second click
+        }
       });
     }
   });
