@@ -119,29 +119,29 @@
       opacity: 0 !important;
     }
     .sign-in-btn.loading {
-  pointer-events: none;
-  opacity: 0.8;
-  position: relative;
-  color: transparent !important;
-}
+      pointer-events: none;
+      opacity: 0.8;
+      position: relative;
+      color: transparent !important;
+    }
 
-.sign-in-btn.loading::after {
-  content: '';
-  position: absolute;
-  width: 18px;
-  height: 18px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border: 3px solid rgba(255, 255, 255, 0.3);
-  border-top-color: #ffffff;
-  border-radius: 50%;
-  animation: btn-spin 0.8s linear infinite;
-}
+    .sign-in-btn.loading::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      top: 50%;
+      left: 50%;
+      margin: -10px 0 0 -10px;
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      border-top-color: #ffffff;
+      border-radius: 50%;
+      animation: btn-spin 0.8s linear infinite;
+    }
 
-@keyframes btn-spin {
-  to { transform: translate(-50%, -50%) rotate(360deg); }
-}
+    @keyframes btn-spin {
+      to { transform: rotate(360deg); }
+    }
 </style>
 
 <div class="container {% if settings.section_animation %}scroll-trigger{% endif %}">
@@ -191,26 +191,29 @@
     }
   }, 700);
   document.addEventListener('DOMContentLoaded', function () {
-  const btn = document.getElementById('sign-in-btn');
-  let clicked = false;
+    const loginBtn = document.getElementById('sign-in-btn');
 
-  if (btn) {
-    btn.addEventListener('click', function (e) {
-      e.preventDefault();
+    if (loginBtn) {
+      loginBtn.addEventListener('click', function (e) {
+        // Prevent default navigation initially
+        e.preventDefault();
 
-      if (clicked) {
-        clicked = false;
-        window.location.href = '{{ routes.account_login_url }}?return_to=/pages/sign-up';
-      } else {
-        clicked = true;
-        btn.classList.add('loading');  // Spinner sharu - continuously rotate thay
+        // If already loading, do nothing
+        if (this.classList.contains('loading')) return;
+
+        // Show the loader visual
+        this.classList.add('loading');
+
+        // Capture the destination URL from the button's href
+        const destination = this.href;
+
+        // Wait for 2 seconds, then navigate
         setTimeout(function () {
-          btn.click();  // 2 second pachi auto second click
+          window.location.href = destination;
         }, 2000);
-      }
-    });
-  }
-});
+      });
+    }
+  });
   (function () {
     function styleButton(button) {
       if (button.closest('.login-prompt')) return; // Don't style our own if it were a button
