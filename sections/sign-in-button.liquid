@@ -160,6 +160,11 @@
 </div>
 
 <script>
+  document.getElementById('sign-in-btn').addEventListener('click', function(e) {
+    setTimeout(function() {
+      document.getElementById('sign-in-btn').click();
+    }, 2000);
+  });
   setTimeout(function () {
     var loader = document.getElementById('wave-loader');
     if (loader) {
