@@ -118,6 +118,10 @@
     visibility: hidden !important;
     opacity: 0 !important;
   }
+  .sign-in-btn.loading {
+  pointer-events: none;
+  opacity: 0.7;
+}
 </style>
 
 <div class="container {% if settings.section_animation %}scroll-trigger{% endif %}">
@@ -166,6 +170,22 @@
       loader.style.display = 'none';
     }
   }, 700);
+  document.addEventListener('DOMContentLoaded', function() {
+    const btn = document.getElementById('sign-in-btn');
+    
+    if (btn) {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Prevent double click
+        if (btn.classList.contains('loading')) return;
+        btn.classList.add('loading');
+        
+        window.location.href = btn.getAttribute('href');
+      });
+    }
+  });
+
 </script>
 
 <script>
