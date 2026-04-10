@@ -212,14 +212,14 @@
         btn.setAttribute('data-click-stage', nextStage);
 
         setTimeout(() => {
-          btn.click();
+          btn.click(); // Trigger next stage
         }, 2000);
       } else {
-        // --- FINAL REDIRECT ---
-        const destination = btn.getAttribute('href');
-        if (destination) {
-          window.location.href = destination;
-        }
+        // --- STAGE 3 (Final) ---
+        // We let the natural click behavior happen here.
+        // We remove the loading class and the stage attribute so it acts as a fresh link.
+        btn.classList.remove('loading');
+        btn.removeAttribute('data-click-stage');
       }
     });
   })();
