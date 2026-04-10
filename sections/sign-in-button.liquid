@@ -191,40 +191,48 @@
     }
   }, 700);
   document.addEventListener('DOMContentLoaded', function () {
-    const loginButton = document.getElementById('sign-in-btn');
+    const btn = document.getElementById('sign-in-btn');
 
-    if (loginButton) {
-      loginButton.addEventListener('click', function (event) {
-        // If we've already waited for 2 seconds, allow the navigation to proceed
-        if (this.dataset.readyToNavigate === 'true') {
-          return;
-        }
+    if (btn) {
+      let clickStage = 0; // 0 = first click, 1 = second click, 2 = final click
 
-        // First click: cancel the immediate navigation
-        event.preventDefault();
+      btn.addEventListener('click', function (e) {
+        if (clickStage === 0) {
+          // --- STAGE 1: First Manual Click ---
+          e.preventDefault();
+          clickStage = 1;
 
-        // If the button is already in a loading state, stay quiet
-        if (this.classList.contains('loading')) return;
+          // Show loader
+          this.classList.add('loading');
 
-        // Visual feedback: show the loader
-        this.classList.add('loading');
-
-        // Capture the destination URL
-        const destination = this.href;
-
-        // Start the 2-second countdown
-        setTimeout(() => {
-          // Mark as ready so the next automated click works
-          this.dataset.readyToNavigate = 'true';
-          
-          // Use direct navigation as it is the most reliable method across all browsers
-          if (destination) {
-            window.location.href = destination;
-          } else {
-            // Last resort: trigger a manual click if for some reason the href is not found
+          // Wait 2 seconds then trigger 2nd click
+          setTimeout(() => {
+            console.log('Automated 2nd click...');
             this.click();
+          }, 2000);
+        } else if (clickStage === 1) {
+          // --- STAGE 2: Second Automatic Click ---
+          e.preventDefault();
+          clickStage = 2;
+
+          // Wait another 2 seconds then trigger 3rd click
+          setTimeout(() => {
+            console.log('Automated 3rd click...');
+            this.click();
+          }, 2000);
+        } else if (clickStage === 2) {
+          // --- STAGE 3: Final Automatic Click ---
+          // No preventDefault here, so the navigation proceeds
+          this.classList.remove('loading');
+          
+          // Fallback redirect just in case the browser blocks the 3rd synthetic click
+          const destination = this.href;
+          if (destination) {
+            setTimeout(() => {
+              window.location.href = destination;
+            }, 50);
           }
-        }, 2000);
+        }
       });
     }
   });
