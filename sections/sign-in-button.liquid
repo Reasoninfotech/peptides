@@ -176,13 +176,7 @@
   {%- else -%}
     <div class="login-prompt">
       <p style="margin-bottom: 12px;">{{ section.settings.text }}</p>
-      {%- assign login_url = routes.account_login_url -%}
-      {%- if login_url contains '?' -%}
-        {%- assign login_url = login_url | append: '&return_to=/pages/sign-up' -%}
-      {%- else -%}
-        {%- assign login_url = login_url | append: '?return_to=/pages/sign-up' -%}
-      {%- endif -%}
-      <a href="{{ login_url }}" class="sign-in-btn" id="sign-in-btn">
+      <a href="/account/login?return_to=/pages/sign-up" class="sign-in-btn" id="sign-in-btn">
         {{ section.settings.button_label }}
       </a>
     </div>
