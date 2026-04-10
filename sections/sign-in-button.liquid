@@ -119,29 +119,29 @@
       opacity: 0 !important;
     }
     .sign-in-btn.loading {
-      pointer-events: none;
-      opacity: 0.8;
-      position: relative;
-      color: transparent !important;
-    }
+  pointer-events: none;
+  opacity: 0.8;
+  position: relative;
+  color: transparent !important;
+}
 
-    .sign-in-btn.loading::after {
-      content: '';
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      top: 50%;
-      left: 50%;
-      margin: -10px 0 0 -10px;
-      border: 3px solid rgba(255, 255, 255, 0.3);
-      border-top-color: #ffffff;
-      border-radius: 50%;
-      animation: btn-spin 0.8s linear infinite;
-    }
+.sign-in-btn.loading::after {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: btn-spin 0.8s linear infinite;
+}
 
-    @keyframes btn-spin {
-      to { transform: rotate(360deg); }
-    }
+@keyframes btn-spin {
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
 </style>
 
 <div class="container {% if settings.section_animation %}scroll-trigger{% endif %}">
@@ -176,7 +176,7 @@
   {%- else -%}
     <div class="login-prompt">
       <p style="margin-bottom: 12px;">{{ section.settings.text }}</p>
-      <a href="/account/login?return_to={{ shop.url | append: '/pages/sign-up' | url_encode }}" class="sign-in-btn" id="sign-in-btn">
+      <a href="{{ routes.account_login_url }}?return_to=/pages/sign-up" class="sign-in-btn" id="sign-in-btn">
         {{ section.settings.button_label }}
       </a>
     </div>
@@ -190,39 +190,27 @@
       loader.style.display = 'none';
     }
   }, 700);
-  (function () {
-    document.addEventListener('click', function (e) {
-      const btn = e.target.closest('#sign-in-btn');
-      if (!btn) return;
+  document.addEventListener('DOMContentLoaded', function () {
+  const btn = document.getElementById('sign-in-btn');
+  let clicked = false;
 
-      let stage = parseInt(btn.getAttribute('data-click-stage') || '0');
+  if (btn) {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
 
-      if (stage < 2) {
-        // --- STAGE 1 & 2: Prevent and Automate ---
-        e.preventDefault();
-        btn.classList.add('loading');
-
-        const nextStage = stage + 1;
-        btn.setAttribute('data-click-stage', nextStage);
-
-        setTimeout(() => {
-          btn.click(); // Triggers next internal stage
-        }, 2000);
+      if (clicked) {
+        clicked = false;
+        window.location.href = '{{ routes.account_login_url }}?return_to=/pages/sign-up';
       } else {
-        // --- STAGE 3: Final Navigation ---
-        // Clean up states
-        btn.classList.remove('loading');
-        btn.removeAttribute('data-click-stage');
-        
-        // Final Redirection: We use window.location.assign because it is more powerful 
-        // than a synthetic click and ensures the navigation happens immediately.
-        const target = btn.getAttribute('href');
-        if (target) {
-          window.location.assign(target);
-        }
+        clicked = true;
+        btn.classList.add('loading');  // Spinner sharu - continuously rotate thay
+        setTimeout(function () {
+          btn.click();  // 2 second pachi auto second click
+        }, 2000);
       }
     });
-  })();
+  }
+});
   (function () {
     function styleButton(button) {
       if (button.closest('.login-prompt')) return; // Don't style our own if it were a button
