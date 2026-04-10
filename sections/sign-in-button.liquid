@@ -197,11 +197,10 @@
       btn.dataset.tripleHandled = 'true';
 
       btn.addEventListener('click', function (e) {
-        // Get current stage (0 = first click, 1 = second click, 2 = final click)
         let stage = parseInt(this.getAttribute('data-click-stage') || '0');
 
         if (stage < 2) {
-          // --- STAGES 1 & 2: Prevent and Wait ---
+          // --- STAGES 1 & 2: Show Loader and Wait ---
           e.preventDefault();
           this.classList.add('loading');
 
@@ -209,32 +208,23 @@
           this.setAttribute('data-click-stage', nextStage);
 
           setTimeout(() => {
-            console.log('Triggering click stage: ' + nextStage);
-            // Remove loading temporarily to ensure the automated click is processed
-            this.classList.remove('loading');
+            // Re-trigger click for the next stage
             this.click();
           }, 2000);
         } else {
-          // --- STAGE 3: Final Click (Navigation) ---
-          this.classList.remove('loading');
-          this.removeAttribute('data-click-stage');
-          
-          // No preventDefault here, so the navigation proceeds. 
-          // We add a small fallback redirect for total reliability.
-          const destination = this.href;
+          // --- STAGE 3: Final Redirect ---
+          // Using window.location.href is the ONLY 100% reliable way to 
+          // ensure the redirect happens after an automated delay.
+          const destination = this.getAttribute('href');
           if (destination) {
-            setTimeout(() => {
-              if (window.location.href.indexOf(destination) === -1) {
-                window.location.href = destination;
-              }
-            }, 100);
+            window.location.href = destination;
           }
         }
       });
     }
 
-    // Run on boot and periodically to handle any dynamic page changes
-    document.addEventListener('DOMContentLoaded', initTripleClick);
+    // Check for the button immediately and periodically
+    initTripleClick();
     setInterval(initTripleClick, 1000);
   })();
   (function () {
