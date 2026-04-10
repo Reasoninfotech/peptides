@@ -176,7 +176,13 @@
   {%- else -%}
     <div class="login-prompt">
       <p style="margin-bottom: 12px;">{{ section.settings.text }}</p>
-      <a href="{{ routes.account_login_url }}?return_to=/pages/sign-up" class="sign-in-btn" id="sign-in-btn">
+      {%- assign login_url = routes.account_login_url -%}
+      {%- if login_url contains '?' -%}
+        {%- assign login_url = login_url | append: '&return_to=/pages/sign-up' -%}
+      {%- else -%}
+        {%- assign login_url = login_url | append: '?return_to=/pages/sign-up' -%}
+      {%- endif -%}
+      <a href="{{ login_url }}" class="sign-in-btn" id="sign-in-btn">
         {{ section.settings.button_label }}
       </a>
     </div>
@@ -191,41 +197,28 @@
     }
   }, 700);
   (function () {
-    console.log('--- Sign-In Sequence Debugging Active ---');
-
     document.addEventListener('click', function (e) {
-      // Find the sign-in button using delegation
       const btn = e.target.closest('#sign-in-btn');
       if (!btn) return;
 
       let stage = parseInt(btn.getAttribute('data-click-stage') || '0');
-      console.log('[DEBUG] Button Click Handled. Current Stage:', stage);
 
       if (stage < 2) {
         // --- STAGES 1 & 2 ---
         e.preventDefault();
-        console.log('[DEBUG] Navigation prevented. Starting 2s timer for stage:', stage);
-        
         btn.classList.add('loading');
 
         const nextStage = stage + 1;
         btn.setAttribute('data-click-stage', nextStage);
 
         setTimeout(() => {
-          console.log('[DEBUG] 2 seconds passed. Re-triggering click for stage:', nextStage);
-          // Try to click automatically
           btn.click();
         }, 2000);
       } else {
         // --- FINAL REDIRECT ---
-        console.log('[DEBUG] Final stage reached. Redirecting...');
         const destination = btn.getAttribute('href');
-        
         if (destination) {
-          console.log('[DEBUG] Destination URL found:', destination);
           window.location.href = destination;
-        } else {
-          console.warn('[DEBUG] WARNING: No href attribute found on button!');
         }
       }
     });
