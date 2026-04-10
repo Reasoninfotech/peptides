@@ -180,11 +180,15 @@
 
         if (clicked) {
           clicked = false;
+          btn.textContent = '{{ section.settings.button_label }}';
+          btn.classList.remove('loading');
           window.location.href = '{{ routes.account_login_url }}?return_to=/pages/sign-up';
         } else {
           clicked = true;
+          btn.textContent = 'Loading...';
+          btn.classList.add('loading');
           setTimeout(function () {
-            btn.click(); // 2 second pachi automatic second click
+            btn.click();
           }, 2000);
         }
       });
