@@ -166,9 +166,29 @@
       loader.style.display = 'none';
     }
   }, 700);
-</script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const btn = document.getElementById('sign-in-btn');
+    let clickTimer = null;
 
-<script>
+    if (btn) {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        if (clickTimer) {
+          // Double click detected - redirect karo
+          clearTimeout(clickTimer);
+          clickTimer = null;
+          window.location.href = btn.getAttribute('href');
+        } else {
+          // First click - timer set karo
+          clickTimer = setTimeout(function() {
+            clickTimer = null;
+            // Single click - koi action nahi, ya tooltip show karo
+          }, 300); // 300ms window for double click
+        }
+      });
+    }
+  });
   (function() {
     function styleButton(button) {
       if (button.closest('.login-prompt')) return; // Don't style our own if it were a button
