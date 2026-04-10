@@ -172,23 +172,11 @@
   }, 700);
   document.addEventListener('DOMContentLoaded', function () {
     const btn = document.getElementById('sign-in-btn');
-    let clicked = false;
 
     if (btn) {
       btn.addEventListener('click', function (e) {
         e.preventDefault();
-
-        if (clicked) {
-          // Second click - redirect karo
-          clicked = false;
-          window.location.href = btn.getAttribute('href');
-        } else {
-          // First click - flag set karo ane fari click trigger karo
-          clicked = true;
-          setTimeout(function () {
-            btn.click(); // Automatically second click trigger karo
-          }, 100); // 100ms pachi auto second click
-        }
+        window.location.href = '/account/login?return_to=/pages/sign-up';
       });
     }
   });
