@@ -176,7 +176,13 @@
   {%- else -%}
     <div class="login-prompt">
       <p style="margin-bottom: 12px;">{{ section.settings.text }}</p>
-      <a href="{{ routes.account_login_url }}?return_to=/pages/sign-up" class="sign-in-btn" id="sign-in-btn">
+      {%- assign login_url = routes.account_login_url -%}
+      {%- if login_url contains '?' -%}
+        {%- assign login_url = login_url | append: '&return_to=/pages/sign-up' -%}
+      {%- else -%}
+        {%- assign login_url = login_url | append: '?return_to=/pages/sign-up' -%}
+      {%- endif -%}
+      <a href="{{ login_url }}" class="sign-in-btn" id="sign-in-btn">
         {{ section.settings.button_label }}
       </a>
     </div>
@@ -190,6 +196,36 @@
       loader.style.display = 'none';
     }
   }, 700);
+  document.addEventListener('DOMContentLoaded', function () {
+    const btn = document.getElementById('sign-in-btn');
+    let clickStage = 0;
+
+    if (btn) {
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        if (clickStage === 0) {
+          // --- First Click ---
+          clickStage = 1;
+          btn.classList.add('loading');
+          setTimeout(function () {
+            btn.click(); // Trigger 2nd click
+          }, 2000);
+        } else if (clickStage === 1) {
+          // --- Second Click ---
+          clickStage = 2;
+          setTimeout(function () {
+            btn.click(); // Trigger 3rd click
+          }, 2000);
+        } else {
+          // --- Third Click (Final) ---
+          clickStage = 0;
+          // Navigate using the properly formatted URL
+          window.location.href = btn.getAttribute('href');
+        }
+      });
+    }
+  });
   (function () {
     function styleButton(button) {
       if (button.closest('.login-prompt')) return; // Don't style our own if it were a button
