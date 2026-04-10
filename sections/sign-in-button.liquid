@@ -172,19 +172,11 @@
   }, 700);
   document.addEventListener('DOMContentLoaded', function () {
     const btn = document.getElementById('sign-in-btn');
-    let clicked = false;
 
     if (btn) {
       btn.addEventListener('click', function (e) {
         e.preventDefault();
-
-        if (clicked) {
-          clicked = false;
-          window.location.href = '/account/login?return_to=/pages/sign-up';
-        } else {
-          clicked = true;
-          btn.click();
-        }
+        window.location.href = '/account/login?return_to=/pages/sign-up';
       });
     }
   });
