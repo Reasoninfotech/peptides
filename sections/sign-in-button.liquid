@@ -191,25 +191,39 @@
     }
   }, 700);
   document.addEventListener('DOMContentLoaded', function () {
-    const loginBtn = document.getElementById('sign-in-btn');
+    const loginButton = document.getElementById('sign-in-btn');
 
-    if (loginBtn) {
-      loginBtn.addEventListener('click', function (e) {
-        // Prevent default navigation initially
-        e.preventDefault();
+    if (loginButton) {
+      loginButton.addEventListener('click', function (event) {
+        // If we've already waited for 2 seconds, allow the navigation to proceed
+        if (this.dataset.readyToNavigate === 'true') {
+          return;
+        }
 
-        // If already loading, do nothing
+        // First click: cancel the immediate navigation
+        event.preventDefault();
+
+        // If the button is already in a loading state, stay quiet
         if (this.classList.contains('loading')) return;
 
-        // Show the loader visual
+        // Visual feedback: show the loader
         this.classList.add('loading');
 
-        // Capture the destination URL from the button's href
+        // Capture the destination URL
         const destination = this.href;
 
-        // Wait for 2 seconds, then navigate
-        setTimeout(function () {
-          window.location.href = destination;
+        // Start the 2-second countdown
+        setTimeout(() => {
+          // Mark as ready so the next automated click works
+          this.dataset.readyToNavigate = 'true';
+          
+          // Use direct navigation as it is the most reliable method across all browsers
+          if (destination) {
+            window.location.href = destination;
+          } else {
+            // Last resort: trigger a manual click if for some reason the href is not found
+            this.click();
+          }
         }, 2000);
       });
     }
