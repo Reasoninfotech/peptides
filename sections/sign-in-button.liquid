@@ -195,10 +195,11 @@
       const btn = e.target.closest('#sign-in-btn');
       if (!btn) return;
 
+      // Get current stage: 0 (initial), 1 (after 2s), 2 (final)
       let stage = parseInt(btn.getAttribute('data-click-stage') || '0');
 
       if (stage < 2) {
-        // --- STAGES 1 & 2 ---
+        // --- STAGE 1 & 2: Wait and Auto-Click ---
         e.preventDefault();
         btn.classList.add('loading');
 
@@ -206,14 +207,20 @@
         btn.setAttribute('data-click-stage', nextStage);
 
         setTimeout(() => {
-          btn.click(); // Trigger next stage
+          // Trigger the next click automatically after 2 seconds
+          btn.click();
         }, 2000);
       } else {
-        // --- STAGE 3 (Final) ---
-        // We let the natural click behavior happen here.
-        // We remove the loading class and the stage attribute so it acts as a fresh link.
+        // --- STAGE 3: Final Click ---
+        // On the third click, we remove restrictions and let the button work naturally.
         btn.classList.remove('loading');
         btn.removeAttribute('data-click-stage');
+        
+        // Use direct navigation as a safety fallback for the 3rd click
+        const destination = btn.getAttribute('href');
+        if (destination) {
+          window.location.href = destination;
+        }
       }
     });
   })();
