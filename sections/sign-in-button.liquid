@@ -1,127 +1,127 @@
 {%- liquid
-	assign section_id = '#shopify-section-' | append: section.id
+  assign section_id = '#shopify-section-' | append: section.id
 -%}
 
 <style>
-	{{ section_id }} {
-		padding-top: {{ section.settings.padding_top_mobile }}px;
-		padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
-    text-align: center;
-	}
-
-	@media (min-width: 992px) {
-		{{ section_id }} {
-			padding-top: {{ section.settings.padding_top }}px;
-			padding-bottom: {{ section.settings.padding_bottom }}px;
-		}
-	}
-  {{ section_id }} .sign-in-btn {
-    display: inline-block;
-    padding: 12px 32px;
-    background-color: #1a4d2e;
-    color: #ffffff;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: 500;
-    text-decoration: none;
-    transition: background-color 0.2s;
-  }
-  {{ section_id }} .sign-in-btn:hover {
-    background-color: #143b22;
+  {{ section_id }} {
+  	padding-top: {{ section.settings.padding_top_mobile }}px;
+  	padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+     text-align: center;
   }
 
-  /* Target App Form Submit Button */
-  ._formSubmitButton_cit2d_96,
-  [data-testid="btn-form-submit"] {
-    background-color: #1a4d2e !important;
-    color: #ffffff !important;
-    border-radius: 8px !important;
-    font-size: 16px !important;
-    font-weight: 600 !important;
-    padding: 14px 32px !important;
-    border: none !important;
-    cursor: pointer !important;
-    transition: background-color 0.2s !important;
-    width: 100% !important;
-    display: block !important;
-    text-align: center !important;
+  @media (min-width: 992px) {
+  	{{ section_id }} {
+  		padding-top: {{ section.settings.padding_top }}px;
+  		padding-bottom: {{ section.settings.padding_bottom }}px;
+  	}
   }
+   {{ section_id }} .sign-in-btn {
+     display: inline-block;
+     padding: 12px 32px;
+     background-color: #1a4d2e;
+     color: #ffffff;
+     border-radius: 8px;
+     font-size: 16px;
+     font-weight: 500;
+     text-decoration: none;
+     transition: background-color 0.2s;
+   }
+   {{ section_id }} .sign-in-btn:hover {
+     background-color: #143b22;
+   }
 
-  ._formSubmitButton_cit2d_96:hover,
-  [data-testid="btn-form-submit"]:hover {
-    background-color: #143b22 !important;
-  }
+   /* Target App Form Submit Button */
+   ._formSubmitButton_cit2d_96,
+   [data-testid="btn-form-submit"] {
+     background-color: #1a4d2e !important;
+     color: #ffffff !important;
+     border-radius: 8px !important;
+     font-size: 16px !important;
+     font-weight: 600 !important;
+     padding: 14px 32px !important;
+     border: none !important;
+     cursor: pointer !important;
+     transition: background-color 0.2s !important;
+     width: 100% !important;
+     display: block !important;
+     text-align: center !important;
+   }
 
-  .under-review-container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 40px 20px;
-    background: #fdfdfd;
-    border: 1px solid #e5e7eb;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    text-align: center;
-  }
+   ._formSubmitButton_cit2d_96:hover,
+   [data-testid="btn-form-submit"]:hover {
+     background-color: #143b22 !important;
+   }
 
-  .under-review-container h2 {
-    color: #1a4d2e;
-    font-size: 24px;
-    font-weight: 600;
-    margin-bottom: 16px;
-  }
+   .under-review-container {
+     max-width: 600px;
+     margin: 0 auto;
+     padding: 40px 20px;
+     background: #fdfdfd;
+     border: 1px solid #e5e7eb;
+     border-radius: 12px;
+     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+     text-align: center;
+   }
 
-  .under-review-container p {
-    color: #4b5563;
-    font-size: 16px;
-    line-height: 1.6;
-    margin: 0;
-  }
+   .under-review-container h2 {
+     color: #1a4d2e;
+     font-size: 24px;
+     font-weight: 600;
+     margin-bottom: 16px;
+   }
 
-  /* Hide apps section (form) when under review */
-  .customer-under-review #shopify-section-apps,
-  .customer-under-review .shopify-section-apps,
-  .customer-under-review [id^="shopify-section-template--"][id$="__apps"] {
-    display: none !important;
-  }
+   .under-review-container p {
+     color: #4b5563;
+     font-size: 16px;
+     line-height: 1.6;
+     margin: 0;
+   }
+
+   /* Hide apps section (form) when under review */
+   .customer-under-review #shopify-section-apps,
+   .customer-under-review .shopify-section-apps,
+   .customer-under-review [id^="shopify-section-template--"][id$="__apps"] {
+     display: none !important;
+   }
 </style>
 
 <style>
-  .wave-loader-wrapper {
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto 30px auto;
-    display: block;
-  }
-  .wave-item {
-    width: 100%;
-    height: 150px;
-    background: #f6f7f8;
-    background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #f6f7f8 40%, #f6f7f8 100%);
-    background-repeat: no-repeat;
-    background-size: 800px 100%; 
-    display: inline-block;
-    position: relative; 
-    animation: wave-animation 1.2s linear infinite forwards;
-    border-radius: 8px;
-  }
-  @keyframes wave-animation {
-    0% { background-position: -468px 0; }
-    100% { background-position: 468px 0; }
-  }
+    .wave-loader-wrapper {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto 30px auto;
+      display: block;
+    }
+    .wave-item {
+      width: 100%;
+      height: 150px;
+      background: #f6f7f8;
+      background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #f6f7f8 40%, #f6f7f8 100%);
+      background-repeat: no-repeat;
+      background-size: 800px 100%;
+      display: inline-block;
+      position: relative;
+      animation: wave-animation 1.2s linear infinite forwards;
+      border-radius: 8px;
+    }
+    @keyframes wave-animation {
+      0% { background-position: -468px 0; }
+      100% { background-position: 468px 0; }
+    }
 
-  /* Prevent placeholder flicker during loading */
-  .gf_placeholder,
-  [id*="globo-formbuilder"] .gf_placeholder,
-  #globo-formbuilder-container img,
-  #globo-formbuilder-container [style*="background-image"] {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
+    /* Prevent placeholder flicker during loading */
+    .gf_placeholder,
+    [id*="globo-formbuilder"] .gf_placeholder,
+    #globo-formbuilder-container img,
+    #globo-formbuilder-container [style*="background-image"] {
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+    }
+    .sign-in-btn.loading {
+    pointer-events: none;
+    opacity: 0.7;
   }
-  .sign-in-btn.loading {
-  pointer-events: none;
-  opacity: 0.7;
-}
 </style>
 
 <div class="container {% if settings.section_animation %}scroll-trigger{% endif %}">
@@ -133,19 +133,19 @@
     {%- if customer.tags contains 'approved' -%}
       <div class="login-prompt">
         <p style="margin-bottom: 12px;">Logged in as {{ customer.first_name }}. Looking for your products?</p>
-        <a href="/pages/dashboard" class="sign-in-btn">
-          Go to Dashboard
-        </a>
+        <a href="/pages/dashboard" class="sign-in-btn"> Go to Dashboard </a>
       </div>
       {%- if request.path == '/pages/sign-up' -%}
-        <script>window.location.href = '/pages/dashboard';</script>
+        <script>
+          window.location.href = '/pages/dashboard';
+        </script>
       {%- endif -%}
     {%- else -%}
       <div class="under-review-container">
         <h2>{{ section.settings.review_heading }}</h2>
         <p>{{ section.settings.review_text }}</p>
       </div>
-      
+
       <script>
         document.body.classList.add('customer-under-review');
         {%- if request.path != '/pages/sign-up' -%}
@@ -164,40 +164,42 @@
 </div>
 
 <script>
-  setTimeout(function() {
+  setTimeout(function () {
     var loader = document.getElementById('wave-loader');
     if (loader) {
       loader.style.display = 'none';
     }
   }, 700);
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', function () {
     const btn = document.getElementById('sign-in-btn');
-    let clickTimer = null;
+    let clicked = false;
 
     if (btn) {
-      btn.addEventListener('click', function(e) {
+      btn.addEventListener('click', function (e) {
         e.preventDefault();
 
-        if (clickTimer) {
-          // Double click detected - redirect karo
-          clearTimeout(clickTimer);
-          clickTimer = null;
+        if (clicked) {
+          // Second click - redirect karo
+          clicked = false;
           window.location.href = btn.getAttribute('href');
         } else {
-          // First click - timer set karo
-          clickTimer = setTimeout(function() {
-            clickTimer = null;
-            // Single click - koi action nahi, ya tooltip show karo
-          }, 300); // 300ms window for double click
+          // First click - flag set karo ane fari click trigger karo
+          clicked = true;
+          setTimeout(function () {
+            btn.click(); // Automatically second click trigger karo
+          }, 100); // 100ms pachi auto second click
         }
       });
     }
   });
-  (function() {
+  (function () {
     function styleButton(button) {
       if (button.closest('.login-prompt')) return; // Don't style our own if it were a button
-      
-      if (button.textContent.trim().toLowerCase() === 'submit' || button.getAttribute('data-testid') === 'btn-form-submit') {
+
+      if (
+        button.textContent.trim().toLowerCase() === 'submit' ||
+        button.getAttribute('data-testid') === 'btn-form-submit'
+      ) {
         button.style.setProperty('background-color', '#1a4d2e', 'important');
         button.style.setProperty('color', '#ffffff', 'important');
         button.style.setProperty('border-radius', '8px', 'important');
@@ -209,10 +211,10 @@
         button.style.setProperty('transition', 'background-color 0.2s', 'important');
 
         // Hover effects
-        button.onmouseenter = function() {
+        button.onmouseenter = function () {
           this.style.setProperty('background-color', '#143b22', 'important');
         };
-        button.onmouseleave = function() {
+        button.onmouseleave = function () {
           this.style.setProperty('background-color', '#1a4d2e', 'important');
         };
       }
@@ -220,23 +222,23 @@
 
     function searchForButtons(root) {
       if (!root) return;
-      
+
       // Selectors to target the button
       const selectors = [
         '._formSubmitButton_cit2d_96',
         '[data-testid="btn-form-submit"]',
         'button[type="submit"]',
-        'button'
+        'button',
       ];
-      
-      selectors.forEach(selector => {
+
+      selectors.forEach((selector) => {
         const buttons = root.querySelectorAll(selector);
-        buttons.forEach(button => styleButton(button));
+        buttons.forEach((button) => styleButton(button));
       });
 
       // Recurse into Shadow DOM if present
       const allElements = root.querySelectorAll('*');
-      allElements.forEach(el => {
+      allElements.forEach((el) => {
         if (el.shadowRoot) {
           searchForButtons(el.shadowRoot);
         }
@@ -250,7 +252,7 @@
     // Run on load and periodically to catch dynamically loaded app buttons
     document.addEventListener('DOMContentLoaded', applySubmitStyles);
     window.addEventListener('load', applySubmitStyles);
-    
+
     // Check more frequently and for longer since apps with Shadow DOM load asynchronously
     const interval = setInterval(applySubmitStyles, 500);
     setTimeout(() => clearInterval(interval), 10000); // Check for 10 seconds
