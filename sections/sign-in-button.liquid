@@ -176,7 +176,7 @@
   {%- else -%}
     <div class="login-prompt">
       <p style="margin-bottom: 12px;">{{ section.settings.text }}</p>
-      <a href="/account/login?return_to=/pages/sign-up" class="sign-in-btn" id="sign-in-btn">
+      <a href="/account/login?return_to={{ shop.url | append: '/pages/sign-up' | url_encode }}" class="sign-in-btn" id="sign-in-btn">
         {{ section.settings.button_label }}
       </a>
     </div>
