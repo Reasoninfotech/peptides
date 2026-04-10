@@ -183,9 +183,7 @@
           window.location.href = '{{ routes.account_login_url }}?return_to=/pages/sign-up';
         } else {
           clicked = true;
-          setTimeout(function () {
-            btn.click();
-          }, 100);
+          btn.click(); // Direct - no delay
         }
       });
     }
