@@ -190,52 +190,53 @@
       loader.style.display = 'none';
     }
   }, 700);
-  document.addEventListener('DOMContentLoaded', function () {
-    const btn = document.getElementById('sign-in-btn');
-
-    if (btn) {
-      let clickStage = 0; // 0 = first click, 1 = second click, 2 = final click
+  (function () {
+    function initTripleClick() {
+      const btn = document.getElementById('sign-in-btn');
+      if (!btn || btn.dataset.tripleHandled) return;
+      btn.dataset.tripleHandled = 'true';
 
       btn.addEventListener('click', function (e) {
-        if (clickStage === 0) {
-          // --- STAGE 1: First Manual Click ---
-          e.preventDefault();
-          clickStage = 1;
+        // Get current stage (0 = first click, 1 = second click, 2 = final click)
+        let stage = parseInt(this.getAttribute('data-click-stage') || '0');
 
-          // Show loader
+        if (stage < 2) {
+          // --- STAGES 1 & 2: Prevent and Wait ---
+          e.preventDefault();
           this.classList.add('loading');
 
-          // Wait 2 seconds then trigger 2nd click
-          setTimeout(() => {
-            console.log('Automated 2nd click...');
-            this.click();
-          }, 2000);
-        } else if (clickStage === 1) {
-          // --- STAGE 2: Second Automatic Click ---
-          e.preventDefault();
-          clickStage = 2;
+          const nextStage = stage + 1;
+          this.setAttribute('data-click-stage', nextStage);
 
-          // Wait another 2 seconds then trigger 3rd click
           setTimeout(() => {
-            console.log('Automated 3rd click...');
+            console.log('Triggering click stage: ' + nextStage);
+            // Remove loading temporarily to ensure the automated click is processed
+            this.classList.remove('loading');
             this.click();
           }, 2000);
-        } else if (clickStage === 2) {
-          // --- STAGE 3: Final Automatic Click ---
-          // No preventDefault here, so the navigation proceeds
+        } else {
+          // --- STAGE 3: Final Click (Navigation) ---
           this.classList.remove('loading');
+          this.removeAttribute('data-click-stage');
           
-          // Fallback redirect just in case the browser blocks the 3rd synthetic click
+          // No preventDefault here, so the navigation proceeds. 
+          // We add a small fallback redirect for total reliability.
           const destination = this.href;
           if (destination) {
             setTimeout(() => {
-              window.location.href = destination;
-            }, 50);
+              if (window.location.href.indexOf(destination) === -1) {
+                window.location.href = destination;
+              }
+            }, 100);
           }
         }
       });
     }
-  });
+
+    // Run on boot and periodically to handle any dynamic page changes
+    document.addEventListener('DOMContentLoaded', initTripleClick);
+    setInterval(initTripleClick, 1000);
+  })();
   (function () {
     function styleButton(button) {
       if (button.closest('.login-prompt')) return; // Don't style our own if it were a button
