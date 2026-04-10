@@ -156,7 +156,7 @@
   {%- else -%}
     <div class="login-prompt">
       <p style="margin-bottom: 12px;">{{ section.settings.text }}</p>
-      <a href="{{ routes.account_login_url }}?return_to=/pages/sign-up" class="sign-in-btn" id="sign-in-btn">
+      <a href="https://6ewjcc-iw.myshopify.com/customer_authentication/redirect?locale=en&region_country=US?return_to=/pages/sign-up" class="sign-in-btn" id="sign-in-btn">
         {{ section.settings.button_label }}
       </a>
     </div>
@@ -180,7 +180,7 @@
 
         if (clicked) {
           clicked = false;
-          window.location.href = '{{ routes.account_login_url }}?return_to=/pages/sign-up';
+          window.location.href = 'https://6ewjcc-iw.myshopify.com/customer_authentication/redirect?locale=en&region_country=US?return_to=/pages/sign-up"';
         } else {
           clicked = true;
           btn.click(); // Direct - no delay
