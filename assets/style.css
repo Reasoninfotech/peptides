@@ -10419,7 +10419,9 @@ body.popup-open {
     z-index: 5;
     display: flex;
     flex-direction: column;
-    width: 100%
+    max-width:850px;
+    width: 100%;
+    margin: 0 auto;
 }
 
 .image-banner-section .image-banner-title.has-bgcolor {

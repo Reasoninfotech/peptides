@@ -48,6 +48,61 @@
         "padding_bottom_mobile": 0
       }
     },
+    "service_bar_xJhBPa": {
+      "type": "service-bar",
+      "blocks": {
+        "item_8RpQj3": {
+          "type": "item",
+          "settings": {
+            "icon": "shipping",
+            "custom_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"26\" viewbox=\"0 0 24 26\" fill=\"none\">\n<path d=\"M22.331 6.33263L11.6655 0.999878L1 6.33263M22.331 6.33263L11.6655 11.6654M22.331 6.33263V19.6645L11.6655 24.9973M1 6.33263L11.6655 11.6654M1 6.33263V19.6645L11.6655 24.9973M11.6655 11.6654V24.9973\" stroke=\"#D4AF37\" stroke-width=\"1.99978\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n</svg>",
+            "title": "FAST SHIPPING",
+            "subtitle": "2-3 business days"
+          }
+        },
+        "item_rxC8Ny": {
+          "type": "item",
+          "settings": {
+            "icon": "tested",
+            "custom_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"26\" height=\"26\" viewbox=\"0 0 26 26\" fill=\"none\">\n<path d=\"M8.99914 13.0732L11.6655 15.7396L16.9983 10.4069M24.4881 5.05277C20.2727 5.27663 16.1407 3.81906 12.9987 0.999878C9.85673 3.81906 5.72469 5.27663 1.50928 5.05277C1.17003 6.36611 0.998903 7.71722 1.00001 9.07367C1.00001 16.5275 6.09812 22.7922 12.9987 24.568C19.8993 22.7922 24.9974 16.5289 24.9974 9.07367C24.9974 7.68449 24.8201 6.33797 24.4881 5.05277Z\" stroke=\"#D4AF37\" stroke-width=\"1.99978\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n</svg>",
+            "title": "3RD PARTY TESTED",
+            "subtitle": "Independent verification"
+          }
+        },
+        "item_PwKQhf": {
+          "type": "item",
+          "settings": {
+            "icon": "support",
+            "custom_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"26\" height=\"24\" viewbox=\"0 0 26 24\" fill=\"none\">\n<path d=\"M7.66594 11.6654H7.67928M12.9987 11.6654H13.012M18.3315 11.6654H18.3448M24.9974 11.6654C24.9974 17.5554 19.6246 22.3309 12.9987 22.3309C11.0371 22.3376 9.09884 21.9053 7.32598 21.0657L1 22.3309L2.8598 17.3714C1.68259 15.7209 1 13.7638 1 11.6654C1 5.77536 6.37275 0.999878 12.9987 0.999878C19.6246 0.999878 24.9974 5.77536 24.9974 11.6654Z\" stroke=\"#D4AF37\" stroke-width=\"1.99978\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n</svg>",
+            "title": "RESEARCH SUPPORT",
+            "subtitle": "Expert guidance"
+          }
+        },
+        "item_T3Pmty": {
+          "type": "item",
+          "settings": {
+            "icon": "secure",
+            "custom_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"26\" viewbox=\"0 0 24 26\" fill=\"none\">\n<path d=\"M11.6655 16.9981V19.6645M3.66638 24.9973H19.6646C20.3718 24.9973 21.05 24.7164 21.5501 24.2163C22.0501 23.7163 22.331 23.0381 22.331 22.3309V14.3318C22.331 13.6246 22.0501 12.9464 21.5501 12.4464C21.05 11.9463 20.3718 11.6654 19.6646 11.6654H3.66638C2.95921 11.6654 2.28101 11.9463 1.78096 12.4464C1.28092 12.9464 1 13.6246 1 14.3318V22.3309C1 23.0381 1.28092 23.7163 1.78096 24.2163C2.28101 24.7164 2.95921 24.9973 3.66638 24.9973ZM16.9983 11.6654V6.33263C16.9983 4.9183 16.4364 3.56189 15.4363 2.56181C14.4363 1.56172 13.0798 0.999878 11.6655 0.999878C10.2512 0.999878 8.89477 1.56172 7.89468 2.56181C6.8946 3.56189 6.33275 4.9183 6.33275 6.33263V11.6654H16.9983Z\" stroke=\"#D4AF37\" stroke-width=\"1.99978\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n</svg>",
+            "title": "SECURE PAYMENT",
+            "subtitle": "Encrypted transactions"
+          }
+        }
+      },
+      "block_order": [
+        "item_8RpQj3",
+        "item_rxC8Ny",
+        "item_PwKQhf",
+        "item_T3Pmty"
+      ],
+      "name": "Service Bar",
+      "settings": {
+        "bg_color": "#1a4d2e",
+        "text_color": "#ffffff",
+        "icon_color": "#f3d05d",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "partners_FYdBNT": {
       "type": "partners",
       "blocks": {
@@ -171,36 +226,114 @@
         "padding_bottom_mobile": 20,
         "hide_comparison_for_guests": false,
         "guest_heading": "Choose Your Research Grade",
-        "guest_subtext": "Not sure which peptide line is right for your research? Compare the key benefits of International Peptides and America-made Peptides to find the perfect solution for your laboratory requirements.",
+        "guest_subtext": "Not sure which peptide line is right for your research? Compare the key benefits of International Peptides and American-made Peptides to find the perfect solution for your laboratory requirements.",
         "guest_tip": "<p><strong>Need help deciding?</strong> Our America-made Peptides line offers superior purity (≥99%), faster shipping (2-3 days vs 7-10 days), and enhanced quality documentation from FDA-registered facilities.</p>",
-        "global_title": "Global Clinical Grade",
+        "global_title": "International Peptides",
         "global_badge": "Standard Line",
         "global_subtitle": "Cost-effective research peptides for standard laboratory protocols",
-        "global_product": "bpc-157",
+        "global_image": "shopify://shop_images/3956c659cf981be8702eb783b8e0ddde74cd71b6.png",
         "global_collection": "international-peptides",
         "global_btn_label": "Browse Global Collection",
         "global_origin": "International",
-        "global_purity": "≥98% (HPLC)",
+        "global_purity": "<98% Purity",
         "global_testing": "ISO Certified",
         "global_lead_time": "7-10 business days",
         "global_price": "Standard pricing",
         "global_coa": "✓ Yes",
-        "american_title": "American Clinical Grade",
+        "american_title": "American-made Peptides",
         "american_badge": "RECOMMENDED",
         "american_subtitle": "Premium USA-manufactured peptides with superior quality standards",
-        "american_product": "bpc-158",
+        "american_image": "shopify://shop_images/c3e3b349-6b35-4a2c-aa47-8cbced5e637e.jpg",
         "american_collection": "america-made-peptides",
         "american_btn_label": "Browse US Collection",
         "american_origin": "USA 🇺🇸",
-        "american_purity": "≥99% (HPLC + MS)",
+        "american_purity": "≥99% Purity",
         "american_testing": "FDA-Registered",
         "american_lead_time": "2-3 business days",
         "american_price": "Premium (15% more)",
-        "american_coa": "✓ Enhanced Documentation"
+        "american_coa": "Enhanced Documentation"
+      }
+    },
+    "testimonial_rzXeCw": {
+      "type": "testimonial",
+      "blocks": {
+        "testimonial_YC3UQ8": {
+          "type": "testimonial",
+          "settings": {
+            "star_reviews": "5",
+            "body_text": "Exceptional purity and consistent quality across multiple batches. The comprehensive COA documentation and third-party verification make this ideal for our preclinical studies. Reliable supplier for our laboratory.",
+            "author_image": "shopify://shop_images/photo-1494790108377-be9c29b29330.jpg",
+            "author_name": "Dr. Sarah Mitchell",
+            "author_comment": "I recommend this product.",
+            "author_verified": true,
+            "product": "bpc-157",
+            "product_color_scheme": "scheme-2"
+          }
+        },
+        "testimonial_xUnnRx": {
+          "type": "testimonial",
+          "settings": {
+            "star_reviews": "5",
+            "body_text": "Outstanding peptide quality with excellent batch-to-batch consistency. HPLC analysis confirms advertised purity. Fast shipping and professional customer service. Highly recommended for research applications.",
+            "author_image": "shopify://shop_images/photo-1507003211169-0a1dd7228f2d.jpg",
+            "author_name": "Dr. James Chen",
+            "author_comment": "I recommend this product.",
+            "author_verified": true,
+            "product": "bpc-157",
+            "product_color_scheme": "scheme-2"
+          }
+        },
+        "testimonial_C8UdAY": {
+          "type": "testimonial",
+          "settings": {
+            "star_reviews": "5",
+            "body_text": "Impressive peptide quality with detailed analytical data. The customer support team is knowledgeable and responsive. Our lab has been using these products for six months with excellent results in our research protocols.",
+            "author_image": "shopify://shop_images/photo-1438761681033-6461ffad8d80.jpg",
+            "author_name": "Dr. Emily Rodriguez",
+            "author_comment": "I recommend this product.",
+            "author_verified": true,
+            "product": "bpc-157",
+            "product_color_scheme": "scheme-2"
+          }
+        },
+        "testimonial_6wzge3": {
+          "type": "testimonial",
+          "settings": {
+            "star_reviews": "5",
+            "body_text": "Top-tier research compounds with comprehensive documentation. The batch testing is thorough and the results are reproducible. Essential supplier for our ongoing preclinical investigations.",
+            "author_image": "shopify://shop_images/photo-1472099645785-5658abf4ff4e.jpg",
+            "author_name": "Dr. Michael Torres",
+            "author_comment": "I recommend this product.",
+            "author_verified": true,
+            "product": "bpc-157",
+            "product_color_scheme": "scheme-2"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_YC3UQ8",
+        "testimonial_xUnnRx",
+        "testimonial_C8UdAY",
+        "testimonial_6wzge3"
+      ],
+      "settings": {
+        "color_scheme": "scheme-3",
+        "full": false,
+        "caption": "( 4.9/5, ★ BASED ON +10,000 RESEARCHERS )",
+        "heading": "What researchers say about us",
+        "heading_size": "h3",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20
       }
     },
     "image_banner_gXgkNz": {
       "type": "image-banner",
+      "custom_css": [
+        ".button.primary-button {border-radius: 10px; color: #1a4d2e;}",
+        ".button.primary-button:hover {color: #ffffff;}"
+      ],
       "name": "t:sections.image-banner.name",
       "settings": {
         "color_scheme": "scheme-3",
@@ -266,6 +399,10 @@
       "block_order": [
         "image-1"
       ],
+      "custom_css": [
+        ".button.primary-button {border-radius: 10px; background: #1a4d2e; border: none;}",
+        ".button.primary-button:hover {color: #ffffff;}"
+      ],
       "settings": {
         "color_scheme": "",
         "full": false,
@@ -274,8 +411,8 @@
         "heading_text": "<strong>The COA Purity Scam</strong>",
         "heading_size": "h3",
         "text": "<p>A \"99% purity\" chart spike doesn’t reveal the full truth. It shows the molecular structure match, but doesn’t tell you how much actual peptide is in the vial. Fillers, salts, and contaminants can account for a significant portion, leaving you guessing about the quality of the product.</p>",
-        "button_label": "",
-        "button_link": "",
+        "button_label": "Access catalog",
+        "button_link": "shopify://collections/all-products",
         "desktop_layout": "left",
         "mobile_layout": "multimedia-collage",
         "padding_top": 30,
@@ -396,49 +533,48 @@
         "subtext": "Our commitment to research excellence is demonstrated through rigorous quality control protocols and comprehensive analytical verification of every batch."
       }
     },
-    "faqs_BXjA7p": {
+    "faqs_pE8Pr8": {
       "type": "faqs",
       "blocks": {
-        "tab_rKzQA7": {
+        "tab_MikhJN": {
           "type": "tab",
           "settings": {
-            "question": "Are your peptides suitable for human consumption?",
-            "answer": "<p>No. All research peptides are intended strictly for laboratory research and in vitro study only. These compounds are not approved for human or animal consumption.<br/><br/></p>"
+            "question": "What is BPC-157?",
+            "answer": "<p>BPC-157 is a synthetic peptide derived from a protective protein found in gastric juice. In preclinical models, it has been suggested to support tissue repair mechanisms and cellular regeneration processes. This compound is intended strictly for laboratory research purposes.<br/><br/></p>"
           }
         },
-        "tab_kzhKWM": {
-          "type": "tab",
-          "settings": {
-            "question": "What purity standards do you maintain?",
-            "answer": "<p>All peptides undergo rigorous third-party testing and maintain ≥98% purity verified by HPLC and mass spectrometry analysis. Complete certificates of analysis are available upon request.<br/><br/></p>"
-          }
-        },
-        "tab_nrwLna": {
+        "tab_UYJR8P": {
           "type": "tab",
           "settings": {
             "question": "How should research peptides be stored?",
-            "answer": "<p>Lyophilized peptides should be stored at -20°C in the original sealed vial. Once reconstituted, store at 2-8°C and use within the timeframe specified in the product documentation.<br/><br/></p>"
+            "answer": "<p>Lyophilized peptides should be stored at -20°C in the original sealed vial, protected from light and moisture. Once reconstituted with bacteriostatic water, store at 2-8°C and use within the timeframe specified in the product documentation.<br/><br/></p>"
           }
         },
-        "tab_ert8Kx": {
+        "tab_ctQbdM": {
           "type": "tab",
           "settings": {
-            "question": "Do you ship internationally?",
-            "answer": "<p>We currently ship to qualifying research institutions within the United States. International shipping may be available for verified organizations. Contact us for specific requirements.<br/><br/></p>"
+            "question": "What purity level is guaranteed?",
+            "answer": "<p>This research-grade peptide maintains ≥98% purity as verified through high-performance liquid chromatography (HPLC) and mass spectrometry analysis. Complete certificates of analysis are provided with each batch.<br/><br/></p>"
+          }
+        },
+        "tab_FAk9PP": {
+          "type": "tab",
+          "settings": {
+            "question": "Is this suitable for human use?",
+            "answer": "<p>No. This compound is intended strictly for in vitro research and laboratory investigation only. It is not approved for human or animal consumption, therapeutic use, or clinical application.<br/><br/></p>"
           }
         }
       },
       "block_order": [
-        "tab_rKzQA7",
-        "tab_kzhKWM",
-        "tab_nrwLna",
-        "tab_ert8Kx"
+        "tab_MikhJN",
+        "tab_UYJR8P",
+        "tab_ctQbdM",
+        "tab_FAk9PP"
       ],
-      "name": "t:sections.faqs.name",
       "settings": {
         "color_scheme": "",
         "sub_heading_text": "",
-        "heading_text": "Research Compound Information",
+        "heading_text": "FAQs",
         "heading_size": "h3",
         "text": "",
         "enable_contact": false,
@@ -468,8 +604,10 @@
   },
   "order": [
     "slideshow",
+    "service_bar_xJhBPa",
     "partners_FYdBNT",
     "featured_collection",
+    "testimonial_rzXeCw",
     "image_banner_gXgkNz",
     "rich_text_XpJCLc",
     "multimedia_collage",
@@ -477,7 +615,7 @@
     "collection_list",
     "partners",
     "quality_features_yxMY7W",
-    "faqs_BXjA7p",
+    "faqs_pE8Pr8",
     "contact_jBLgwG"
   ]
 }
