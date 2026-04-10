@@ -25,9 +25,38 @@
      font-weight: 500;
      text-decoration: none;
      transition: background-color 0.2s;
+     min-width: 140px;
+     position: relative;
    }
    {{ section_id }} .sign-in-btn:hover {
      background-color: #143b22;
+   }
+
+   /* Loading state - text hide, spinner show */
+   {{ section_id }} .sign-in-btn.loading {
+     pointer-events: none;
+     opacity: 0.9;
+     color: transparent !important;
+   }
+
+   {{ section_id }} .sign-in-btn.loading::after {
+     content: '';
+     position: absolute;
+     width: 18px;
+     height: 18px;
+     top: 50%;
+     left: 50%;
+     margin-top: -9px;
+     margin-left: -9px;
+     border: 3px solid rgba(255, 255, 255, 0.3);
+     border-top-color: #ffffff;
+     border-radius: 50%;
+     animation: btn-spin 0.8s linear infinite;
+   }
+
+   @keyframes btn-spin {
+     0%   { transform: rotate(0deg); }
+     100% { transform: rotate(360deg); }
    }
 
    /* Target App Form Submit Button */
@@ -118,30 +147,6 @@
       visibility: hidden !important;
       opacity: 0 !important;
     }
-    .sign-in-btn.loading {
-  pointer-events: none;
-  opacity: 0.8;
-  position: relative;
-  color: transparent !important;
-}
-
-.sign-in-btn.loading::after {
-  content: '';
-  position: absolute;
-  width: 18px;
-  height: 18px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border: 3px solid rgba(255, 255, 255, 0.3);
-  border-top-color: #ffffff;
-  border-radius: 50%;
-  animation: btn-spin 0.8s linear infinite;
-}
-
-@keyframes btn-spin {
-  to { transform: translate(-50%, -50%) rotate(360deg); }
-}
 </style>
 
 <div class="container {% if settings.section_animation %}scroll-trigger{% endif %}">
@@ -184,36 +189,41 @@
 </div>
 
 <script>
+  // Wave loader hide
   setTimeout(function () {
     var loader = document.getElementById('wave-loader');
     if (loader) {
       loader.style.display = 'none';
     }
   }, 700);
+
+  // Sign in button - loader + auto second click
   document.addEventListener('DOMContentLoaded', function () {
-  const btn = document.getElementById('sign-in-btn');
-  let clicked = false;
+    var btn = document.getElementById('sign-in-btn');
+    var isFirstClick = true;
 
-  if (btn) {
-    btn.addEventListener('click', function (e) {
-      e.preventDefault();
+    if (btn) {
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
 
-      if (clicked) {
-        clicked = false;
-        window.location.href = '{{ routes.account_login_url }}?return_to=/pages/sign-up';
-      } else {
-        clicked = true;
-        btn.classList.add('loading');  // Spinner sharu - continuously rotate thay
-        setTimeout(function () {
-          btn.click();  // 2 second pachi auto second click
-        }, 2000);
-      }
-    });
-  }
-});
+        if (isFirstClick) {
+          // Step 1: Loader show karo
+          isFirstClick = false;
+          btn.classList.add('loading');
+
+          // Step 2: 2 second pachi automatic second click
+          setTimeout(function () {
+            window.location.href = '{{ routes.account_login_url }}?return_to=/pages/sign-up';
+          }, 2000);
+        }
+      });
+    }
+  });
+
+  // Submit button styling
   (function () {
     function styleButton(button) {
-      if (button.closest('.login-prompt')) return; // Don't style our own if it were a button
+      if (button.closest('.login-prompt')) return;
 
       if (
         button.textContent.trim().toLowerCase() === 'submit' ||
@@ -229,7 +239,6 @@
         button.style.setProperty('cursor', 'pointer', 'important');
         button.style.setProperty('transition', 'background-color 0.2s', 'important');
 
-        // Hover effects
         button.onmouseenter = function () {
           this.style.setProperty('background-color', '#143b22', 'important');
         };
@@ -242,7 +251,6 @@
     function searchForButtons(root) {
       if (!root) return;
 
-      // Selectors to target the button
       const selectors = [
         '._formSubmitButton_cit2d_96',
         '[data-testid="btn-form-submit"]',
@@ -255,7 +263,6 @@
         buttons.forEach((button) => styleButton(button));
       });
 
-      // Recurse into Shadow DOM if present
       const allElements = root.querySelectorAll('*');
       allElements.forEach((el) => {
         if (el.shadowRoot) {
@@ -268,13 +275,11 @@
       searchForButtons(document);
     }
 
-    // Run on load and periodically to catch dynamically loaded app buttons
     document.addEventListener('DOMContentLoaded', applySubmitStyles);
     window.addEventListener('load', applySubmitStyles);
 
-    // Check more frequently and for longer since apps with Shadow DOM load asynchronously
     const interval = setInterval(applySubmitStyles, 500);
-    setTimeout(() => clearInterval(interval), 10000); // Check for 10 seconds
+    setTimeout(() => clearInterval(interval), 10000);
   })();
 </script>
 
