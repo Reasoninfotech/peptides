@@ -190,27 +190,6 @@
       loader.style.display = 'none';
     }
   }, 700);
-  document.addEventListener('DOMContentLoaded', function () {
-  const btn = document.getElementById('sign-in-btn');
-  let clicked = false;
-
-  if (btn) {
-    btn.addEventListener('click', function (e) {
-      e.preventDefault();
-
-      if (clicked) {
-        clicked = false;
-        window.location.href = '{{ routes.account_login_url }}?return_to=/pages/sign-up';
-      } else {
-        clicked = true;
-        btn.classList.add('loading');  // Spinner sharu - continuously rotate thay
-        setTimeout(function () {
-          btn.click();  // 2 second pachi auto second click
-        }, 2000);
-      }
-    });
-  }
-});
   (function () {
     function styleButton(button) {
       if (button.closest('.login-prompt')) return; // Don't style our own if it were a button
