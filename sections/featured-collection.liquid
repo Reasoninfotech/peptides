@@ -243,7 +243,7 @@
     }
     .comparison-header {
       max-width: 800px;
-      margin: 0 auto 60px;
+      margin: 0 auto 48px;
       padding: 0 20px;
     }
     .comparison-header h2 {
@@ -427,12 +427,61 @@
 
     @media (max-width: 900px) {
       .comparison-grid {
-        flex-direction: column;
-        gap: 40px;
-        padding: 20px;
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        padding: 20px 10px;
       }
       .comparison-card {
-        padding: 30px;
+        flex: 1;
+        padding: 20px 12px;
+        border-radius: 12px;
+      }
+      .card-header {
+        margin-bottom: 15px;
+      }
+      .card-title {
+        font-size: 15px;
+        gap: 6px;
+      }
+      .card-subtitle {
+        font-size: 11px;
+      }
+      .card-image-box {
+        height: 110px;
+        margin-bottom: 15px;
+        border-radius: 10px;
+      }
+      .benefit-item {
+        font-size: 10px;
+        gap: 6px;
+        margin-bottom: 10px;
+      }
+      .benefit-item svg {
+        width: 14px;
+        height: 14px;
+      }
+      .card-action-btn {
+        padding: 12px 8px;
+        font-size: 10px;
+        border-radius: 8px;
+      }
+      .card-footer-text {
+        font-size: 10px;
+        margin-top: 10px;
+      }
+      .card-badge-wrapper {
+        top: -10px;
+      }
+      .card-badge {
+        font-size: 9px;
+        padding: 5px 12px;
+      }
+      .comparison-header h2 {
+        font-size: 24px;
+      }
+      .comparison-header p {
+        font-size: 14px;
       }
     }
   </style>
@@ -477,7 +526,7 @@
           </div>
           <div class="card-header">
             <h3 class="card-title">🇺🇸 {{ section.settings.american_title }}</h3>
-            <p class="card-subtitle">Premium Line • {{ section.settings.american_testing }}</p>
+{% comment %} <p class="card-subtitle">Premium Line • {{ section.settings.american_testing }}</p> {% endcomment %}
           </div>
           <div class="card-image-box">
              {% if american_image %}
@@ -737,7 +786,7 @@
       "type": "text",
       "id": "global_title",
       "label": "Title",
-      "default": "Global Clinical Grade"
+      "default": "International-Origin Peptides"
     },
     {
       "type": "text",
@@ -811,7 +860,7 @@
       "type": "text",
       "id": "american_title",
       "label": "Title",
-      "default": "American Clinical Grade"
+      "default": "American-Made Peptides (Tier 1)"
     },
     {
       "type": "text",
