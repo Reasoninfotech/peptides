@@ -521,9 +521,13 @@
           </div>
           <div class="card-image-box">
              {% if global_image %}
-               <img src="{{ global_image | img_url: '400x' }}" alt="{{ global_image.alt | default: section.settings.global_title }}" loading="lazy">
+               <img src="{{ global_image | img_url: '400x' }}" class="{% if section.settings.global_image_mobile != blank %}hidden-tablet hidden-mobile{% endif %}" alt="{{ global_image.alt | default: section.settings.global_title }}" loading="lazy">
              {% else %}
-               <img src="https://cdn.shopify.com/s/files/1/0805/0013/7979/files/glp-1_international.png?v=1710925000" alt="Global" loading="lazy">
+               <img src="https://cdn.shopify.com/s/files/1/0805/0013/7979/files/glp-1_international.png?v=1710925000" class="{% if section.settings.global_image_mobile != blank %}hidden-tablet hidden-mobile{% endif %}" alt="Global" loading="lazy">
+             {% endif %}
+
+             {% if section.settings.global_image_mobile != blank %}
+               <img src="{{ section.settings.global_image_mobile | img_url: '400x' }}" class="hidden-desktop" alt="{{ section.settings.global_image_mobile.alt | default: section.settings.global_title }}" loading="lazy">
              {% endif %}
           </div>
           <ul class="comparison-benefits">
@@ -549,9 +553,13 @@
           </div>
           <div class="card-image-box">
              {% if american_image %}
-               <img src="{{ american_image | img_url: '400x' }}" alt="{{ american_image.alt | default: section.settings.american_title }}" loading="lazy">
+               <img src="{{ american_image | img_url: '400x' }}" class="{% if section.settings.american_image_mobile != blank %}hidden-tablet hidden-mobile{% endif %}" alt="{{ american_image.alt | default: section.settings.american_title }}" loading="lazy">
              {% else %}
-               <img src="https://cdn.shopify.com/s/files/1/0805/0013/7979/files/glp-1_usa.png?v=1710925000" alt="USA" loading="lazy">
+               <img src="https://cdn.shopify.com/s/files/1/0805/0013/7979/files/glp-1_usa.png?v=1710925000" class="{% if section.settings.american_image_mobile != blank %}hidden-tablet hidden-mobile{% endif %}" alt="USA" loading="lazy">
+             {% endif %}
+
+             {% if section.settings.american_image_mobile != blank %}
+               <img src="{{ section.settings.american_image_mobile | img_url: '400x' }}" class="hidden-desktop" alt="{{ section.settings.american_image_mobile.alt | default: section.settings.american_title }}" loading="lazy">
              {% endif %}
           </div>
           <ul class="comparison-benefits">
@@ -838,7 +846,12 @@
     {
       "type": "image_picker",
       "id": "global_image",
-      "label": "Select Image"
+      "label": "Select Image (Desktop)"
+    },
+    {
+      "type": "image_picker",
+      "id": "global_image_mobile",
+      "label": "Select Image (Mobile)"
     },
     {
       "type": "collection",
@@ -912,7 +925,12 @@
     {
       "type": "image_picker",
       "id": "american_image",
-      "label": "Select Image"
+      "label": "Select Image (Desktop)"
+    },
+    {
+      "type": "image_picker",
+      "id": "american_image_mobile",
+      "label": "Select Image (Mobile)"
     },
     {
       "type": "collection",
