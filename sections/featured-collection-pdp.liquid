@@ -534,7 +534,7 @@
             <li class="benefit-item">{% render 'icon', code: 'checkmark' %} {{ section.settings.global_price }}</li>
             <li class="benefit-item">{% render 'icon', code: 'checkmark' %} Certificate of Analysis included</li>
           </ul>
-          <a href="{{ section.settings.global_collection.url | default: '/pages/sign-up' }}" class="card-action-btn">{{ section.settings.global_title }}</a>
+          <a href="{{ section.settings.global_collection.url | default: '/pages/sign-up' }}" class="card-action-btn">{{ section.settings.global_btn_label }}</a>
           <div class="card-footer-text">Standard research grade</div>
         </div>
 
@@ -598,7 +598,7 @@
               {{ section.settings.american_coa }}
             </li>
           </ul>
-          <a href="{{ section.settings.american_collection.url | default: '/pages/sign-up' }}" class="card-action-btn">{{ section.settings.american_title }}</a>
+          <a href="{{ section.settings.american_collection.url | default: '/pages/sign-up' }}" class="card-action-btn">{{ section.settings.american_btn_label }}</a>
           <div class="card-footer-text">Premium research grade</div>
         </div>
       </div>
