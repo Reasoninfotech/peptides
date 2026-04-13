@@ -149,6 +149,7 @@
         "image_bjyfgR",
         "image_LH4abj"
       ],
+      "disabled": true,
       "custom_css": [
         ".section-wrapper {background-color: #fff !important; padding: 50px 16px !important;}",
         ".heading,.description {color: #000 !important;}",
