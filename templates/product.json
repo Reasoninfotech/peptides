@@ -142,7 +142,7 @@
           "type": "item",
           "settings": {
             "icon": "shipping",
-            "custom_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"26\" viewbox=\"0 0 24 26\" fill=\"none\">\n<path d=\"M22.331 6.33263L11.6655 0.999878L1 6.33263M22.331 6.33263L11.6655 11.6654M22.331 6.33263V19.6645L11.6655 24.9973M1 6.33263L11.6655 11.6654M1 6.33263V19.6645L11.6655 24.9973M11.6655 11.6654V24.9973\" stroke=\"#D4AF37\" stroke-width=\"1.99978\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n</svg>",
+            "custom_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewbox=\"0 0 32 32\" fill=\"none\">\n<path d=\"M26.663 9.33275L15.9975 4L5.33203 9.33275M26.663 9.33275L15.9975 14.6655M26.663 9.33275V22.6646L15.9975 27.9974M5.33203 9.33275L15.9975 14.6655M5.33203 9.33275V22.6646L15.9975 27.9974M15.9975 14.6655V27.9974\" stroke=\"#D4AF37\" stroke-width=\"1.99978\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n</svg>",
             "title": "FAST SHIPPING",
             "subtitle": "2-3 business days"
           }
