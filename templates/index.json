@@ -42,6 +42,7 @@
         ".slide-element-inner {max-width: 600px;}"
       ],
       "settings": {
+        "custom_class": "home_slider_section",
         "color_scheme": "scheme-1",
         "full": true,
         "height": "medium",
