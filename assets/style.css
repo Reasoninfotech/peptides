@@ -5480,6 +5480,10 @@ body.popup-open {
     margin-bottom: 1.6rem
 }
 
+.feature-box-section .heading-item h5{
+    font-weight: 500;
+}
+
 .feature-box-section .box-item:not(.title-wrapper) .button-box {
     font-size: 1.4rem
 }
