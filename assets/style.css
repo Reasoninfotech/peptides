@@ -13606,7 +13606,7 @@ padding: 16px;
 }
 
 .pagination .pagination-item.current {
-    color: rgb(var(--background-color));
+    color: #fff;
     background-color: rgb(var(--text-color))
 }
 
