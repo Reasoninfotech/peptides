@@ -65,7 +65,99 @@
 		line-height: 1.5!important;
 	}
 	.home_slider_section .slide-element-inner{color: #000000; font-size: 48px; margin-bottom: 16px!important; line-height: 1.1!important;font-weight: 500;}
-	
+
+    @media (max-width: 991px) {
+		{%- if section.settings.mobile_content_below -%}
+			{{ section_id }} .section-wrapper > div {
+				padding-left: 0 !important;
+				padding-right: 0 !important;
+				max-width: 100% !important;
+			}
+			{{ section_id }} .theme-slider .unity-slide {
+                position: relative !important;
+				height: 650px !important;
+                background: #fff;
+                display: block !important;
+			}
+			{{ section_id }} .theme-slider .slider-image {
+                position: absolute !important;
+                top: 0;
+                left: 0;
+                width: 100%;
+				height: 100% !important;
+			}
+            {{ section_id }} .theme-slider .slider-image img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+            {{ section_id }} .theme-slider .slider-image:before {
+                display: none !important;
+            }
+			{{ section_id }} .theme-slider .slider-content {
+				position: absolute !important;
+				background: transparent;
+				padding: 32px 20px 48px !important;
+				transform: none !important;
+				bottom: 0 !important;
+				left: auto !important;
+				width: 100% !important;
+				height: auto !important;
+                display: block !important;
+                text-align: left !important;
+                z-index: 2;
+			}
+            {{ section_id }} .content-wrap {
+                text-align: left !important;
+            }
+			{{ section_id }} .theme-slider .slider-content-inner {
+				max-width: 100% !important;
+                width: 100% !important;
+                display: block !important;
+			}
+            {{ section_id }} .slider-pagination {
+                display: none !important;
+            }
+		{%- else -%}
+            {{ section_id }} .theme-slider .unity-slide {
+                height: 650px !important;
+            }
+            {{ section_id }} .theme-slider .slider-content {
+                padding: 24px !important;
+                background: transparent !important;
+            }
+		{%- endif -%}
+		
+		{{ section_id }} .home_slider_section h2.slide-element-inner,
+        {{ section_id }} .slider-heading .slide-element-inner {
+   			font-weight: 600!important;
+   			font-size: 32px!important;
+    		margin: 0px 0 16px 0 !important;
+            {%- if section.settings.mobile_content_below -%}color: #000 !important;{%- else -%}color: #ffffff !important;{%- endif -%}
+            line-height: 1.1 !important;
+            text-align: left !important;
+		}
+		{{ section_id }} .home_slider_section .slide-element-inner,
+        {{ section_id }} .slider-description .slide-element-inner {
+			display: inline-block!important;
+            {%- if section.settings.mobile_content_below -%}color: #4B5563 !important;{%- else -%}color: #ffffff !important;{%- endif -%}
+            font-size: 18px !important;
+            line-height: 1.5 !important;
+            text-align: left !important;
+            margin: 0 !important;
+		}
+        {{ section_id }} .slider-button {
+            margin-top: 24px !important;
+            display: flex !important;
+            justify-content: start !important;
+        }
+        {{ section_id }} .slider-button .button {
+            width: 100% !important;
+            max-width: 320px !important;
+            text-align: left!important;
+            margin: 0 !important;
+        }
+	}
 </style>
 
 <div class="section-wrapper {{ section.settings.custom_class }} color-{{ section.settings.color_scheme }}" style="margin-top: 0px;">
@@ -296,6 +388,24 @@
 			"default": 0,
 			"unit": "px",
 			"label": "t:general.padding.bottom.label"
+		},
+		{
+			"type": "checkbox",
+			"id": "mobile_content_below",
+			"default": true,
+			"label": "Content below image on mobile"
+		},
+		{
+			"type": "select",
+			"id": "mobile_aspect_ratio",
+			"default": "1/1",
+			"options": [
+				{ "value": "auto", "label": "Auto" },
+				{ "value": "1/1", "label": "Square (1:1)" },
+				{ "value": "4/5", "label": "Portrait (4:5)" },
+				{ "value": "16/9", "label": "Landscape (16:9)" }
+			],
+			"label": "Mobile Image Aspect Ratio"
 		}
 	],
 	"blocks": [
