@@ -5480,6 +5480,10 @@ body.popup-open {
     margin-bottom: 1.6rem
 }
 
+.feature-box-section .heading-item h5{
+    font-weight: 500;
+}
+
 .feature-box-section .box-item:not(.title-wrapper) .button-box {
     font-size: 1.4rem
 }
@@ -12751,6 +12755,12 @@ padding: 16px;
     overflow: hidden;
     height: 100%;
     width: 100%
+}
+
+.multimedia-collage-title .button.primary-button{
+    max-width: 250px;
+    width: 100%;
+    padding: 16px;
 }
 
 @media(hover: hover) {
@@ -21804,13 +21814,19 @@ padding: 16px;
     overflow: hidden
 }
 
+@media (min-width: 992px){
+    .testimonial-section .unity-slider{
+        --slide-spacing: 3.2rem!important;
+    }
+}
+
 .testimonial-section .testi-head {
     margin: 0;
     line-height: 5.2rem
 }
 
 .testimonial-section .testi-body {
-    margin-bottom: 1.6rem;
+    margin-bottom: 20px;
     font-size: 2rem
 }
 
@@ -21827,7 +21843,7 @@ padding: 16px;
 }
 
 .testimonial-section .review-testimonial {
-    margin-bottom: 2rem
+    margin-bottom: 15px;
 }
 
 .testimonial-section .testi-author {
@@ -21995,19 +22011,18 @@ padding: 16px;
     }
 
     .testimonial-section .testi-head {
-        font-size: 4.8rem;
+        font-size: 48px;
         line-height: 48px;
         font-weight: 500;
-
     }
 
     .testimonial-section .testi-body {
-        margin-bottom: 3.2rem;
+        margin-bottom: 20px;
         font-size: 1.6rem
     }
 
     .testimonial-section .review-testimonial {
-        margin-bottom: 3.2rem
+        margin-bottom: 15px;
     }
 
     .testimonial-section .unity-slider-viewport {
@@ -22096,6 +22111,11 @@ padding: 16px;
     .text-content-section .list-item img {
         width: 100%
     }
+
+    .testimonial-section .testi-head{
+        line-height: 38px;
+    }
+
 }
 
 .timeline-section timeline-carousel {

@@ -238,20 +238,20 @@
   <style>
     .comparison-section {
       padding: 80px 0;
-      background: #fafafa;
+      background: #fff;
       text-align: center;
     }
     .comparison-section .container {
       max-width: 100%;
     }
     .comparison-header {
-      max-width: 800px;
+      max-width: 740px;
       margin: 0 auto 48px;
-      padding: 0 20px;
     }
     .comparison-header h2 {
       font-size: 36px;
       font-weight: 500;
+      margin-top: 0;
       margin-bottom: 16px;
       color: #000;
       letter-spacing: -0.02em;
@@ -270,7 +270,7 @@
     .comparison-card {
       flex: 1;
       border-radius: 20px;
-      padding: 40px;
+      padding: 30px;
       text-align: left;
       position: relative;
       display: flex;
@@ -284,26 +284,26 @@
     }
     .comparison-card.premium {
       background: #1A4D2E;
-      color: #fff;
-      border: 2px solid #E9BC47;
-      box-shadow: 0 4px 20.9px rgba(212, 175, 55, 0.6);
+      color: #fff;     
+      box-shadow: 0px 0px 29.3px 0px rgba(212, 175, 55, 1);
+
     }
     .premium:hover {
       box-shadow: 0 8px 30px rgba(212, 175, 55, 0.7);
     }
     .card-header {
-      margin-bottom: 25px;
+      margin-bottom: 24px;
     }
     .premium .card-title {
       font-size: 24px;
       font-weight: 700;
-      margin: 0 0 8px 0;
+      margin: 0;
       color: inherit; 
     }
     .standard .card-title {
       font-size: 24px;
       font-weight: 500;
-      margin: 0 0 8px 0;
+      margin: 0;
       color: inherit;
       align-items: center;
       gap: 10px;
@@ -348,7 +348,7 @@
       {% comment %} display: flex; {% endcomment %}
       align-items: center;
       justify-content: center;
-      margin-bottom: 30px;
+      margin-bottom: 24px;
       overflow: hidden;
       border: 1px solid #ffffff;
     }
@@ -356,7 +356,7 @@
       background-color: #FFFFFF;
     }
     .premium .card-image-box {
-      background-color: #F9FAFB;
+      background-color: #fff;
     }
     .card-image-box img {
       width: 100%;
@@ -428,14 +428,27 @@
        color: #E9BC47;
        opacity: 1;
     }
-    .grade-tip {
+     .grade-tip{
+      margin-top: 16px;
+      background: #F9FAFB;
+      border: 1px solid #E5E7EB;
+      padding: 24px 48px;
+      border-radius: 14px;
+    }
+
+    .grade-tip p{
       max-width: 1100px;
-      margin: 40px auto 0;
+      margin: 0 auto;
       font-size: 14px;
       color: #666;
     }
 
     @media (max-width: 900px) {
+
+      .comparison-section{
+        padding: 60px 0;
+      }
+
       .comparison-section .container {
         padding: 0 10px;
       }
@@ -501,6 +514,15 @@
         font-size: 14px;
       }
     }
+
+    
+    @media (max-width: 767px){
+     .comparison-section{
+        padding: 40px 0;
+      }
+    }
+
+
   </style>
 
   <div id="featured-collection-section" class="comparison-section">
@@ -564,45 +586,45 @@
           <ul class="comparison-benefits">
             {% if section.settings.american_origin != blank %}
             <li class="benefit-item">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="10" cy="10" r="10" fill="white"/>
-                <path d="M6 10L9 13L14 7" stroke="#1A4D2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <rect width="20" height="20" rx="10" fill="white"/>
+              <path d="M5.33984 11.1765L8.19699 14.3765L15.3398 6.37646" stroke="#1A4D2E" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
               {{ section.settings.american_origin | remove: '🇺🇸' | strip }} 
             </li>
             {% endif %}
             {% if section.settings.american_purity != blank %}
             <li class="benefit-item">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="10" cy="10" r="10" fill="white"/>
-                <path d="M6 10L9 13L14 7" stroke="#1A4D2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <rect width="20" height="20" rx="10" fill="white"/>
+                <path d="M5.33984 11.1765L8.19699 14.3765L15.3398 6.37646" stroke="#1A4D2E" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
               {{ section.settings.american_purity }}
             </li>
             {% endif %}
             {% if section.settings.american_testing != blank %}
             <li class="benefit-item">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="10" cy="10" r="10" fill="white"/>
-                <path d="M6 10L9 13L14 7" stroke="#1A4D2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <rect width="20" height="20" rx="10" fill="white"/>
+                <path d="M5.33984 11.1765L8.19699 14.3765L15.3398 6.37646" stroke="#1A4D2E" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
               {{ section.settings.american_testing }} 
             </li>
             {% endif %}
             {% if section.settings.american_lead_time != blank %}
             <li class="benefit-item">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="10" cy="10" r="10" fill="white"/>
-                <path d="M6 10L9 13L14 7" stroke="#1A4D2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <rect width="20" height="20" rx="10" fill="white"/>
+              <path d="M5.33984 11.1765L8.19699 14.3765L15.3398 6.37646" stroke="#1A4D2E" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
               {{ section.settings.american_lead_time }} 
             </li>
             {% endif %}
             {% if section.settings.american_coa != blank %}
             <li class="benefit-item">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="10" cy="10" r="10" fill="white"/>
-                <path d="M6 10L9 13L14 7" stroke="#1A4D2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <rect width="20" height="20" rx="10" fill="white"/>
+              <path d="M5.33984 11.1765L8.19699 14.3765L15.3398 6.37646" stroke="#1A4D2E" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
               {{ section.settings.american_coa }}
             </li>
