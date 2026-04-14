@@ -5444,7 +5444,11 @@ body.popup-open {
     justify-content: space-between;
     padding: 2.4rem;
     gap: 2.4rem;
-    height: 100%
+    height: 100%;
+    background-color: #ffffff;
+    border: 0.56px solid #F3F4F6;
+    border-radius: 16px;
+    box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.1), 0px 1px 3px 0px rgba(0, 0, 0, 0.1);
 }
 
 .feature-box-section .box-item:not(.title-wrapper) .info-box {
@@ -5497,13 +5501,14 @@ body.popup-open {
     }
 
     .feature-box-section .box-carousel .content-wrapper {
-        flex-direction: column
+        flex-direction: column;
     }
 }
 
 @media(max-width: 991px)and (max-width: 991px) {
     .feature-box-section .box-carousel .content-wrapper {
         padding-bottom: 8.2rem
+        
     }
 }
 
@@ -5518,12 +5523,13 @@ body.popup-open {
     }
 
     .feature-box-section .box-carousel .content-wrapper {
-        gap: var(--grid-vertical)
+        gap: var(--grid-vertical);
+        width: 1231px;
     }
 
     .feature-box-section .box-carousel .unity-slider {
         --slide-spacing: var(--grid-vertical);
-        --slide-size: 92%
+        --slide-size: 98%
     }
 
     .feature-box-section .custom-grid {
