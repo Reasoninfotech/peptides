@@ -566,7 +566,7 @@
              {% endif %}
 
              {% if section.settings.global_image_mobile != blank %}
-               <img src="{{ section.settings.global_image_mobile | img_url: '400x' }}" class="hidden-desktop" alt="{{ section.settings.global_image_mobile.alt | default: section.settings.global_title }}" loading="lazy">
+               <img src="{{ section.settings.global_image_mobile | img_url: '400x' }}" class="hidden-desktop" alt="{{ section.settings.global_image_mobile.alt}}" loading="lazy">
              {% endif %}
           </div>
           <ul class="comparison-benefits">
