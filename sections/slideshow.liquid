@@ -64,6 +64,9 @@
 		margin-bottom: 0px!important;
 		line-height: 1.5!important;
 	}
+	.slide-element-inner .main-heading{
+		color: #000000; font-size: 48px; margin-bottom: 16px; line-height: 1.1;font-weight: 500;
+	}
 </style>
 
 <div class="section-wrapper color-{{ section.settings.color_scheme }}" style="margin-top: 0px;">
@@ -140,7 +143,7 @@
 
 														{%- if heading != blank -%}
 															<div class="slider-element slider-heading">
-																<h2 class="slide-element-inner rte {{ block.settings.heading_size }}" style="color: #000000; font-size: 48px; margin-bottom: 16px; line-height: 1.1;font-weight: 500;">{{- heading | replace: "/", "<br>" | raw -}}</h2>
+																<h2 class="slide-element-inner rte {{ block.settings.heading_size }} main-heading" >{{- heading | replace: "/", "<br>" | raw -}}</h2>
 															</div>
 														{%- endif -%}
 
