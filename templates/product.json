@@ -787,7 +787,7 @@
     "partners_qq8LdR": {
       "type": "partners",
       "custom_css": [
-        ".section-wrapper {background-color: #F9FAFB !important; padding: 50px 16px !important;}",
+        ".section-wrapper {background-color: #f9fafb !important; padding: 50px 16px !important;}",
         ".heading,.description {color: #000 !important;}",
         "@media (max-width: 749px) {.section-wrapper {padding: 20px 16px !important; }}",
         ".partners-section .title-wrapper .description p {color: black !important;}",
@@ -798,7 +798,7 @@
         "color_scheme": "scheme-1",
         "heading_text": "Join the research community",
         "heading_size": "h5",
-        "text": "<p>Access premium research-grade peptides with comprehensive analytical documentation and professional scientific support.<br/><br/></p>",
+        "text": "<p>Access premium research-grade peptides with comprehensive analytical documentation and professional scientific support.</p>",
         "text_align": "center",
         "mobile_align": "center",
         "logged_out_button_text": "Create Research Account",
