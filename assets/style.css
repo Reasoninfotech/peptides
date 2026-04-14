@@ -10463,6 +10463,12 @@ body.popup-open {
     margin: 0
 }
 
+.image-banner-title .button.primary-button{
+max-width: 250px;
+width: 100%;
+padding: 16px;
+}
+
 .image-banner-section .image-banner-title .description {
     margin-bottom: 4rem
 }
