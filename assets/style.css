@@ -21815,7 +21815,7 @@ padding: 16px;
 }
 
 .testimonial-section .unity-slider{
-    --slide-spacing: 3.2rem;
+    --slide-spacing: 3.2rem!important;
 }
 
 .testimonial-section .testi-head {
