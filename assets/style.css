@@ -21814,8 +21814,10 @@ padding: 16px;
     overflow: hidden
 }
 
-.testimonial-section .unity-slider{
-    --slide-spacing: 3.2rem!important;
+@media (min-width: 992px){
+    .testimonial-section .unity-slider{
+        --slide-spacing: 3.2rem!important;
+    }
 }
 
 .testimonial-section .testi-head {
