@@ -22,6 +22,12 @@
 			padding-bottom: {{ section.settings.padding_bottom }}px;
 		}
 	}
+
+
+	.faqs-wrap-content-title .heading{
+		font-size: 36px;line-height: 40px;font-weight: 500;color: #000000!important; margin-bottom: 32px;
+	}
+
 </style>
 
 <div class="section-wrapper color-{{ section.settings.color_scheme }}">
@@ -35,7 +41,7 @@
 						{%- endif -%}
 
 						{%- if heading != blank -%}
-							<h2 class="heading rte " style="font-size: 30px; color: #000000!important; margin-bottom: 32px;">{{- heading -}}</h2>
+							<h2 class="heading rte ">{{- heading -}}</h2>
 						{%- endif -%}
 
 						{%- if text != blank -%}

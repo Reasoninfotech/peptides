@@ -5107,7 +5107,18 @@ html {
 }
 
 .faqs-section .faqs-wrap-content-title {
-    margin-bottom: 4rem
+    margin-bottom: 48px;
+}
+
+@media (max-width: 767px){
+ .faqs-section .faqs-wrap-content-title {
+    margin-bottom: 25px;
+ }
+
+ .faqs-wrap-content-title .heading{
+       margin-bottom: 0;
+ }
+
 }
 
 .faqs-section .faqs-category {
@@ -5122,7 +5133,8 @@ html {
 .faqs-section .faqs-title {
     width: 100%;
     font-size: 1.8rem;
-    padding-right: 2.25rem
+    padding-right: 2.25rem;
+    font-weight: 500;
 }
 
 .faqs-section .faqs-content {

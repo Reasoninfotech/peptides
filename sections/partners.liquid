@@ -46,11 +46,17 @@
 
 
   	.partners-section .title-wrapper .description p{
-  		font-size: 18px!important;
+  		font-size: 20px!important;
   		color: white!important;
   		line-height: 1.1;
   		margin-bottom: 32px;
+      font-weight: 400;
   	}
+
+    .partners-section .custom-btn{
+      display: inline-block;
+    }
+
 </style>
 
 <div
@@ -65,7 +71,7 @@
           style="margin-bottom: 0px!important;"
         >
           {%- if heading != blank -%}
-            <div class="heading rte " style="font-size: 36px; color: white; margin-bottom: 24px;">{{- heading -}}</div>
+            <div class="heading rte " style="font-size: 36px; color: white;font-weight: 500;margin-bottom: 24px;">{{- heading -}}</div>
           {%- endif -%}
 
           {%- if text != blank -%}

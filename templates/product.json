@@ -529,11 +529,11 @@
         "section_bg": "#ffffff",
         "container_max_width": 1230,
         "column_gap": 48,
-        "padding_top_mobile": 40,
+        "padding_top_mobile": 0,
         "padding_bottom_mobile": 40,
-        "padding_left_mobile": 16,
-        "padding_right_mobile": 16,
-        "padding_top_tablet": 56,
+        "padding_left_mobile": 15,
+        "padding_right_mobile": 15,
+        "padding_top_tablet": 0,
         "padding_bottom_tablet": 56,
         "padding_left_tablet": 24,
         "padding_right_tablet": 24,
@@ -545,13 +545,13 @@
         "image_position": "right",
         "image_width_desktop": 50,
         "image_border_radius": 12,
-        "content_padding_desktop": 32,
+        "content_padding_desktop": 0,
         "title": "Essential for advanced  preclinical study",
         "title_tag": "h2",
         "title_font_weight": "500",
-        "title_color_mobile": "#1a4d2e",
-        "title_color_tablet": "#1a4d2e",
-        "title_color_desktop": "#1a4d2e",
+        "title_color_mobile": "#0a0a0a",
+        "title_color_tablet": "#0a0a0a",
+        "title_color_desktop": "#0a0a0a",
         "title_size_mobile": 24,
         "title_size_tablet": 30,
         "title_size_desktop": 36,
@@ -736,28 +736,28 @@
           "type": "tab",
           "settings": {
             "question": "What is BPC-157?",
-            "answer": "<p>BPC-157 is a synthetic peptide derived from a protective protein found in gastric juice. In preclinical models, it has been suggested to support tissue repair mechanisms and cellular regeneration processes. This compound is intended strictly for laboratory research purposes.<br/><br/></p>"
+            "answer": "<p>BPC-157 is a synthetic peptide derived from a protective protein found in gastric juice. In preclinical models, it has been suggested to support tissue repair mechanisms and cellular regeneration processes. This compound is intended strictly for laboratory research purposes.</p>"
           }
         },
         "tab-2": {
           "type": "tab",
           "settings": {
             "question": "How should research peptides be stored?",
-            "answer": "<p>Lyophilized peptides should be stored at -20°C in the original sealed vial, protected from light and moisture. Once reconstituted with bacteriostatic water, store at 2-8°C and use within the timeframe specified in the product documentation.<br/><br/></p>"
+            "answer": "<p>Lyophilized peptides should be stored at -20°C in the original sealed vial, protected from light and moisture. Once reconstituted with bacteriostatic water, store at 2-8°C and use within the timeframe specified in the product documentation.</p>"
           }
         },
         "tab-3": {
           "type": "tab",
           "settings": {
             "question": "What purity level is guaranteed?",
-            "answer": "<p>This research-grade peptide maintains ≥98% purity as verified through high-performance liquid chromatography (HPLC) and mass spectrometry analysis. Complete certificates of analysis are provided with each batch.<br/><br/></p>"
+            "answer": "<p>This research-grade peptide maintains ≥98% purity as verified through high-performance liquid chromatography (HPLC) and mass spectrometry analysis. Complete certificates of analysis are provided with each batch.</p>"
           }
         },
         "tab-4": {
           "type": "tab",
           "settings": {
             "question": "Is this suitable for human use?",
-            "answer": "<p>No. This compound is intended strictly for in vitro research and laboratory investigation only. It is not approved for human or animal consumption, therapeutic use, or clinical application.<br/><br/></p>"
+            "answer": "<p>No. This compound is intended strictly for in vitro research and laboratory investigation only. It is not approved for human or animal consumption, therapeutic use, or clinical application.</p>"
           }
         }
       },
@@ -787,9 +787,9 @@
     "partners_qq8LdR": {
       "type": "partners",
       "custom_css": [
-        ".section-wrapper {background-color: #fff !important; padding: 50px 16px !important;}",
+        ".section-wrapper {background-color: #f9fafb !important; padding: 90px 16px !important;}",
         ".heading,.description {color: #000 !important;}",
-        "@media (max-width: 749px) {.section-wrapper {padding: 20px 16px !important; }}",
+        "@media (max-width: 749px) {.section-wrapper {padding: 45px 16px !important; }}",
         ".partners-section .title-wrapper .description p {color: black !important;}",
         ".custom-btn {color: white !important; background: black !important;}"
       ],
@@ -798,7 +798,7 @@
         "color_scheme": "scheme-1",
         "heading_text": "Join the research community",
         "heading_size": "h5",
-        "text": "<p>Access premium research-grade peptides with comprehensive analytical documentation and professional scientific support.<br/><br/></p>",
+        "text": "<p>Access premium research-grade peptides with comprehensive analytical documentation and professional scientific support.</p>",
         "text_align": "center",
         "mobile_align": "center",
         "logged_out_button_text": "Create Research Account",
