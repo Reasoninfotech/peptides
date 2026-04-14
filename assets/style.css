@@ -5110,6 +5110,13 @@ html {
     margin-bottom: 48px;
 }
 
+@media (max-width: 767px){
+ .faqs-section .faqs-wrap-content-title {
+    margin-bottom: 25px;
+ }
+
+}
+
 .faqs-section .faqs-category {
     margin: 0;
     margin-bottom: 1.6rem
