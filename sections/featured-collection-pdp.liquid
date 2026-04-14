@@ -632,13 +632,13 @@
           </div>
           <div class="card-image-box">
              {% if american_image %}
-               <img src="{{ american_image | img_url: '400x' }}" class="{% if section.settings.american_image_mobile != blank %}hidden-tablet hidden-mobile{% endif %}" alt="{{ american_image.alt | default: section.settings.american_title }}" loading="lazy">
+               <img src="{{ american_image | img_url: '400x' }}" class="{% if section.settings.american_image_mobile != blank %}hidden-tablet hidden-mobile{% endif %}" alt="{{ section.settings.american_title.alt }}" loading="lazy">
              {% else %}
                <img src="https://cdn.shopify.com/s/files/1/0805/0013/7979/files/glp-1_usa.png?v=1710925000" class="{% if section.settings.american_image_mobile != blank %}hidden-tablet hidden-mobile{% endif %}" alt="USA" loading="lazy">
              {% endif %}
 
              {% if section.settings.american_image_mobile != blank %}
-               <img src="{{ section.settings.american_image_mobile | img_url: '400x' }}" class="hidden-desktop" alt="{{ section.settings.american_image_mobile.alt | default: section.settings.american_title }}" loading="lazy">
+               <img src="{{ section.settings.american_image_mobile | img_url: '400x' }}" class="hidden-desktop" alt="{{ section.settings.american_image_mobile.alt }}" loading="lazy">
              {% endif %}
           </div>
           <ul class="comparison-benefits">
