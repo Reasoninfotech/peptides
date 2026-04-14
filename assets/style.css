@@ -12943,7 +12943,7 @@ padding: 16px;
 
 @media(max-width: 991px) {
     .multimedia-collage-section .multimedia-collage-title {
-        margin-bottom: 4rem
+        margin-bottom: 0;
     }
 
     .multimedia-collage-section .multimedia-collage-content {
