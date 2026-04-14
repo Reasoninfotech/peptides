@@ -38,6 +38,9 @@
       "block_order": [
         "slide-3"
       ],
+      "custom_css": [
+        ".slide-element-inner {max-width: 600px;}"
+      ],
       "settings": {
         "color_scheme": "scheme-1",
         "full": true,
