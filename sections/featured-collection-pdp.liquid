@@ -535,12 +535,11 @@
              {% endif %}
           </div>
           <ul class="comparison-benefits">
-            <li class="benefit-item">{% render 'icon', code: 'checkmark' %} {{ section.settings.global_origin }} </li>
-            <li class="benefit-item">{% render 'icon', code: 'checkmark' %} {{ section.settings.global_purity }}</li>
-            <li class="benefit-item">{% render 'icon', code: 'checkmark' %} {{ section.settings.global_testing }}</li>
-            <li class="benefit-item">{% render 'icon', code: 'checkmark' %} {{ section.settings.global_lead_time }}</li>
-            <li class="benefit-item">{% render 'icon', code: 'checkmark' %} {{ section.settings.global_price }}</li>
-            <li class="benefit-item">{% render 'icon', code: 'checkmark' %} Certificate of Analysis included</li>
+            {% if section.settings.global_origin != blank %}<li class="benefit-item">{% render 'icon', code: 'checkmark' %} {{ section.settings.global_origin }} </li>{% endif %}
+            {% if section.settings.global_purity != blank %}<li class="benefit-item">{% render 'icon', code: 'checkmark' %} {{ section.settings.global_purity }} </li>{% endif %}
+            {% if section.settings.global_testing != blank %}<li class="benefit-item">{% render 'icon', code: 'checkmark' %} {{ section.settings.global_testing }} </li>{% endif %}
+            {% if section.settings.global_lead_time != blank %}<li class="benefit-item">{% render 'icon', code: 'checkmark' %} {{ section.settings.global_lead_time }} </li>{% endif %}
+            {% if section.settings.global_price != blank %}<li class="benefit-item">{% render 'icon', code: 'checkmark' %} {{ section.settings.global_price }}</li>{% endif %}
           </ul>
           <a href="{{ section.settings.global_collection.url | default: '/pages/sign-up' }}" class="card-action-btn">{{ section.settings.global_btn_label }}</a>
           <div class="card-footer-text">Standard research grade</div>
@@ -569,41 +568,43 @@
              {% endif %}
           </div>
           <ul class="comparison-benefits">
+            {% if section.settings.american_origin != blank %}
             <li class="benefit-item">
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="10" cy="10" r="10" fill="white"/>
                 <path d="M6 10L9 13L14 7" stroke="#1A4D2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
-              {{ section.settings.american_origin | remove: '🇺🇸' | strip }} manufactured
+              {{ section.settings.american_origin | remove: '🇺🇸' | strip }}
             </li>
+            {% endif %}
+            {% if section.settings.american_purity != blank %}
             <li class="benefit-item">
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="10" cy="10" r="10" fill="white"/>
                 <path d="M6 10L9 13L14 7" stroke="#1A4D2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
-              {{ section.settings.american_purity }} (HPLC + MS verified)
+              {{ section.settings.american_purity }}
             </li>
+            {% endif %}
+            {% if section.settings.american_testing != blank %}
             <li class="benefit-item">
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="10" cy="10" r="10" fill="white"/>
                 <path d="M6 10L9 13L14 7" stroke="#1A4D2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
-              {{ section.settings.american_testing }} facility
+              {{ section.settings.american_testing }}
             </li>
+            {% endif %}
+            {% if section.settings.american_lead_time != blank %}
             <li class="benefit-item">
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="10" cy="10" r="10" fill="white"/>
                 <path d="M6 10L9 13L14 7" stroke="#1A4D2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
-              {{ section.settings.american_lead_time }} shipping
+              {{ section.settings.american_lead_time }}
             </li>
-            <li class="benefit-item">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="10" cy="10" r="10" fill="white"/>
-                <path d="M6 10L9 13L14 7" stroke="#1A4D2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              Premium quality (+15%)
-            </li>
+            {% endif %}
+            {% if section.settings.american_coa != blank %}
             <li class="benefit-item">
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="10" cy="10" r="10" fill="white"/>
@@ -611,6 +612,7 @@
               </svg>
               {{ section.settings.american_coa }}
             </li>
+            {% endif %}
           </ul>
           <a href="{{ section.settings.american_collection.url | default: '/pages/sign-up' }}" class="card-action-btn">{{ section.settings.american_btn_label }}</a>
           <div class="card-footer-text">Premium research grade</div>
