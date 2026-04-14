@@ -5542,7 +5542,8 @@ body.popup-open {
 
     .feature-box-section .box-carousel .content-wrapper {
         gap: var(--grid-vertical);
-        width: 1231px;
+        max-width: 1231px;
+        width:100%;
     }
 
     .feature-box-section .box-carousel .unity-slider {
@@ -12948,7 +12949,7 @@ padding: 16px;
 
 @media(max-width: 991px) {
     .multimedia-collage-section .multimedia-collage-title {
-        margin-bottom: 4rem
+        margin-bottom: 0;
     }
 
     .multimedia-collage-section .multimedia-collage-content {
@@ -13605,12 +13606,12 @@ padding: 16px;
 @media(hover: hover) {
     .pagination .pagination-item:hover {
         background-color: rgb(var(--text-color));
-        color: rgb(var(--background-color))
+        color: #fff;
     }
 }
 
 .pagination .pagination-item.current {
-    color: rgb(var(--background-color));
+    color: #fff;
     background-color: rgb(var(--text-color))
 }
 
