@@ -473,6 +473,10 @@
       "block_order": [
         "image_7z6xje"
       ],
+      "custom_css": [
+        ".button.primary-button {border-radius: 10px; background: #1a4d2e; border: none;}",
+        ".button.primary-button:hover {color: #ffffff;}"
+      ],
       "name": "t:sections.multimedia-collage.name",
       "settings": {
         "color_scheme": "",
@@ -482,8 +486,8 @@
         "heading_text": "Enhance your research",
         "heading_size": "h3",
         "text": "<p>BPC-157 has been investigated in numerous preclinical studies examining cellular repair mechanisms and tissue regeneration pathways. Research models suggest this peptide may influence angiogenesis, collagen synthesis, and wound healing cascades at the cellular level.</p><p>In vitro studies have demonstrated potential effects on fibroblast migration, growth factor expression, and extracellular matrix formation. These findings support continued investigation into the compound's mechanisms of action in laboratory settings.</p><p>All statements refer to preclinical research findings. This compound is not intended for human consumption or therapeutic use.</p>",
-        "button_label": "",
-        "button_link": "",
+        "button_label": "Access catalog",
+        "button_link": "/",
         "desktop_layout": "left",
         "mobile_layout": "column",
         "padding_top": 50,
