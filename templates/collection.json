@@ -1,1 +1,94 @@
-{"sections":{"breadcrumb":{"type":"breadcrumb","settings":{"full":false,"overlay":50,"separator_line":false,"color_scheme":"","show_title":false,"show_scrolling":false,"font_scale":100,"description":"","description_position":"below","right_description":false,"padding_top":20,"padding_bottom":20,"padding_top_mobile":20,"padding_bottom_mobile":20}},"custom_liquid_HbTBxb":{"type":"custom-liquid","name":"t:sections.custom-liquid.presets.name","settings":{"custom-liquid":"<div style=\"text-align: center;\"><h1>{{ collection.title }}<\/h1>\n{% if collection.description != blank %}\n  <div class=\"collection-description\">{{ collection.description }}<\/div>\n{% endif %}<\/div>"}},"collections":{"type":"main-collection","settings":{"color_scheme":"","layout":"left","infinite_scroll":false,"full":false,"content_width":100,"rows":2,"columns":"4","columns_mobile":"2","color_scheme_info":"","layout_heading":"carousel","collection_list":[],"color_scheme_slide":"","bkg_card":"#ffffff","scale":400,"scale_mobile":200,"show_heading":false,"show_description":false,"show_collection_list":false,"show_sorting":true,"show_results_count":true,"show_filter_count":true,"padding_top":10,"padding_bottom":80,"padding_top_mobile":0,"padding_bottom_mobile":60}},"product_recently_viewed":{"type":"product-recently-viewed","settings":{"color_scheme":"","full":false,"heading":"You may also like","heading_size":"h2","layout":"slider","rows":1,"columns":4,"show_arrows":true,"autoplay":false,"delay":2,"padding_top":50,"padding_bottom":50,"padding_top_mobile":20,"padding_bottom_mobile":20}}},"order":["breadcrumb","custom_liquid_HbTBxb","collections","product_recently_viewed"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "breadcrumb": {
+      "type": "breadcrumb",
+      "settings": {
+        "full": false,
+        "overlay": 50,
+        "separator_line": false,
+        "color_scheme": "",
+        "show_title": false,
+        "show_scrolling": false,
+        "font_scale": 100,
+        "description": "",
+        "description_position": "below",
+        "right_description": false,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20
+      }
+    },
+    "custom_liquid_HbTBxb": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom-liquid": "<div style=\"text-align: center;\"><h1 style=\"font-weight:\">{{ collection.title }}</h1>\n{% if collection.description != blank %}\n  <div class=\"collection-description\">{{ collection.description }}</div>\n{% endif %}</div>"
+      }
+    },
+    "collections": {
+      "type": "main-collection",
+      "settings": {
+        "color_scheme": "",
+        "layout": "left",
+        "infinite_scroll": false,
+        "full": false,
+        "content_width": 100,
+        "rows": 2,
+        "columns": "4",
+        "columns_mobile": "2",
+        "color_scheme_info": "",
+        "layout_heading": "carousel",
+        "collection_list": [],
+        "color_scheme_slide": "",
+        "bkg_card": "#ffffff",
+        "scale": 400,
+        "scale_mobile": 200,
+        "show_heading": false,
+        "show_description": false,
+        "show_collection_list": false,
+        "show_sorting": true,
+        "show_results_count": true,
+        "show_filter_count": true,
+        "padding_top": 10,
+        "padding_bottom": 80,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 60
+      }
+    },
+    "product_recently_viewed": {
+      "type": "product-recently-viewed",
+      "settings": {
+        "color_scheme": "",
+        "full": false,
+        "heading": "You may also like",
+        "heading_size": "h2",
+        "layout": "slider",
+        "rows": 1,
+        "columns": 4,
+        "show_arrows": true,
+        "autoplay": false,
+        "delay": 2,
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20
+      }
+    }
+  },
+  "order": [
+    "breadcrumb",
+    "custom_liquid_HbTBxb",
+    "collections",
+    "product_recently_viewed"
+  ]
+}
