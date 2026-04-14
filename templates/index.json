@@ -385,7 +385,7 @@
         "heading_TbgLqc"
       ],
       "custom_css": [
-        "@media (max-width: 767px) {.richtext-section {padding: 50px 0 0; } .section-wrapper{padding-top: 0; }}"
+        "@media (max-width: 767px) {.richtext-section {padding: 50px 0 0; } .section-wrapper {padding-top: 0; }}"
       ],
       "name": "t:sections.rich-text.name",
       "settings": {
@@ -650,7 +650,7 @@
         "form_heading": "Research Inquiry Form",
         "padding_top": 50,
         "padding_bottom": 50,
-        "padding_top_mobile": 20,
+        "padding_top_mobile": 0,
         "padding_bottom_mobile": 60
       }
     }
