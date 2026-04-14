@@ -10444,6 +10444,10 @@ body.popup-open {
     margin: 0 auto;
 }
 
+.image-banner-section .image-banner-content .description p{
+     line-height: 26px;
+}
+
 .image-banner-section .image-banner-title.has-bgcolor {
     background-color: rgb(var(--background-color));
     padding: 4rem;
