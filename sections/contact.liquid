@@ -163,6 +163,15 @@ assign description = section.settings.description
     .field-content {
         display: none; /* Hide spam detection disclaimer if not needed or style it minimally */
     }
+
+    @media (max-width: 767px){
+    
+        .title-wrapper-1 .description{
+          margin-bottom: 0;
+        }
+    
+    }
+
 </style>
 
 <div class="section-wrapper color-{{ section.settings.color_scheme }}">
