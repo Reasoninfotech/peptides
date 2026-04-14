@@ -22111,6 +22111,11 @@ padding: 16px;
     .text-content-section .list-item img {
         width: 100%
     }
+
+    .testimonial-section .testi-head{
+        line-height: 38px;
+    }
+
 }
 
 .timeline-section timeline-carousel {
