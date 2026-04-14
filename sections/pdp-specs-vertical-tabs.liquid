@@ -71,10 +71,15 @@
   .pdp-tabs__panel h2 {font-size: 24px;line-height: 32px;font-weight: 500;margin: 0 0 16px 0;color: #0A0A0A;}
 
   .pdp-tabs__description {
-    font-size: 15px;
-    line-height: 1.6;
+    font-size: 16px;
+    line-height: 26px;
     color: #4B5563;
-    margin-bottom: 30px;
+    margin-bottom: 32px;
+    font-weight: 400;
+  }
+
+  .pdp-tabs__description br{
+    margin-bottom: 16px;
   }
 
   .pdp-tabs__description p {
@@ -127,9 +132,11 @@
   }
 
   @media (max-width: 767px) {
+
     .pdp-tabs {
       flex-direction: column;
       gap: 30px;
+      padding: 0 15px;
     }
     .pdp-tabs__nav {
       flex: none;
