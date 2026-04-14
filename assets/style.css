@@ -9915,9 +9915,10 @@ body.popup-open {
     position: relative;
     border-bottom: .1rem solid rgba(var(--text-color), 0.12);
     gap: 1.6rem;
-    background-color: rgb(var(--text-color), 0.12);
+    background-color: #ffffff;
     padding: 2.4rem
 }
+
 
 @media(min-width: 992px) {
     .header-section .site-panel .panel-header {
@@ -9974,14 +9975,13 @@ body.popup-open {
     transform: translateX(0)
 }
 
-.header-section .site-panel .toggle-navigation[data-level="2"] {
-    transform: translateX(-100%)
-}
-
+.header-section .site-panel .toggle-navigation[data-level="2"],
 .header-section .site-panel .toggle-navigation[data-level="3"] {
-    transform: translateX(-200%)
+    transform: none !important;
 }
-
+.sub-menu .menu-item{
+    border-bottom: none!important;
+}
 .header-section .site-panel .toggle-navigation img {
     position: static;
     width: 100%;
@@ -9998,7 +9998,9 @@ body.popup-open {
 
 .header-section .site-panel .toggle-navigation .menu-item.active>.sub-menu,
 .header-section .site-panel .toggle-navigation .menu-item.active>.sub-mega-menu {
-    display: block
+    display: block !important;
+    position: static !important;
+    padding-left: 2rem !important;
 }
 
 .header-section .site-panel .toggle-navigation .menu-item:after {
@@ -10018,9 +10020,14 @@ body.popup-open {
 
 .header-section .site-panel .toggle-navigation .menu-item>a .menu-arrow svg,
 .header-section .site-panel .toggle-navigation .menu-item .menu-toggle .menu-arrow svg {
-    transform: rotate(-90deg);
+    transform: rotate(0deg);
+    transition: transform 0.2s;
     width: 1.3rem;
     height: .8rem
+}
+.header-section .site-panel .toggle-navigation .menu-item.active > a .menu-arrow svg,
+.header-section .site-panel .toggle-navigation .menu-item.active > .menu-toggle .menu-arrow svg {
+    transform: rotate(180deg);
 }
 
 .header-section .site-panel .toggle-navigation .menu-item .icon {
@@ -10086,15 +10093,13 @@ body.popup-open {
 
 .header-section .site-panel .toggle-navigation .sub-menu,
 .header-section .site-panel .toggle-navigation .sub-mega-menu {
-    position: absolute;
-    top: 0;
-    bottom: 0;
+    position: static !important;
     width: 100%;
-    right: -100%;
     z-index: 10;
-    background-color: rgb(var(--background-color));
+    background-color: transparent !important;
     display: none;
-    text-align: left
+    text-align: left;
+    border-bottom: none !important;
 }
 
 .header-section .site-panel .toggle-navigation .sub-menu .container,
@@ -10216,7 +10221,7 @@ body.popup-open {
 .header-section .site-panel .panel-footer {
     padding: 2.35rem;
     border-top: .1rem solid rgba(var(--text-color), 0.12);
-    background-color: rgb(var(--text-color), 0.12)
+    background-color: #ffffff;
 }
 
 .header-section .site-panel .panel-footer:empty {

@@ -65,8 +65,6 @@
 				{% comment %} Then check sub menu {% endcomment %}
 				{%- elsif link.links != blank -%}
 					<ul class="sub-menu color-{{ scheme }}" data-level="2">
-						<li class="back">{{- go_back -}}</li>
-
 						{%- for level_two in link.links -%}
 							<li class="menu-item{% if level_two.current %} current-menu{% endif %}">
 								{%- if level_two.links != blank -%}
@@ -79,8 +77,6 @@
 									</a>
 
 									<ul class="sub-menu" data-level="3">
-										<li class="back">{{- go_back -}}</li>
-
 										{%- for level_three in level_two.links -%}
 											<li class="menu-item{% if level_three.current %} current-menu{% endif %}">
 												<a href="{{ level_three.url }}" aria-label="{{- 'general.text.link' | t -}}" class="menu-link"{% if level_three.current %} aria-current="page"{% endif %}>

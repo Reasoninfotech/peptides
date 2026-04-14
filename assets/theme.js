@@ -4044,29 +4044,12 @@ function btyNavMenu( doc = document, event = false ) {
 
 				e.preventDefault();
 
-				let menu    = el.closest( '.toggle-navigation' ),
-					parent  = el.parentNode,
-					subMenu = parent.querySelector( '.sub-menu' ) || parent.querySelector( '.sub-mega-menu' );
-				if ( ! subMenu ) {
-					return;
-				}
-
-				parent.classList.add( 'active' );
-
-				// Update current sub menu.
-				let level = Number( subMenu.getAttribute( 'data-level' ) || 1 ),
-					back  = parent.querySelector( '.back' );
-				if ( level ) {
-					menu.setAttribute( 'data-level', level );
-				}
-
-				// Go back parent level.
-				if ( back ) {
-					back.onclick = function() {
-						parent.classList.remove( 'active' );
-						menu.setAttribute( 'data-level', level - 1 );
-					}
-				}
+				let parent = el.parentNode;
+				parent.classList.toggle( 'active' );
+				
+				// Optional: accessibility attributes
+				let isExpanded = parent.classList.contains('active');
+				el.setAttribute('aria-expanded', isExpanded);
 			}
 		}
 	);
