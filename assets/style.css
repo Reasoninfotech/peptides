@@ -5115,6 +5115,10 @@ html {
     margin-bottom: 25px;
  }
 
+ .faqs-wrap-content-title .heading{
+       margin-bottom: 0;
+ }
+
 }
 
 .faqs-section .faqs-category {
