@@ -5514,7 +5514,9 @@ body.popup-open {
 
 @media(min-width: 992px) {
     .feature-box-section .title-wrapper .heading {
-        line-height: 6rem
+        line-height: 48px;
+        font-weight: 500;
+        font-size: 48px;
     }
 
     .feature-box-section .grid {
@@ -7895,7 +7897,7 @@ body.popup-open {
 }
 
 .sub-heading {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     margin-bottom: .8rem;
     font-family: var(--subheading-font-family);
     font-weight: var(--subheading-font-weight);
@@ -21971,12 +21973,15 @@ body.popup-open {
     }
 
     .testimonial-section .testi-head {
-        line-height: 6rem
+        font-size: 4.8rem;
+        line-height: 48px;
+        font-weight: 500;
+
     }
 
     .testimonial-section .testi-body {
         margin-bottom: 3.2rem;
-        font-size: 2.4rem
+        font-size: 1.6rem
     }
 
     .testimonial-section .review-testimonial {
