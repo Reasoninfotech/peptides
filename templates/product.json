@@ -549,9 +549,9 @@
         "title": "Essential for advanced  preclinical study",
         "title_tag": "h2",
         "title_font_weight": "500",
-        "title_color_mobile": "#1a4d2e",
-        "title_color_tablet": "#1a4d2e",
-        "title_color_desktop": "#1a4d2e",
+        "title_color_mobile": "#0a0a0a",
+        "title_color_tablet": "#0a0a0a",
+        "title_color_desktop": "#0a0a0a",
         "title_size_mobile": 24,
         "title_size_tablet": 30,
         "title_size_desktop": 36,
