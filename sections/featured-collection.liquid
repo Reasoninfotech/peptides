@@ -541,7 +541,7 @@
           </div>
           <div class="card-image-box">
              {% if global_image %}
-               <img src="{{ global_image | img_url: '400x' }}" class="{% if section.settings.global_image_mobile != blank %}hidden-tablet hidden-mobile{% endif %}" alt="{{ global_image.alt | default: section.settings.global_title }}" loading="lazy">
+               <img src="{{ global_image | img_url: '400x' }}" class="{% if section.settings.global_image_mobile != blank %}hidden-tablet hidden-mobile{% endif %}" alt="'{{ global_image.alt | default: section.settings.global_title }}'" loading="lazy">
              {% else %}
                <img src="https://cdn.shopify.com/s/files/1/0805/0013/7979/files/glp-1_international.png?v=1710925000" class="{% if section.settings.global_image_mobile != blank %}hidden-tablet hidden-mobile{% endif %}" alt="Global" loading="lazy">
              {% endif %}
