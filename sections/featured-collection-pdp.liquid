@@ -294,9 +294,7 @@
       position: relative;
       display: flex;
       flex-direction: column;
-      background: #fff;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-      border: 1px solid #f0f0f0;
+      background: #F9FAFB;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .comparison-card:hover {
@@ -358,7 +356,6 @@
       color: #1A4D2E;
     }
     .card-image-box {
-      background: #F9FAFB;
       border-radius: 16px;
       height: 180px;
       display: flex;
@@ -366,7 +363,13 @@
       justify-content: center;
       margin-bottom: 30px;
       overflow: hidden;
-      border: 1px solid #f0f0f0;
+      border: 1px solid #FFFFFF;
+    }
+    .standard .card-image-box {
+      background-color: #FFFFFF;
+    }
+    .premium .card-image-box {
+      background-color: #F9FAFB;
     }
     .card-image-box img {
       width: 100%;
@@ -535,11 +538,46 @@
              {% endif %}
           </div>
           <ul class="comparison-benefits">
-            {% if section.settings.global_origin != blank %}<li class="benefit-item">{% render 'icon', code: 'checkmark' %} {{ section.settings.global_origin }} </li>{% endif %}
-            {% if section.settings.global_purity != blank %}<li class="benefit-item">{% render 'icon', code: 'checkmark' %} {{ section.settings.global_purity }} </li>{% endif %}
-            {% if section.settings.global_testing != blank %}<li class="benefit-item">{% render 'icon', code: 'checkmark' %} {{ section.settings.global_testing }} </li>{% endif %}
-            {% if section.settings.global_lead_time != blank %}<li class="benefit-item">{% render 'icon', code: 'checkmark' %} {{ section.settings.global_lead_time }} </li>{% endif %}
-            {% if section.settings.global_price != blank %}<li class="benefit-item">{% render 'icon', code: 'checkmark' %} {{ section.settings.global_price }}</li>{% endif %}
+            {% if section.settings.global_origin != blank %}
+            <li class="benefit-item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M4.16602 10.8334L7.49935 14.1667L15.8327 5.83337" stroke="#99A1AF" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              {{ section.settings.global_origin }} 
+            </li>
+            {% endif %}
+            {% if section.settings.global_purity != blank %}
+            <li class="benefit-item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M4.16602 10.8334L7.49935 14.1667L15.8327 5.83337" stroke="#99A1AF" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              {{ section.settings.global_purity }} 
+            </li>
+            {% endif %}
+            {% if section.settings.global_testing != blank %}
+            <li class="benefit-item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M4.16602 10.8334L7.49935 14.1667L15.8327 5.83337" stroke="#99A1AF" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              {{ section.settings.global_testing }} 
+            </li>
+            {% endif %}
+            {% if section.settings.global_lead_time != blank %}
+            <li class="benefit-item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M4.16602 10.8334L7.49935 14.1667L15.8327 5.83337" stroke="#99A1AF" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              {{ section.settings.global_lead_time }} 
+            </li>
+            {% endif %}
+            {% if section.settings.global_price != blank %}
+            <li class="benefit-item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M4.16602 10.8334L7.49935 14.1667L15.8327 5.83337" stroke="#99A1AF" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              {{ section.settings.global_price }}
+            </li>
+            {% endif %}
           </ul>
           <a href="{{ section.settings.global_collection.url | default: '/pages/sign-up' }}" class="card-action-btn">{{ section.settings.global_btn_label }}</a>
           <div class="card-footer-text">Standard research grade</div>
@@ -569,45 +607,45 @@
           <ul class="comparison-benefits">
             {% if section.settings.american_origin != blank %}
             <li class="benefit-item">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="10" cy="10" r="10" fill="white"/>
-                <path d="M6 10L9 13L14 7" stroke="#1A4D2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <rect width="20" height="20" rx="10" fill="white"/>
+                <path d="M5.33984 11.1765L8.19699 14.3765L15.3398 6.37646" stroke="#1A4D2E" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
               {{ section.settings.american_origin | remove: '🇺🇸' | strip }}
             </li>
             {% endif %}
             {% if section.settings.american_purity != blank %}
             <li class="benefit-item">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="10" cy="10" r="10" fill="white"/>
-                <path d="M6 10L9 13L14 7" stroke="#1A4D2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <rect width="20" height="20" rx="10" fill="white"/>
+                <path d="M5.33984 11.1765L8.19699 14.3765L15.3398 6.37646" stroke="#1A4D2E" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
               {{ section.settings.american_purity }}
             </li>
             {% endif %}
             {% if section.settings.american_testing != blank %}
             <li class="benefit-item">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="10" cy="10" r="10" fill="white"/>
-                <path d="M6 10L9 13L14 7" stroke="#1A4D2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <rect width="20" height="20" rx="10" fill="white"/>
+                <path d="M5.33984 11.1765L8.19699 14.3765L15.3398 6.37646" stroke="#1A4D2E" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
               {{ section.settings.american_testing }}
             </li>
             {% endif %}
             {% if section.settings.american_lead_time != blank %}
             <li class="benefit-item">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="10" cy="10" r="10" fill="white"/>
-                <path d="M6 10L9 13L14 7" stroke="#1A4D2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <rect width="20" height="20" rx="10" fill="white"/>
+                <path d="M5.33984 11.1765L8.19699 14.3765L15.3398 6.37646" stroke="#1A4D2E" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
               {{ section.settings.american_lead_time }}
             </li>
             {% endif %}
             {% if section.settings.american_coa != blank %}
             <li class="benefit-item">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="10" cy="10" r="10" fill="white"/>
-                <path d="M6 10L9 13L14 7" stroke="#1A4D2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <rect width="20" height="20" rx="10" fill="white"/>
+                <path d="M5.33984 11.1765L8.19699 14.3765L15.3398 6.37646" stroke="#1A4D2E" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
               {{ section.settings.american_coa }}
             </li>
