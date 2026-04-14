@@ -502,7 +502,7 @@
         "content_size_desktop": 16,
         "button_label": "Access catalog",
         "button_url": "/",
-        "btn_font_weight": "500",
+        "btn_font_weight": "400",
         "btn_padding_v": 16,
         "btn_padding_h": 28,
         "btn_border_radius": 10,
