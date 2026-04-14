@@ -787,9 +787,9 @@
     "partners_qq8LdR": {
       "type": "partners",
       "custom_css": [
-        ".section-wrapper {background-color: #f9fafb !important; padding: 50px 16px !important;}",
+        ".section-wrapper {background-color: #f9fafb !important; padding: 90px 16px !important;}",
         ".heading,.description {color: #000 !important;}",
-        "@media (max-width: 749px) {.section-wrapper {padding: 20px 16px !important; }}",
+        "@media (max-width: 749px) {.section-wrapper {padding: 45px 16px !important; }}",
         ".partners-section .title-wrapper .description p {color: black !important;}",
         ".custom-btn {color: white !important; background: black !important;}"
       ],
