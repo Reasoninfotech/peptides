@@ -5542,7 +5542,8 @@ body.popup-open {
 
     .feature-box-section .box-carousel .content-wrapper {
         gap: var(--grid-vertical);
-        width: 1231px;
+        max-width: 1231px;
+        width:100%;
     }
 
     .feature-box-section .box-carousel .unity-slider {
