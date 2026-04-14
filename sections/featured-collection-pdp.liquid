@@ -260,6 +260,9 @@
       background: #fafafa;
       text-align: center;
     }
+    .comparison-section .container {
+      max-width: 100%;
+    }
     .comparison-header {
       max-width: 800px;
       margin: 0 auto 48px;
@@ -281,9 +284,7 @@
       display: flex;
       justify-content: center;
       gap: 30px;
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 20px;
+      padding: 20px 0;
     }
     .comparison-card {
       flex: 1;
@@ -445,11 +446,14 @@
     }
 
     @media (max-width: 900px) {
+      .comparison-section .container {
+        padding: 0 10px;
+      }
       .comparison-grid {
         display: flex;
         flex-direction: row;
         gap: 10px;
-        padding: 20px 10px;
+        padding: 20px 0;
       }
       .comparison-card {
         flex: 1;
@@ -544,9 +548,11 @@
 
         <!-- AMERICAN -->
         <div class="comparison-card premium">
-          <div class="card-badge-wrapper">
-             <span class="card-badge">★ {{ section.settings.american_badge }}</span>
-          </div>
+          {% if section.settings.american_badge != blank %}
+            <div class="card-badge-wrapper">
+               <span class="card-badge">★ {{ section.settings.american_badge }}</span>
+            </div>
+          {% endif %}
           <div class="card-header">
             <h3 class="card-title">🇺🇸 {{ section.settings.american_title }}</h3>
 {% comment %} <p class="card-subtitle">Premium Line • {{ section.settings.american_testing }}</p> {% endcomment %}
