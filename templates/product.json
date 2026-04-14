@@ -135,63 +135,59 @@
         "padding_bottom_mobile": 24
       }
     },
-    "service_bar_FVyEa7": {
+    "service_bar_6Lqp8h": {
       "type": "service-bar",
       "blocks": {
-        "item_9dHfjc": {
+        "item_ACb7gL": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/Container.png",
             "icon": "shipping",
-            "custom_icon": "",
+            "custom_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewbox=\"0 0 32 32\" fill=\"none\">\n<path d=\"M26.663 9.33275L15.9975 4L5.33203 9.33275M26.663 9.33275L15.9975 14.6655M26.663 9.33275V22.6646L15.9975 27.9974M5.33203 9.33275L15.9975 14.6655M5.33203 9.33275V22.6646L15.9975 27.9974M15.9975 14.6655V27.9974\" stroke=\"#D4AF37\" stroke-width=\"1.99978\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n</svg>",
             "title": "FAST SHIPPING",
             "subtitle": "2-3 business days"
           }
         },
-        "item_mFPNYQ": {
+        "item_7rVqqL": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/Container_1.png",
             "icon": "tested",
-            "custom_icon": "",
+            "custom_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewbox=\"0 0 32 32\" fill=\"none\">\n<path d=\"M11.9991 15.9982L14.6655 18.6645L19.9983 13.3318M27.4881 7.9777C23.2727 8.20156 19.1407 6.74398 15.9987 3.9248C12.8567 6.74398 8.72469 8.20156 4.50928 7.9777C4.17003 9.29104 3.9989 10.6421 4.00001 11.9986C4.00001 19.4525 9.09812 25.7171 15.9987 27.4929C22.8993 25.7171 27.9974 19.4538 27.9974 11.9986C27.9974 10.6094 27.8201 9.26289 27.4881 7.9777Z\" stroke=\"#D4AF37\" stroke-width=\"1.99978\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n</svg>",
             "title": "3RD PARTY TESTED",
             "subtitle": "Independent verification"
           }
         },
-        "item_8RCNBy": {
+        "item_wkrE33": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/Container_2.png",
             "icon": "support",
-            "custom_icon": "",
+            "custom_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewbox=\"0 0 32 32\" fill=\"none\">\n<path d=\"M10.6659 15.9985H10.6793M15.9987 15.9985H16.012M21.3315 15.9985H21.3448M27.9974 15.9985C27.9974 21.8885 22.6246 26.664 15.9987 26.664C14.0371 26.6707 12.0988 26.2384 10.326 25.3988L4 26.664L5.8598 21.7046C4.68259 20.0541 4 18.097 4 15.9985C4 10.1085 9.37275 5.33301 15.9987 5.33301C22.6246 5.33301 27.9974 10.1085 27.9974 15.9985Z\" stroke=\"#D4AF37\" stroke-width=\"1.99978\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n</svg>",
             "title": "RESEARCH SUPPORT",
             "subtitle": "Expert guidance"
           }
         },
-        "item_iaBHz6": {
+        "item_F3V89a": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/Container_3.png",
             "icon": "secure",
-            "custom_icon": "",
+            "custom_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewbox=\"0 0 32 32\" fill=\"none\">\n<path d=\"M15.9975 19.9983V22.6646M7.99841 27.9974H23.9967C24.7038 27.9974 25.382 27.7165 25.8821 27.2164C26.3821 26.7164 26.663 26.0382 26.663 25.331V17.3319C26.663 16.6247 26.3821 15.9465 25.8821 15.4465C25.382 14.9464 24.7038 14.6655 23.9967 14.6655H7.99841C7.29124 14.6655 6.61304 14.9464 6.11299 15.4465C5.61295 15.9465 5.33203 16.6247 5.33203 17.3319V25.331C5.33203 26.0382 5.61295 26.7164 6.11299 27.2164C6.61304 27.7165 7.29124 27.9974 7.99841 27.9974ZM21.3303 14.6655V9.33275C21.3303 7.91842 20.7685 6.56201 19.7684 5.56193C18.7683 4.56184 17.4119 4 15.9975 4C14.5832 4 13.2268 4.56184 12.2267 5.56193C11.2266 6.56201 10.6648 7.91842 10.6648 9.33275V14.6655H21.3303Z\" stroke=\"#D4AF37\" stroke-width=\"1.99978\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n</svg>",
             "title": "SECURE PAYMENT",
             "subtitle": "Encrypted transactions"
           }
         }
       },
       "block_order": [
-        "item_9dHfjc",
-        "item_mFPNYQ",
-        "item_8RCNBy",
-        "item_iaBHz6"
+        "item_ACb7gL",
+        "item_7rVqqL",
+        "item_wkrE33",
+        "item_F3V89a"
       ],
       "name": "Service Bar",
       "settings": {
         "bg_color": "#1a4d2e",
         "text_color": "#ffffff",
         "icon_color": "#f3d05d",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 16,
+        "padding_bottom": 16
       }
     },
     "pdp_specs_vertical_tabs_rXPN74": {
@@ -256,8 +252,8 @@
       "name": "PDP Vertical Tabs",
       "settings": {
         "bg_color": "#ffffff",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 64,
+        "padding_bottom": 64
       }
     },
     "featured_collection_pdp_tKnpeF": {
@@ -694,7 +690,7 @@
   "order": [
     "breadcrumb",
     "main",
-    "service_bar_FVyEa7",
+    "service_bar_6Lqp8h",
     "pdp_specs_vertical_tabs_rXPN74",
     "featured_collection_pdp_tKnpeF",
     "scrolling_promotion",
