@@ -474,6 +474,7 @@
         "image_7z6xje"
       ],
       "custom_css": [
+        ".container{width: 1263px;}",
         ".button.primary-button {border-radius: 10px; background: #1a4d2e; border: none;}",
         ".button.primary-button:hover {color: #ffffff;}"
       ],
