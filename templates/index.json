@@ -497,43 +497,83 @@
         "padding_bottom_mobile": 20
       }
     },
-    "quality_features_yxMY7W": {
-      "type": "quality-features",
+    "feature_box_cBkbim": {
+      "type": "feature-box",
       "blocks": {
-        "feature_WkiFAC": {
-          "type": "feature",
+        "item_z9mAeR": {
+          "type": "item",
           "settings": {
-            "icon": "✓",
-            "title": "Third-Party Verified",
-            "text": "Independent laboratory analysis confirms molecular structure and purity standards for every production batch."
+            "icon_type": "text",
+            "icon_img": "shopify://shop_images/image-1.png",
+            "icon_text": "≥98%",
+            "text": "<h5>HPLC Verified</h5>",
+            "description": "<p>To be approved for research use, every peptide batch undergoes high-performance liquid chromatography analysis confirming minimum 98% purity with complete spectral documentation.<br/><br/></p>",
+            "button_label": "View certificate",
+            "button_link": "",
+            "popup_content": ""
           }
         },
-        "feature_BA7hXy": {
-          "type": "feature",
+        "item_YjMTYc": {
+          "type": "item",
           "settings": {
-            "icon": "≥98%",
-            "title": "Purity Standards",
-            "text": "Minimum 98% purity verified through high-performance liquid chromatography and mass spectrometry analysis."
+            "icon_type": "text",
+            "icon_img": "shopify://shop_images/Screenshot_16.png",
+            "icon_text": "✓",
+            "text": "<h5>Third-Party Tested</h5>",
+            "description": "<p>Independent laboratory verification through accredited facilities ensures structural accuracy, molecular weight confirmation, and absence of contaminants.</p>",
+            "button_label": "View certificate",
+            "button_link": "",
+            "popup_content": ""
           }
         },
-        "feature_Phahhy": {
-          "type": "feature",
+        "item_47dhtJ": {
+          "type": "item",
           "settings": {
-            "icon": "CoA",
-            "title": "Complete Documentation",
-            "text": "Comprehensive certificates of analysis provided with detailed spectral data and analytical results for full traceability."
+            "icon_type": "text",
+            "icon_img": "shopify://shop_images/Screenshot_17.png",
+            "icon_text": "layers",
+            "text": "<h5>GMP Manufactured</h5>",
+            "description": "<p>Synthesized in controlled environments following Good Manufacturing Practice standards with rigorous quality control protocols at every production stage.</p>",
+            "button_label": "View certificate",
+            "button_link": "",
+            "popup_content": ""
+          }
+        },
+        "item_A9FmKQ": {
+          "type": "item",
+          "settings": {
+            "icon_type": "text",
+            "icon_img": "shopify://shop_images/Screenshot_18.png",
+            "icon_text": "CoA",
+            "text": "<h5>COA Included</h5>",
+            "description": "<p>Comprehensive Certificate of Analysis provided with batch number, purity verification, mass spectrometry data, and complete analytical specifications for research documentation.<br/><br/></p>",
+            "button_label": "View certificate",
+            "button_link": "",
+            "popup_content": ""
           }
         }
       },
       "block_order": [
-        "feature_WkiFAC",
-        "feature_BA7hXy",
-        "feature_Phahhy"
+        "item_z9mAeR",
+        "item_YjMTYc",
+        "item_47dhtJ",
+        "item_A9FmKQ"
       ],
-      "name": "Quality Features",
       "settings": {
-        "heading": "Dedicated to quality assurance",
-        "subtext": "Our commitment to research excellence is demonstrated through rigorous quality control protocols and comprehensive analytical verification of every batch."
+        "full": false,
+        "color_scheme": "",
+        "layout": "carousel",
+        "columns": 3,
+        "item_scheme": "",
+        "caption": "( WHY CHOOSE US )",
+        "heading_text": "Dedicate to quality",
+        "heading_size": "h3",
+        "text": "<p>We believe in using the best ingredients so you can have total peace of mind in the supplements you are taking.</p>",
+        "title_color_scheme": "",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20
       }
     },
     "faqs_pE8Pr8": {
@@ -617,7 +657,7 @@
     "multimedia_collage_bfDpBC",
     "collection_list",
     "partners",
-    "quality_features_yxMY7W",
+    "feature_box_cBkbim",
     "faqs_pE8Pr8",
     "contact_jBLgwG"
   ]
