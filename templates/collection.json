@@ -32,7 +32,7 @@
       "type": "custom-liquid",
       "name": "t:sections.custom-liquid.presets.name",
       "settings": {
-        "custom-liquid": "<div style=\"text-align: center;\"><h1 style=\"font-weight:\">{{ collection.title }}</h1>\n{% if collection.description != blank %}\n  <div class=\"collection-description\">{{ collection.description }}</div>\n{% endif %}</div>"
+        "custom-liquid": "<div style=\"text-align: center;\"><h1 style=\"font-weight: 500\">{{ collection.title }}</h1>\n{% if collection.description != blank %}\n  <div class=\"collection-description\">{{ collection.description }}</div>\n{% endif %}</div>"
       }
     },
     "collections": {
