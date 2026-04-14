@@ -12753,6 +12753,12 @@ padding: 16px;
     width: 100%
 }
 
+.multimedia-collage-title .button.primary-button{
+    max-width: 250px;
+    width: 100%;
+    padding: 16px;
+}
+
 @media(hover: hover) {
     .multimedia-collage-section .video-item:hover .play-video {
         transform: translate(-50%, -50%) scale(1.1)
