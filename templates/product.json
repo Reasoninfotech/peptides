@@ -736,28 +736,28 @@
           "type": "tab",
           "settings": {
             "question": "What is BPC-157?",
-            "answer": "<p>BPC-157 is a synthetic peptide derived from a protective protein found in gastric juice. In preclinical models, it has been suggested to support tissue repair mechanisms and cellular regeneration processes. This compound is intended strictly for laboratory research purposes.<br/><br/></p>"
+            "answer": "<p>BPC-157 is a synthetic peptide derived from a protective protein found in gastric juice. In preclinical models, it has been suggested to support tissue repair mechanisms and cellular regeneration processes. This compound is intended strictly for laboratory research purposes.</p>"
           }
         },
         "tab-2": {
           "type": "tab",
           "settings": {
             "question": "How should research peptides be stored?",
-            "answer": "<p>Lyophilized peptides should be stored at -20°C in the original sealed vial, protected from light and moisture. Once reconstituted with bacteriostatic water, store at 2-8°C and use within the timeframe specified in the product documentation.<br/><br/></p>"
+            "answer": "<p>Lyophilized peptides should be stored at -20°C in the original sealed vial, protected from light and moisture. Once reconstituted with bacteriostatic water, store at 2-8°C and use within the timeframe specified in the product documentation.</p>"
           }
         },
         "tab-3": {
           "type": "tab",
           "settings": {
             "question": "What purity level is guaranteed?",
-            "answer": "<p>This research-grade peptide maintains ≥98% purity as verified through high-performance liquid chromatography (HPLC) and mass spectrometry analysis. Complete certificates of analysis are provided with each batch.<br/><br/></p>"
+            "answer": "<p>This research-grade peptide maintains ≥98% purity as verified through high-performance liquid chromatography (HPLC) and mass spectrometry analysis. Complete certificates of analysis are provided with each batch.</p>"
           }
         },
         "tab-4": {
           "type": "tab",
           "settings": {
             "question": "Is this suitable for human use?",
-            "answer": "<p>No. This compound is intended strictly for in vitro research and laboratory investigation only. It is not approved for human or animal consumption, therapeutic use, or clinical application.<br/><br/></p>"
+            "answer": "<p>No. This compound is intended strictly for in vitro research and laboratory investigation only. It is not approved for human or animal consumption, therapeutic use, or clinical application.</p>"
           }
         }
       },
