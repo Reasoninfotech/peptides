@@ -9860,7 +9860,9 @@ body.popup-open {
     }
 
     .header-section .site-branding-wrap {
-        font-size: 2rem
+        font-size: 2rem;
+        width: 109px;
+        height: 40px;
     }
 
     .header-section .toggle-panel,

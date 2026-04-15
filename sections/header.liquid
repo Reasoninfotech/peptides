@@ -314,7 +314,8 @@
   @media  (max-width: 991px) {
   	{{ section_id }} .transparent-header-branding-image,
   	{{ section_id }} .site-branding-image {
-  		width: {{ settings.logo_width | times: 0.73 }}px;
+  		{% comment %} width: {{ settings.logo_width | times: 0.73 }}px; {% endcomment %}
+  		width:100%;
   		max-width: 100%;
   	}
   }
