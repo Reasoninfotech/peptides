@@ -20,9 +20,23 @@
         "padding_top_mobile": 20,
         "padding_bottom_mobile": 20
       }
+    },
+    "contact_qBtKA6": {
+      "type": "contact",
+      "name": "t:sections.contact.name",
+      "settings": {
+        "heading_text": "Contact Us",
+        "description": "<p>For research inquiries, bulk orders, or technical support, please contact our scientific team.<br/><br/>Phone (Research Inquiries)</p><p>+1 (555) 123-4567</p><p>Email</p><p>research@lngvtylabs.com</p><p>Laboratory Address</p><p>155 Willowbrook Boulevard</p><p>New Jersey, 07095</p><p>Business Hours</p><p>Monday – Friday: 9:00 AM 6:00 PM EST</p>",
+        "form_heading": "Research Inquiry Form",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 60
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "contact_qBtKA6"
   ]
 }
