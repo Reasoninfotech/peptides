@@ -9986,6 +9986,9 @@ body.popup-open {
 .sub-menu .menu-item .menu-link{
     padding: 0px 0px 8px 0px!important;
 }
+.sub-menu .menu-item .menu-link .menu-text{
+    font-size: 16px!important;
+}
 .header-section .site-panel .toggle-navigation img {
     position: static;
     width: 100%;
