@@ -9810,8 +9810,8 @@ body.popup-open {
 
 @media(max-width: 991px) {
     .header-section .header-row {
-        gap: 1.6rem
-        padding: 1.6px 0px;
+        gap: 1.6rem;
+        padding: 1.6rem 0px;
     }
 
     .header-section .header-row .stretch-section:not(.hidden-desktop) .form-wrapper,
