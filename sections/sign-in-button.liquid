@@ -126,24 +126,16 @@
   </div>
 
   {%- if customer -%}
-    {%- assign is_approved = false -%}
-    {%- for tag in customer.tags -%}
-      {%- assign downcase_tag = tag | downcase -%}
-      {%- if downcase_tag == 'approved' -%}
-        {%- assign is_approved = true -%}
-      {%- endif -%}
-    {%- endfor -%}
-
-    {%- if is_approved -%}
+    {%- if customer.tags contains 'approved' -%}
       <div class="login-prompt">
         <p style="margin-bottom: 12px;">Logged in as {{ customer.first_name }}. Looking for your products?</p>
         <a href="/pages/dashboard" class="sign-in-btn"> Go to Dashboard </a>
       </div>
-      <script>
-        if (window.location.pathname.indexOf('/pages/sign-up') !== -1) {
+      {%- if request.path == '/pages/sign-up' -%}
+        <script>
           window.location.href = '/pages/dashboard';
-        }
-      </script>
+        </script>
+      {%- endif -%}
     {%- else -%}
       <div class="under-review-container">
         <h2>{{ section.settings.review_heading }}</h2>
@@ -152,9 +144,9 @@
 
       <script>
         document.body.classList.add('customer-under-review');
-        if (window.location.pathname.indexOf('/pages/sign-up') === -1) {
+        {%- if request.path != '/pages/sign-up' -%}
           window.location.href = '/pages/sign-up';
-        }
+        {%- endif -%}
       </script>
     {%- endif -%}
   {%- else -%}
