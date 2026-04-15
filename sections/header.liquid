@@ -336,6 +336,54 @@
   		right: 0;
   	}
   {%- endif -%}
+  /* Mobile: Logo center karo */
+@media (max-width: 991px) {
+  .header-row {
+    display: grid!important;
+    grid-template-columns: 44px 1fr 44px!important;
+    align-items: center!important;
+  }
+
+  .site-branding-wrap {
+    grid-column: 2!important;
+    text-align: center!important;
+    justify-self: center!important;
+  }
+
+  .toggle-panel-button {
+    grid-column: 1!important;
+    grid-row: 1!important;
+  }
+
+  .header-icons {
+    grid-column: 3!important;
+    grid-row: 1!important;
+    justify-content: flex-end!important;
+  }
+}
+/* Panel header (mobile drawer) - logo center */
+.panel-header {
+  display: grid!important;
+  grid-template-columns: 44px 1fr 44px!important;
+  align-items: center!important;
+  width: 100%!important;
+}
+
+.panel-header .site-panel-close {
+  grid-column: 1!important;
+}
+
+.panel-header .site-branding-wrap {
+  grid-column: 2!important;
+  text-align: center!important;
+  justify-self: center!important;
+}
+
+.panel-header .header-icons {
+  grid-column: 3!important;
+  justify-content: flex-end!important;
+  display: flex!important;
+}
 </style>
 
 <header

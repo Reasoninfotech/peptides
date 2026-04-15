@@ -9983,6 +9983,9 @@ body.popup-open {
 .sub-menu .menu-item{
     border-bottom: none!important;
 }
+.sub-menu .menu-item .menu-link{
+    padding: 0px 0px 8px 0px!important;
+}
 .header-section .site-panel .toggle-navigation img {
     position: static;
     width: 100%;
@@ -10002,6 +10005,7 @@ body.popup-open {
     display: block !important;
     position: static !important;
     padding-left: 2rem !important;
+    padding-bottom: 1.2rem!important;
 }
 
 .header-section .site-panel .toggle-navigation .menu-item:after {

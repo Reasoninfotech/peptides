@@ -45,6 +45,21 @@
       order: 0;
     }
   {% endif %}
+
+  @media (max-width: 991px) {
+  {{ section_id }} .multimedia-collage-content {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  {{ section_id }} .multimedia-collage-content .image-block {
+    order: -1 !important;
+  }
+
+  {{ section_id }} .multimedia-collage-title {
+    order: 2;
+  }
+}
 </style>
 
 <btf-multimedia-collage>
