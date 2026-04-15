@@ -56,6 +56,8 @@
     .partners-section .custom-btn{
       display: inline-block;
     }
+    .partner-inner .main-header{font-size: 36px; color: white;font-weight: 500;margin-bottom: 24px;}
+    .partner-inner .body-text{margin-bottom: 35px;}
 
 </style>
 
@@ -71,11 +73,11 @@
           style="margin-bottom: 0px!important;"
         >
           {%- if heading != blank -%}
-            <div class="heading rte " style="font-size: 36px; color: white;font-weight: 500;margin-bottom: 24px;">{{- heading -}}</div>
+            <div class="heading rte main-header">{{- heading -}}</div>
           {%- endif -%}
 
           {%- if text != blank -%}
-            <div class="description rte" style="margin-bottom: 35px;"> {{- text -}}</div>
+            <div class="description rte body-text"> {{- text -}}</div>
           {%- endif -%}
 
           {%- if customer -%}
