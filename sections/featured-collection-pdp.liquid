@@ -630,6 +630,15 @@
               {{ section.settings.global_price }}
             </li>
             {% endif %}
+            {% if section.settings.global_coa != blank %}
+            <li class="benefit-item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <rect width="20" height="20" rx="10" fill="white"/>
+              <path d="M5.33984 11.1765L8.19699 14.3765L15.3398 6.37646" stroke="#1A4D2E" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              {{ section.settings.global_coa }}
+            </li>
+            {% endif %}
           </ul>
           <a href="{{ section.settings.global_collection.url | default: '/pages/sign-up' }}" class="card-action-btn">{{ section.settings.global_btn_label }}</a>
           <div class="card-footer-text">Standard research grade</div>
