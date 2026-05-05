@@ -173,8 +173,14 @@
 	{% comment %}  {% endcomment %}
 
 	.slider-element.slider-button .slide-element-inner{display: none;}
-	.image_logo_block{margin-top: 16px;}
+	.image_logo_block{margin-top: 16px;display: none;}
+	.slider-content .image_logo_block{display: block;}
 	.image_logo_block figure{margin: 0;display: flex;gap: 16px;width: fit-content;}
+
+	@media (max-width: 991px){
+	  .slider-content .image_logo_block{display: none;}
+      .image_logo_block{display: block;}  
+	}
 
 
 
