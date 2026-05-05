@@ -280,20 +280,19 @@
 																</span> {% endcomment %}
 															</div>
 														{%- endif -%}
-
-
-														{% if block.settings.us_image != blank or block.settings.cgmp_image !=  blank %}
-														<div class="image_logo_block">
-                                                            <figure>
-                                                               <img src="{{ block.settings.us_image | img_url: '60x' }}" alt="{{ block.settings.us_image.alt }}" loading="lazy">
-                                                               <img src="{{ block.settings.cgmp_image | img_url: '60x' }}" alt="{{ block.settings.cgmp_image.alt }}" loading="lazy">
-															</figure>	
-														</div>
-													    {% endif %}
-
 													</div>
 												</div>
 											</div>
+
+											{% if block.settings.us_image != blank or block.settings.cgmp_image !=  blank %}
+											<div class="image_logo_block">
+												<figure>
+													<img src="{{ block.settings.us_image | img_url: '60x' }}" alt="{{ block.settings.us_image.alt }}" loading="lazy">
+													<img src="{{ block.settings.cgmp_image | img_url: '60x' }}" alt="{{ block.settings.cgmp_image.alt }}" loading="lazy">
+												</figure>	
+											</div>
+											{% endif %}
+
 										</a>
 								{%- endcase -%}
 							</div>
