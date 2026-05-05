@@ -27,6 +27,8 @@
             "use_custom_button": true,
             "link": "shopify://collections/all-products",
             "button_style": "primary",
+            "us_image": "shopify://shop_images/us_logo.png",
+            "cgmp_image": "shopify://shop_images/cGMP_logo.png",
             "content_width": 100,
             "position_x": "start",
             "position_y": "center",
