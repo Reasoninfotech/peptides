@@ -12,7 +12,9 @@
 	assign render_section = true
 	
 	if customer.tags contains 'approved'
-		if preferred_type contains "Both" or (preferred_type contains "International Peptides" and preferred_type contains "America-made Peptides")
+		if preferred_type contains "Both"
+			# Show section for both
+		elsif preferred_type contains "International Peptides" and preferred_type contains "America-made Peptides"
 			# Show section for both
 		elsif preferred_type contains "International Peptides"
 			if product.available
@@ -23,7 +25,9 @@
 
     assign display_heading = section.settings.heading
     if customer.tags contains 'approved'
-        if preferred_type contains "Both" or (preferred_type contains "America-made Peptides" and preferred_type contains "International Peptides")
+        if preferred_type contains "Both"
+            assign display_heading = "Recommended Peptides for you"
+        elsif preferred_type contains "America-made Peptides" and preferred_type contains "International Peptides"
             assign display_heading = "Recommended Peptides for you"
         elsif preferred_type contains "America-made Peptides"
             assign display_heading = "Recommended other America-made Peptides"
