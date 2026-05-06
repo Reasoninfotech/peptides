@@ -12,7 +12,9 @@
 	assign render_section = true
 	
 	if customer.tags contains 'approved'
-		if preferred_type == "International Peptides"
+		if preferred_type contains "Both" or (preferred_type contains "International Peptides" and preferred_type contains "America-made Peptides")
+			# Show section for both
+		elsif preferred_type contains "International Peptides"
 			if product.available
 				assign render_section = false
 			endif
@@ -21,9 +23,11 @@
 
     assign display_heading = section.settings.heading
     if customer.tags contains 'approved'
-        if preferred_type == "America-made Peptides"
+        if preferred_type contains "Both" or (preferred_type contains "America-made Peptides" and preferred_type contains "International Peptides")
+            assign display_heading = "Recommended Peptides for you"
+        elsif preferred_type contains "America-made Peptides"
             assign display_heading = "Recommended other America-made Peptides"
-        elsif preferred_type == "International Peptides"
+        elsif preferred_type contains "International Peptides"
             assign display_heading = "Out of stock? Try America-made Peptides"
         endif
     endif
@@ -208,7 +212,7 @@
 											{%- for product in collection.products limit: total -%}
                                                 {%- liquid
                                                   assign target_tag = ""
-                                                  if preferred_type == "America-made Peptides" or preferred_type == "International Peptides"
+                                                  if preferred_type contains "Both" or preferred_type contains "America-made Peptides" or preferred_type contains "International Peptides"
                                                     assign target_tag = "America-made-peptides"
                                                   endif
                                                   

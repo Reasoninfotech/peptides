@@ -637,9 +637,11 @@
                   if item.object_type == 'product'
                     assign preferred_type = customer.metafields.custom.type_of_peptides.value | default: customer.metafields.custom.type_of_peptides
                     assign target_tag = ""
-                    if preferred_type == "America-made Peptides"
+                    if preferred_type contains "Both" or (preferred_type contains "America-made Peptides" and preferred_type contains "International Peptides")
+                      assign target_tag = ""
+                    elsif preferred_type contains "America-made Peptides"
                       assign target_tag = "America-made-peptides"
-                    elsif preferred_type == "International Peptides"
+                    elsif preferred_type contains "International Peptides"
                       assign target_tag = "international-peptides"
                     endif
                     
