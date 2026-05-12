@@ -39,71 +39,7 @@
   	}
   }
 
-   /* Cart page totals alignment elegance edits */
-  @media (min-width: 992px) {
-    {{ section_id }} .cart-totals {
-      display: flex !important;
-      flex-direction: column !important;
-      gap: 1rem !important;
-    }
-    {{ section_id }} .cart-totals .totals-heading {
-      display: flex !important;
-      flex-direction: row !important;
-      justify-content: space-between !important;
-      align-items: flex-end !important;
-      width: 100% !important;
-      margin-bottom: 0.5rem !important;
-    }
-    {{ section_id }} .cart-totals .totals-heading .totals-price {
-      font-size: 2.8rem !important;
-      line-height: 1 !important;
-    }
-    {{ section_id }} .cart-totals .tax-note {
-      text-align: left !important;
-      margin: 0 !important;
-      padding-top: 0 !important;
-    }
-  }
-
-  /* Video Guide premium custom styling */
-  {{ section_id }} .cart-video-guide {
-    margin-top: 50px;
-    padding: 30px;
-    background-color: rgba(var(--text-color), 0.03);
-    border-radius: 12px;
-    border: 1px solid rgba(var(--text-color), 0.08);
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  {{ section_id }} .cart-video-guide .video-guide-title {
-    margin-top: 0;
-    margin-bottom: 8px;
-    text-transform: uppercase;
-    font-size: 1.8rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    color: rgb(var(--heading-color));
-    text-align: center;
-  }
-  {{ section_id }} .cart-video-guide .video-guide-desc {
-    text-align: center;
-    color: rgba(var(--text-color), 0.6);
-    font-size: 1.4rem;
-    margin-bottom: 20px;
-  }
-  {{ section_id }} .cart-video-guide .video-wrapper {
-    position: relative;
-    overflow: hidden;
-    border-radius: 8px;
-    line-height: 0;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-  }
-  {{ section_id }} .cart-video-guide video {
-    width: 100%;
-    border-radius: 8px;
-    display: block;
-  }
+  
 </style>
 
 <div class="section-wrapper color-{{ section.settings.color_scheme }}">
