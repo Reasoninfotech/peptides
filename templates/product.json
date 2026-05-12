@@ -270,7 +270,7 @@
           "type": "tab",
           "settings": {
             "name": "",
-            "collection": "america-made-peptides"
+            "collection": "american-made-peptides"
           }
         }
       },
@@ -283,7 +283,7 @@
         "full": false,
         "color_scheme": "",
         "sub_heading": "",
-        "heading": "Out of stock? Try America-made Peptides",
+        "heading": "Out of stock? Try American-made Peptides",
         "heading_size": "h3",
         "columns": 4,
         "total": 8,
@@ -297,8 +297,8 @@
         "padding_bottom_mobile": 20,
         "hide_comparison_for_guests": true,
         "guest_heading": "Choose Your Research Grade",
-        "guest_subtext": "Not sure which peptide line is right for your research? Compare the key benefits of International Peptides and America-made Peptides to find the perfect solution for your laboratory requirements.",
-        "guest_tip": "<p><strong>Need help deciding?</strong> Our America-made Peptides line offers superior purity (≥99%), faster shipping (2-3 days vs 7-10 days), and enhanced quality documentation from FDA-registered facilities.</p>",
+        "guest_subtext": "Not sure which peptide line is right for your research? Compare the key benefits of International Peptides and American-made Peptides to find the perfect solution for your laboratory requirements.",
+        "guest_tip": "<p><strong>Need help deciding?</strong> Our American-made Peptides line offers superior purity (≥99%), faster shipping (2-3 days vs 7-10 days), and enhanced quality documentation from FDA-registered facilities.</p>",
         "global_title": "Global Clinical Grade",
         "global_badge": "Standard Line",
         "global_subtitle": "Cost-effective research peptides for standard laboratory protocols",
