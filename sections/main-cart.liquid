@@ -38,6 +38,8 @@
   		padding-bottom: {{ section.settings.padding_bottom }}px;
   	}
   }
+
+  
 </style>
 
 <div class="section-wrapper color-{{ section.settings.color_scheme }}">
@@ -343,23 +345,6 @@
                 {{ 'accessibility.loading' | t }}
               </p>
             </form>
-            <div class="cart-video-guide" style="margin-top: 40px; width: 100%;">
-              <h3
-                class="video-guide-title"
-                style="margin-bottom: 15px; text-transform: uppercase; font-size: 1.6rem; font-weight: 700; letter-spacing: 0.05em; color: rgba(var(--heading-color));"
-              >
-                Video Guide
-              </h3>
-              <video
-                src="https://cdn.shopify.com/videos/c/o/v/ad3cd3d9ba8b4d4ba592e4fe1a20fead.mp4"
-                controls
-                autoplay
-                loop
-                muted
-                playsinline
-                style="width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); display: block;"
-              ></video>
-            </div>
 
             {% if show_slider %}
               <div class="product-recently-viewed" data-url="/search?section_id={{ section.id }}&type=product&q=">
@@ -517,6 +502,10 @@
               <div id="cart-errors"></div>
             </div>
           </div>
+        </div>
+        <div class="cart-video-guide" style="margin-top: 40px; width: 100%;">
+          <h3 class="video-guide-title" style="margin-bottom: 15px; text-transform: uppercase; font-size: 1.6rem; font-weight: 700; letter-spacing: 0.05em; color: rgba(var(--heading-color));">Video Guide</h3>
+          <video src="https://cdn.shopify.com/videos/c/o/v/ad3cd3d9ba8b4d4ba592e4fe1a20fead.mp4" controls autoplay loop muted playsinline style="width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); display: block;"></video>
         </div>
       </div>
     {%- endif -%}
