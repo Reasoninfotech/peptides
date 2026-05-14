@@ -160,16 +160,77 @@
 
 <div class="pdp-tabs">
   <div class="pdp-tabs__nav">
+    {%- liquid
+      assign nav_visible_count = 0
+    -%}
     {%- for block in section.blocks -%}
-      <div class="pdp-tabs__nav-item {% if forloop.first %}active{% endif %}" data-tab="{{ block.id }}">
-        {{ block.settings.title }}
-      </div>
+      {%- liquid
+        assign has_content = false
+        assign m_key = block.settings.metafield_key
+        assign m_obj = product.metafields.custom[m_key]
+        
+        if m_key != blank
+          if m_obj != blank
+            assign has_content = true
+          endif
+        elsif block.settings.text != blank
+          assign has_content = true
+        endif
+
+        if block.type == 'specs' and has_content == false
+          assign t_key = block.settings.table_metafield_key
+          assign t_obj = product.metafields.custom[t_key]
+          if t_key != blank
+            if t_obj != blank
+              assign has_content = true
+            endif
+          elsif block.settings.row_1_label != blank
+            assign has_content = true
+          endif
+        endif
+      -%}
+      {%- if has_content -%}
+        {%- assign nav_visible_count = nav_visible_count | plus: 1 -%}
+        <div class="pdp-tabs__nav-item {% if nav_visible_count == 1 %}active{% endif %}" data-tab="{{ block.id }}">
+          {{ block.settings.title }}
+        </div>
+      {%- endif -%}
     {%- endfor -%}
   </div>
 
   <div class="pdp-tabs__content">
+    {%- liquid
+      assign content_visible_count = 0
+    -%}
     {%- for block in section.blocks -%}
-      <div class="pdp-tabs__panel {% if forloop.first %}active{% endif %}" id="tab-{{ block.id }}">
+      {%- liquid
+        assign has_content = false
+        assign m_key = block.settings.metafield_key
+        assign m_obj = product.metafields.custom[m_key]
+        
+        if m_key != blank
+          if m_obj != blank
+            assign has_content = true
+          endif
+        elsif block.settings.text != blank
+          assign has_content = true
+        endif
+
+        if block.type == 'specs' and has_content == false
+          assign t_key = block.settings.table_metafield_key
+          assign t_obj = product.metafields.custom[t_key]
+          if t_key != blank
+            if t_obj != blank
+              assign has_content = true
+            endif
+          elsif block.settings.row_1_label != blank
+            assign has_content = true
+          endif
+        endif
+      -%}
+      {%- if has_content -%}
+        {%- assign content_visible_count = content_visible_count | plus: 1 -%}
+        <div class="pdp-tabs__panel {% if content_visible_count == 1 %}active{% endif %}" id="tab-{{ block.id }}">
         {%- if block.settings.content_heading != blank -%}
           <h2>{{ block.settings.content_heading | replace: '[product]', product.title }}</h2>
         {%- endif -%}
@@ -269,7 +330,8 @@
           {%- endif -%}
         {%- endif -%}
       </div>
-    {%- endfor -%}
+    {%- endif -%}
+  {%- endfor -%}
   </div>
 </div>
 
