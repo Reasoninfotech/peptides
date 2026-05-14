@@ -227,7 +227,6 @@
         },
         "content_Re99yY": {
           "type": "content",
-          "disabled": true,
           "settings": {
             "title": "COA",
             "content_heading": "",
