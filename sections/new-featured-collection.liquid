@@ -59,6 +59,10 @@
      .guests-comparison-grid .guests-cards-grid {
        width:calc(50% - 12px);
     }
+    .guests-comparison-grid .guests-cards-grid-top {
+        display: flex;
+        gap: 14px;
+    }
 </style>
 
 {%- if customer.tags contains 'approved' or section.settings.hide_comparison_for_guests -%}
