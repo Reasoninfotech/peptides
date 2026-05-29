@@ -48,6 +48,14 @@
       --slide-spacing: 0.8rem;
     }
   }
+
+
+
+  {% comment %} new section {% endcomment %}
+   .guests-comparison-grid {
+        display: flex;
+        gap: 24px;
+    }
 </style>
 
 {%- if customer.tags contains 'approved' or section.settings.hide_comparison_for_guests -%}
@@ -61,82 +69,71 @@
         {% for block in section.blocks %}
           {% case block.type %}
             {% when 'card_left' %}
-                <div class="guests-cards-grid guests-cards-grid-left">
-                    
-                    {% if block.settings.image != blank %}
-                    <img 
-                        src="{{ block.settings.image | image_url: width: 600 }}" 
-                        alt="{{ block.settings.heading }}"
-                        width=""
-                        height=""
-                    >
-                    {% endif %}
+              <div class="guests-cards-grid guests-cards-grid-left">
+                {% if block.settings.image != blank %}
+                  <img
+                    src="{{ block.settings.image | image_url: width: 600 }}"
+                    alt="{{ block.settings.heading }}"
+                    width=""
+                    height=""
+                  >
+                {% endif %}
 
-                    {% if block.settings.heading != blank %}
-                    <h3>{{ block.settings.heading }}</h3>
-                    {% endif %}
+                {% if block.settings.heading != blank %}
+                  <h3>{{ block.settings.heading }}</h3>
+                {% endif %}
 
-                    {% if block.settings.text != blank %}
-                    <p>{{ block.settings.text }}</p>
-                    {% endif %}
+                {% if block.settings.text != blank %}
+                  <p>{{ block.settings.text }}</p>
+                {% endif %}
 
-                    {% if block.settings.button_label != blank %}
-                    <a href="{{ block.settings.button_link }}" class="button">
-                        {{ block.settings.button_label }}
-                    </a>
-                    {% endif %}
+                {% if block.settings.button_label != blank %}
+                  <a href="{{ block.settings.button_link }}" class="button">
+                    {{ block.settings.button_label }}
+                  </a>
+                {% endif %}
+              </div>
 
-                </div>
+            {% when 'card_right' %}
+              <div class="guests-cards-grid guests-cards-grid-right">
+                {% if block.settings.image != blank %}
+                  <img
+                    src="{{ block.settings.image | image_url: width: 600 }}"
+                    alt="{{ block.settings.heading }}"
+                    width=""
+                    height=""
+                  >
+                {% endif %}
 
-                {% when 'card_right' %}
-                <div class="guests-cards-grid guests-cards-grid-right">
-                    
-                    {% if block.settings.image != blank %}
-                    <img 
-                        src="{{ block.settings.image | image_url: width: 600 }}" 
-                        alt="{{ block.settings.heading }}"
-                        width=""
-                        height=""
-                    >
-                    {% endif %}
+                {% if block.settings.heading != blank %}
+                  <h3>{{ block.settings.heading }}</h3>
+                {% endif %}
 
-                    {% if block.settings.heading != blank %}
-                    <h3>{{ block.settings.heading }}</h3>
-                    {% endif %}
+                {% if block.settings.text != blank %}
+                  <p>{{ block.settings.text }}</p>
+                {% endif %}
 
-                    {% if block.settings.text != blank %}
-                    <p>{{ block.settings.text }}</p>
-                    {% endif %}
-
-                    {% if block.settings.button_label != blank %}
-                    <a href="{{ block.settings.button_link }}" class="button">
-                        {{ block.settings.button_label }}
-                    </a>
-                    {% endif %}
-
-                </div>
+                {% if block.settings.button_label != blank %}
+                  <a href="{{ block.settings.button_link }}" class="button">
+                    {{ block.settings.button_label }}
+                  </a>
+                {% endif %}
+              </div>
           {% endcase %}
         {% endfor %}
-
       </div>
 
       <div class="grade-tip">
         {{ section.settings.guest_tip }}
       </div>
-
     </div>
   </div>
 
 {%- else -%}
-
   {%- if tab_count > 0 -%}
-
     <div id="featured-collection-section" class="featured-collection-tab color-{{ section.settings.color_scheme }}">
-
       <div class="{% if full %}stretch-section stretch-padding{% else %}container{% endif %}">
-
         <div class="featured-collection-tabs tabs">
-
           {%- liquid
             assign class_tab = tab_count
 
@@ -157,15 +154,12 @@
 
           <!-- Tabs Head -->
           <div class="tabs-head tabs-{% echo class_tab %}">
-
             <!-- Desktop -->
             <div class="tabs-head-desktop{% if animation %} scroll-trigger{% endif %}">
-
               {%- assign tab_index = 0 -%}
 
               {%- for block in section.blocks -%}
                 {% if block.type == 'tab' %}
-
                   {%- assign tab_index = tab_index | plus: 1 -%}
 
                   <button
@@ -185,21 +179,16 @@
                       endif
                     -%}
                   </button>
-
                 {% endif %}
               {%- endfor -%}
-
             </div>
 
             <!-- Mobile -->
             <div class="toggle-dropdown tabs-head-mobile tab-{% echo class_tab %}">
-
               <div class="dropdown-summary">
                 <span class="summary-info">
-
                   {%- for block in section.blocks -%}
                     {% if block.type == 'tab' %}
-
                       {%- liquid
                         assign collection = block.settings.collection
 
@@ -213,23 +202,18 @@
                       {% break %}
                     {% endif %}
                   {%- endfor -%}
-
                 </span>
 
                 {%- render 'icon', code: 'chevron-down' -%}
               </div>
 
               <div class="dropdown-content" role="list">
-
                 <div class="dropdown-content-inner">
-
                   <ul class="content" role="list">
-
                     {%- assign tab_index = 0 -%}
 
                     {%- for block in section.blocks -%}
                       {% if block.type == 'tab' %}
-
                         {%- assign tab_index = tab_index | plus: 1 -%}
 
                         {%- liquid
@@ -251,346 +235,320 @@
                         >
                           {{ name }}
                         </li>
-
                       {% endif %}
                     {%- endfor -%}
-
                   </ul>
-
                 </div>
-
               </div>
-
             </div>
-
           </div>
 
           <!-- Tab Content -->
           <div class="tabs-content animation-{{ section.settings.animation }}">
-
             {%- assign tab_index = 0 -%}
 
             {%- for block in section.blocks -%}
               {% if block.type == 'tab' %}
-
                 {%- assign tab_index = tab_index | plus: 1 -%}
                 {%- assign collection = block.settings.collection -%}
 
                 <div class="product-main-slide{% if tab_index == 1 %} active{% endif %}">
-
                   <unity-slider class="unity-slider">
-
                     <div class="unity-slider-viewport">
-
                       <div
                         class="unity-slider-container tab-content{% if tab_index == 1 %} active{% endif %}"
                         data-id="{{ block.id }}"
                         data-index="{{ tab_index }}"
                       >
-
                         {%- for product in collection.products limit: total -%}
-
                           <div class="unity-slide">
                             {%- render 'product-card', product: product -%}
                           </div>
 
                         {%- else -%}
-
                           {%- for i in (1..total) -%}
                             <div class="unity-slide">
                               {%- render 'product-card-placeholder', index: forloop.index -%}
                             </div>
                           {%- endfor -%}
-
                         {%- endfor -%}
-
                       </div>
-
                     </div>
-
                   </unity-slider>
-
                 </div>
-
               {% endif %}
             {%- endfor -%}
-
           </div>
-
         </div>
-
       </div>
-
     </div>
-
   {%- endif -%}
-
 {%- endif -%}
 {% schema %}
+{
+  "name": "Featured Collection Tabs",
+  "tag": "section",
+  "class": "featured-collection-section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+
+  "settings": [
     {
-    "name": "Featured Collection Tabs",
-    "tag": "section",
-    "class": "featured-collection-section",
-    "disabled_on": {
-        "groups": ["header", "footer"]
+      "type": "checkbox",
+      "id": "full",
+      "default": false,
+      "label": "Full Width"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "scheme-1"
     },
 
-    "settings": [
-        {
-        "type": "checkbox",
-        "id": "full",
-        "default": false,
-        "label": "Full Width"
-        },
-        {
-        "type": "color_scheme",
-        "id": "color_scheme",
-        "label": "Color Scheme",
-        "default": "scheme-1"
-        },
+    {
+      "type": "header",
+      "content": "Guest Comparison Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_comparison_for_guests",
+      "default": false,
+      "label": "Show comparison section for guests"
+    },
+    {
+      "type": "text",
+      "id": "guest_heading",
+      "label": "Guest Heading",
+      "default": "Comparison Section"
+    },
+    {
+      "type": "textarea",
+      "id": "guest_subtext",
+      "label": "Guest Subtext",
+      "default": "Add your guest comparison description here"
+    },
+    {
+      "type": "richtext",
+      "id": "guest_tip",
+      "label": "Guest Tip",
+      "default": "<p>Add your guest tip text here</p>"
+    },
 
+    {
+      "type": "header",
+      "content": "Heading Settings"
+    },
+    {
+      "type": "text",
+      "id": "sub_heading",
+      "default": "( Browse our products )",
+      "label": "Sub Heading"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Most popular",
+      "label": "Heading"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
         {
-        "type": "header",
-        "content": "Guest Comparison Settings"
+          "value": "h4",
+          "label": "H4"
         },
         {
-        "type": "checkbox",
-        "id": "hide_comparison_for_guests",
-        "default": false,
-        "label": "Show comparison section for guests"
+          "value": "h3",
+          "label": "H3"
         },
         {
-        "type": "text",
-        "id": "guest_heading",
-        "label": "Guest Heading",
-        "default": "Comparison Section"
-        },
-        {
-        "type": "textarea",
-        "id": "guest_subtext",
-        "label": "Guest Subtext",
-        "default": "Add your guest comparison description here"
-        },
-        {
-        "type": "richtext",
-        "id": "guest_tip",
-        "label": "Guest Tip",
-        "default": "<p>Add your guest tip text here</p>"
-        },
-
-        {
-        "type": "header",
-        "content": "Heading Settings"
-        },
-        {
-        "type": "text",
-        "id": "sub_heading",
-        "default": "( Browse our products )",
-        "label": "Sub Heading"
-        },
-        {
-        "type": "text",
-        "id": "heading",
-        "default": "Most popular",
-        "label": "Heading"
-        },
-        {
-        "type": "select",
-        "id": "heading_size",
-        "options": [
-            {
-            "value": "h4",
-            "label": "H4"
-            },
-            {
-            "value": "h3",
-            "label": "H3"
-            },
-            {
-            "value": "h2",
-            "label": "H2"
-            }
-        ],
-        "default": "h3",
-        "label": "Heading Size"
-        },
-
-        {
-        "type": "header",
-        "content": "Slider Settings"
-        },
-        {
-        "type": "range",
-        "id": "columns",
-        "min": 2,
-        "max": 5,
-        "step": 1,
-        "default": 4,
-        "label": "Columns"
-        },
-        {
-        "type": "range",
-        "id": "total",
-        "min": 2,
-        "max": 20,
-        "step": 1,
-        "default": 8,
-        "label": "Products to Show"
-        },
-
-        {
-        "type": "header",
-        "content": "Padding Settings"
-        },
-        {
-        "type": "range",
-        "id": "padding_top",
-        "min": 0,
-        "max": 100,
-        "step": 1,
-        "default": 50,
-        "unit": "px",
-        "label": "Padding Top"
-        },
-        {
-        "type": "range",
-        "id": "padding_bottom",
-        "min": 0,
-        "max": 100,
-        "step": 1,
-        "default": 50,
-        "unit": "px",
-        "label": "Padding Bottom"
-        },
-        {
-        "type": "range",
-        "id": "padding_top_mobile",
-        "min": 0,
-        "max": 100,
-        "step": 1,
-        "default": 20,
-        "unit": "px",
-        "label": "Mobile Padding Top"
-        },
-        {
-        "type": "range",
-        "id": "padding_bottom_mobile",
-        "min": 0,
-        "max": 100,
-        "step": 1,
-        "default": 20,
-        "unit": "px",
-        "label": "Mobile Padding Bottom"
+          "value": "h2",
+          "label": "H2"
         }
-    ],
+      ],
+      "default": "h3",
+      "label": "Heading Size"
+    },
 
-    "blocks": [
-        {
-        "type": "tab",
-        "name": "Tab",
-        "settings": [
-            {
-            "type": "text",
-            "id": "name",
-            "label": "Tab Name"
-            },
-            {
-            "type": "collection",
-            "id": "collection",
-            "label": "Collection"
-            }
-        ]
-        },
+    {
+      "type": "header",
+      "content": "Slider Settings"
+    },
+    {
+      "type": "range",
+      "id": "columns",
+      "min": 2,
+      "max": 5,
+      "step": 1,
+      "default": 4,
+      "label": "Columns"
+    },
+    {
+      "type": "range",
+      "id": "total",
+      "min": 2,
+      "max": 20,
+      "step": 1,
+      "default": 8,
+      "label": "Products to Show"
+    },
 
-        {
-        "type": "card_left",
-        "name": "Card Left",
-        "settings": [
-            {
-            "type": "image_picker",
-            "id": "image",
-            "label": "Card Image"
-            },
-            {
-            "type": "text",
-            "id": "heading",
-            "label": "Heading",
-            "default": "Card Heading"
-            },
-            {
-            "type": "textarea",
-            "id": "text",
-            "label": "Description",
-            "default": "Add your description here"
-            },
-            {
-            "type": "url",
-            "id": "button_link",
-            "label": "Button Link"
-            },
-            {
-            "type": "text",
-            "id": "button_label",
-            "label": "Button Label",
-            "default": "Shop Now"
-            }
-        ]
-        },
-
-        {
-        "type": "card_right",
-        "name": "Card Right",
-        "settings": [
-            {
-            "type": "image_picker",
-            "id": "image",
-            "label": "Card Image"
-            },
-            {
-            "type": "text",
-            "id": "heading",
-            "label": "Heading",
-            "default": "Card Heading"
-            },
-            {
-            "type": "textarea",
-            "id": "text",
-            "label": "Description",
-            "default": "Add your description here"
-            },
-            {
-            "type": "url",
-            "id": "button_link",
-            "label": "Button Link"
-            },
-            {
-            "type": "text",
-            "id": "button_label",
-            "label": "Button Label",
-            "default": "Shop Now"
-            }
-        ]
-        }
-    ],
-
-    "presets": [
-        {
-        "name": "Featured Collection Tabs",
-        "blocks": [
-            {
-            "type": "tab",
-            "settings": {
-                "name": "Tab 1"
-            }
-            },
-            {
-            "type": "tab",
-            "settings": {
-                "name": "Tab 2"
-            }
-            }
-        ]
-        }
-    ]
+    {
+      "type": "header",
+      "content": "Padding Settings"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50,
+      "unit": "px",
+      "label": "Padding Top"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50,
+      "unit": "px",
+      "label": "Padding Bottom"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 20,
+      "unit": "px",
+      "label": "Mobile Padding Top"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 20,
+      "unit": "px",
+      "label": "Mobile Padding Bottom"
     }
+  ],
+
+  "blocks": [
+    {
+      "type": "tab",
+      "name": "Tab",
+      "settings": [
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Tab Name"
+        },
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        }
+      ]
+    },
+
+    {
+      "type": "card_left",
+      "name": "Card Left",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Card Image"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Card Heading"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Description",
+          "default": "Add your description here"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button Label",
+          "default": "Shop Now"
+        }
+      ]
+    },
+
+    {
+      "type": "card_right",
+      "name": "Card Right",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Card Image"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Card Heading"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Description",
+          "default": "Add your description here"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button Label",
+          "default": "Shop Now"
+        }
+      ]
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "Featured Collection Tabs",
+      "blocks": [
+        {
+          "type": "tab",
+          "settings": {
+            "name": "Tab 1"
+          }
+        },
+        {
+          "type": "tab",
+          "settings": {
+            "name": "Tab 2"
+          }
+        }
+      ]
+    }
+  ]
+}
 {% endschema %}
