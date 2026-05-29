@@ -61,13 +61,60 @@
         {% for block in section.blocks %}
           {% case block.type %}
             {% when 'card_left' %}
-              <div class="guests-cards-grid guests-cards-grid-left">
-                
-              </div>
-            {% when 'card_right' %}
-              <div class="guests-cards-grid guests-cards-grid-right">
-                
-              </div>
+                <div class="guests-cards-grid guests-cards-grid-left">
+                    
+                    {% if block.settings.image != blank %}
+                    <img 
+                        src="{{ block.settings.image | image_url: width: 600 }}" 
+                        alt="{{ block.settings.heading }}"
+                        width=""
+                        height=""
+                    >
+                    {% endif %}
+
+                    {% if block.settings.heading != blank %}
+                    <h3>{{ block.settings.heading }}</h3>
+                    {% endif %}
+
+                    {% if block.settings.text != blank %}
+                    <p>{{ block.settings.text }}</p>
+                    {% endif %}
+
+                    {% if block.settings.button_label != blank %}
+                    <a href="{{ block.settings.button_link }}" class="button">
+                        {{ block.settings.button_label }}
+                    </a>
+                    {% endif %}
+
+                </div>
+
+                {% when 'card_right' %}
+                <div class="guests-cards-grid guests-cards-grid-right">
+                    
+                    {% if block.settings.image != blank %}
+                    <img 
+                        src="{{ block.settings.image | image_url: width: 600 }}" 
+                        alt="{{ block.settings.heading }}"
+                        width=""
+                        height=""
+                    >
+                    {% endif %}
+
+                    {% if block.settings.heading != blank %}
+                    <h3>{{ block.settings.heading }}</h3>
+                    {% endif %}
+
+                    {% if block.settings.text != blank %}
+                    <p>{{ block.settings.text }}</p>
+                    {% endif %}
+
+                    {% if block.settings.button_label != blank %}
+                    <a href="{{ block.settings.button_link }}" class="button">
+                        {{ block.settings.button_label }}
+                    </a>
+                    {% endif %}
+
+                </div>
           {% endcase %}
         {% endfor %}
 
