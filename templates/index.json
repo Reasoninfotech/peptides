@@ -218,7 +218,6 @@
         "tab-2",
         "tab-3"
       ],
-      "disabled": true,
       "settings": {
         "full": false,
         "color_scheme": "",
@@ -307,7 +306,7 @@
         "columns": 4,
         "total": 8,
         "dots": false,
-        "loop": false,
+        "loop": true,
         "autoplay": false,
         "delay": 2,
         "padding_top": 50,
