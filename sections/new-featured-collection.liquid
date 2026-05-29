@@ -172,9 +172,7 @@
                         {{ block.settings.button_label }}
                       </a>
                     {% endif %}
-                  </div>
-                </div>
-                <div class="guests-cards-grid-bottom">
+                        <div class="guests-cards-grid-bottom">
                   {% for i in (1..5) %}
                     {% assign text_key = 'guests_cards_bottom_text_' | append: i %}
                     {% if block.settings[text_key] != blank %}
@@ -197,6 +195,9 @@
                     {% endif %}
                   {% endfor %}
                 </div>
+                  </div>
+                </div>
+            
               </div>
 
             {% when 'card_right' %}
