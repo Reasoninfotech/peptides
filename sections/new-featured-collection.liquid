@@ -43,7 +43,9 @@
   }
 </style>
 {%- if customer.tags contains 'approved' -%}
-    {%- if section.blocks.size > 0 -%}
+    
+{%- else -%}
+{%- if section.blocks.size > 0 -%}
     <div id="featured-collection-section" class="featured-collection-tab color-{{ section.settings.color_scheme }}">
         <div class="{% if full %}stretch-section stretch-padding{% else %}container{% endif %}">
         <div class="featured-collection-tabs tabs">
@@ -254,8 +256,6 @@
         </div>
     </div>
     {%- endif -%}
-{%- else -%}
-    
 
 {%- endif -%}   
 
