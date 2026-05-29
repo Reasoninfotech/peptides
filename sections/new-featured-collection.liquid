@@ -1,146 +1,8 @@
-{%- comment -%}
-  Snippet: fct-comparison-html.liquid
-  Purpose: HTML only — Guest Comparison Grid
-  CSS:     fct-comparison-styles.liquid (snippets/)
-  Schema:  featured-collection-tabs.liquid (sections/)
-  Usage:   {%- render 'fct-comparison-html', section: section -%}
-{%- endcomment -%}
-
 {%- liquid
   assign global_image   = section.settings.global_image
   assign american_image = section.settings.american_image
 -%}
 
-{%- comment -%} Premium card checkmark SVG — ek j jagya define karyu {%- endcomment -%}
-{%- capture premium_check -%}
-  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-    <rect width="20" height="20" rx="10" fill="white"/>
-    <path d="M5.33984 11.1765L8.19699 14.3765L15.3398 6.37646" stroke="#1A4D2E" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
-  </svg>
-{%- endcapture -%}
-
-<div id="featured-collection-section" class="comparison-section">
-  <div class="container">
-
-    <!-- Header -->
-    <div class="comparison-header">
-      <h2>{{ section.settings.guest_heading }}</h2>
-      <p>{{ section.settings.guest_subtext }}</p>
-    </div>
-
-    <div class="comparison-grid">
-
-      <!-- LEFT CARD: Global / International -->
-      <div class="comparison-card standard">
-
-        <div class="card-header">
-          <h3 class="card-title">{{ section.settings.global_title }}</h3>
-          <p class="card-subtitle">{{ section.settings.global_badge }}</p>
-        </div>
-
-        <div class="card-image-box">
-          {%- if global_image -%}
-            <img
-              src="{{ global_image | img_url: '400x' }}"
-              class="{% if section.settings.global_image_mobile != blank %}hidden-tablet hidden-mobile{% endif %}"
-              alt="{{ global_image.alt | default: section.settings.global_title | escape }}"
-              loading="lazy">
-          {%- else -%}
-            <img
-              src="https://cdn.shopify.com/s/files/1/0805/0013/7979/files/glp-1_international.png?v=1710925000"
-              class="{% if section.settings.global_image_mobile != blank %}hidden-tablet hidden-mobile{% endif %}"
-              alt="Global"
-              loading="lazy">
-          {%- endif -%}
-          {%- if section.settings.global_image_mobile != blank -%}
-            <img
-              src="{{ section.settings.global_image_mobile | img_url: '400x' }}"
-              class="hidden-desktop"
-              alt="{{ section.settings.global_image_mobile.alt | default: section.settings.global_title | escape }}"
-              loading="lazy">
-          {%- endif -%}
-        </div>
-
-        <ul class="comparison-benefits">
-          {%- if section.settings.global_origin    != blank -%}<li class="benefit-item">{%- render 'icon', code: 'checkmark' -%} {{ section.settings.global_origin }}</li>{%- endif -%}
-          {%- if section.settings.global_purity    != blank -%}<li class="benefit-item">{%- render 'icon', code: 'checkmark' -%} {{ section.settings.global_purity }}</li>{%- endif -%}
-          {%- if section.settings.global_testing   != blank -%}<li class="benefit-item">{%- render 'icon', code: 'checkmark' -%} {{ section.settings.global_testing }}</li>{%- endif -%}
-          {%- if section.settings.global_lead_time != blank -%}<li class="benefit-item">{%- render 'icon', code: 'checkmark' -%} {{ section.settings.global_lead_time }}</li>{%- endif -%}
-          {%- if section.settings.global_price     != blank -%}<li class="benefit-item">{%- render 'icon', code: 'checkmark' -%} {{ section.settings.global_price }}</li>{%- endif -%}
-          {%- if section.settings.global_coa       != blank -%}<li class="benefit-item">{%- render 'icon', code: 'checkmark' -%} {{ section.settings.global_coa }}</li>{%- endif -%}
-        </ul>
-
-        <a href="{{ section.settings.global_collection.url | default: '/pages/sign-up' }}" class="card-action-btn">
-          {{ section.settings.global_btn_label }}
-        </a>
-        <div class="card-footer-text">Standard research grade</div>
-
-      </div>
-      <!-- /LEFT CARD -->
-
-      <!-- RIGHT CARD: American / Premium -->
-      <div class="comparison-card premium">
-
-        {%- if section.settings.american_badge != blank -%}
-          <div class="card-badge-wrapper">
-            <span class="card-badge">★ {{ section.settings.american_badge }}</span>
-          </div>
-        {%- endif -%}
-
-        <div class="card-header">
-          <h3 class="card-title">{{ section.settings.american_title }}</h3>
-        </div>
-
-        <div class="card-image-box">
-          {%- if american_image -%}
-            <img
-              src="{{ american_image | img_url: '400x' }}"
-              class="{% if section.settings.american_image_mobile != blank %}hidden-tablet hidden-mobile{% endif %}"
-              alt="{{ american_image.alt | default: section.settings.american_title | escape }}"
-              loading="lazy">
-          {%- else -%}
-            <img
-              src="https://cdn.shopify.com/s/files/1/0805/0013/7979/files/glp-1_usa.png?v=1710925000"
-              class="{% if section.settings.american_image_mobile != blank %}hidden-tablet hidden-mobile{% endif %}"
-              alt="USA"
-              loading="lazy">
-          {%- endif -%}
-          {%- if section.settings.american_image_mobile != blank -%}
-            <img
-              src="{{ section.settings.american_image_mobile | img_url: '400x' }}"
-              class="hidden-desktop"
-              alt="{{ section.settings.american_image_mobile.alt | default: section.settings.american_title | escape }}"
-              loading="lazy">
-          {%- endif -%}
-        </div>
-
-        <ul class="comparison-benefits">
-          {%- if section.settings.american_origin    != blank -%}<li class="benefit-item">{{ premium_check }} {{ section.settings.american_origin | remove: '🇺🇸' | strip }}</li>{%- endif -%}
-          {%- if section.settings.american_purity    != blank -%}<li class="benefit-item">{{ premium_check }} {{ section.settings.american_purity }}</li>{%- endif -%}
-          {%- if section.settings.american_testing   != blank -%}<li class="benefit-item">{{ premium_check }} {{ section.settings.american_testing }}</li>{%- endif -%}
-          {%- if section.settings.american_lead_time != blank -%}<li class="benefit-item">{{ premium_check }} {{ section.settings.american_lead_time }}</li>{%- endif -%}
-          {%- if section.settings.american_price     != blank -%}<li class="benefit-item">{{ premium_check }} {{ section.settings.american_price }}</li>{%- endif -%}
-          {%- if section.settings.american_coa       != blank -%}<li class="benefit-item">{{ premium_check }} {{ section.settings.american_coa }}</li>{%- endif -%}
-        </ul>
-
-        <a href="{{ section.settings.american_collection.url | default: '/pages/sign-up' }}" class="card-action-btn">
-          {{ section.settings.american_btn_label }}
-        </a>
-        <div class="card-footer-text">Premium research grade</div>
-
-      </div>
-      <!-- /RIGHT CARD -->
-
-    </div>
-    <!-- /comparison-grid -->
-
-    <!-- Bottom Tip -->
-    <div class="grade-tip">
-      {{ section.settings.guest_tip }}
-    </div>
-
-  </div>
-</div>
 <style>
   .comparison-section {
     padding: 80px 0;
@@ -212,12 +74,6 @@
     color: inherit;
     align-items: center;
     gap: 10px;
-  }
-  .premium .card-title img {
-    height: 18px;
-    width: 24px;
-    flex-shrink: 0;
-    margin-right: 5px;
   }
   .card-subtitle {
     font-size: 14px;
@@ -292,7 +148,6 @@
     margin-top: 2px;
   }
   .standard .benefit-item svg { color: #9CA3AF; }
-  .premium .benefit-item svg  { color: #fff; }
   .card-action-btn {
     display: block;
     width: 100%;
@@ -365,3 +220,319 @@
     .grade-tip p        { font-size: 12px; line-height: 20px; }
   }
 </style>
+
+{%- capture premium_check -%}
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+    <rect width="20" height="20" rx="10" fill="white"/>
+    <path d="M5.33984 11.1765L8.19699 14.3765L15.3398 6.37646" stroke="#1A4D2E" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+{%- endcapture -%}
+
+{%- capture standard_check -%}
+  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+    <path d="M3 9.5L7 13.5L15 5.5" stroke="#9CA3AF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+{%- endcapture -%}
+
+<div class="comparison-section">
+  <div class="container">
+
+    <!-- Header -->
+    <div class="comparison-header">
+      <h2>{{ section.settings.guest_heading }}</h2>
+      <p>{{ section.settings.guest_subtext }}</p>
+    </div>
+
+    <div class="comparison-grid">
+
+      <!-- LEFT CARD: Global / International -->
+      <div class="comparison-card standard">
+        <div class="card-header">
+          <h3 class="card-title">{{ section.settings.global_title }}</h3>
+          <p class="card-subtitle">{{ section.settings.global_badge }}</p>
+        </div>
+
+        <div class="card-image-box">
+          {%- if global_image -%}
+            <img
+              src="{{ global_image | img_url: '400x' }}"
+              class="{% if section.settings.global_image_mobile != blank %}hidden-tablet hidden-mobile{% endif %}"
+              alt="{{ global_image.alt | default: section.settings.global_title | escape }}"
+              loading="lazy">
+          {%- else -%}
+            <img
+              src="https://cdn.shopify.com/s/files/1/0805/0013/7979/files/glp-1_international.png?v=1710925000"
+              class="{% if section.settings.global_image_mobile != blank %}hidden-tablet hidden-mobile{% endif %}"
+              alt="Global" loading="lazy">
+          {%- endif -%}
+          {%- if section.settings.global_image_mobile != blank -%}
+            <img
+              src="{{ section.settings.global_image_mobile | img_url: '400x' }}"
+              class="hidden-desktop"
+              alt="{{ section.settings.global_image_mobile.alt | default: section.settings.global_title | escape }}"
+              loading="lazy">
+          {%- endif -%}
+        </div>
+
+        <ul class="comparison-benefits">
+          {%- if section.settings.global_origin    != blank -%}<li class="benefit-item">{{ standard_check }} {{ section.settings.global_origin }}</li>{%- endif -%}
+          {%- if section.settings.global_purity    != blank -%}<li class="benefit-item">{{ standard_check }} {{ section.settings.global_purity }}</li>{%- endif -%}
+          {%- if section.settings.global_testing   != blank -%}<li class="benefit-item">{{ standard_check }} {{ section.settings.global_testing }}</li>{%- endif -%}
+          {%- if section.settings.global_lead_time != blank -%}<li class="benefit-item">{{ standard_check }} {{ section.settings.global_lead_time }}</li>{%- endif -%}
+          {%- if section.settings.global_price     != blank -%}<li class="benefit-item">{{ standard_check }} {{ section.settings.global_price }}</li>{%- endif -%}
+          {%- if section.settings.global_coa       != blank -%}<li class="benefit-item">{{ standard_check }} {{ section.settings.global_coa }}</li>{%- endif -%}
+        </ul>
+
+        <a href="{{ section.settings.global_collection.url | default: '/pages/sign-up' }}" class="card-action-btn">
+          {{ section.settings.global_btn_label }}
+        </a>
+        <div class="card-footer-text">Standard research grade</div>
+      </div>
+      <!-- /LEFT CARD -->
+
+      <!-- RIGHT CARD: American / Premium -->
+      <div class="comparison-card premium">
+        {%- if section.settings.american_badge != blank -%}
+          <div class="card-badge-wrapper">
+            <span class="card-badge">★ {{ section.settings.american_badge }}</span>
+          </div>
+        {%- endif -%}
+
+        <div class="card-header">
+          <h3 class="card-title">{{ section.settings.american_title }}</h3>
+        </div>
+
+        <div class="card-image-box">
+          {%- if american_image -%}
+            <img
+              src="{{ american_image | img_url: '400x' }}"
+              class="{% if section.settings.american_image_mobile != blank %}hidden-tablet hidden-mobile{% endif %}"
+              alt="{{ american_image.alt | default: section.settings.american_title | escape }}"
+              loading="lazy">
+          {%- else -%}
+            <img
+              src="https://cdn.shopify.com/s/files/1/0805/0013/7979/files/glp-1_usa.png?v=1710925000"
+              class="{% if section.settings.american_image_mobile != blank %}hidden-tablet hidden-mobile{% endif %}"
+              alt="USA" loading="lazy">
+          {%- endif -%}
+          {%- if section.settings.american_image_mobile != blank -%}
+            <img
+              src="{{ section.settings.american_image_mobile | img_url: '400x' }}"
+              class="hidden-desktop"
+              alt="{{ section.settings.american_image_mobile.alt | default: section.settings.american_title | escape }}"
+              loading="lazy">
+          {%- endif -%}
+        </div>
+
+        <ul class="comparison-benefits">
+          {%- if section.settings.american_origin    != blank -%}<li class="benefit-item">{{ premium_check }} {{ section.settings.american_origin | remove: '🇺🇸' | strip }}</li>{%- endif -%}
+          {%- if section.settings.american_purity    != blank -%}<li class="benefit-item">{{ premium_check }} {{ section.settings.american_purity }}</li>{%- endif -%}
+          {%- if section.settings.american_testing   != blank -%}<li class="benefit-item">{{ premium_check }} {{ section.settings.american_testing }}</li>{%- endif -%}
+          {%- if section.settings.american_lead_time != blank -%}<li class="benefit-item">{{ premium_check }} {{ section.settings.american_lead_time }}</li>{%- endif -%}
+          {%- if section.settings.american_price     != blank -%}<li class="benefit-item">{{ premium_check }} {{ section.settings.american_price }}</li>{%- endif -%}
+          {%- if section.settings.american_coa       != blank -%}<li class="benefit-item">{{ premium_check }} {{ section.settings.american_coa }}</li>{%- endif -%}
+        </ul>
+
+        <a href="{{ section.settings.american_collection.url | default: '/pages/sign-up' }}" class="card-action-btn">
+          {{ section.settings.american_btn_label }}
+        </a>
+        <div class="card-footer-text">Premium research grade</div>
+      </div>
+      <!-- /RIGHT CARD -->
+
+    </div>
+    <!-- /comparison-grid -->
+
+    <!-- Bottom Tip -->
+    <div class="grade-tip">
+      {{ section.settings.guest_tip }}
+    </div>
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Comparison Grid",
+  "tag": "section",
+  "class": "comparison-grid-section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Header"
+    },
+    {
+      "type": "text",
+      "id": "guest_heading",
+      "label": "Heading",
+      "default": "Choose Your Research Grade"
+    },
+    {
+      "type": "textarea",
+      "id": "guest_subtext",
+      "label": "Subtext",
+      "default": "Not sure which peptide line is right for your research? Compare the key benefits of International Peptides and America-made Peptides to find the perfect solution for your laboratory requirements."
+    },
+    {
+      "type": "richtext",
+      "id": "guest_tip",
+      "label": "Bottom Help Text",
+      "default": "<p><strong>Need help deciding?</strong> Our America-made Peptides line offers superior purity (≥99%), faster shipping (2-3 days vs 7-10 days), and enhanced quality documentation from FDA-registered facilities.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Left Card — Global"
+    },
+    {
+      "type": "html",
+      "id": "global_title",
+      "label": "Title",
+      "default": "International-Origin Peptides"
+    },
+    {
+      "type": "text",
+      "id": "global_badge",
+      "label": "Subtitle / Badge",
+      "default": "Standard Line"
+    },
+    {
+      "type": "image_picker",
+      "id": "global_image",
+      "label": "Image (Desktop)"
+    },
+    {
+      "type": "image_picker",
+      "id": "global_image_mobile",
+      "label": "Image (Mobile)"
+    },
+    {
+      "type": "collection",
+      "id": "global_collection",
+      "label": "Button Collection"
+    },
+    {
+      "type": "text",
+      "id": "global_btn_label",
+      "label": "Button Label",
+      "default": "Browse Global Collection"
+    },
+    {
+      "type": "text",
+      "id": "global_origin",
+      "label": "Benefit 1 — Origin",
+      "default": "International"
+    },
+    {
+      "type": "text",
+      "id": "global_purity",
+      "label": "Benefit 2 — Purity",
+      "default": "≥98% (HPLC)"
+    },
+    {
+      "type": "text",
+      "id": "global_testing",
+      "label": "Benefit 3 — Testing",
+      "default": "ISO Certified"
+    },
+    {
+      "type": "text",
+      "id": "global_lead_time",
+      "label": "Benefit 4 — Lead Time",
+      "default": "7-10 business days"
+    },
+    {
+      "type": "text",
+      "id": "global_price",
+      "label": "Benefit 5 — Price",
+      "default": "Standard pricing"
+    },
+    {
+      "type": "text",
+      "id": "global_coa",
+      "label": "Benefit 6 — COA",
+      "default": "✓ Yes"
+    },
+    {
+      "type": "header",
+      "content": "Right Card — American"
+    },
+    {
+      "type": "html",
+      "id": "american_title",
+      "label": "Title",
+      "default": "American-Made Peptides (Tier 1)"
+    },
+    {
+      "type": "text",
+      "id": "american_badge",
+      "label": "Top Badge",
+      "default": "RECOMMENDED"
+    },
+    {
+      "type": "image_picker",
+      "id": "american_image",
+      "label": "Image (Desktop)"
+    },
+    {
+      "type": "image_picker",
+      "id": "american_image_mobile",
+      "label": "Image (Mobile)"
+    },
+    {
+      "type": "collection",
+      "id": "american_collection",
+      "label": "Button Collection"
+    },
+    {
+      "type": "text",
+      "id": "american_btn_label",
+      "label": "Button Label",
+      "default": "Browse US Collection"
+    },
+    {
+      "type": "text",
+      "id": "american_origin",
+      "label": "Benefit 1 — Origin",
+      "default": "USA 🇺🇸"
+    },
+    {
+      "type": "text",
+      "id": "american_purity",
+      "label": "Benefit 2 — Purity",
+      "default": "≥99% (HPLC + MS)"
+    },
+    {
+      "type": "text",
+      "id": "american_testing",
+      "label": "Benefit 3 — Testing",
+      "default": "FDA-Registered"
+    },
+    {
+      "type": "text",
+      "id": "american_lead_time",
+      "label": "Benefit 4 — Lead Time",
+      "default": "2-3 business days"
+    },
+    {
+      "type": "text",
+      "id": "american_price",
+      "label": "Benefit 5 — Price",
+      "default": "Premium (15% more)"
+    },
+    {
+      "type": "text",
+      "id": "american_coa",
+      "label": "Benefit 6 — COA",
+      "default": "✓ Enhanced Documentation"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Comparison Grid"
+    }
+  ]
+}
+{% endschema %}
