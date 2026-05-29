@@ -69,7 +69,6 @@
     .guests-comparison-grid .guests-cards-grid-top .guests-cards-grid-content {
         width: calc(60% - 7px);
     }
-
 </style>
 
 {%- if customer.tags contains 'approved' or section.settings.hide_comparison_for_guests -%}
@@ -85,74 +84,85 @@
             {% when 'card_left' %}
               <div class="guests-cards-grid guests-cards-grid-left">
                 <div class="guests-cards-grid-top">
-                <div class="guests-cards-grid-top-img">
-                {% if block.settings.image != blank %}
-                  <img
-                    src="{{ block.settings.image | image_url: width: 600 }}"
-                    alt="{{ block.settings.heading }}"
-                    width=""
-                    height=""
-                  >
-                {% endif %}
-                </div>
-                <div class="guests-cards-grid-content"> 
+                  <div class="guests-cards-grid-top-img">
+                    {% if block.settings.image != blank %}
+                      <img
+                        src="{{ block.settings.image | image_url: width: 600 }}"
+                        alt="{{ block.settings.heading }}"
+                        width=""
+                        height=""
+                      >
+                    {% endif %}
+                  </div>
+                  <div class="guests-cards-grid-content">
                     {% if block.settings.heading != blank %}
-                        <h3>{{ block.settings.heading }}</h3>
+                      <h3>{{ block.settings.heading }}</h3>
                     {% endif %}
 
                     {% if block.settings.heading_image != blank %}
-                        <div class="guests-heading-image">
+                      <div class="guests-heading-image">
                         <img
-                            src="{{ block.settings.heading_image | image_url: width: 300 }}"
-                            alt="{{ block.settings.heading }}"
-                            width=""
-                            height=""
+                          src="{{ block.settings.heading_image | image_url: width: 300 }}"
+                          alt="{{ block.settings.heading }}"
+                          width=""
+                          height=""
                         >
-                        </div>
+                      </div>
                     {% endif %}
 
                     {% if block.settings.text != blank %}
-                        <p>{{ block.settings.text }}</p>
+                      <p>{{ block.settings.text }}</p>
                     {% endif %}
 
                     {% if block.settings.button_label != blank %}
-                        <a href="{{ block.settings.button_link }}" class="button">
+                      <a href="{{ block.settings.button_link }}" class="button">
                         {{ block.settings.button_label }}
-                        </a>
+                      </a>
                     {% endif %}
-                    </div>
-              </div>
+                  </div>
+                </div>
               </div>
 
             {% when 'card_right' %}
               <div class="guests-cards-grid guests-cards-grid-right">
                 <div class="guests-cards-grid-top">
-                       <div class="guests-cards-grid-top-img">
-                {% if block.settings.image != blank %}
-                  <img
-                    src="{{ block.settings.image | image_url: width: 600 }}"
-                    alt="{{ block.settings.heading }}"
-                    width=""
-                    height=""
-                  >
-                {% endif %}
-            </div>
-                <div class="guests-cards-grid-content"> 
+                  <div class="guests-cards-grid-top-img">
+                    {% if block.settings.image != blank %}
+                      <img
+                        src="{{ block.settings.image | image_url: width: 600 }}"
+                        alt="{{ block.settings.heading }}"
+                        width=""
+                        height=""
+                      >
+                    {% endif %}
+                  </div>
+                  <div class="guests-cards-grid-content">
                     {% if block.settings.heading != blank %}
-                    <h3>{{ block.settings.heading }}</h3>
+                      <h3>{{ block.settings.heading }}</h3>
+                    {% endif %}
+
+                    {% if block.settings.heading_image != blank %}
+                      <div class="guests-heading-image">
+                        <img
+                          src="{{ block.settings.heading_image | image_url: width: 300 }}"
+                          alt="{{ block.settings.heading }}"
+                          width=""
+                          height=""
+                        >
+                      </div>
                     {% endif %}
 
                     {% if block.settings.text != blank %}
-                    <p>{{ block.settings.text }}</p>
+                      <p>{{ block.settings.text }}</p>
                     {% endif %}
 
                     {% if block.settings.button_label != blank %}
-                    <a href="{{ block.settings.button_link }}" class="button">
+                      <a href="{{ block.settings.button_link }}" class="button">
                         {{ block.settings.button_label }}
-                    </a>
+                      </a>
                     {% endif %}
+                  </div>
                 </div>
-              </div>
               </div>
           {% endcase %}
         {% endfor %}
@@ -496,83 +506,83 @@
     },
 
     {
-  "type": "card_left",
-  "name": "Card Left",
-  "settings": [
-    {
-      "type": "image_picker",
-      "id": "image",
-      "label": "Card Image"
+      "type": "card_left",
+      "name": "Card Left",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Card Image"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Card Heading"
+        },
+        {
+          "type": "image_picker",
+          "id": "heading_image",
+          "label": "Heading Image"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Description",
+          "default": "Add your description here"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button Label",
+          "default": "Shop Now"
+        }
+      ]
     },
     {
-      "type": "text",
-      "id": "heading",
-      "label": "Heading",
-      "default": "Card Heading"
-    },
-    {
-      "type": "image_picker",
-      "id": "heading_image",
-      "label": "Heading Image"
-    },
-    {
-      "type": "textarea",
-      "id": "text",
-      "label": "Description",
-      "default": "Add your description here"
-    },
-    {
-      "type": "url",
-      "id": "button_link",
-      "label": "Button Link"
-    },
-    {
-      "type": "text",
-      "id": "button_label",
-      "label": "Button Label",
-      "default": "Shop Now"
+      "type": "card_right",
+      "name": "Card Right",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Card Image"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Card Heading"
+        },
+        {
+          "type": "image_picker",
+          "id": "heading_image",
+          "label": "Heading Image"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Description",
+          "default": "Add your description here"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button Label",
+          "default": "Shop Now"
+        }
+      ]
     }
-  ]
-},
-{
-  "type": "card_right",
-  "name": "Card Right",
-  "settings": [
-    {
-      "type": "image_picker",
-      "id": "image",
-      "label": "Card Image"
-    },
-    {
-      "type": "text",
-      "id": "heading",
-      "label": "Heading",
-      "default": "Card Heading"
-    },
-    {
-      "type": "image_picker",
-      "id": "heading_image",
-      "label": "Heading Image"
-    },
-    {
-      "type": "textarea",
-      "id": "text",
-      "label": "Description",
-      "default": "Add your description here"
-    },
-    {
-      "type": "url",
-      "id": "button_link",
-      "label": "Button Link"
-    },
-    {
-      "type": "text",
-      "id": "button_label",
-      "label": "Button Label",
-      "default": "Shop Now"
-    }
-  ]
-}
   ],
 
   "presets": [
