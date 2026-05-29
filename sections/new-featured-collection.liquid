@@ -19,6 +19,17 @@
     --slide-size: 93%;
   }
 
+  {{ section_id }} .heading {
+    color: black;
+    font-size: 30px;
+    line-height: 1.2;
+  }
+
+  {{ section_id }} .tabs-head .tab-head {
+    border: .1rem solid oklch(87.2% .01 258.338);
+    font-weight: 400;
+  }
+
   @media (min-width: 992px) {
     {{ section_id }} .featured-collection-tab {
       padding-top: {{ section.settings.padding_top }}px;
@@ -51,7 +62,7 @@
         {%- endif -%}
 
         {%- if heading != blank -%}
-          <div class="heading" style="color: black; font-size: 30px; line-height: 1.2;">
+          <div class="heading">
             {{ heading }}
           </div>
         {%- endif -%}
@@ -66,8 +77,7 @@
                 class="tab-head{% if forloop.index == 1 %} active{% endif %}"
                 data-index="{{ forloop.index }}"
                 {{ block.shopify_attributes }}
-                {% if request.design_mode %}data-id="{{ block.id }}"{% endif %}
-                style="border: .1rem solid oklch(87.2% .01 258.338); font-weight: 400;">
+                {% if request.design_mode %}data-id="{{ block.id }}"{% endif %}>
                 {%- liquid
                   assign collection = block.settings.collection
                   if block.settings.name != blank
