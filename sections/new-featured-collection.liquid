@@ -1,537 +1,428 @@
 {%- liquid
-  assign global_image   = section.settings.global_image
-  assign american_image = section.settings.american_image
+  assign section_id   = '#shopify-section-' | append: section.id
+  assign animation    = settings.section_animation
+  assign full         = section.settings.full
+  assign sub_heading  = section.settings.sub_heading
+  assign heading      = section.settings.heading
+  assign columns      = section.settings.columns
+  assign heading_size = section.settings.heading_size
+  assign total        = section.settings.total
 -%}
 
 <style>
-  .comparison-section {
-    padding: 80px 0;
-    background: #fff;
-    text-align: center;
-  }
-  .comparison-section .container {
-    max-width: 100%;
-  }
-  .comparison-header {
-    max-width: 740px;
-    margin: 0 auto 48px;
-  }
-  .comparison-header h2 {
-    font-size: 36px;
-    font-weight: 500;
-    margin-top: 0;
-    margin-bottom: 16px;
-    color: #000;
-    letter-spacing: -0.02em;
-  }
-  .comparison-header p {
-    color: #666;
-    line-height: 1.6;
-    font-size: 16px;
-  }
-  .comparison-grid {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    padding: 20px 0;
-  }
-  .comparison-card {
-    flex: 1;
-    border-radius: 20px;
-    padding: 30px;
-    text-align: left;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    background: #F9FAFB;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  .comparison-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-  }
-  .comparison-card.premium {
-    background: #1A4D2E;
-    color: #fff;
-    box-shadow: 0px 0px 29.3px 0px rgba(212, 175, 55, 1);
-  }
-  .comparison-card.premium:hover {
-    box-shadow: 0 8px 30px rgba(212, 175, 55, 0.7);
-  }
-  .card-header {
-    margin-bottom: 24px;
-  }
-  .premium .card-title {
-    font-size: 24px;
-    font-weight: 700;
-    margin: 0;
-    color: inherit;
-  }
-  .standard .card-title {
-    font-size: 24px;
-    font-weight: 500;
-    margin: 0;
-    color: inherit;
-    align-items: center;
-    gap: 10px;
-  }
-  .card-subtitle {
-    font-size: 14px;
-    opacity: 0.6;
-    margin: 0;
-    font-weight: 500;
-  }
-  .premium .card-subtitle {
-    color: #E5E7EB;
-  }
-  .card-badge-wrapper {
-    position: absolute;
-    top: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
-  }
-  .card-badge {
-    font-size: 11px;
-    padding: 8px 20px;
-    border-radius: 50px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    white-space: nowrap;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  }
-  .premium .card-badge {
-    background: #E9BC47;
-    color: #1A4D2E;
-  }
-  .card-image-box {
-    border-radius: 16px;
-    height: 180px;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 24px;
-    overflow: hidden;
-    border: 1px solid #ffffff;
-  }
-  .standard .card-image-box { background-color: #FFFFFF; }
-  .premium .card-image-box  { background-color: #fff; }
-  .card-image-box img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
-  .comparison-benefits {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 9px 0;
-    flex-grow: 1;
-  }
-  .benefit-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    margin-bottom: 15px;
-    font-size: 14px;
-    line-height: 1.4;
-    color: #4B5563;
-    font-weight: 400;
-  }
-  .premium .benefit-item { color: #fff; }
-  .benefit-item svg {
-    width: 18px;
-    height: 18px;
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
-  .standard .benefit-item svg { color: #9CA3AF; }
-  .card-action-btn {
-    display: block;
-    width: 100%;
-    padding: 16px;
-    border-radius: 12px;
-    text-align: center;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 16px;
-    transition: all 0.3s ease;
-  }
-  .standard .card-action-btn { background: #000; color: #fff; }
-  .premium .card-action-btn  { background: #fff; color: #1A4D2E; }
-  .card-action-btn:hover {
-    opacity: 0.9;
-    transform: scale(0.98);
-  }
-  .card-footer-text {
-    text-align: center;
-    margin-top: 15px;
-    font-size: 13px;
-    font-weight: 500;
-    opacity: 0.5;
-  }
-  .premium .card-footer-text {
-    color: #E9BC47;
-    opacity: 1;
-  }
-  .grade-tip {
-    margin-top: 16px;
-    background: #F9FAFB;
-    border: 1px solid #E5E7EB;
-    padding: 24px 48px;
-    border-radius: 14px;
-  }
-  .grade-tip p {
-    max-width: 1100px;
-    margin: 0 auto;
-    font-size: 14px;
-    color: #666;
+  {{ section_id }} .featured-collection-tab {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
   }
 
-  /* Tablet */
-  @media (max-width: 900px) {
-    .comparison-section { padding: 60px 0; }
-    .comparison-section .container { padding: 0 10px; }
-    .comparison-grid { flex-direction: row; gap: 10px; padding: 20px 0; }
-    .comparison-card { flex: 1; padding: 20px 12px; border-radius: 12px; }
-    .card-header { margin-bottom: 15px; }
-    .premium .card-title  { font-size: 14px; gap: 6px; }
-    .standard .card-title { font-size: 15px; gap: 6px; }
-    .card-subtitle { font-size: 11px; }
-    .card-image-box { height: 160px; margin-bottom: 15px; border-radius: 10px; }
-    .benefit-item { font-size: 10px; gap: 6px; margin-bottom: 10px; }
-    .benefit-item svg { width: 14px; height: 14px; }
-    .card-action-btn { padding: 12px 8px; font-size: 10px; border-radius: 8px; }
-    .card-footer-text { font-size: 10px; margin-top: 10px; }
-    .card-badge-wrapper { top: -10px; }
-    .card-badge { font-size: 9px; padding: 5px 12px; }
-    .comparison-header h2 { font-size: 24px; max-width: 260px; margin: 0 auto 16px; }
-    .comparison-header p  { font-size: 16px; margin: 0; font-weight: 400; line-height: 20px; }
+  {{ section_id }} .unity-slider {
+    --slide-size: 93%;
   }
 
-  /* Mobile */
-  @media (max-width: 767px) {
-    .comparison-section { padding: 40px 0; }
-    .comparison-header  { margin: 0 auto 24px; }
-    .comparison-card    { padding: 8px; }
-    .grade-tip          { padding: 15px 20px; }
-    .grade-tip p        { font-size: 12px; line-height: 20px; }
+  @media (min-width: 992px) {
+    {{ section_id }} .featured-collection-tab {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+
+    {{ section_id }} .unity-slider {
+      --slide-size: calc(100% / {{ columns }});
+      --slide-spacing: 0.8rem;
+    }
   }
 </style>
 
-{%- capture premium_check -%}
-  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-    <rect width="20" height="20" rx="10" fill="white"/>
-    <path d="M5.33984 11.1765L8.19699 14.3765L15.3398 6.37646" stroke="#1A4D2E" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
-  </svg>
-{%- endcapture -%}
+{%- if section.blocks.size > 0 -%}
+  <div id="featured-collection-section" class="featured-collection-tab color-{{ section.settings.color_scheme }}">
+    <div class="{% if full %}stretch-section stretch-padding{% else %}container{% endif %}">
+      <div class="featured-collection-tabs tabs">
 
-{%- capture standard_check -%}
-  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
-    <path d="M3 9.5L7 13.5L15 5.5" stroke="#9CA3AF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-  </svg>
-{%- endcapture -%}
+        {%- for block in section.blocks -%}
+          {%- liquid
+            assign class_tab = section.blocks.size
+            if class_tab == 1
+              assign class_tab = 'single'
+            endif
+          -%}
+        {%- endfor -%}
 
-<div class="comparison-section">
-  <div class="container">
+        {%- if sub_heading != blank -%}
+          <div class="sub-heading">{{ sub_heading }}</div>
+        {%- endif -%}
 
-    <!-- Header -->
-    <div class="comparison-header">
-      <h2>{{ section.settings.guest_heading }}</h2>
-      <p>{{ section.settings.guest_subtext }}</p>
-    </div>
-
-    <div class="comparison-grid">
-
-      <!-- LEFT CARD: Global / International -->
-      <div class="comparison-card standard">
-        <div class="card-header">
-          <h3 class="card-title">{{ section.settings.global_title }}</h3>
-          <p class="card-subtitle">{{ section.settings.global_badge }}</p>
-        </div>
-
-        <div class="card-image-box">
-          {%- if global_image -%}
-            <img
-              src="{{ global_image | img_url: '400x' }}"
-              class="{% if section.settings.global_image_mobile != blank %}hidden-tablet hidden-mobile{% endif %}"
-              alt="{{ global_image.alt | default: section.settings.global_title | escape }}"
-              loading="lazy">
-          {%- else -%}
-            <img
-              src="https://cdn.shopify.com/s/files/1/0805/0013/7979/files/glp-1_international.png?v=1710925000"
-              class="{% if section.settings.global_image_mobile != blank %}hidden-tablet hidden-mobile{% endif %}"
-              alt="Global" loading="lazy">
-          {%- endif -%}
-          {%- if section.settings.global_image_mobile != blank -%}
-            <img
-              src="{{ section.settings.global_image_mobile | img_url: '400x' }}"
-              class="hidden-desktop"
-              alt="{{ section.settings.global_image_mobile.alt | default: section.settings.global_title | escape }}"
-              loading="lazy">
-          {%- endif -%}
-        </div>
-
-        <ul class="comparison-benefits">
-          {%- if section.settings.global_origin    != blank -%}<li class="benefit-item">{{ standard_check }} {{ section.settings.global_origin }}</li>{%- endif -%}
-          {%- if section.settings.global_purity    != blank -%}<li class="benefit-item">{{ standard_check }} {{ section.settings.global_purity }}</li>{%- endif -%}
-          {%- if section.settings.global_testing   != blank -%}<li class="benefit-item">{{ standard_check }} {{ section.settings.global_testing }}</li>{%- endif -%}
-          {%- if section.settings.global_lead_time != blank -%}<li class="benefit-item">{{ standard_check }} {{ section.settings.global_lead_time }}</li>{%- endif -%}
-          {%- if section.settings.global_price     != blank -%}<li class="benefit-item">{{ standard_check }} {{ section.settings.global_price }}</li>{%- endif -%}
-          {%- if section.settings.global_coa       != blank -%}<li class="benefit-item">{{ standard_check }} {{ section.settings.global_coa }}</li>{%- endif -%}
-        </ul>
-
-        <a href="{{ section.settings.global_collection.url | default: '/pages/sign-up' }}" class="card-action-btn">
-          {{ section.settings.global_btn_label }}
-        </a>
-        <div class="card-footer-text">Standard research grade</div>
-      </div>
-      <!-- /LEFT CARD -->
-
-      <!-- RIGHT CARD: American / Premium -->
-      <div class="comparison-card premium">
-        {%- if section.settings.american_badge != blank -%}
-          <div class="card-badge-wrapper">
-            <span class="card-badge">★ {{ section.settings.american_badge }}</span>
+        {%- if heading != blank -%}
+          <div class="heading" style="color: black; font-size: 30px; line-height: 1.2;">
+            {{ heading }}
           </div>
         {%- endif -%}
 
-        <div class="card-header">
-          <h3 class="card-title">{{ section.settings.american_title }}</h3>
+        <!-- Tab Heads -->
+        <div class="tabs-head tabs-{% echo class_tab %}">
+
+          <!-- Desktop Tabs -->
+          <div class="tabs-head-desktop{% if animation %} scroll-trigger{% endif %}">
+            {%- for block in section.blocks -%}
+              <button
+                class="tab-head{% if forloop.index == 1 %} active{% endif %}"
+                data-index="{{ forloop.index }}"
+                {{ block.shopify_attributes }}
+                {% if request.design_mode %}data-id="{{ block.id }}"{% endif %}
+                style="border: .1rem solid oklch(87.2% .01 258.338); font-weight: 400;">
+                {%- liquid
+                  assign collection = block.settings.collection
+                  if block.settings.name != blank
+                    echo block.settings.name | escape
+                  elsif collection != blank
+                    echo collection.title
+                  else
+                    echo 'general.text.tab' | t | append: ' ' | append: forloop.index
+                  endif
+                -%}
+              </button>
+            {%- endfor -%}
+          </div>
+
+          <!-- Mobile Dropdown -->
+          <div class="toggle-dropdown tabs-head-mobile tab-{% echo class_tab %}">
+            <div class="dropdown-summary">
+              <span class="summary-info">
+                {%- liquid
+                  for block in section.blocks limit: 1
+                    assign collection = block.settings.collection
+                    if block.settings.name != blank
+                      echo block.settings.name | escape
+                    elsif collection != blank
+                      echo collection.title
+                    else
+                      echo 'general.text.tab' | t | append: ' ' | append: forloop.index
+                    endif
+                  endfor
+                -%}
+              </span>
+              {%- render 'icon', code: 'chevron-down' -%}
+            </div>
+
+            <div class="dropdown-content" role="list">
+              <div class="dropdown-content-inner">
+                <header class="dropdown-content-header">
+                  <span class="dropdown-content-title">
+                    {%- liquid
+                      for block in section.blocks limit: 1
+                        assign collection = block.settings.collection
+                        if block.settings.name != blank
+                          echo block.settings.name | escape
+                        elsif collection != blank
+                          echo collection.title
+                        else
+                          echo 'general.text.tab' | t | append: ' ' | append: forloop.index
+                        endif
+                      endfor
+                    -%}
+                  </span>
+                  {%- render 'icon', code: 'chevron-down' -%}
+                </header>
+
+                <ul class="content" role="list">
+                  {%- for block in section.blocks -%}
+                    {%- liquid
+                      assign collection = block.settings.collection
+                      if block.settings.name != blank
+                        assign name = block.settings.name | escape
+                      elsif collection != blank
+                        assign name = collection.title
+                      else
+                        assign name = 'general.text.tab' | t | append: ' ' | append: forloop.index
+                      endif
+                    -%}
+                    <li class="dropdown-item" data-value="{{ name }}" data-index="{{ forloop.index }}">
+                      {{- name -}}
+                    </li>
+                  {%- endfor -%}
+                </ul>
+              </div>
+            </div>
+          </div>
+
         </div>
+        <!-- /tabs-head -->
 
-        <div class="card-image-box">
-          {%- if american_image -%}
-            <img
-              src="{{ american_image | img_url: '400x' }}"
-              class="{% if section.settings.american_image_mobile != blank %}hidden-tablet hidden-mobile{% endif %}"
-              alt="{{ american_image.alt | default: section.settings.american_title | escape }}"
-              loading="lazy">
-          {%- else -%}
-            <img
-              src="https://cdn.shopify.com/s/files/1/0805/0013/7979/files/glp-1_usa.png?v=1710925000"
-              class="{% if section.settings.american_image_mobile != blank %}hidden-tablet hidden-mobile{% endif %}"
-              alt="USA" loading="lazy">
-          {%- endif -%}
-          {%- if section.settings.american_image_mobile != blank -%}
-            <img
-              src="{{ section.settings.american_image_mobile | img_url: '400x' }}"
-              class="hidden-desktop"
-              alt="{{ section.settings.american_image_mobile.alt | default: section.settings.american_title | escape }}"
-              loading="lazy">
-          {%- endif -%}
+        <!-- Tab Contents -->
+        <div class="tabs-content animation-{{ section.settings.animation }}">
+          {%- for block in section.blocks -%}
+            {%- assign collection = block.settings.collection -%}
+            <div class="product-main-slide{% if forloop.index == 1 %} active{% endif %}">
+              <unity-slider class="unity-slider">
+
+                <template data-options>
+                  {
+                    {%- if section.settings.loop -%}"loop": true,{%- endif -%}
+                    {%- if section.settings.autoplay -%}"_autoplay": {{ section.settings.delay | times: 1000 }},{%- endif -%}
+                    "align": "start",
+                    "_autoheight": true,
+                    "_fade": false,
+                    "speed": 10,
+                    "_prevBtn": "{{ section_id }} .unity-button-prev",
+                    "_nextBtn": "{{ section_id }} .unity-button-next",
+                    "_dotsNode": "{{ section_id }} .unity-dots"
+                  }
+                </template>
+
+                <div class="unity-arrows{% if forloop.index == 1 %} active{% endif %}" data-index="{{ forloop.index }}" style="display: none;">
+                  <button
+                    class="unity-button unity-button-prev"
+                    title="{{ 'general.unity.prev' | t }}-feature-clt"
+                    aria-label="{{ 'general.unity.prev' | t }}-feature-clt"
+                    id="{{ 'general.unity.prev' | t }}-feature-clt"
+                    aria-labelledby="{{ 'general.unity.prev' | t }}-feature-clt"
+                    disabled>
+                    {%- render 'icon', code: 'chevron-left' -%}
+                  </button>
+                  <button
+                    class="unity-button unity-button-next"
+                    title="{{ 'general.unity.next' | t }}-feature-clt"
+                    aria-label="{{ 'general.unity.next' | t }}-feature-clt"
+                    id="{{ 'general.unity.next' | t }}-feature-clt"
+                    aria-labelledby="{{ 'general.unity.next' | t }}-feature-clt"
+                    disabled>
+                    {%- render 'icon', code: 'chevron-right' -%}
+                  </button>
+                </div>
+
+                <div class="unity-slider-viewport">
+                  <div
+                    class="unity-slider-container tab-content{% if forloop.index == 1 %} active{% endif %}"
+                    data-id="{{ block.id }}"
+                    data-index="{{ forloop.index }}">
+
+                    {%- for product in collection.products limit: total -%}
+                      {%- liquid
+                        assign preferred_type = customer.metafields.custom.type_of_peptides.value | default: customer.metafields.custom.type_of_peptides
+                        assign target_tag = ""
+                        if preferred_type == "America-made Peptides"
+                          assign target_tag = "America-made-peptides"
+                        elsif preferred_type == "International Peptides"
+                          assign target_tag = "international-peptides"
+                        endif
+
+                        assign show_this_product = true
+                        if customer.tags contains 'approved' and target_tag != blank
+                          unless product.tags contains target_tag
+                            assign show_this_product = false
+                          endunless
+                        endif
+                      -%}
+                      {%- if show_this_product -%}
+                        <div class="unity-slide">
+                          {%- render 'product-card', product: product -%}
+                        </div>
+                      {%- endif -%}
+
+                    {%- else -%}
+                      {%- for i in (1..total) -%}
+                        <div class="unity-slide">
+                          {%- render 'product-card-placeholder', index: forloop.index -%}
+                        </div>
+                      {%- endfor -%}
+                    {%- endfor -%}
+
+                  </div>
+                </div>
+
+                {%- if section.settings.dots -%}
+                  <div class="align-dots-center">
+                    <div class="unity-dots{% if forloop.index == 1 %} active{% endif %}" data-index="{{ forloop.index }}"></div>
+                  </div>
+                {%- endif -%}
+
+              </unity-slider>
+            </div>
+          {%- endfor -%}
         </div>
+        <!-- /tabs-content -->
 
-        <ul class="comparison-benefits">
-          {%- if section.settings.american_origin    != blank -%}<li class="benefit-item">{{ premium_check }} {{ section.settings.american_origin | remove: '🇺🇸' | strip }}</li>{%- endif -%}
-          {%- if section.settings.american_purity    != blank -%}<li class="benefit-item">{{ premium_check }} {{ section.settings.american_purity }}</li>{%- endif -%}
-          {%- if section.settings.american_testing   != blank -%}<li class="benefit-item">{{ premium_check }} {{ section.settings.american_testing }}</li>{%- endif -%}
-          {%- if section.settings.american_lead_time != blank -%}<li class="benefit-item">{{ premium_check }} {{ section.settings.american_lead_time }}</li>{%- endif -%}
-          {%- if section.settings.american_price     != blank -%}<li class="benefit-item">{{ premium_check }} {{ section.settings.american_price }}</li>{%- endif -%}
-          {%- if section.settings.american_coa       != blank -%}<li class="benefit-item">{{ premium_check }} {{ section.settings.american_coa }}</li>{%- endif -%}
-        </ul>
-
-        <a href="{{ section.settings.american_collection.url | default: '/pages/sign-up' }}" class="card-action-btn">
-          {{ section.settings.american_btn_label }}
-        </a>
-        <div class="card-footer-text">Premium research grade</div>
       </div>
-      <!-- /RIGHT CARD -->
-
     </div>
-    <!-- /comparison-grid -->
-
-    <!-- Bottom Tip -->
-    <div class="grade-tip">
-      {{ section.settings.guest_tip }}
-    </div>
-
   </div>
-</div>
+{%- endif -%}
 
 {% schema %}
 {
-  "name": "Comparison Grid",
+  "name": "Featured Collection Tabs",
   "tag": "section",
-  "class": "comparison-grid-section",
+  "class": "featured-collection-section",
   "disabled_on": {
     "groups": ["header", "footer"]
   },
   "settings": [
     {
-      "type": "header",
-      "content": "Section Header"
+      "type": "checkbox",
+      "id": "full",
+      "default": false,
+      "label": "t:general.layout.full.label"
     },
     {
-      "type": "text",
-      "id": "guest_heading",
-      "label": "Heading",
-      "default": "Choose Your Research Grade"
-    },
-    {
-      "type": "textarea",
-      "id": "guest_subtext",
-      "label": "Subtext",
-      "default": "Not sure which peptide line is right for your research? Compare the key benefits of International Peptides and America-made Peptides to find the perfect solution for your laboratory requirements."
-    },
-    {
-      "type": "richtext",
-      "id": "guest_tip",
-      "label": "Bottom Help Text",
-      "default": "<p><strong>Need help deciding?</strong> Our America-made Peptides line offers superior purity (≥99%), faster shipping (2-3 days vs 7-10 days), and enhanced quality documentation from FDA-registered facilities.</p>"
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:settings_schema.colors.label",
+      "default": "scheme-1"
     },
     {
       "type": "header",
-      "content": "Left Card — Global"
-    },
-    {
-      "type": "html",
-      "id": "global_title",
-      "label": "Title",
-      "default": "International-Origin Peptides"
+      "content": "t:sections.featured-collection-tabs.settings.header_head.content"
     },
     {
       "type": "text",
-      "id": "global_badge",
-      "label": "Subtitle / Badge",
-      "default": "Standard Line"
-    },
-    {
-      "type": "image_picker",
-      "id": "global_image",
-      "label": "Image (Desktop)"
-    },
-    {
-      "type": "image_picker",
-      "id": "global_image_mobile",
-      "label": "Image (Mobile)"
-    },
-    {
-      "type": "collection",
-      "id": "global_collection",
-      "label": "Button Collection"
+      "id": "sub_heading",
+      "default": "( Browser our products )",
+      "label": "t:general.typography.sub_heading.label"
     },
     {
       "type": "text",
-      "id": "global_btn_label",
-      "label": "Button Label",
-      "default": "Browse Global Collection"
+      "id": "heading",
+      "default": "Most popular",
+      "label": "t:general.typography.heading.label"
     },
     {
-      "type": "text",
-      "id": "global_origin",
-      "label": "Benefit 1 — Origin",
-      "default": "International"
-    },
-    {
-      "type": "text",
-      "id": "global_purity",
-      "label": "Benefit 2 — Purity",
-      "default": "≥98% (HPLC)"
-    },
-    {
-      "type": "text",
-      "id": "global_testing",
-      "label": "Benefit 3 — Testing",
-      "default": "ISO Certified"
-    },
-    {
-      "type": "text",
-      "id": "global_lead_time",
-      "label": "Benefit 4 — Lead Time",
-      "default": "7-10 business days"
-    },
-    {
-      "type": "text",
-      "id": "global_price",
-      "label": "Benefit 5 — Price",
-      "default": "Standard pricing"
-    },
-    {
-      "type": "text",
-      "id": "global_coa",
-      "label": "Benefit 6 — COA",
-      "default": "✓ Yes"
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        { "value": "h4", "label": "t:general.typography.heading_size.option_1.label" },
+        { "value": "h3", "label": "t:general.typography.heading_size.option_2.label" },
+        { "value": "h2", "label": "t:general.typography.heading_size.option_3.label" }
+      ],
+      "default": "h3",
+      "label": "t:general.typography.heading_size.label"
     },
     {
       "type": "header",
-      "content": "Right Card — American"
+      "content": "t:sections.featured-collection-tabs.settings.header_content.content"
     },
     {
-      "type": "html",
-      "id": "american_title",
-      "label": "Title",
-      "default": "American-Made Peptides (Tier 1)"
+      "type": "range",
+      "id": "columns",
+      "min": 2,
+      "max": 5,
+      "step": 1,
+      "default": 4,
+      "label": "t:general.slider.column.label"
     },
     {
-      "type": "text",
-      "id": "american_badge",
-      "label": "Top Badge",
-      "default": "RECOMMENDED"
+      "type": "range",
+      "min": 2,
+      "max": 20,
+      "step": 1,
+      "default": 8,
+      "id": "total",
+      "label": "t:general.slider.total.label"
     },
     {
-      "type": "image_picker",
-      "id": "american_image",
-      "label": "Image (Desktop)"
+      "type": "header",
+      "content": "t:general.slider.options.label"
     },
     {
-      "type": "image_picker",
-      "id": "american_image_mobile",
-      "label": "Image (Mobile)"
+      "type": "checkbox",
+      "id": "dots",
+      "default": false,
+      "label": "t:general.slider.show_dots.label"
     },
     {
-      "type": "collection",
-      "id": "american_collection",
-      "label": "Button Collection"
+      "type": "checkbox",
+      "id": "loop",
+      "default": false,
+      "label": "t:general.slider.loop.label"
     },
     {
-      "type": "text",
-      "id": "american_btn_label",
-      "label": "Button Label",
-      "default": "Browse US Collection"
+      "type": "checkbox",
+      "id": "autoplay",
+      "default": false,
+      "label": "t:general.slider.autoplay.label"
     },
     {
-      "type": "text",
-      "id": "american_origin",
-      "label": "Benefit 1 — Origin",
-      "default": "USA 🇺🇸"
+      "type": "range",
+      "id": "delay",
+      "min": 2,
+      "max": 20,
+      "step": 1,
+      "default": 2,
+      "unit": "s",
+      "label": "t:general.slider.delay.label"
     },
     {
-      "type": "text",
-      "id": "american_purity",
-      "label": "Benefit 2 — Purity",
-      "default": "≥99% (HPLC + MS)"
+      "type": "header",
+      "content": "t:general.padding.header_padding.content"
     },
     {
-      "type": "text",
-      "id": "american_testing",
-      "label": "Benefit 3 — Testing",
-      "default": "FDA-Registered"
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50,
+      "unit": "px",
+      "label": "t:general.padding.top.label"
     },
     {
-      "type": "text",
-      "id": "american_lead_time",
-      "label": "Benefit 4 — Lead Time",
-      "default": "2-3 business days"
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50,
+      "unit": "px",
+      "label": "t:general.padding.bottom.label"
     },
     {
-      "type": "text",
-      "id": "american_price",
-      "label": "Benefit 5 — Price",
-      "default": "Premium (15% more)"
+      "type": "paragraph",
+      "content": "t:general.padding.paragraph_mobile.content"
     },
     {
-      "type": "text",
-      "id": "american_coa",
-      "label": "Benefit 6 — COA",
-      "default": "✓ Enhanced Documentation"
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 20,
+      "unit": "px",
+      "label": "t:general.padding.top.label"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 20,
+      "unit": "px",
+      "label": "t:general.padding.bottom.label"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tab",
+      "name": "t:sections.featured-collection-tabs.blocks.tab.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "name",
+          "label": "t:general.typography.heading.label"
+        },
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "t:sections.featured-collection-tabs.blocks.tab.settings.collection.label"
+        }
+      ]
     }
   ],
   "presets": [
     {
-      "name": "Comparison Grid"
+      "name": "Featured Collection Tabs",
+      "blocks": [
+        { "type": "tab", "settings": { "name": "Tab 1" } },
+        { "type": "tab", "settings": { "name": "Tab 2" } },
+        { "type": "tab", "settings": { "name": "Tab 3" } },
+        { "type": "tab", "settings": { "name": "Tab 4" } }
+      ]
     }
   ]
 }
