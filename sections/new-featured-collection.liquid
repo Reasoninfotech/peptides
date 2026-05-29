@@ -1,12 +1,12 @@
 {%- liquid
-  assign section_id   = '#shopify-section-' | append: section.id
-  assign animation    = settings.section_animation
-  assign full         = section.settings.full
-  assign sub_heading  = section.settings.sub_heading
-  assign heading      = section.settings.heading
-  assign columns      = section.settings.columns
+  assign section_id = '#shopify-section-' | append: section.id
+  assign animation = settings.section_animation
+  assign full = section.settings.full
+  assign sub_heading = section.settings.sub_heading
+  assign heading = section.settings.heading
+  assign columns = section.settings.columns
   assign heading_size = section.settings.heading_size
-  assign total        = section.settings.total
+  assign total = section.settings.total
 -%}
 
 <style>
@@ -43,236 +43,238 @@
   }
 </style>
 {%- if customer.tags contains 'approved' -%}
-    <div class="guests-comparison-section">
-        <div class="container">
-            <div class="comparison-header">
-                <h2>{{ section.settings.guest_heading }}</h2>
-                <p>{{ section.settings.guest_subtext }}</p>
-            </div>
-            <div class="guests-comparison-grid">
-                <div class="guests-cards-grid guests-cards-grid-left">
-                </div>
-                <div class="guests-cards-grid guests-cards-grid-right">
-                </div>    
-            </div>    
-            <div class="grade-tip">
-                {{ section.settings.guest_tip }}
-            </div>
-        </div>
+  <div class="guests-comparison-section">
+    <div class="container">
+      <div class="comparison-header">
+        <h2>{{ section.settings.guest_heading }}</h2>
+        <p>{{ section.settings.guest_subtext }}</p>
+      </div>
+      <div class="guests-comparison-grid">
+        <div class="guests-cards-grid guests-cards-grid-left"></div>
+        <div class="guests-cards-grid guests-cards-grid-right"></div>
+      </div>
+      <div class="grade-tip">
+        {{ section.settings.guest_tip }}
+      </div>
     </div>
+  </div>
 {%- else -%}
-    {%- if section.blocks.size > 0 -%}
-        <div id="featured-collection-section" class="featured-collection-tab color-{{ section.settings.color_scheme }}">
-            <div class="{% if full %}stretch-section stretch-padding{% else %}container{% endif %}">
-            <div class="featured-collection-tabs tabs">
+  {%- if section.blocks.size > 0 -%}
+    <div id="featured-collection-section" class="featured-collection-tab color-{{ section.settings.color_scheme }}">
+      <div class="{% if full %}stretch-section stretch-padding{% else %}container{% endif %}">
+        <div class="featured-collection-tabs tabs">
+          {%- for block in section.blocks -%}
+            {%- liquid
+              assign class_tab = section.blocks.size
+              if class_tab == 1
+                assign class_tab = 'single'
+              endif
+            -%}
+          {%- endfor -%}
 
-                {%- for block in section.blocks -%}
-                {%- liquid
-                    assign class_tab = section.blocks.size
-                    if class_tab == 1
-                    assign class_tab = 'single'
+          {%- if sub_heading != blank -%}
+            <div class="sub-heading">{{ sub_heading }}</div>
+          {%- endif -%}
+
+          {%- if heading != blank -%}
+            <div class="heading">
+              {{ heading }}
+            </div>
+          {%- endif -%}
+
+          <!-- Tab Heads -->
+          <div class="tabs-head tabs-{% echo class_tab %}">
+            <!-- Desktop Tabs -->
+            <div class="tabs-head-desktop{% if animation %} scroll-trigger{% endif %}">
+              {%- for block in section.blocks -%}
+                <button
+                  class="tab-head{% if forloop.index == 1 %} active{% endif %}"
+                  data-index="{{ forloop.index }}"
+                  {{ block.shopify_attributes }}
+                  {% if request.design_mode %}
+                    data-id="{{ block.id }}"
+                  {% endif %}
+                >
+                  {%- liquid
+                    assign collection = block.settings.collection
+                    if block.settings.name != blank
+                      echo block.settings.name | escape
+                    elsif collection != blank
+                      echo collection.title
+                    else
+                      echo 'general.text.tab' | t | append: ' ' | append: forloop.index
                     endif
-                -%}
-                {%- endfor -%}
+                  -%}
+                </button>
+              {%- endfor -%}
+            </div>
 
-                {%- if sub_heading != blank -%}
-                <div class="sub-heading">{{ sub_heading }}</div>
-                {%- endif -%}
+            <!-- Mobile Dropdown -->
+            <div class="toggle-dropdown tabs-head-mobile tab-{% echo class_tab %}">
+              <div class="dropdown-summary">
+                <span class="summary-info">
+                  {%- liquid
+                    for block in section.blocks limit: 1
+                      assign collection = block.settings.collection
+                      if block.settings.name != blank
+                        echo block.settings.name | escape
+                      elsif collection != blank
+                        echo collection.title
+                      else
+                        echo 'general.text.tab' | t | append: ' ' | append: forloop.index
+                      endif
+                    endfor
+                  -%}
+                </span>
+                {%- render 'icon', code: 'chevron-down' -%}
+              </div>
 
-                {%- if heading != blank -%}
-                <div class="heading">
-                    {{ heading }}
-                </div>
-                {%- endif -%}
-
-                <!-- Tab Heads -->
-                <div class="tabs-head tabs-{% echo class_tab %}">
-
-                <!-- Desktop Tabs -->
-                <div class="tabs-head-desktop{% if animation %} scroll-trigger{% endif %}">
-                    {%- for block in section.blocks -%}
-                    <button
-                        class="tab-head{% if forloop.index == 1 %} active{% endif %}"
-                        data-index="{{ forloop.index }}"
-                        {{ block.shopify_attributes }}
-                        {% if request.design_mode %}data-id="{{ block.id }}"{% endif %}>
-                        {%- liquid
-                        assign collection = block.settings.collection
-                        if block.settings.name != blank
-                            echo block.settings.name | escape
-                        elsif collection != blank
-                            echo collection.title
-                        else
-                            echo 'general.text.tab' | t | append: ' ' | append: forloop.index
-                        endif
-                        -%}
-                    </button>
-                    {%- endfor -%}
-                </div>
-
-                <!-- Mobile Dropdown -->
-                <div class="toggle-dropdown tabs-head-mobile tab-{% echo class_tab %}">
-                    <div class="dropdown-summary">
-                    <span class="summary-info">
-                        {%- liquid
+              <div class="dropdown-content" role="list">
+                <div class="dropdown-content-inner">
+                  <header class="dropdown-content-header">
+                    <span class="dropdown-content-title">
+                      {%- liquid
                         for block in section.blocks limit: 1
-                            assign collection = block.settings.collection
-                            if block.settings.name != blank
+                          assign collection = block.settings.collection
+                          if block.settings.name != blank
                             echo block.settings.name | escape
-                            elsif collection != blank
+                          elsif collection != blank
                             echo collection.title
-                            else
+                          else
                             echo 'general.text.tab' | t | append: ' ' | append: forloop.index
-                            endif
+                          endif
                         endfor
-                        -%}
+                      -%}
                     </span>
                     {%- render 'icon', code: 'chevron-down' -%}
-                    </div>
+                  </header>
 
-                    <div class="dropdown-content" role="list">
-                    <div class="dropdown-content-inner">
-                        <header class="dropdown-content-header">
-                        <span class="dropdown-content-title">
-                            {%- liquid
-                            for block in section.blocks limit: 1
-                                assign collection = block.settings.collection
-                                if block.settings.name != blank
-                                echo block.settings.name | escape
-                                elsif collection != blank
-                                echo collection.title
-                                else
-                                echo 'general.text.tab' | t | append: ' ' | append: forloop.index
-                                endif
-                            endfor
-                            -%}
-                        </span>
-                        {%- render 'icon', code: 'chevron-down' -%}
-                        </header>
-
-                        <ul class="content" role="list">
-                        {%- for block in section.blocks -%}
-                            {%- liquid
-                            assign collection = block.settings.collection
-                            if block.settings.name != blank
-                                assign name = block.settings.name | escape
-                            elsif collection != blank
-                                assign name = collection.title
-                            else
-                                assign name = 'general.text.tab' | t | append: ' ' | append: forloop.index
-                            endif
-                            -%}
-                            <li class="dropdown-item" data-value="{{ name }}" data-index="{{ forloop.index }}">
-                            {{- name -}}
-                            </li>
-                        {%- endfor -%}
-                        </ul>
-                    </div>
-                    </div>
+                  <ul class="content" role="list">
+                    {%- for block in section.blocks -%}
+                      {%- liquid
+                        assign collection = block.settings.collection
+                        if block.settings.name != blank
+                          assign name = block.settings.name | escape
+                        elsif collection != blank
+                          assign name = collection.title
+                        else
+                          assign name = 'general.text.tab' | t | append: ' ' | append: forloop.index
+                        endif
+                      -%}
+                      <li class="dropdown-item" data-value="{{ name }}" data-index="{{ forloop.index }}">
+                        {{- name -}}
+                      </li>
+                    {%- endfor -%}
+                  </ul>
                 </div>
+              </div>
+            </div>
+          </div>
+          <!-- /tabs-head -->
 
-                </div>
-                <!-- /tabs-head -->
+          <!-- Tab Contents -->
+          <div class="tabs-content animation-{{ section.settings.animation }}">
+            {%- for block in section.blocks -%}
+              {%- assign collection = block.settings.collection -%}
+              <div class="product-main-slide{% if forloop.index == 1 %} active{% endif %}">
+                <unity-slider class="unity-slider">
+                  <template data-options>
+                    {
+                    {%- if section.settings.loop -%}"loop": true,{%- endif -%}
+                    {%- if section.settings.autoplay -%}
+                      "_autoplay": {{ section.settings.delay | times: 1000 }},
+                    {%- endif -%}
+                    "align": "start", "_autoheight": true, "_fade": false, "speed": 10, "_prevBtn": "
+                    {{- section_id }}
+                    .unity-button-prev", "_nextBtn": "{{ section_id }} .unity-button-next", "_dotsNode": "
+                    {{- section_id }}
+                    .unity-dots" }
+                  </template>
 
-                <!-- Tab Contents -->
-                <div class="tabs-content animation-{{ section.settings.animation }}">
-                {%- for block in section.blocks -%}
-                    {%- assign collection = block.settings.collection -%}
-                    <div class="product-main-slide{% if forloop.index == 1 %} active{% endif %}">
-                    <unity-slider class="unity-slider">
+                  <div
+                    class="unity-arrows{% if forloop.index == 1 %} active{% endif %}"
+                    data-index="{{ forloop.index }}"
+                    style="display: none;"
+                  >
+                    <button
+                      class="unity-button unity-button-prev"
+                      title="{{ 'general.unity.prev' | t }}-feature-clt"
+                      aria-label="{{ 'general.unity.prev' | t }}-feature-clt"
+                      id="{{ 'general.unity.prev' | t }}-feature-clt"
+                      aria-labelledby="{{ 'general.unity.prev' | t }}-feature-clt"
+                      disabled
+                    >
+                      {%- render 'icon', code: 'chevron-left' -%}
+                    </button>
+                    <button
+                      class="unity-button unity-button-next"
+                      title="{{ 'general.unity.next' | t }}-feature-clt"
+                      aria-label="{{ 'general.unity.next' | t }}-feature-clt"
+                      id="{{ 'general.unity.next' | t }}-feature-clt"
+                      aria-labelledby="{{ 'general.unity.next' | t }}-feature-clt"
+                      disabled
+                    >
+                      {%- render 'icon', code: 'chevron-right' -%}
+                    </button>
+                  </div>
 
-                        <template data-options>
-                        {
-                            {%- if section.settings.loop -%}"loop": true,{%- endif -%}
-                            {%- if section.settings.autoplay -%}"_autoplay": {{ section.settings.delay | times: 1000 }},{%- endif -%}
-                            "align": "start",
-                            "_autoheight": true,
-                            "_fade": false,
-                            "speed": 10,
-                            "_prevBtn": "{{ section_id }} .unity-button-prev",
-                            "_nextBtn": "{{ section_id }} .unity-button-next",
-                            "_dotsNode": "{{ section_id }} .unity-dots"
-                        }
-                        </template>
+                  <div class="unity-slider-viewport">
+                    <div
+                      class="unity-slider-container tab-content{% if forloop.index == 1 %} active{% endif %}"
+                      data-id="{{ block.id }}"
+                      data-index="{{ forloop.index }}"
+                    >
+                      {%- for product in collection.products limit: total -%}
+                        {%- liquid
+                          assign preferred_type = customer.metafields.custom.type_of_peptides.value | default: customer.metafields.custom.type_of_peptides
+                          assign target_tag = ''
+                          if preferred_type == 'America-made Peptides'
+                            assign target_tag = 'America-made-peptides'
+                          elsif preferred_type == 'International Peptides'
+                            assign target_tag = 'international-peptides'
+                          endif
 
-                        <div class="unity-arrows{% if forloop.index == 1 %} active{% endif %}" data-index="{{ forloop.index }}" style="display: none;">
-                        <button
-                            class="unity-button unity-button-prev"
-                            title="{{ 'general.unity.prev' | t }}-feature-clt"
-                            aria-label="{{ 'general.unity.prev' | t }}-feature-clt"
-                            id="{{ 'general.unity.prev' | t }}-feature-clt"
-                            aria-labelledby="{{ 'general.unity.prev' | t }}-feature-clt"
-                            disabled>
-                            {%- render 'icon', code: 'chevron-left' -%}
-                        </button>
-                        <button
-                            class="unity-button unity-button-next"
-                            title="{{ 'general.unity.next' | t }}-feature-clt"
-                            aria-label="{{ 'general.unity.next' | t }}-feature-clt"
-                            id="{{ 'general.unity.next' | t }}-feature-clt"
-                            aria-labelledby="{{ 'general.unity.next' | t }}-feature-clt"
-                            disabled>
-                            {%- render 'icon', code: 'chevron-right' -%}
-                        </button>
-                        </div>
-
-                        <div class="unity-slider-viewport">
-                        <div
-                            class="unity-slider-container tab-content{% if forloop.index == 1 %} active{% endif %}"
-                            data-id="{{ block.id }}"
-                            data-index="{{ forloop.index }}">
-
-                            {%- for product in collection.products limit: total -%}
-                            {%- liquid
-                                assign preferred_type = customer.metafields.custom.type_of_peptides.value | default: customer.metafields.custom.type_of_peptides
-                                assign target_tag = ""
-                                if preferred_type == "America-made Peptides"
-                                assign target_tag = "America-made-peptides"
-                                elsif preferred_type == "International Peptides"
-                                assign target_tag = "international-peptides"
-                                endif
-
-                                assign show_this_product = true
-                                if customer.tags contains 'approved' and target_tag != blank
-                                unless product.tags contains target_tag
-                                    assign show_this_product = false
-                                endunless
-                                endif
-                            -%}
-                            {%- if show_this_product -%}
-                                <div class="unity-slide">
-                                {%- render 'product-card', product: product -%}
-                                </div>
-                            {%- endif -%}
-
-                            {%- else -%}
-                            {%- for i in (1..total) -%}
-                                <div class="unity-slide">
-                                {%- render 'product-card-placeholder', index: forloop.index -%}
-                                </div>
-                            {%- endfor -%}
-                            {%- endfor -%}
-
-                        </div>
-                        </div>
-
-                        {%- if section.settings.dots -%}
-                        <div class="align-dots-center">
-                            <div class="unity-dots{% if forloop.index == 1 %} active{% endif %}" data-index="{{ forloop.index }}"></div>
-                        </div>
+                          assign show_this_product = true
+                          if customer.tags contains 'approved' and target_tag != blank
+                            unless product.tags contains target_tag
+                              assign show_this_product = false
+                            endunless
+                          endif
+                        -%}
+                        {%- if show_this_product -%}
+                          <div class="unity-slide">
+                            {%- render 'product-card', product: product -%}
+                          </div>
                         {%- endif -%}
 
-                    </unity-slider>
+                      {%- else -%}
+                        {%- for i in (1..total) -%}
+                          <div class="unity-slide">
+                            {%- render 'product-card-placeholder', index: forloop.index -%}
+                          </div>
+                        {%- endfor -%}
+                      {%- endfor -%}
                     </div>
-                {%- endfor -%}
-                </div>
-                <!-- /tabs-content -->
+                  </div>
 
-            </div>
-            </div>
+                  {%- if section.settings.dots -%}
+                    <div class="align-dots-center">
+                      <div
+                        class="unity-dots{% if forloop.index == 1 %} active{% endif %}"
+                        data-index="{{ forloop.index }}"
+                      ></div>
+                    </div>
+                  {%- endif -%}
+                </unity-slider>
+              </div>
+            {%- endfor -%}
+          </div>
+          <!-- /tabs-content -->
         </div>
-    {%- endif -%}
-{%- endif -%}   
+      </div>
+    </div>
+  {%- endif -%}
+{%- endif -%}
 
 {% schema %}
 {
@@ -441,7 +443,17 @@
           "label": "t:sections.featured-collection-tabs.blocks.tab.settings.collection.label"
         }
       ]
-    }
+    },
+    {
+      "type": "card_left",
+      "name": "Card Left",
+       "settings": []
+    },
+    {
+      "type": "card_right",
+      "name": "Card Right",
+       "settings": []
+    },
   ],
   "presets": [
     {
