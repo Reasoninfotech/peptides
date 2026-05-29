@@ -390,342 +390,342 @@
 </style>
 
 {%- if customer.tags contains 'approved' or section.settings.hide_comparison_for_guests -%}
-  <div class="guests-comparison-section">
-    <div class="container">
-      <div class="comparison-header">
-        <h2>{{ section.settings.guest_heading }}</h2>
-        <p>{{ section.settings.guest_subtext }}</p>
-      </div>
-      <div class="guests-comparison-grid">
-        {% for block in section.blocks %}
-          {% case block.type %}
-            {% when 'card_left' %}
-              <div class="guests-cards-grid guests-cards-grid-left">
-                <div class="guests-cards-grid-block">
-                  <div class="guests-cards-grid-top">
-                    <div class="guests-cards-grid-top-img">
-                      {% if block.settings.image != blank %}
-                        <img
-                          src="{{ block.settings.image | image_url: width: 600 }}"
-                          alt="{{ block.settings.heading }}"
-                          width=""
-                          height=""
-                        >
-                      {% endif %}
-                    </div>
-                    <div class="guests-cards-grid-content">
-                      <div class="guests-heading-block">
-                        {% if block.settings.heading_image != blank %}
-                          <div class="guests-heading-image">
-                            <img
-                              src="{{ block.settings.heading_image | image_url: width: 300 }}"
-                              alt="{{ block.settings.heading }}"
-                            >
-                          </div>
-                        {% endif %}
-                        {% if block.settings.heading != blank %}
-                          <h3>{{ block.settings.heading }}</h3>
-                        {% endif %}
-                      </div>
-                      {% if block.settings.text != blank %}
-                        <p>{{ block.settings.text }}</p>
-                      {% endif %}
-
-                      {% if block.settings.button_label != blank %}
-                        <a href="{{ block.settings.button_link }}" class="button">
-                          {{ block.settings.button_label }}
-                        </a>
-                      {% endif %}
-                    </div>
-                  </div>
-                  <div class="guests-cards-grid-bottom">
-                    <div class="guests-cards-grid-bottom-text">
-                      {% for i in (1..5) %}
-                        {% assign text_key = 'guests_cards_bottom_text_' | append: i %}
-                        {% if block.settings[text_key] != blank %}
-                          <p>
-                            <span>
-                              <svg
-                                width="20"
-                                height="20"
-                                viewBox="0 0 20 20"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <rect x="0.5" y="0.5" width="19" height="19" rx="9.5" stroke="#1A4D2E"/>
-                                <path d="M5.33984 11.1765L8.19699 14.3765L15.3398 6.37646" stroke="#1A4D2E" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
-                              </svg>
-                            </span>
-
-                            {{ block.settings[text_key] }}
-                          </p>
-                        {% endif %}
-                      {% endfor %}
-                    </div>
-                  </div>
-                </div>
-                <div class="guests-cards-grid-btn">
-                  {% if block.settings.bottom_btn_label != blank %}
-                    <a href="{{ block.settings.bottom_btn_link }}" class="button">
-                      {{ block.settings.bottom_btn_label }}
-                    </a>
-                  {% endif %}
-
-                  {% if block.settings.bottom_btn_text != blank %}
-                    <p>{{ block.settings.bottom_btn_text }}</p>
-                  {% endif %}
-                </div>
+        {%- if tab_count > 0 -%}
+      <div id="featured-collection-section" class="featured-collection-tab color-{{ section.settings.color_scheme }}">
+        <div class="{% if full %}stretch-section stretch-padding{% else %}container{% endif %}">
+          <div class="featured-collection-tabs tabs">
+            {%- liquid
+              assign class_tab = tab_count
+  
+              if class_tab == 1
+                assign class_tab = 'single'
+              endif
+            -%}
+  
+            {%- if sub_heading != blank -%}
+              <div class="sub-heading">{{ sub_heading }}</div>
+            {%- endif -%}
+  
+            {%- if heading != blank -%}
+              <div class="heading">
+                {{ heading }}
               </div>
-
-            {% when 'card_right' %}
-              <div class="guests-cards-grid guests-cards-grid-right">
-                <div class="guests-cards-grid-block">
-                  <div class="guests-cards-grid-top">
-                    <div class="guests-cards-grid-top-img">
-                      {% if block.settings.image != blank %}
-                        <img
-                          src="{{ block.settings.image | image_url: width: 600 }}"
-                          alt="{{ block.settings.heading }}"
-                          width=""
-                          height=""
-                        >
-                      {% endif %}
-                    </div>
-                    <div class="guests-cards-grid-content">
-                      <div class="guests-heading-block">
-                        {% if block.settings.heading_image != blank %}
-                          <div class="guests-heading-image">
-                            <img
-                              src="{{ block.settings.heading_image | image_url: width: 300 }}"
-                              alt="{{ block.settings.heading }}"
-                            >
-                          </div>
-                        {% endif %}
-                        {% if block.settings.heading != blank %}
-                          <h3>{{ block.settings.heading }}</h3>
-                        {% endif %}
-                      </div>
-                      {% if block.settings.text != blank %}
-                        <p>{{ block.settings.text }}</p>
-                      {% endif %}
-
-                      {% if block.settings.button_label != blank %}
-                        <a href="{{ block.settings.button_link }}" class="button">
-                          {{ block.settings.button_label }}
-                        </a>
-                      {% endif %}
-                    </div>
-                  </div>
-                  <div class="guests-cards-grid-bottom">
-                    <div class="guests-cards-grid-bottom-text">
-                      {% for i in (1..5) %}
-                        {% assign text_key = 'guests_cards_bottom_text_' | append: i %}
-                        {% if block.settings[text_key] != blank %}
-                          <p>
-                            <span>
-                              <svg
-                                width="20"
-                                height="20"
-                                viewBox="0 0 20 20"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <rect x="0.5" y="0.5" width="19" height="19" rx="9.5" fill="url(#paint0_linear_649_441)"/>
-                                <rect x="0.5" y="0.5" width="19" height="19" rx="9.5" stroke="#D4AF37"/>
-                                <path d="M5.33984 11.1765L8.19699 14.3765L15.3398 6.37646" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
-                                <defs>
-                                <linearGradient id="paint0_linear_649_441" x1="0" y1="10" x2="20" y2="10" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#D4AF37"/>
-                                <stop offset="0.528846" stop-color="#FFE9A0"/>
-                                <stop offset="1" stop-color="#D4AF37"/>
-                                </linearGradient>
-                                </defs>
-                              </svg>
-                            </span>
-
-                            {{ block.settings[text_key] }}
-                          </p>
-                        {% endif %}
-                      {% endfor %}
-                    </div>
-                  </div>
-                </div>
-                <div class="guests-cards-grid-btn">
-                  {% if block.settings.bottom_btn_label != blank %}
-                    <a href="{{ block.settings.bottom_btn_link }}" class="button">
-                      {{ block.settings.bottom_btn_label }}
-                    </a>
-                  {% endif %}
-
-                  {% if block.settings.bottom_btn_text != blank %}
-                    <p>{{ block.settings.bottom_btn_text }}</p>
-                  {% endif %}
-                </div>
-              </div>
-          {% endcase %}
-        {% endfor %}
-      </div>
-
-      <div class="grade-tip">
-        {{ section.settings.guest_tip }}
-      </div>
-    </div>
-  </div>
-
-{%- else -%}
-  {%- if tab_count > 0 -%}
-    <div id="featured-collection-section" class="featured-collection-tab color-{{ section.settings.color_scheme }}">
-      <div class="{% if full %}stretch-section stretch-padding{% else %}container{% endif %}">
-        <div class="featured-collection-tabs tabs">
-          {%- liquid
-            assign class_tab = tab_count
-
-            if class_tab == 1
-              assign class_tab = 'single'
-            endif
-          -%}
-
-          {%- if sub_heading != blank -%}
-            <div class="sub-heading">{{ sub_heading }}</div>
-          {%- endif -%}
-
-          {%- if heading != blank -%}
-            <div class="heading">
-              {{ heading }}
-            </div>
-          {%- endif -%}
-
-          <!-- Tabs Head -->
-          <div class="tabs-head tabs-{% echo class_tab %}">
-            <!-- Desktop -->
-            <div class="tabs-head-desktop{% if animation %} scroll-trigger{% endif %}">
-              {%- assign tab_index = 0 -%}
-
-              {%- for block in section.blocks -%}
-                {% if block.type == 'tab' %}
-                  {%- assign tab_index = tab_index | plus: 1 -%}
-
-                  <button
-                    class="tab-head{% if tab_index == 1 %} active{% endif %}"
-                    data-index="{{ tab_index }}"
-                    {{ block.shopify_attributes }}
-                  >
-                    {%- liquid
-                      assign collection = block.settings.collection
-
-                      if block.settings.name != blank
-                        echo block.settings.name | escape
-                      elsif collection != blank
-                        echo collection.title
-                      else
-                        echo 'Tab ' | append: tab_index
-                      endif
-                    -%}
-                  </button>
-                {% endif %}
-              {%- endfor -%}
-            </div>
-
-            <!-- Mobile -->
-            <div class="toggle-dropdown tabs-head-mobile tab-{% echo class_tab %}">
-              <div class="dropdown-summary">
-                <span class="summary-info">
-                  {%- for block in section.blocks -%}
-                    {% if block.type == 'tab' %}
+            {%- endif -%}
+  
+            <!-- Tabs Head -->
+            <div class="tabs-head tabs-{% echo class_tab %}">
+              <!-- Desktop -->
+              <div class="tabs-head-desktop{% if animation %} scroll-trigger{% endif %}">
+                {%- assign tab_index = 0 -%}
+  
+                {%- for block in section.blocks -%}
+                  {% if block.type == 'tab' %}
+                    {%- assign tab_index = tab_index | plus: 1 -%}
+  
+                    <button
+                      class="tab-head{% if tab_index == 1 %} active{% endif %}"
+                      data-index="{{ tab_index }}"
+                      {{ block.shopify_attributes }}
+                    >
                       {%- liquid
                         assign collection = block.settings.collection
-
+  
                         if block.settings.name != blank
                           echo block.settings.name | escape
                         elsif collection != blank
                           echo collection.title
+                        else
+                          echo 'Tab ' | append: tab_index
                         endif
                       -%}
-
-                      {% break %}
-                    {% endif %}
-                  {%- endfor -%}
-                </span>
-
-                {%- render 'icon', code: 'chevron-down' -%}
+                    </button>
+                  {% endif %}
+                {%- endfor -%}
               </div>
-
-              <div class="dropdown-content" role="list">
-                <div class="dropdown-content-inner">
-                  <ul class="content" role="list">
-                    {%- assign tab_index = 0 -%}
-
+  
+              <!-- Mobile -->
+              <div class="toggle-dropdown tabs-head-mobile tab-{% echo class_tab %}">
+                <div class="dropdown-summary">
+                  <span class="summary-info">
                     {%- for block in section.blocks -%}
                       {% if block.type == 'tab' %}
-                        {%- assign tab_index = tab_index | plus: 1 -%}
-
                         {%- liquid
                           assign collection = block.settings.collection
-
+  
                           if block.settings.name != blank
-                            assign name = block.settings.name | escape
+                            echo block.settings.name | escape
                           elsif collection != blank
-                            assign name = collection.title
-                          else
-                            assign name = 'Tab ' | append: tab_index
+                            echo collection.title
                           endif
                         -%}
-
-                        <li
-                          class="dropdown-item"
-                          data-value="{{ name }}"
-                          data-index="{{ tab_index }}"
-                        >
-                          {{ name }}
-                        </li>
+  
+                        {% break %}
                       {% endif %}
                     {%- endfor -%}
-                  </ul>
+                  </span>
+  
+                  {%- render 'icon', code: 'chevron-down' -%}
+                </div>
+  
+                <div class="dropdown-content" role="list">
+                  <div class="dropdown-content-inner">
+                    <ul class="content" role="list">
+                      {%- assign tab_index = 0 -%}
+  
+                      {%- for block in section.blocks -%}
+                        {% if block.type == 'tab' %}
+                          {%- assign tab_index = tab_index | plus: 1 -%}
+  
+                          {%- liquid
+                            assign collection = block.settings.collection
+  
+                            if block.settings.name != blank
+                              assign name = block.settings.name | escape
+                            elsif collection != blank
+                              assign name = collection.title
+                            else
+                              assign name = 'Tab ' | append: tab_index
+                            endif
+                          -%}
+  
+                          <li
+                            class="dropdown-item"
+                            data-value="{{ name }}"
+                            data-index="{{ tab_index }}"
+                          >
+                            {{ name }}
+                          </li>
+                        {% endif %}
+                      {%- endfor -%}
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-
-          <!-- Tab Content -->
-          <div class="tabs-content animation-{{ section.settings.animation }}">
-            {%- assign tab_index = 0 -%}
-
-            {%- for block in section.blocks -%}
-              {% if block.type == 'tab' %}
-                {%- assign tab_index = tab_index | plus: 1 -%}
-                {%- assign collection = block.settings.collection -%}
-
-                <div class="product-main-slide{% if tab_index == 1 %} active{% endif %}">
-                  <unity-slider class="unity-slider">
-                    <div class="unity-slider-viewport">
-                      <div
-                        class="unity-slider-container tab-content{% if tab_index == 1 %} active{% endif %}"
-                        data-id="{{ block.id }}"
-                        data-index="{{ tab_index }}"
-                      >
-                        {%- for product in collection.products limit: total -%}
-                          <div class="unity-slide">
-                            {%- render 'product-card', product: product -%}
-                          </div>
-
-                        {%- else -%}
-                          {%- for i in (1..total) -%}
+  
+            <!-- Tab Content -->
+            <div class="tabs-content animation-{{ section.settings.animation }}">
+              {%- assign tab_index = 0 -%}
+  
+              {%- for block in section.blocks -%}
+                {% if block.type == 'tab' %}
+                  {%- assign tab_index = tab_index | plus: 1 -%}
+                  {%- assign collection = block.settings.collection -%}
+  
+                  <div class="product-main-slide{% if tab_index == 1 %} active{% endif %}">
+                    <unity-slider class="unity-slider">
+                      <div class="unity-slider-viewport">
+                        <div
+                          class="unity-slider-container tab-content{% if tab_index == 1 %} active{% endif %}"
+                          data-id="{{ block.id }}"
+                          data-index="{{ tab_index }}"
+                        >
+                          {%- for product in collection.products limit: total -%}
                             <div class="unity-slide">
-                              {%- render 'product-card-placeholder', index: forloop.index -%}
+                              {%- render 'product-card', product: product -%}
                             </div>
+  
+                          {%- else -%}
+                            {%- for i in (1..total) -%}
+                              <div class="unity-slide">
+                                {%- render 'product-card-placeholder', index: forloop.index -%}
+                              </div>
+                            {%- endfor -%}
                           {%- endfor -%}
-                        {%- endfor -%}
+                        </div>
                       </div>
-                    </div>
-                  </unity-slider>
-                </div>
-              {% endif %}
-            {%- endfor -%}
+                    </unity-slider>
+                  </div>
+                {% endif %}
+              {%- endfor -%}
+            </div>
           </div>
         </div>
       </div>
+    {%- endif -%}
+{%- else -%}
+    <div class="guests-comparison-section">
+      <div class="container">
+        <div class="comparison-header">
+          <h2>{{ section.settings.guest_heading }}</h2>
+          <p>{{ section.settings.guest_subtext }}</p>
+        </div>
+        <div class="guests-comparison-grid">
+          {% for block in section.blocks %}
+            {% case block.type %}
+              {% when 'card_left' %}
+                <div class="guests-cards-grid guests-cards-grid-left">
+                  <div class="guests-cards-grid-block">
+                    <div class="guests-cards-grid-top">
+                      <div class="guests-cards-grid-top-img">
+                        {% if block.settings.image != blank %}
+                          <img
+                            src="{{ block.settings.image | image_url: width: 600 }}"
+                            alt="{{ block.settings.heading }}"
+                            width=""
+                            height=""
+                          >
+                        {% endif %}
+                      </div>
+                      <div class="guests-cards-grid-content">
+                        <div class="guests-heading-block">
+                          {% if block.settings.heading_image != blank %}
+                            <div class="guests-heading-image">
+                              <img
+                                src="{{ block.settings.heading_image | image_url: width: 300 }}"
+                                alt="{{ block.settings.heading }}"
+                              >
+                            </div>
+                          {% endif %}
+                          {% if block.settings.heading != blank %}
+                            <h3>{{ block.settings.heading }}</h3>
+                          {% endif %}
+                        </div>
+                        {% if block.settings.text != blank %}
+                          <p>{{ block.settings.text }}</p>
+                        {% endif %}
+  
+                        {% if block.settings.button_label != blank %}
+                          <a href="{{ block.settings.button_link }}" class="button">
+                            {{ block.settings.button_label }}
+                          </a>
+                        {% endif %}
+                      </div>
+                    </div>
+                    <div class="guests-cards-grid-bottom">
+                      <div class="guests-cards-grid-bottom-text">
+                        {% for i in (1..5) %}
+                          {% assign text_key = 'guests_cards_bottom_text_' | append: i %}
+                          {% if block.settings[text_key] != blank %}
+                            <p>
+                              <span>
+                                <svg
+                                  width="20"
+                                  height="20"
+                                  viewBox="0 0 20 20"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <rect x="0.5" y="0.5" width="19" height="19" rx="9.5" stroke="#1A4D2E"/>
+                                  <path d="M5.33984 11.1765L8.19699 14.3765L15.3398 6.37646" stroke="#1A4D2E" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                              </span>
+  
+                              {{ block.settings[text_key] }}
+                            </p>
+                          {% endif %}
+                        {% endfor %}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="guests-cards-grid-btn">
+                    {% if block.settings.bottom_btn_label != blank %}
+                      <a href="{{ block.settings.bottom_btn_link }}" class="button">
+                        {{ block.settings.bottom_btn_label }}
+                      </a>
+                    {% endif %}
+  
+                    {% if block.settings.bottom_btn_text != blank %}
+                      <p>{{ block.settings.bottom_btn_text }}</p>
+                    {% endif %}
+                  </div>
+                </div>
+  
+              {% when 'card_right' %}
+                <div class="guests-cards-grid guests-cards-grid-right">
+                  <div class="guests-cards-grid-block">
+                    <div class="guests-cards-grid-top">
+                      <div class="guests-cards-grid-top-img">
+                        {% if block.settings.image != blank %}
+                          <img
+                            src="{{ block.settings.image | image_url: width: 600 }}"
+                            alt="{{ block.settings.heading }}"
+                            width=""
+                            height=""
+                          >
+                        {% endif %}
+                      </div>
+                      <div class="guests-cards-grid-content">
+                        <div class="guests-heading-block">
+                          {% if block.settings.heading_image != blank %}
+                            <div class="guests-heading-image">
+                              <img
+                                src="{{ block.settings.heading_image | image_url: width: 300 }}"
+                                alt="{{ block.settings.heading }}"
+                              >
+                            </div>
+                          {% endif %}
+                          {% if block.settings.heading != blank %}
+                            <h3>{{ block.settings.heading }}</h3>
+                          {% endif %}
+                        </div>
+                        {% if block.settings.text != blank %}
+                          <p>{{ block.settings.text }}</p>
+                        {% endif %}
+  
+                        {% if block.settings.button_label != blank %}
+                          <a href="{{ block.settings.button_link }}" class="button">
+                            {{ block.settings.button_label }}
+                          </a>
+                        {% endif %}
+                      </div>
+                    </div>
+                    <div class="guests-cards-grid-bottom">
+                      <div class="guests-cards-grid-bottom-text">
+                        {% for i in (1..5) %}
+                          {% assign text_key = 'guests_cards_bottom_text_' | append: i %}
+                          {% if block.settings[text_key] != blank %}
+                            <p>
+                              <span>
+                                <svg
+                                  width="20"
+                                  height="20"
+                                  viewBox="0 0 20 20"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <rect x="0.5" y="0.5" width="19" height="19" rx="9.5" fill="url(#paint0_linear_649_441)"/>
+                                  <rect x="0.5" y="0.5" width="19" height="19" rx="9.5" stroke="#D4AF37"/>
+                                  <path d="M5.33984 11.1765L8.19699 14.3765L15.3398 6.37646" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                                  <defs>
+                                  <linearGradient id="paint0_linear_649_441" x1="0" y1="10" x2="20" y2="10" gradientUnits="userSpaceOnUse">
+                                  <stop stop-color="#D4AF37"/>
+                                  <stop offset="0.528846" stop-color="#FFE9A0"/>
+                                  <stop offset="1" stop-color="#D4AF37"/>
+                                  </linearGradient>
+                                  </defs>
+                                </svg>
+                              </span>
+  
+                              {{ block.settings[text_key] }}
+                            </p>
+                          {% endif %}
+                        {% endfor %}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="guests-cards-grid-btn">
+                    {% if block.settings.bottom_btn_label != blank %}
+                      <a href="{{ block.settings.bottom_btn_link }}" class="button">
+                        {{ block.settings.bottom_btn_label }}
+                      </a>
+                    {% endif %}
+  
+                    {% if block.settings.bottom_btn_text != blank %}
+                      <p>{{ block.settings.bottom_btn_text }}</p>
+                    {% endif %}
+                  </div>
+                </div>
+            {% endcase %}
+          {% endfor %}
+        </div>
+  
+        <div class="grade-tip">
+          {{ section.settings.guest_tip }}
+        </div>
     </div>
-  {%- endif -%}
+
+    </div>
 {%- endif -%}
 {% schema %}
 {
