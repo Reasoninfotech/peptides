@@ -252,6 +252,12 @@
         text-align: center;
         color: #4A5565;
     }
+    @media (min-width: 992px) {
+        .guests-comparison-section {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+        }
+    }
 </style>
 
 {%- if customer.tags contains 'approved' or section.settings.hide_comparison_for_guests -%}
