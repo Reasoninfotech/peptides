@@ -1,0 +1,1621 @@
+{% comment %}
+  Section: Choose Your Research Grade
+  Theme: BoostifyThemes
+  Description: Two-column peptide product comparison with mobile/tablet/desktop responsive settings
+{% endcomment %}
+
+<style>
+  /* ============================================================
+     SECTION ROOT & CSS VARIABLES
+  ============================================================ */
+  #shopify-section-{{ section.id }} {
+    --crg-bg:                   {{ section.settings.section_bg_color }};
+    --crg-padding-top-desktop:  {{ section.settings.padding_top_desktop }}px;
+    --crg-padding-bot-desktop:  {{ section.settings.padding_bottom_desktop }}px;
+    --crg-padding-top-tablet:   {{ section.settings.padding_top_tablet }}px;
+    --crg-padding-bot-tablet:   {{ section.settings.padding_bottom_tablet }}px;
+    --crg-padding-top-mobile:   {{ section.settings.padding_top_mobile }}px;
+    --crg-padding-bot-mobile:   {{ section.settings.padding_bottom_mobile }}px;
+
+    --crg-title-color:          {{ section.settings.heading_color }};
+    --crg-title-size-desktop:   {{ section.settings.heading_size_desktop }}px;
+    --crg-title-size-tablet:    {{ section.settings.heading_size_tablet }}px;
+    --crg-title-size-mobile:    {{ section.settings.heading_size_mobile }}px;
+
+    --crg-subtitle-color:       {{ section.settings.subtitle_color }};
+    --crg-subtitle-size-desktop:{{ section.settings.subtitle_size_desktop }}px;
+    --crg-subtitle-size-tablet: {{ section.settings.subtitle_size_tablet }}px;
+    --crg-subtitle-size-mobile: {{ section.settings.subtitle_size_mobile }}px;
+
+    --crg-col-gap-desktop:      {{ section.settings.column_gap_desktop }}px;
+    --crg-col-gap-tablet:       {{ section.settings.column_gap_tablet }}px;
+    --crg-col-gap-mobile:       {{ section.settings.column_gap_mobile }}px;
+
+    --crg-card-radius:          {{ section.settings.card_border_radius }}px;
+    --crg-card-shadow:          {{ section.settings.card_box_shadow }};
+
+    /* ---- Left card ---- */
+    --crg-left-bg:              {{ section.settings.left_card_bg }};
+    --crg-left-border:          {{ section.settings.left_card_border_color }};
+    --crg-left-title-color:     {{ section.settings.left_title_color }};
+    --crg-left-badge-bg:        {{ section.settings.left_badge_bg }};
+    --crg-left-badge-color:     {{ section.settings.left_badge_text_color }};
+    --crg-left-icon-color:      {{ section.settings.left_icon_color }};
+    --crg-left-text-color:      {{ section.settings.left_feature_text_color }};
+    --crg-left-btn-bg:          {{ section.settings.left_btn_bg }};
+    --crg-left-btn-color:       {{ section.settings.left_btn_text_color }};
+    --crg-left-btn-border:      {{ section.settings.left_btn_border_color }};
+    --crg-left-btn-hover-bg:    {{ section.settings.left_btn_hover_bg }};
+    --crg-left-label-color:     {{ section.settings.left_label_color }};
+
+    /* ---- Right card ---- */
+    --crg-right-bg:             {{ section.settings.right_card_bg }};
+    --crg-right-border:         {{ section.settings.right_card_border_color }};
+    --crg-right-title-color:    {{ section.settings.right_title_color }};
+    --crg-right-badge-bg:       {{ section.settings.right_badge_bg }};
+    --crg-right-badge-color:    {{ section.settings.right_badge_text_color }};
+    --crg-right-icon-color:     {{ section.settings.right_icon_color }};
+    --crg-right-text-color:     {{ section.settings.right_feature_text_color }};
+    --crg-right-btn-bg:         {{ section.settings.right_btn_bg }};
+    --crg-right-btn-color:      {{ section.settings.right_btn_text_color }};
+    --crg-right-btn-hover-bg:   {{ section.settings.right_btn_hover_bg }};
+    --crg-right-label-color:    {{ section.settings.right_label_color }};
+
+    /* ---- Help bar ---- */
+    --crg-help-bg:              {{ section.settings.help_bar_bg }};
+    --crg-help-border:          {{ section.settings.help_bar_border_color }};
+    --crg-help-bold-color:      {{ section.settings.help_bar_bold_color }};
+    --crg-help-text-color:      {{ section.settings.help_bar_text_color }};
+    --crg-help-text-size-desktop:{{ section.settings.help_bar_text_size_desktop }}px;
+    --crg-help-text-size-tablet: {{ section.settings.help_bar_text_size_tablet }}px;
+    --crg-help-text-size-mobile: {{ section.settings.help_bar_text_size_mobile }}px;
+  }
+
+  /* ============================================================
+     BASE STYLES
+  ============================================================ */
+  .crg-section {
+    background-color: var(--crg-bg);
+    padding-top: var(--crg-padding-top-desktop);
+    padding-bottom: var(--crg-padding-bot-desktop);
+    font-family: {{ section.settings.body_font_family }}, sans-serif;
+  }
+
+  .crg-container {
+    max-width: {{ section.settings.container_max_width }}px;
+    margin: 0 auto;
+    padding-left: {{ section.settings.container_side_padding }}px;
+    padding-right: {{ section.settings.container_side_padding }}px;
+  }
+
+  /* ============================================================
+     HEADING BLOCK
+  ============================================================ */
+  .crg-heading-block {
+    text-align: center;
+    margin-bottom: {{ section.settings.heading_margin_bottom_desktop }}px;
+  }
+
+  .crg-main-title {
+    font-family: {{ section.settings.heading_font_family }}, serif;
+    font-size: var(--crg-title-size-desktop);
+    color: var(--crg-title-color);
+    font-weight: {{ section.settings.heading_font_weight }};
+    line-height: 1.2;
+    margin: 0 0 12px;
+    letter-spacing: {{ section.settings.heading_letter_spacing }}em;
+  }
+
+  .crg-subtitle {
+    font-size: var(--crg-subtitle-size-desktop);
+    color: var(--crg-subtitle-color);
+    max-width: {{ section.settings.subtitle_max_width }}px;
+    margin: 0 auto;
+    line-height: 1.6;
+    font-weight: 400;
+  }
+
+  /* ============================================================
+     CARDS GRID
+  ============================================================ */
+  .crg-cards-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--crg-col-gap-desktop);
+    margin-bottom: {{ section.settings.cards_margin_bottom }}px;
+  }
+
+  /* ============================================================
+     SINGLE CARD
+  ============================================================ */
+  .crg-card {
+    border-radius: var(--crg-card-radius);
+    overflow: hidden;
+    box-shadow: var(--crg-card-shadow);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  {% if section.settings.card_hover_lift %}
+  .crg-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.14);
+  }
+  {% endif %}
+
+  /* ---- LEFT CARD ---- */
+  .crg-card--left {
+    background: var(--crg-left-bg);
+    border: 2px solid var(--crg-left-border);
+  }
+
+  .crg-card--left .crg-card__inner {
+    padding: {{ section.settings.card_inner_padding_desktop }}px;
+    flex: 1;
+  }
+
+  /* ---- RIGHT CARD ---- */
+  .crg-card--right {
+    background: var(--crg-right-bg);
+    border: 2px solid var(--crg-right-border);
+  }
+
+  .crg-card--right .crg-card__inner {
+    padding: {{ section.settings.card_inner_padding_desktop }}px;
+    flex: 1;
+  }
+
+  /* ============================================================
+     CARD PRODUCT ROW (image + title + badge)
+  ============================================================ */
+  .crg-card__product-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  .crg-card__img-wrap {
+    flex-shrink: 0;
+    width: {{ section.settings.product_image_size }}px;
+  }
+
+  .crg-card__img-wrap img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+  }
+
+  .crg-card__title-block {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .crg-card--left .crg-card__title {
+    font-family: {{ section.settings.heading_font_family }}, serif;
+    font-size: {{ section.settings.card_title_size_desktop }}px;
+    font-weight: 700;
+    color: var(--crg-left-title-color);
+    line-height: 1.25;
+    margin: 0;
+  }
+
+  .crg-card--right .crg-card__title {
+    font-family: {{ section.settings.heading_font_family }}, serif;
+    font-size: {{ section.settings.card_title_size_desktop }}px;
+    font-weight: 700;
+    color: var(--crg-right-title-color);
+    line-height: 1.25;
+    margin: 0;
+  }
+
+  /* ============================================================
+     BADGES
+  ============================================================ */
+  .crg-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    width: fit-content;
+  }
+
+  .crg-card--left .crg-badge {
+    background: var(--crg-left-badge-bg);
+    color: var(--crg-left-badge-color);
+    border: 1.5px solid var(--crg-left-border);
+  }
+
+  .crg-card--right .crg-badge {
+    background: var(--crg-right-badge-bg);
+    color: var(--crg-right-badge-color);
+  }
+
+  /* ============================================================
+     FEATURES LIST
+  ============================================================ */
+  .crg-features {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: {{ section.settings.feature_item_gap }}px;
+  }
+
+  .crg-features__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: {{ section.settings.feature_text_size_desktop }}px;
+    line-height: 1.45;
+    font-weight: 500;
+  }
+
+  .crg-card--left .crg-features__item {
+    color: var(--crg-left-text-color);
+  }
+
+  .crg-card--right .crg-features__item {
+    color: var(--crg-right-text-color);
+  }
+
+  .crg-features__icon {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    margin-top: 1px;
+  }
+
+  .crg-card--left .crg-features__icon {
+    color: var(--crg-left-icon-color);
+  }
+
+  .crg-card--right .crg-features__icon {
+    color: var(--crg-right-icon-color);
+  }
+
+  /* ============================================================
+     CTA BUTTON AREA
+  ============================================================ */
+  .crg-card__cta-area {
+    padding: 0 {{ section.settings.card_inner_padding_desktop }}px {{ section.settings.card_inner_padding_desktop }}px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .crg-btn {
+    display: block;
+    width: 100%;
+    padding: 15px 24px;
+    border-radius: {{ section.settings.btn_border_radius }}px;
+    font-family: {{ section.settings.body_font_family }}, sans-serif;
+    font-size: {{ section.settings.btn_text_size_desktop }}px;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s ease, opacity 0.2s ease, transform 0.15s ease;
+    border: 2px solid transparent;
+    letter-spacing: 0.02em;
+  }
+
+  .crg-btn:hover { transform: translateY(-1px); opacity: 0.9; }
+  .crg-btn:active { transform: translateY(0); }
+
+  .crg-card--left .crg-btn {
+    background: var(--crg-left-btn-bg);
+    color: var(--crg-left-btn-color);
+    border-color: var(--crg-left-btn-border);
+  }
+
+  .crg-card--left .crg-btn:hover {
+    background: var(--crg-left-btn-hover-bg);
+  }
+
+  .crg-card--right .crg-btn {
+    background: var(--crg-right-btn-bg);
+    color: var(--crg-right-btn-color);
+    border-color: var(--crg-right-btn-bg);
+  }
+
+  .crg-card--right .crg-btn:hover {
+    background: var(--crg-right-btn-hover-bg);
+    border-color: var(--crg-right-btn-hover-bg);
+  }
+
+  .crg-card__label {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+
+  .crg-card--left .crg-card__label { color: var(--crg-left-label-color); }
+  .crg-card--right .crg-card__label { color: var(--crg-right-label-color); }
+
+  /* ============================================================
+     HELP BAR
+  ============================================================ */
+  .crg-help-bar {
+    background: var(--crg-help-bg);
+    border: 1.5px solid var(--crg-help-border);
+    border-radius: {{ section.settings.help_bar_border_radius }}px;
+    padding: {{ section.settings.help_bar_padding_desktop }}px {{ section.settings.help_bar_padding_desktop | plus: 8 }}px;
+    font-size: var(--crg-help-text-size-desktop);
+    color: var(--crg-help-text-color);
+    line-height: 1.55;
+    text-align: center;
+  }
+
+  .crg-help-bar strong {
+    color: var(--crg-help-bold-color);
+    font-weight: 700;
+  }
+
+  /* ============================================================
+     DIVIDER
+  ============================================================ */
+  .crg-card__divider {
+    height: 1px;
+    background: rgba(0,0,0,0.08);
+    margin: 16px 0;
+  }
+
+  .crg-card--right .crg-card__divider {
+    background: rgba(255,255,255,0.12);
+  }
+
+  /* ============================================================
+     TABLET — max 1024px
+  ============================================================ */
+  @media (max-width: 1024px) {
+    .crg-section {
+      padding-top: var(--crg-padding-top-tablet);
+      padding-bottom: var(--crg-padding-bot-tablet);
+    }
+
+    .crg-cards-grid {
+      gap: var(--crg-col-gap-tablet);
+    }
+
+    .crg-main-title {
+      font-size: var(--crg-title-size-tablet);
+    }
+
+    .crg-subtitle {
+      font-size: var(--crg-subtitle-size-tablet);
+    }
+
+    .crg-card--left .crg-card__title,
+    .crg-card--right .crg-card__title {
+      font-size: {{ section.settings.card_title_size_tablet }}px;
+    }
+
+    .crg-features__item {
+      font-size: {{ section.settings.feature_text_size_tablet }}px;
+    }
+
+    .crg-btn {
+      font-size: {{ section.settings.btn_text_size_tablet }}px;
+    }
+
+    .crg-help-bar {
+      font-size: var(--crg-help-text-size-tablet);
+    }
+
+    .crg-card--left .crg-card__inner,
+    .crg-card--right .crg-card__inner {
+      padding: {{ section.settings.card_inner_padding_tablet }}px;
+    }
+
+    .crg-card__cta-area {
+      padding: 0 {{ section.settings.card_inner_padding_tablet }}px {{ section.settings.card_inner_padding_tablet }}px;
+    }
+
+    .crg-heading-block {
+      margin-bottom: {{ section.settings.heading_margin_bottom_tablet }}px;
+    }
+
+    .crg-help-bar {
+      padding: {{ section.settings.help_bar_padding_tablet }}px {{ section.settings.help_bar_padding_tablet | plus: 8 }}px;
+    }
+  }
+
+  /* ============================================================
+     MOBILE — max 767px
+  ============================================================ */
+  @media (max-width: 767px) {
+    .crg-section {
+      padding-top: var(--crg-padding-top-mobile);
+      padding-bottom: var(--crg-padding-bot-mobile);
+    }
+
+    .crg-container {
+      padding-left: {{ section.settings.container_side_padding_mobile }}px;
+      padding-right: {{ section.settings.container_side_padding_mobile }}px;
+    }
+
+    .crg-cards-grid {
+      grid-template-columns: 1fr;
+      gap: var(--crg-col-gap-mobile);
+    }
+
+    .crg-main-title {
+      font-size: var(--crg-title-size-mobile);
+    }
+
+    .crg-subtitle {
+      font-size: var(--crg-subtitle-size-mobile);
+    }
+
+    .crg-heading-block {
+      margin-bottom: {{ section.settings.heading_margin_bottom_mobile }}px;
+    }
+
+    .crg-card--left .crg-card__title,
+    .crg-card--right .crg-card__title {
+      font-size: {{ section.settings.card_title_size_mobile }}px;
+    }
+
+    .crg-features__item {
+      font-size: {{ section.settings.feature_text_size_mobile }}px;
+    }
+
+    .crg-btn {
+      font-size: {{ section.settings.btn_text_size_mobile }}px;
+      padding: 13px 20px;
+    }
+
+    .crg-help-bar {
+      font-size: var(--crg-help-text-size-mobile);
+      padding: {{ section.settings.help_bar_padding_mobile }}px;
+      text-align: left;
+    }
+
+    .crg-card--left .crg-card__inner,
+    .crg-card--right .crg-card__inner {
+      padding: {{ section.settings.card_inner_padding_mobile }}px;
+    }
+
+    .crg-card__cta-area {
+      padding: 0 {{ section.settings.card_inner_padding_mobile }}px {{ section.settings.card_inner_padding_mobile }}px;
+    }
+
+    .crg-card__img-wrap {
+      width: {{ section.settings.product_image_size_mobile }}px;
+    }
+  }
+</style>
+
+{% unless section.settings.section_enabled == false %}
+<section
+  id="crg-{{ section.id }}"
+  class="crg-section"
+  aria-label="{{ section.settings.heading_text | escape }}"
+>
+  <div class="crg-container">
+
+    {%- comment -%} ── HEADING BLOCK ── {%- endcomment -%}
+    {% if section.settings.show_heading_block %}
+    <div class="crg-heading-block">
+      {% if section.settings.heading_text != blank %}
+        <{{ section.settings.heading_tag }} class="crg-main-title">
+          {{ section.settings.heading_text }}
+        </{{ section.settings.heading_tag }}>
+      {% endif %}
+      {% if section.settings.subtitle_text != blank %}
+        <p class="crg-subtitle">{{ section.settings.subtitle_text }}</p>
+      {% endif %}
+    </div>
+    {% endif %}
+
+    {%- comment -%} ── CARDS GRID ── {%- endcomment -%}
+    <div class="crg-cards-grid">
+
+      {%- comment -%} ========= LEFT CARD ========= {%- endcomment -%}
+      <div class="crg-card crg-card--left">
+        <div class="crg-card__inner">
+
+          <div class="crg-card__product-row">
+            {% if section.settings.left_product_image != blank %}
+            <div class="crg-card__img-wrap">
+              <img
+                src="{{ section.settings.left_product_image | image_url: width: 200 }}"
+                alt="{{ section.settings.left_product_image.alt | default: section.settings.left_card_title | escape }}"
+                width="200"
+                height="auto"
+                loading="lazy"
+              >
+            </div>
+            {% endif %}
+
+            <div class="crg-card__title-block">
+              {% if section.settings.left_card_title != blank %}
+                <h3 class="crg-card__title">{{ section.settings.left_card_title }}</h3>
+              {% endif %}
+              {% if section.settings.left_badge_text != blank %}
+                <span class="crg-badge">
+                  {% if section.settings.left_badge_icon != blank %}
+                    {{- section.settings.left_badge_icon -}}
+                  {% endif %}
+                  {{ section.settings.left_badge_text }}
+                </span>
+              {% endif %}
+            </div>
+          </div>
+
+          <div class="crg-card__divider"></div>
+
+          <ul class="crg-features" role="list">
+            {% for i in (1..6) %}
+              {% assign feat_key = 'left_feature_' | append: i %}
+              {% assign feat_val = section.settings[feat_key] %}
+              {% if feat_val != blank %}
+              <li class="crg-features__item">
+                <svg class="crg-features__icon" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <circle cx="11" cy="11" r="10" stroke="currentColor" stroke-width="1.5"/>
+                  <path d="M6.5 11.5l3 3 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>{{ feat_val }}</span>
+              </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+
+        </div>
+
+        <div class="crg-card__cta-area">
+          {% if section.settings.left_btn_text != blank %}
+            <a
+              href="{{ section.settings.left_btn_url | default: '#' }}"
+              class="crg-btn"
+              {% if section.settings.left_btn_new_tab %}target="_blank" rel="noopener"{% endif %}
+            >
+              {{ section.settings.left_btn_text }}
+            </a>
+          {% endif %}
+          {% if section.settings.left_card_label != blank %}
+            <span class="crg-card__label">{{ section.settings.left_card_label }}</span>
+          {% endif %}
+        </div>
+      </div>
+
+      {%- comment -%} ========= RIGHT CARD ========= {%- endcomment -%}
+      <div class="crg-card crg-card--right">
+        <div class="crg-card__inner">
+
+          <div class="crg-card__product-row">
+            {% if section.settings.right_product_image != blank %}
+            <div class="crg-card__img-wrap">
+              <img
+                src="{{ section.settings.right_product_image | image_url: width: 200 }}"
+                alt="{{ section.settings.right_product_image.alt | default: section.settings.right_card_title | escape }}"
+                width="200"
+                height="auto"
+                loading="lazy"
+              >
+            </div>
+            {% endif %}
+
+            <div class="crg-card__title-block">
+              {% if section.settings.right_card_title != blank %}
+                <h3 class="crg-card__title">{{ section.settings.right_card_title }}</h3>
+              {% endif %}
+              {% if section.settings.right_badge_text != blank %}
+                <span class="crg-badge">
+                  {% if section.settings.right_badge_icon != blank %}
+                    {{- section.settings.right_badge_icon -}}
+                  {% endif %}
+                  {{ section.settings.right_badge_text }}
+                </span>
+              {% endif %}
+            </div>
+          </div>
+
+          <div class="crg-card__divider"></div>
+
+          <ul class="crg-features" role="list">
+            {% for i in (1..6) %}
+              {% assign feat_key = 'right_feature_' | append: i %}
+              {% assign feat_val = section.settings[feat_key] %}
+              {% if feat_val != blank %}
+              <li class="crg-features__item">
+                <svg class="crg-features__icon" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <circle cx="11" cy="11" r="10" fill="currentColor" fill-opacity="0.18"/>
+                  <circle cx="11" cy="11" r="10" stroke="currentColor" stroke-width="1.5"/>
+                  <path d="M6.5 11.5l3 3 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>{{ feat_val }}</span>
+              </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+
+        </div>
+
+        <div class="crg-card__cta-area">
+          {% if section.settings.right_btn_text != blank %}
+            <a
+              href="{{ section.settings.right_btn_url | default: '#' }}"
+              class="crg-btn"
+              {% if section.settings.right_btn_new_tab %}target="_blank" rel="noopener"{% endif %}
+            >
+              {{ section.settings.right_btn_text }}
+            </a>
+          {% endif %}
+          {% if section.settings.right_card_label != blank %}
+            <span class="crg-card__label">{{ section.settings.right_card_label }}</span>
+          {% endif %}
+        </div>
+      </div>
+
+    </div>{%- comment -%} / .crg-cards-grid {%- endcomment -%}
+
+    {%- comment -%} ── HELP BAR ── {%- endcomment -%}
+    {% if section.settings.show_help_bar and section.settings.help_bar_text != blank %}
+    <div class="crg-help-bar" role="note">
+      {{ section.settings.help_bar_text }}
+    </div>
+    {% endif %}
+
+  </div>{%- comment -%} / .crg-container {%- endcomment -%}
+</section>
+{% endunless %}
+
+
+{% schema %}
+{
+  "name": "Research Grade Comparison",
+  "tag": "section",
+  "class": "section-research-grade",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+
+    {
+      "type": "header",
+      "content": "⚙️ Section"
+    },
+    {
+      "type": "checkbox",
+      "id": "section_enabled",
+      "label": "Enable section",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "section_bg_color",
+      "label": "Section background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "container_max_width",
+      "label": "Container max-width (px)",
+      "min": 800,
+      "max": 1600,
+      "step": 20,
+      "default": 1200
+    },
+    {
+      "type": "range",
+      "id": "container_side_padding",
+      "label": "Side padding — Desktop / Tablet (px)",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "container_side_padding_mobile",
+      "label": "Side padding — Mobile (px)",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "default": 16
+    },
+    {
+      "type": "checkbox",
+      "id": "card_hover_lift",
+      "label": "Enable card hover lift animation",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "card_box_shadow",
+      "label": "Card box-shadow (CSS value)",
+      "default": "0 4px 24px rgba(0,0,0,0.08)"
+    },
+    {
+      "type": "range",
+      "id": "card_border_radius",
+      "label": "Card border radius (px)",
+      "min": 0,
+      "max": 32,
+      "step": 2,
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "cards_margin_bottom",
+      "label": "Gap below cards (px)",
+      "min": 0,
+      "max": 60,
+      "step": 4,
+      "default": 24
+    },
+
+    {
+      "type": "header",
+      "content": "📐 Spacing — Desktop"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Padding top — Desktop (px)",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Padding bottom — Desktop (px)",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "column_gap_desktop",
+      "label": "Column gap — Desktop (px)",
+      "min": 8,
+      "max": 80,
+      "step": 4,
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "card_inner_padding_desktop",
+      "label": "Card inner padding — Desktop (px)",
+      "min": 12,
+      "max": 60,
+      "step": 2,
+      "default": 28
+    },
+
+    {
+      "type": "header",
+      "content": "📐 Spacing — Tablet"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_tablet",
+      "label": "Padding top — Tablet (px)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_tablet",
+      "label": "Padding bottom — Tablet (px)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "column_gap_tablet",
+      "label": "Column gap — Tablet (px)",
+      "min": 8,
+      "max": 60,
+      "step": 4,
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "card_inner_padding_tablet",
+      "label": "Card inner padding — Tablet (px)",
+      "min": 12,
+      "max": 48,
+      "step": 2,
+      "default": 20
+    },
+
+    {
+      "type": "header",
+      "content": "📐 Spacing — Mobile"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Padding top — Mobile (px)",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Padding bottom — Mobile (px)",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "column_gap_mobile",
+      "label": "Column gap — Mobile (px)",
+      "min": 8,
+      "max": 40,
+      "step": 4,
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "card_inner_padding_mobile",
+      "label": "Card inner padding — Mobile (px)",
+      "min": 12,
+      "max": 40,
+      "step": 2,
+      "default": 18
+    },
+
+    {
+      "type": "header",
+      "content": "🔤 Typography"
+    },
+    {
+      "type": "text",
+      "id": "heading_font_family",
+      "label": "Heading font family",
+      "default": "Georgia"
+    },
+    {
+      "type": "text",
+      "id": "body_font_family",
+      "label": "Body font family",
+      "default": "Helvetica Neue"
+    },
+
+    {
+      "type": "header",
+      "content": "📝 Heading Block"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_heading_block",
+      "label": "Show heading block",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "label": "Heading HTML tag",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "text",
+      "id": "heading_text",
+      "label": "Heading text",
+      "default": "Choose Your Research Grade"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "select",
+      "id": "heading_font_weight",
+      "label": "Heading font weight",
+      "options": [
+        { "value": "400", "label": "Regular (400)" },
+        { "value": "600", "label": "Semi-bold (600)" },
+        { "value": "700", "label": "Bold (700)" },
+        { "value": "800", "label": "Extra-bold (800)" }
+      ],
+      "default": "700"
+    },
+    {
+      "type": "range",
+      "id": "heading_letter_spacing",
+      "label": "Heading letter-spacing (em × 100)",
+      "min": -5,
+      "max": 10,
+      "step": 1,
+      "default": -1,
+      "info": "Value is divided by 100 internally. E.g. -1 = -0.01em"
+    },
+    {
+      "type": "range",
+      "id": "heading_size_desktop",
+      "label": "Heading size — Desktop (px)",
+      "min": 20,
+      "max": 72,
+      "step": 2,
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "heading_size_tablet",
+      "label": "Heading size — Tablet (px)",
+      "min": 18,
+      "max": 56,
+      "step": 2,
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "heading_size_mobile",
+      "label": "Heading size — Mobile (px)",
+      "min": 16,
+      "max": 40,
+      "step": 2,
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "heading_margin_bottom_desktop",
+      "label": "Heading margin bottom — Desktop (px)",
+      "min": 8,
+      "max": 80,
+      "step": 4,
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "heading_margin_bottom_tablet",
+      "label": "Heading margin bottom — Tablet (px)",
+      "min": 8,
+      "max": 60,
+      "step": 4,
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "heading_margin_bottom_mobile",
+      "label": "Heading margin bottom — Mobile (px)",
+      "min": 8,
+      "max": 48,
+      "step": 4,
+      "default": 28
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle_text",
+      "label": "Subtitle / description text",
+      "default": "Not sure which peptide line is right for your research? Compare the key benefits of International Peptides and America-made Peptides to find the perfect solution for your laboratory requirements."
+    },
+    {
+      "type": "color",
+      "id": "subtitle_color",
+      "label": "Subtitle color",
+      "default": "#555555"
+    },
+    {
+      "type": "range",
+      "id": "subtitle_size_desktop",
+      "label": "Subtitle size — Desktop (px)",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "subtitle_size_tablet",
+      "label": "Subtitle size — Tablet (px)",
+      "min": 12,
+      "max": 22,
+      "step": 1,
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "subtitle_size_mobile",
+      "label": "Subtitle size — Mobile (px)",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "subtitle_max_width",
+      "label": "Subtitle max-width (px)",
+      "min": 300,
+      "max": 900,
+      "step": 20,
+      "default": 600
+    },
+
+    {
+      "type": "header",
+      "content": "🖼️ Product Image"
+    },
+    {
+      "type": "range",
+      "id": "product_image_size",
+      "label": "Product image width — Desktop/Tablet (px)",
+      "min": 60,
+      "max": 180,
+      "step": 10,
+      "default": 110
+    },
+    {
+      "type": "range",
+      "id": "product_image_size_mobile",
+      "label": "Product image width — Mobile (px)",
+      "min": 50,
+      "max": 120,
+      "step": 10,
+      "default": 80
+    },
+
+    {
+      "type": "header",
+      "content": "🅰️ Card Title & Feature Sizes"
+    },
+    {
+      "type": "range",
+      "id": "card_title_size_desktop",
+      "label": "Card title size — Desktop (px)",
+      "min": 14,
+      "max": 36,
+      "step": 1,
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "card_title_size_tablet",
+      "label": "Card title size — Tablet (px)",
+      "min": 14,
+      "max": 30,
+      "step": 1,
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "card_title_size_mobile",
+      "label": "Card title size — Mobile (px)",
+      "min": 14,
+      "max": 26,
+      "step": 1,
+      "default": 17
+    },
+    {
+      "type": "range",
+      "id": "feature_text_size_desktop",
+      "label": "Feature text size — Desktop (px)",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "feature_text_size_tablet",
+      "label": "Feature text size — Tablet (px)",
+      "min": 12,
+      "max": 18,
+      "step": 1,
+      "default": 13
+    },
+    {
+      "type": "range",
+      "id": "feature_text_size_mobile",
+      "label": "Feature text size — Mobile (px)",
+      "min": 12,
+      "max": 18,
+      "step": 1,
+      "default": 13
+    },
+    {
+      "type": "range",
+      "id": "feature_item_gap",
+      "label": "Feature item gap (px)",
+      "min": 4,
+      "max": 24,
+      "step": 2,
+      "default": 12
+    },
+
+    {
+      "type": "header",
+      "content": "🔘 Button Sizes"
+    },
+    {
+      "type": "range",
+      "id": "btn_border_radius",
+      "label": "Button border radius (px)",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "btn_text_size_desktop",
+      "label": "Button text size — Desktop (px)",
+      "min": 12,
+      "max": 22,
+      "step": 1,
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "btn_text_size_tablet",
+      "label": "Button text size — Tablet (px)",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "btn_text_size_mobile",
+      "label": "Button text size — Mobile (px)",
+      "min": 12,
+      "max": 18,
+      "step": 1,
+      "default": 14
+    },
+
+    {
+      "type": "header",
+      "content": "⬅️ Left Card — Content"
+    },
+    {
+      "type": "image_picker",
+      "id": "left_product_image",
+      "label": "Left product image"
+    },
+    {
+      "type": "text",
+      "id": "left_card_title",
+      "label": "Left card title",
+      "default": "International-Origin Peptides"
+    },
+    {
+      "type": "text",
+      "id": "left_badge_text",
+      "label": "Left badge text",
+      "default": "Best value research grade"
+    },
+    {
+      "type": "text",
+      "id": "left_badge_icon",
+      "label": "Left badge icon (HTML/emoji)",
+      "default": "✓"
+    },
+    {
+      "type": "text",
+      "id": "left_feature_1",
+      "label": "Feature 1",
+      "default": "Conventional Solid Phase Synthesis (SPPS)"
+    },
+    {
+      "type": "text",
+      "id": "left_feature_2",
+      "label": "Feature 2",
+      "default": "Non-uniform quality control standards"
+    },
+    {
+      "type": "text",
+      "id": "left_feature_3",
+      "label": "Feature 3",
+      "default": "Limited batch validation consistency"
+    },
+    {
+      "type": "text",
+      "id": "left_feature_4",
+      "label": "Feature 4",
+      "default": "Standard pricing"
+    },
+    {
+      "type": "text",
+      "id": "left_feature_5",
+      "label": "Feature 5"
+    },
+    {
+      "type": "text",
+      "id": "left_feature_6",
+      "label": "Feature 6"
+    },
+    {
+      "type": "text",
+      "id": "left_btn_text",
+      "label": "Left button text",
+      "default": "View International Line"
+    },
+    {
+      "type": "url",
+      "id": "left_btn_url",
+      "label": "Left button URL"
+    },
+    {
+      "type": "checkbox",
+      "id": "left_btn_new_tab",
+      "label": "Open left button in new tab",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "left_card_label",
+      "label": "Left card label (below button)",
+      "default": "Standard research grade"
+    },
+
+    {
+      "type": "header",
+      "content": "⬅️ Left Card — Colors"
+    },
+    {
+      "type": "color",
+      "id": "left_card_bg",
+      "label": "Left card background",
+      "default": "#f5f5f2"
+    },
+    {
+      "type": "color",
+      "id": "left_card_border_color",
+      "label": "Left card border color",
+      "default": "#d8d5cc"
+    },
+    {
+      "type": "color",
+      "id": "left_title_color",
+      "label": "Left title color",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "color",
+      "id": "left_badge_bg",
+      "label": "Left badge background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "left_badge_text_color",
+      "label": "Left badge text color",
+      "default": "#2d6a3f"
+    },
+    {
+      "type": "color",
+      "id": "left_icon_color",
+      "label": "Left icon color",
+      "default": "#2d6a3f"
+    },
+    {
+      "type": "color",
+      "id": "left_feature_text_color",
+      "label": "Left feature text color",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "left_btn_bg",
+      "label": "Left button background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "left_btn_text_color",
+      "label": "Left button text color",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "color",
+      "id": "left_btn_border_color",
+      "label": "Left button border color",
+      "default": "#2d6a3f"
+    },
+    {
+      "type": "color",
+      "id": "left_btn_hover_bg",
+      "label": "Left button hover background",
+      "default": "#f0f7f2"
+    },
+    {
+      "type": "color",
+      "id": "left_label_color",
+      "label": "Left label color (below button)",
+      "default": "#888888"
+    },
+
+    {
+      "type": "header",
+      "content": "➡️ Right Card — Content"
+    },
+    {
+      "type": "image_picker",
+      "id": "right_product_image",
+      "label": "Right product image"
+    },
+    {
+      "type": "text",
+      "id": "right_card_title",
+      "label": "Right card title",
+      "default": "American-Made Peptides (Tier 1)"
+    },
+    {
+      "type": "text",
+      "id": "right_badge_text",
+      "label": "Right badge text",
+      "default": "Highest documentation standard"
+    },
+    {
+      "type": "text",
+      "id": "right_badge_icon",
+      "label": "Right badge icon (HTML/emoji)",
+      "default": "🏅"
+    },
+    {
+      "type": "text",
+      "id": "right_feature_1",
+      "label": "Feature 1",
+      "default": "Tier 1 Hybrid Liquid + Solid Phase cGMP Synthesis"
+    },
+    {
+      "type": "text",
+      "id": "right_feature_2",
+      "label": "Feature 2",
+      "default": "cGMP manufacturing environment"
+    },
+    {
+      "type": "text",
+      "id": "right_feature_3",
+      "label": "Feature 3",
+      "default": "Batch-verified purity & identity"
+    },
+    {
+      "type": "text",
+      "id": "right_feature_4",
+      "label": "Feature 4",
+      "default": "Complete traceability & reproducibility"
+    },
+    {
+      "type": "text",
+      "id": "right_feature_5",
+      "label": "Feature 5"
+    },
+    {
+      "type": "text",
+      "id": "right_feature_6",
+      "label": "Feature 6"
+    },
+    {
+      "type": "text",
+      "id": "right_btn_text",
+      "label": "Right button text",
+      "default": "View Tier 1 US Peptides"
+    },
+    {
+      "type": "url",
+      "id": "right_btn_url",
+      "label": "Right button URL"
+    },
+    {
+      "type": "checkbox",
+      "id": "right_btn_new_tab",
+      "label": "Open right button in new tab",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "right_card_label",
+      "label": "Right card label (below button)",
+      "default": "Premium research grade"
+    },
+
+    {
+      "type": "header",
+      "content": "➡️ Right Card — Colors"
+    },
+    {
+      "type": "color",
+      "id": "right_card_bg",
+      "label": "Right card background",
+      "default": "#1c3d2b"
+    },
+    {
+      "type": "color",
+      "id": "right_card_border_color",
+      "label": "Right card border color",
+      "default": "#2d6a3f"
+    },
+    {
+      "type": "color",
+      "id": "right_title_color",
+      "label": "Right title color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "right_badge_bg",
+      "label": "Right badge background",
+      "default": "#c9a227"
+    },
+    {
+      "type": "color",
+      "id": "right_badge_text_color",
+      "label": "Right badge text color",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "color",
+      "id": "right_icon_color",
+      "label": "Right icon color",
+      "default": "#c9a227"
+    },
+    {
+      "type": "color",
+      "id": "right_feature_text_color",
+      "label": "Right feature text color",
+      "default": "#e8f0eb"
+    },
+    {
+      "type": "color",
+      "id": "right_btn_bg",
+      "label": "Right button background",
+      "default": "#c9a227"
+    },
+    {
+      "type": "color",
+      "id": "right_btn_text_color",
+      "label": "Right button text color",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "color",
+      "id": "right_btn_hover_bg",
+      "label": "Right button hover background",
+      "default": "#b8911f"
+    },
+    {
+      "type": "color",
+      "id": "right_label_color",
+      "label": "Right label color (below button)",
+      "default": "#a0c0aa"
+    },
+
+    {
+      "type": "header",
+      "content": "ℹ️ Help Bar"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_help_bar",
+      "label": "Show help bar",
+      "default": true
+    },
+    {
+      "type": "richtext",
+      "id": "help_bar_text",
+      "label": "Help bar text (use <strong> for bold)",
+      "default": "<p><strong>Need help deciding?</strong> Our America-made Peptides line offers superior purity (≥99%), faster shipping (2–3 days vs 7–10 days), and enhanced quality documentation from FDA-registered facilities. Perfect for time-sensitive research protocols requiring the highest quality standards.</p>"
+    },
+    {
+      "type": "color",
+      "id": "help_bar_bg",
+      "label": "Help bar background",
+      "default": "#fafafa"
+    },
+    {
+      "type": "color",
+      "id": "help_bar_border_color",
+      "label": "Help bar border color",
+      "default": "#e0e0e0"
+    },
+    {
+      "type": "color",
+      "id": "help_bar_bold_color",
+      "label": "Help bar bold text color",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "color",
+      "id": "help_bar_text_color",
+      "label": "Help bar body text color",
+      "default": "#555555"
+    },
+    {
+      "type": "range",
+      "id": "help_bar_border_radius",
+      "label": "Help bar border radius (px)",
+      "min": 0,
+      "max": 24,
+      "step": 2,
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "help_bar_padding_desktop",
+      "label": "Help bar padding — Desktop (px)",
+      "min": 8,
+      "max": 40,
+      "step": 2,
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "help_bar_padding_tablet",
+      "label": "Help bar padding — Tablet (px)",
+      "min": 8,
+      "max": 32,
+      "step": 2,
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "help_bar_padding_mobile",
+      "label": "Help bar padding — Mobile (px)",
+      "min": 8,
+      "max": 28,
+      "step": 2,
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "help_bar_text_size_desktop",
+      "label": "Help bar text size — Desktop (px)",
+      "min": 11,
+      "max": 18,
+      "step": 1,
+      "default": 13
+    },
+    {
+      "type": "range",
+      "id": "help_bar_text_size_tablet",
+      "label": "Help bar text size — Tablet (px)",
+      "min": 11,
+      "max": 16,
+      "step": 1,
+      "default": 13
+    },
+    {
+      "type": "range",
+      "id": "help_bar_text_size_mobile",
+      "label": "Help bar text size — Mobile (px)",
+      "min": 11,
+      "max": 15,
+      "step": 1,
+      "default": 12
+    }
+
+  ],
+
+  "presets": [
+    {
+      "name": "Research Grade Comparison",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
