@@ -96,20 +96,31 @@
                 {% endif %}
                 </div>
                 <div class="guests-cards-grid-content"> 
-                {% if block.settings.heading != blank %}
-                  <h3>{{ block.settings.heading }}</h3>
-                {% endif %}
+                    {% if block.settings.heading != blank %}
+                        <h3>{{ block.settings.heading }}</h3>
+                    {% endif %}
 
-                {% if block.settings.text != blank %}
-                  <p>{{ block.settings.text }}</p>
-                {% endif %}
+                    {% if block.settings.heading_image != blank %}
+                        <div class="guests-heading-image">
+                        <img
+                            src="{{ block.settings.heading_image | image_url: width: 300 }}"
+                            alt="{{ block.settings.heading }}"
+                            width=""
+                            height=""
+                        >
+                        </div>
+                    {% endif %}
 
-                {% if block.settings.button_label != blank %}
-                  <a href="{{ block.settings.button_link }}" class="button">
-                    {{ block.settings.button_label }}
-                  </a>
-                {% endif %}
-              </div>
+                    {% if block.settings.text != blank %}
+                        <p>{{ block.settings.text }}</p>
+                    {% endif %}
+
+                    {% if block.settings.button_label != blank %}
+                        <a href="{{ block.settings.button_link }}" class="button">
+                        {{ block.settings.button_label }}
+                        </a>
+                    {% endif %}
+                    </div>
               </div>
               </div>
 
