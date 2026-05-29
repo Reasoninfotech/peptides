@@ -231,8 +231,16 @@
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
                           >
-                            <rect x="0.5" y="0.5" width="19" height="19" rx="9.5" stroke="#1A4D2E"/>
-                            <path d="M5.33984 11.1765L8.19699 14.3765L15.3398 6.37646" stroke="#1A4D2E" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                            <rect x="0.5" y="0.5" width="19" height="19" rx="9.5" fill="url(#paint0_linear_649_441)"/>
+                            <rect x="0.5" y="0.5" width="19" height="19" rx="9.5" stroke="#D4AF37"/>
+                            <path d="M5.33984 11.1765L8.19699 14.3765L15.3398 6.37646" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                            <defs>
+                            <linearGradient id="paint0_linear_649_441" x1="0" y1="10" x2="20" y2="10" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#D4AF37"/>
+                            <stop offset="0.528846" stop-color="#FFE9A0"/>
+                            <stop offset="1" stop-color="#D4AF37"/>
+                            </linearGradient>
+                            </defs>
                           </svg>
                         </span>
 
@@ -583,84 +591,130 @@
       ]
     },
 
+ {
+  "type": "card_left",
+  "name": "Card Left",
+  "settings": [
     {
-      "type": "card_left",
-      "name": "Card Left",
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Card Image"
-        },
-        {
-          "type": "textarea",
-          "id": "heading",
-          "label": "Heading",
-          "default": "Card Heading"
-        },
-        {
-          "type": "image_picker",
-          "id": "heading_image",
-          "label": "Heading Image"
-        },
-        {
-          "type": "textarea",
-          "id": "text",
-          "label": "Description",
-          "default": "Add your description here"
-        },
-        {
-          "type": "url",
-          "id": "button_link",
-          "label": "Button Link"
-        },
-        {
-          "type": "text",
-          "id": "button_label",
-          "label": "Button Label",
-          "default": "Shop Now"
-        }
-      ]
+      "type": "image_picker",
+      "id": "image",
+      "label": "Card Image"
     },
     {
-      "type": "card_right",
-      "name": "Card Right",
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Card Image"
-        },
-        {
-          "type": "textarea",
-          "id": "heading",
-          "label": "Heading",
-          "default": "Card Heading"
-        },
-        {
-          "type": "image_picker",
-          "id": "heading_image",
-          "label": "Heading Image"
-        },
-        {
-          "type": "textarea",
-          "id": "text",
-          "label": "Description",
-          "default": "Add your description here"
-        },
-        {
-          "type": "url",
-          "id": "button_link",
-          "label": "Button Link"
-        },
-        {
-          "type": "text",
-          "id": "button_label",
-          "label": "Button Label",
-          "default": "Shop Now"
-        }
-      ]
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Card Heading"
+    },
+    {
+      "type": "image_picker",
+      "id": "heading_image",
+      "label": "Heading Image"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Description",
+      "default": "Add your description here"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Shop Now"
+    },
+
+    {
+      "type": "header",
+      "content": "Bottom List"
+    },
+    {
+      "type": "text",
+      "id": "guests_cards_bottom_text_1",
+      "label": "Bottom Text 1",
+      "default": "Feature item 1"
+    },
+    {
+      "type": "text",
+      "id": "guests_cards_bottom_text_2",
+      "label": "Bottom Text 2",
+      "default": "Feature item 2"
+    },
+    {
+      "type": "text",
+      "id": "guests_cards_bottom_text_3",
+      "label": "Bottom Text 3",
+      "default": "Feature item 3"
     }
+  ]
+},
+{
+  "type": "card_right",
+  "name": "Card Right",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Card Image"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Card Heading"
+    },
+    {
+      "type": "image_picker",
+      "id": "heading_image",
+      "label": "Heading Image"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Description",
+      "default": "Add your description here"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Shop Now"
+    },
+
+    {
+      "type": "header",
+      "content": "Bottom List"
+    },
+    {
+      "type": "text",
+      "id": "guests_cards_bottom_text_1",
+      "label": "Bottom Text 1",
+      "default": "Feature item 1"
+    },
+    {
+      "type": "text",
+      "id": "guests_cards_bottom_text_2",
+      "label": "Bottom Text 2",
+      "default": "Feature item 2"
+    },
+    {
+      "type": "text",
+      "id": "guests_cards_bottom_text_3",
+      "label": "Bottom Text 3",
+      "default": "Feature item 3"
+    }
+  ]
+}
   ],
 
   "presets": [
