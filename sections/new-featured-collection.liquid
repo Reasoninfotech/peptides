@@ -265,8 +265,16 @@
                   {% endfor %}
                   </div>
                 </div>
-                <div class="guests-cards-grid-btn">
-                    
+               <div class="guests-cards-grid-btn">
+                    {% if block.settings.bottom_btn_label != blank %}
+                        <a href="{{ block.settings.bottom_btn_link }}" class="button">
+                        {{ block.settings.bottom_btn_label }}
+                        </a>
+                    {% endif %}
+
+                    {% if block.settings.bottom_btn_text != blank %}
+                        <p>{{ block.settings.bottom_btn_text }}</p>
+                    {% endif %}
                 </div>
               </div>
 
@@ -341,7 +349,15 @@
                   {% endfor %}
                 </div>
                 <div class="guests-cards-grid-btn">
+                    {% if block.settings.bottom_btn_label != blank %}
+                        <a href="{{ block.settings.bottom_btn_link }}" class="button">
+                        {{ block.settings.bottom_btn_label }}
+                        </a>
+                    {% endif %}
 
+                    {% if block.settings.bottom_btn_text != blank %}
+                        <p>{{ block.settings.bottom_btn_text }}</p>
+                    {% endif %}
                 </div>
                 </div>
               </div>
