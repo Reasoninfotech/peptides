@@ -270,6 +270,14 @@
     "new_featured_collection_RfwmNJ": {
       "type": "new-featured-collection",
       "blocks": {
+        "card_right_AT6tmx": {
+          "type": "card_right",
+          "settings": {}
+        },
+        "card_left_z4qBkX": {
+          "type": "card_left",
+          "settings": {}
+        },
         "tab_9DgR6G": {
           "type": "tab",
           "settings": {
@@ -293,6 +301,8 @@
         }
       },
       "block_order": [
+        "card_right_AT6tmx",
+        "card_left_z4qBkX",
         "tab_9DgR6G",
         "tab_yRdBiP",
         "tab_PxaCAQ"
