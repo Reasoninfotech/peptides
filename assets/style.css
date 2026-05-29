@@ -5394,7 +5394,8 @@ body.popup-open {
 }
 
 .feature-box-section .box-carousel .unity-slider {
-    --slide-spacing: 2rem
+    --slide-spacing: 2rem;
+            overflow: hidden;
 }
 
 .feature-box-section .box-carousel .unity-slide {
@@ -5548,7 +5549,8 @@ body.popup-open {
 
     .feature-box-section .box-carousel .unity-slider {
         --slide-spacing: var(--grid-vertical);
-        --slide-size: 98%
+        --slide-size: 98%;
+                overflow: hidden;
     }
 
     .feature-box-section .custom-grid {
