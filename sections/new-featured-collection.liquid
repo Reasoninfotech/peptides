@@ -118,7 +118,7 @@
                   </div>
                   <div class="guests-cards-grid-content">
                  
-
+                    <div class="guests-heading-block">
                     {% if block.settings.heading_image != blank %}
                       <div class="guests-heading-image">
                         <img
@@ -130,7 +130,7 @@
                     {% if block.settings.heading != blank %}
                       <h3>{{ block.settings.heading }}</h3>
                     {% endif %}
-
+                    </div>
                     {% if block.settings.text != blank %}
                       <p>{{ block.settings.text }}</p>
                     {% endif %}
@@ -158,10 +158,8 @@
                     {% endif %}
                   </div>
                   <div class="guests-cards-grid-content">
-                    {% if block.settings.heading != blank %}
-                      <h3>{{ block.settings.heading }}</h3>
-                    {% endif %}
-
+                  
+                <div class="guests-heading-block">
                     {% if block.settings.heading_image != blank %}
                       <div class="guests-heading-image">
                         <img
@@ -170,7 +168,10 @@
                         >
                       </div>
                     {% endif %}
-
+                      {% if block.settings.heading != blank %}
+                      <h3>{{ block.settings.heading }}</h3>
+                    {% endif %}
+                    </div>
                     {% if block.settings.text != blank %}
                       <p>{{ block.settings.text }}</p>
                     {% endif %}
