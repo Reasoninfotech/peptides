@@ -218,6 +218,7 @@
         "tab-2",
         "tab-3"
       ],
+      "disabled": true,
       "settings": {
         "full": false,
         "color_scheme": "",
@@ -264,6 +265,55 @@
         "american_lead_time": "15+ years of peptide drug manufacturing expertise",
         "american_price": "Individually verified purity and identity per batch",
         "american_coa": "Full batch traceability and reproducibility"
+      }
+    },
+    "new_featured_collection_RfwmNJ": {
+      "type": "new-featured-collection",
+      "blocks": {
+        "tab_9DgR6G": {
+          "type": "tab",
+          "settings": {
+            "name": "Access Catalog",
+            "collection": "all-products"
+          }
+        },
+        "tab_yRdBiP": {
+          "type": "tab",
+          "settings": {
+            "name": "Peptides",
+            "collection": "peptides"
+          }
+        },
+        "tab_PxaCAQ": {
+          "type": "tab",
+          "settings": {
+            "name": " Longevity Devices",
+            "collection": "longevity-devices"
+          }
+        }
+      },
+      "block_order": [
+        "tab_9DgR6G",
+        "tab_yRdBiP",
+        "tab_PxaCAQ"
+      ],
+      "name": "Featured Collection Tabs",
+      "settings": {
+        "full": false,
+        "color_scheme": "",
+        "sub_heading": "( Browser our products )",
+        "heading": "Most popular",
+        "heading_size": "h3",
+        "columns": 4,
+        "total": 8,
+        "dots": false,
+        "loop": false,
+        "autoplay": false,
+        "delay": 2,
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20
       }
     },
     "testimonial_rzXeCw": {
@@ -662,6 +712,7 @@
     "service_bar_xJhBPa",
     "partners_FYdBNT",
     "featured_collection",
+    "new_featured_collection_RfwmNJ",
     "testimonial_rzXeCw",
     "image_banner_gXgkNz",
     "rich_text_XpJCLc",
