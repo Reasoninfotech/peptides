@@ -274,7 +274,7 @@
           "type": "card_left",
           "settings": {
             "image": "shopify://shop_images/Image_International_Peptides.png",
-            "heading": "International-Origin Peptides",
+            "heading": "International-Origin <br> Peptides",
             "text": "Best value reseach grade",
             "button_link": "",
             "button_label": ""
@@ -284,7 +284,7 @@
           "type": "card_right",
           "settings": {
             "image": "shopify://shop_images/Image_International_Peptides_1.png",
-            "heading": "American-Made  Peptides (Tier 1)",
+            "heading": "American-Made <br>  Peptides (Tier 1)",
             "heading_image": "shopify://shop_images/Frame_3063.png",
             "text": "Add your description here",
             "button_link": "",
