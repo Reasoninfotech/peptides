@@ -272,11 +272,21 @@
       "blocks": {
         "card_right_AT6tmx": {
           "type": "card_right",
-          "settings": {}
+          "settings": {
+            "heading": "Card Heading",
+            "text": "Add your description here",
+            "button_link": "",
+            "button_label": "Shop Now"
+          }
         },
         "card_left_z4qBkX": {
           "type": "card_left",
-          "settings": {}
+          "settings": {
+            "heading": "Card Heading",
+            "text": "Add your description here",
+            "button_link": "",
+            "button_label": "Shop Now"
+          }
         },
         "tab_9DgR6G": {
           "type": "tab",
@@ -311,15 +321,15 @@
       "settings": {
         "full": false,
         "color_scheme": "",
+        "hide_comparison_for_guests": true,
+        "guest_heading": "Comparison Section",
+        "guest_subtext": "Add your guest comparison description here",
+        "guest_tip": "<p>Add your guest tip text here</p>",
         "sub_heading": "",
         "heading": "Explore Our Premium Peptide Selection",
         "heading_size": "h3",
         "columns": 4,
         "total": 8,
-        "dots": false,
-        "loop": true,
-        "autoplay": false,
-        "delay": 2,
         "padding_top": 50,
         "padding_bottom": 50,
         "padding_top_mobile": 20,
