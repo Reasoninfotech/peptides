@@ -218,6 +218,7 @@
         "tab-2",
         "tab-3"
       ],
+      "disabled": true,
       "settings": {
         "full": false,
         "color_scheme": "",
