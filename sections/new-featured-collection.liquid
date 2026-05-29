@@ -58,20 +58,16 @@
         <p>{{ section.settings.guest_subtext }}</p>
       </div>
       <div class="guests-comparison-grid">
-
         {% for block in section.blocks %}
           {% case block.type %}
-
             {% when 'card_left' %}
               <div class="guests-cards-grid guests-cards-grid-left">
-                Left Card
+                
               </div>
-
             {% when 'card_right' %}
               <div class="guests-cards-grid guests-cards-grid-right">
-                Right Card
+                
               </div>
-
           {% endcase %}
         {% endfor %}
 
