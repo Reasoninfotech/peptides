@@ -73,6 +73,7 @@
           {% case block.type %}
             {% when 'card_left' %}
               <div class="guests-cards-grid guests-cards-grid-left">
+                <div class="guests-cards-grid-top">
                 {% if block.settings.image != blank %}
                   <img
                     src="{{ block.settings.image | image_url: width: 600 }}"
@@ -81,7 +82,7 @@
                     height=""
                   >
                 {% endif %}
-
+                <div class="guests-cards-grid-content"> 
                 {% if block.settings.heading != blank %}
                   <h3>{{ block.settings.heading }}</h3>
                 {% endif %}
@@ -96,6 +97,8 @@
                   </a>
                 {% endif %}
               </div>
+              </div>
+              </div>
 
             {% when 'card_right' %}
               <div class="guests-cards-grid guests-cards-grid-right">
@@ -108,7 +111,7 @@
                     height=""
                   >
                 {% endif %}
-                <div> 
+                <div class="guests-cards-grid-content"> 
                     {% if block.settings.heading != blank %}
                     <h3>{{ block.settings.heading }}</h3>
                     {% endif %}
