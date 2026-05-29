@@ -44,6 +44,12 @@
 </style>
 {%- if customer.tags contains 'approved' -%}
     
+    <div class="container">
+        <div class="comparison-header">
+            <h2>{{ section.settings.guest_heading }}</h2>
+            <p>{{ section.settings.guest_subtext }}</p>
+        </div>
+    </div>
 {%- else -%}
     {%- if section.blocks.size > 0 -%}
         <div id="featured-collection-section" class="featured-collection-tab color-{{ section.settings.color_scheme }}">
