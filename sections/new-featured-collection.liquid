@@ -204,65 +204,67 @@
           {% case block.type %}
             {% when 'card_left' %}
               <div class="guests-cards-grid guests-cards-grid-left">
-                <div class="guests-cards-grid-top">
-                  <div class="guests-cards-grid-top-img">
-                    {% if block.settings.image != blank %}
-                      <img
-                        src="{{ block.settings.image | image_url: width: 600 }}"
-                        alt="{{ block.settings.heading }}"
-                        width=""
-                        height=""
-                      >
-                    {% endif %}
-                  </div>
-                  <div class="guests-cards-grid-content">
-                    <div class="guests-heading-block">
-                      {% if block.settings.heading_image != blank %}
-                        <div class="guests-heading-image">
-                          <img
-                            src="{{ block.settings.heading_image | image_url: width: 300 }}"
-                            alt="{{ block.settings.heading }}"
-                          >
-                        </div>
-                      {% endif %}
-                      {% if block.settings.heading != blank %}
-                        <h3>{{ block.settings.heading }}</h3>
+                <div class="guests-cards-grid-block">
+                  <div class="guests-cards-grid-top">
+                    <div class="guests-cards-grid-top-img">
+                      {% if block.settings.image != blank %}
+                        <img
+                          src="{{ block.settings.image | image_url: width: 600 }}"
+                          alt="{{ block.settings.heading }}"
+                          width=""
+                          height=""
+                        >
                       {% endif %}
                     </div>
-                    {% if block.settings.text != blank %}
-                      <p>{{ block.settings.text }}</p>
-                    {% endif %}
-
-                    {% if block.settings.button_label != blank %}
-                      <a href="{{ block.settings.button_link }}" class="button">
-                        {{ block.settings.button_label }}
-                      </a>
-                    {% endif %}
-                  </div>
-                </div>
-                <div class="guests-cards-grid-bottom">
-                  <div class="guests-cards-grid-bottom-text">
-                    {% for i in (1..5) %}
-                      {% assign text_key = 'guests_cards_bottom_text_' | append: i %}
-                      {% if block.settings[text_key] != blank %}
-                        <p>
-                          <span>
-                            <svg
-                              width="20"
-                              height="20"
-                              viewBox="0 0 20 20"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
+                    <div class="guests-cards-grid-content">
+                      <div class="guests-heading-block">
+                        {% if block.settings.heading_image != blank %}
+                          <div class="guests-heading-image">
+                            <img
+                              src="{{ block.settings.heading_image | image_url: width: 300 }}"
+                              alt="{{ block.settings.heading }}"
                             >
-                              <rect x="0.5" y="0.5" width="19" height="19" rx="9.5" stroke="#1A4D2E"/>
-                              <path d="M5.33984 11.1765L8.19699 14.3765L15.3398 6.37646" stroke="#1A4D2E" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                          </span>
-
-                          {{ block.settings[text_key] }}
-                        </p>
+                          </div>
+                        {% endif %}
+                        {% if block.settings.heading != blank %}
+                          <h3>{{ block.settings.heading }}</h3>
+                        {% endif %}
+                      </div>
+                      {% if block.settings.text != blank %}
+                        <p>{{ block.settings.text }}</p>
                       {% endif %}
-                    {% endfor %}
+
+                      {% if block.settings.button_label != blank %}
+                        <a href="{{ block.settings.button_link }}" class="button">
+                          {{ block.settings.button_label }}
+                        </a>
+                      {% endif %}
+                    </div>
+                  </div>
+                  <div class="guests-cards-grid-bottom">
+                    <div class="guests-cards-grid-bottom-text">
+                      {% for i in (1..5) %}
+                        {% assign text_key = 'guests_cards_bottom_text_' | append: i %}
+                        {% if block.settings[text_key] != blank %}
+                          <p>
+                            <span>
+                              <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 20 20"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <rect x="0.5" y="0.5" width="19" height="19" rx="9.5" stroke="#1A4D2E"/>
+                                <path d="M5.33984 11.1765L8.19699 14.3765L15.3398 6.37646" stroke="#1A4D2E" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                              </svg>
+                            </span>
+
+                            {{ block.settings[text_key] }}
+                          </p>
+                        {% endif %}
+                      {% endfor %}
+                    </div>
                   </div>
                 </div>
                 <div class="guests-cards-grid-btn">
@@ -280,77 +282,77 @@
 
             {% when 'card_right' %}
               <div class="guests-cards-grid guests-cards-grid-right">
-                <div>
-                <div class="guests-cards-grid-top">
-                  <div class="guests-cards-grid-top-img">
-                    {% if block.settings.image != blank %}
-                      <img
-                        src="{{ block.settings.image | image_url: width: 600 }}"
-                        alt="{{ block.settings.heading }}"
-                        width=""
-                        height=""
-                      >
-                    {% endif %}
-                  </div>
-                  <div class="guests-cards-grid-content">
-                    <div class="guests-heading-block">
-                      {% if block.settings.heading_image != blank %}
-                        <div class="guests-heading-image">
-                          <img
-                            src="{{ block.settings.heading_image | image_url: width: 300 }}"
-                            alt="{{ block.settings.heading }}"
-                          >
-                        </div>
-                      {% endif %}
-                      {% if block.settings.heading != blank %}
-                        <h3>{{ block.settings.heading }}</h3>
+                <div class="guests-cards-grid-block">
+                  <div class="guests-cards-grid-top">
+                    <div class="guests-cards-grid-top-img">
+                      {% if block.settings.image != blank %}
+                        <img
+                          src="{{ block.settings.image | image_url: width: 600 }}"
+                          alt="{{ block.settings.heading }}"
+                          width=""
+                          height=""
+                        >
                       {% endif %}
                     </div>
-                    {% if block.settings.text != blank %}
-                      <p>{{ block.settings.text }}</p>
-                    {% endif %}
-
-                    {% if block.settings.button_label != blank %}
-                      <a href="{{ block.settings.button_link }}" class="button">
-                        {{ block.settings.button_label }}
-                      </a>
-                    {% endif %}
-                  </div>
-                </div>
-                <div class="guests-cards-grid-bottom">
-                  <div class="guests-cards-grid-bottom-text">
-                    {% for i in (1..5) %}
-                      {% assign text_key = 'guests_cards_bottom_text_' | append: i %}
-                      {% if block.settings[text_key] != blank %}
-                        <p>
-                          <span>
-                            <svg
-                              width="20"
-                              height="20"
-                              viewBox="0 0 20 20"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
+                    <div class="guests-cards-grid-content">
+                      <div class="guests-heading-block">
+                        {% if block.settings.heading_image != blank %}
+                          <div class="guests-heading-image">
+                            <img
+                              src="{{ block.settings.heading_image | image_url: width: 300 }}"
+                              alt="{{ block.settings.heading }}"
                             >
-                              <rect x="0.5" y="0.5" width="19" height="19" rx="9.5" fill="url(#paint0_linear_649_441)"/>
-                              <rect x="0.5" y="0.5" width="19" height="19" rx="9.5" stroke="#D4AF37"/>
-                              <path d="M5.33984 11.1765L8.19699 14.3765L15.3398 6.37646" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
-                              <defs>
-                              <linearGradient id="paint0_linear_649_441" x1="0" y1="10" x2="20" y2="10" gradientUnits="userSpaceOnUse">
-                              <stop stop-color="#D4AF37"/>
-                              <stop offset="0.528846" stop-color="#FFE9A0"/>
-                              <stop offset="1" stop-color="#D4AF37"/>
-                              </linearGradient>
-                              </defs>
-                            </svg>
-                          </span>
-
-                          {{ block.settings[text_key] }}
-                        </p>
+                          </div>
+                        {% endif %}
+                        {% if block.settings.heading != blank %}
+                          <h3>{{ block.settings.heading }}</h3>
+                        {% endif %}
+                      </div>
+                      {% if block.settings.text != blank %}
+                        <p>{{ block.settings.text }}</p>
                       {% endif %}
-                    {% endfor %}
+
+                      {% if block.settings.button_label != blank %}
+                        <a href="{{ block.settings.button_link }}" class="button">
+                          {{ block.settings.button_label }}
+                        </a>
+                      {% endif %}
+                    </div>
+                  </div>
+                  <div class="guests-cards-grid-bottom">
+                    <div class="guests-cards-grid-bottom-text">
+                      {% for i in (1..5) %}
+                        {% assign text_key = 'guests_cards_bottom_text_' | append: i %}
+                        {% if block.settings[text_key] != blank %}
+                          <p>
+                            <span>
+                              <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 20 20"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <rect x="0.5" y="0.5" width="19" height="19" rx="9.5" fill="url(#paint0_linear_649_441)"/>
+                                <rect x="0.5" y="0.5" width="19" height="19" rx="9.5" stroke="#D4AF37"/>
+                                <path d="M5.33984 11.1765L8.19699 14.3765L15.3398 6.37646" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                                <defs>
+                                <linearGradient id="paint0_linear_649_441" x1="0" y1="10" x2="20" y2="10" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#D4AF37"/>
+                                <stop offset="0.528846" stop-color="#FFE9A0"/>
+                                <stop offset="1" stop-color="#D4AF37"/>
+                                </linearGradient>
+                                </defs>
+                              </svg>
+                            </span>
+
+                            {{ block.settings[text_key] }}
+                          </p>
+                        {% endif %}
+                      {% endfor %}
+                    </div>
                   </div>
                 </div>
-            </div>
                 <div class="guests-cards-grid-btn">
                   {% if block.settings.bottom_btn_label != blank %}
                     <a href="{{ block.settings.bottom_btn_link }}" class="button">
