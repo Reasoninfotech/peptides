@@ -103,7 +103,7 @@
     }
     .guests-comparison-grid .guests-cards-grid-top .guests-cards-grid-content .guests-heading-block .guests-heading-image img {
         width: 56px;
-        height: 56px;  
+        height: 56px;
     }
 </style>
 
@@ -131,19 +131,18 @@
                     {% endif %}
                   </div>
                   <div class="guests-cards-grid-content">
-                 
                     <div class="guests-heading-block">
-                    {% if block.settings.heading_image != blank %}
-                      <div class="guests-heading-image">
-                        <img
-                          src="{{ block.settings.heading_image | image_url: width: 300 }}"
-                          alt="{{ block.settings.heading }}"
-                        >
-                      </div>
-                    {% endif %}
-                    {% if block.settings.heading != blank %}
-                      <h3>{{ block.settings.heading }}</h3>
-                    {% endif %}
+                      {% if block.settings.heading_image != blank %}
+                        <div class="guests-heading-image">
+                          <img
+                            src="{{ block.settings.heading_image | image_url: width: 300 }}"
+                            alt="{{ block.settings.heading }}"
+                          >
+                        </div>
+                      {% endif %}
+                      {% if block.settings.heading != blank %}
+                        <h3>{{ block.settings.heading }}</h3>
+                      {% endif %}
                     </div>
                     {% if block.settings.text != blank %}
                       <p>{{ block.settings.text }}</p>
@@ -155,6 +154,16 @@
                       </a>
                     {% endif %}
                   </div>
+                </div>
+                <div class="guests-cards-grid-bottom">
+                    <p>
+                        <span>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="0.5" y="0.5" width="19" height="19" rx="9.5" stroke="#1A4D2E"/>
+                            <path d="M5.33984 11.1765L8.19699 14.3765L15.3398 6.37646" stroke="#1A4D2E" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span >
+                    </p>
                 </div>
               </div>
 
@@ -172,19 +181,18 @@
                     {% endif %}
                   </div>
                   <div class="guests-cards-grid-content">
-                  
-                <div class="guests-heading-block">
-                    {% if block.settings.heading_image != blank %}
-                      <div class="guests-heading-image">
-                        <img
-                          src="{{ block.settings.heading_image | image_url: width: 300 }}"
-                          alt="{{ block.settings.heading }}"
-                        >
-                      </div>
-                    {% endif %}
+                    <div class="guests-heading-block">
+                      {% if block.settings.heading_image != blank %}
+                        <div class="guests-heading-image">
+                          <img
+                            src="{{ block.settings.heading_image | image_url: width: 300 }}"
+                            alt="{{ block.settings.heading }}"
+                          >
+                        </div>
+                      {% endif %}
                       {% if block.settings.heading != blank %}
-                      <h3>{{ block.settings.heading }}</h3>
-                    {% endif %}
+                        <h3>{{ block.settings.heading }}</h3>
+                      {% endif %}
                     </div>
                     {% if block.settings.text != blank %}
                       <p>{{ block.settings.text }}</p>
@@ -196,6 +204,9 @@
                       </a>
                     {% endif %}
                   </div>
+                </div>
+                <div class="guests-cards-grid-bottom">
+
                 </div>
               </div>
           {% endcase %}
