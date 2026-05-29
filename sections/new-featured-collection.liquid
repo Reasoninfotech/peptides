@@ -50,16 +50,13 @@
   }
 </style>
 
-{%- if customer.tags contains 'approved' -%}
-
+{%- if customer.tags contains 'approved' or section.settings.hide_comparison_for_guests -%}
   <div class="guests-comparison-section">
     <div class="container">
-
       <div class="comparison-header">
         <h2>{{ section.settings.guest_heading }}</h2>
         <p>{{ section.settings.guest_subtext }}</p>
       </div>
-
       <div class="guests-comparison-grid">
 
         {% for block in section.blocks %}
