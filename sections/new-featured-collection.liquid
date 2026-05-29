@@ -175,6 +175,7 @@
                   </div>
                 </div>
                 <div class="guests-cards-grid-bottom">
+                    <div>
                   {% for i in (1..5) %}
                     {% assign text_key = 'guests_cards_bottom_text_' | append: i %}
                     {% if block.settings[text_key] != blank %}
@@ -196,6 +197,7 @@
                       </p>
                     {% endif %}
                   {% endfor %}
+                  </div>
                 </div>
               </div>
 
