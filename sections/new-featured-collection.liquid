@@ -117,9 +117,7 @@
                     {% endif %}
                   </div>
                   <div class="guests-cards-grid-content">
-                    {% if block.settings.heading != blank %}
-                      <h3>{{ block.settings.heading }}</h3>
-                    {% endif %}
+                 
 
                     {% if block.settings.heading_image != blank %}
                       <div class="guests-heading-image">
@@ -128,6 +126,9 @@
                           alt="{{ block.settings.heading }}"
                         >
                       </div>
+                    {% endif %}
+                    {% if block.settings.heading != blank %}
+                      <h3>{{ block.settings.heading }}</h3>
                     {% endif %}
 
                     {% if block.settings.text != blank %}
