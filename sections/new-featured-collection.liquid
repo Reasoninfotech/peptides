@@ -63,6 +63,7 @@
         display: flex;
         gap: 14px;
     }
+
 </style>
 
 {%- if customer.tags contains 'approved' or section.settings.hide_comparison_for_guests -%}
@@ -78,6 +79,7 @@
             {% when 'card_left' %}
               <div class="guests-cards-grid guests-cards-grid-left">
                 <div class="guests-cards-grid-top">
+                <div class="guests-cards-grid-top-img">
                 {% if block.settings.image != blank %}
                   <img
                     src="{{ block.settings.image | image_url: width: 600 }}"
@@ -86,6 +88,7 @@
                     height=""
                   >
                 {% endif %}
+                </div>
                 <div class="guests-cards-grid-content"> 
                 {% if block.settings.heading != blank %}
                   <h3>{{ block.settings.heading }}</h3>
@@ -107,6 +110,7 @@
             {% when 'card_right' %}
               <div class="guests-cards-grid guests-cards-grid-right">
                 <div class="guests-cards-grid-top">
+                       <div class="guests-cards-grid-top-img">
                 {% if block.settings.image != blank %}
                   <img
                     src="{{ block.settings.image | image_url: width: 600 }}"
@@ -115,6 +119,7 @@
                     height=""
                   >
                 {% endif %}
+            </div>
                 <div class="guests-cards-grid-content"> 
                     {% if block.settings.heading != blank %}
                     <h3>{{ block.settings.heading }}</h3>
