@@ -50,8 +50,15 @@
         <p>{{ section.settings.guest_subtext }}</p>
       </div>
       <div class="guests-comparison-grid">
-        <div class="guests-cards-grid guests-cards-grid-left"></div>
-        <div class="guests-cards-grid guests-cards-grid-right"></div>
+        {% for block in section.blocks %}
+            {% case block.type %}
+                {% when 'card_left' %}
+                <div class="guests-cards-grid guests-cards-grid-left"></div>
+
+                {% when 'card_right' %}
+                <div class="guests-cards-grid guests-cards-grid-right"></div>
+            {% endcase %}
+            {% endfor %}
       </div>
       <div class="grade-tip">
         {{ section.settings.guest_tip }}
