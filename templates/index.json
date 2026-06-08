@@ -608,8 +608,8 @@
             "icon_img": "shopify://shop_images/image-1.png",
             "icon_text": "≥98%",
             "text": "<h5>HPLC Verified</h5>",
-            "description": "<p>To be approved for research use, every peptide batch undergoes high-performance liquid chromatography analysis confirming minimum 98% purity with complete spectral documentation.<br/><br/></p>",
-            "button_label": "View certificate",
+            "description": "<p>To be approved for research use, every peptide batch undergoes high-performance liquid chromatography analysis confirming minimum 98% purity with complete spectral documentation.<br/><br/><br/></p>",
+            "button_label": "",
             "button_link": "",
             "popup_content": ""
           }
@@ -622,7 +622,7 @@
             "icon_text": "✓",
             "text": "<h5>Third-Party Tested</h5>",
             "description": "<p>Independent laboratory verification through accredited facilities ensures structural accuracy, molecular weight confirmation, and absence of contaminants.</p>",
-            "button_label": "View certificate",
+            "button_label": "",
             "button_link": "",
             "popup_content": ""
           }
@@ -635,7 +635,7 @@
             "icon_text": "layers",
             "text": "<h5>GMP Manufactured</h5>",
             "description": "<p>Synthesized in controlled environments following Good Manufacturing Practice standards with rigorous quality control protocols at every production stage.</p>",
-            "button_label": "View certificate",
+            "button_label": "",
             "button_link": "",
             "popup_content": ""
           }
@@ -648,7 +648,7 @@
             "icon_text": "CoA",
             "text": "<h5>COA Included</h5>",
             "description": "<p>Comprehensive Certificate of Analysis provided with batch number, purity verification, mass spectrometry data, and complete analytical specifications for research documentation.<br/><br/></p>",
-            "button_label": "View certificate",
+            "button_label": "",
             "button_link": "",
             "popup_content": ""
           }
@@ -667,9 +667,9 @@
         "columns": 3,
         "item_scheme": "",
         "caption": "( WHY CHOOSE US )",
-        "heading_text": "Dedicate to quality",
+        "heading_text": "Dedicated to quality",
         "heading_size": "h3",
-        "text": "<p>We believe in using the best ingredients so you can have total peace of mind in the supplements you are taking.</p>",
+        "text": "<p>With nearly 15 years in the industry we only source from the best-in-category lLabs  that are fully cGMP certified.  LNGVTY LabS offer unrivalled quality, consistency and value with no middlemen, no dilution and no shortcuts.</p>",
         "title_color_scheme": "",
         "padding_top": 50,
         "padding_bottom": 50,
