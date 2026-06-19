@@ -1,11 +1,12 @@
 {%- assign features = product.metafields.custom.chemical_properties.value -%}
 
+{{ features | json }}
+
 {%- if features != blank -%}
   <div class="product-specs-table">
     {%- for item in features -%}
       {%- assign clean_item = item | strip -%}
 
-      {%- comment -%} Remove leading number+dot if present, e.g. "1.Purity: 99%" -> "Purity: 99%" {%- endcomment -%}
       {%- assign parts = clean_item | split: '.' -%}
       {%- assign first_part = parts[0] | strip -%}
       {%- assign first_part_size = first_part | size -%}
