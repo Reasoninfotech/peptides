@@ -706,7 +706,7 @@
 
           {%- when 'fetures' -%}
             {%- assign features = product.metafields.custom.fetures.value -%}
-            {{features | json }}
+            {{product.metafields.custom.chemical_properties.value | json }}
             {%- if features != blank -%}
               {%- render 'product-specs' -%}
             {%- endif -%}
