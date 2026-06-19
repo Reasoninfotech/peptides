@@ -7,9 +7,11 @@
 
       {%- comment -%} Remove leading number+dot if present, e.g. "1.Purity: 99%" -> "Purity: 99%" {%- endcomment -%}
       {%- assign parts = clean_item | split: '.' -%}
-      {%- if parts.size > 1 and parts[0] | strip_newlines | strip | size <= 2 -%}
-        {%- assign clean_item = clean_item | remove_first: parts[0] | append: '.' -%}
-        {%- assign clean_item = clean_item | remove_first: '.' | strip -%}
+      {%- assign first_part = parts[0] | strip -%}
+      {%- assign first_part_size = first_part | size -%}
+
+      {%- if parts.size > 1 and first_part_size <= 2 -%}
+        {%- assign clean_item = clean_item | remove_first: first_part | remove_first: '.' | strip -%}
       {%- endif -%}
 
       {%- assign colon_parts = clean_item | split: ':' -%}
@@ -31,7 +33,6 @@
     {%- endfor -%}
   </div>
 {%- endif -%}
-
 <style>
   .product-specs-table {
     width: 100%;
