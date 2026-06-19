@@ -2,9 +2,9 @@
 {%- if features != blank -%}
   <div class="product-specs-table">
     {%- for item in features -%}
-      {%- assign colon_index = item | split: ':' -%}
+      {%- assign colon_index = item | split: ': ' -%}
       {%- assign label = colon_index[0] -%}
-      {%- assign label_with_colon = label | append: ':' -%}
+      {%- assign label_with_colon = label | append: ': ' -%}
       {%- assign value = item | remove_first: label_with_colon -%}
 
       {%- if label != blank and value != blank -%}
