@@ -266,16 +266,7 @@
                 
                 if t_key != blank and m_value != blank
                   if m_obj.type contains 'list'
-                    for item in m_value
-                      if item contains ':'
-                        assign parts = item | split: ':'
-                        assign label = parts[0] | strip
-                        assign value = item | split: ':' | last | strip
-                        if label != blank
-                          echo '<tr class="pdp-tabs__table-row"><td class="pdp-tabs__table-label">' | append: label | append: '</td><td class="pdp-tabs__table-value">' | append: value | append: '</td></tr>'
-                        endif
-                      endif
-                    endfor
+                    
                   
                   endif
              
