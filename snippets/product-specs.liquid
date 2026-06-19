@@ -1,7 +1,7 @@
 {%- assign features = product.metafields.custom.chemical_properties.value -%}
 
 {%- if features != blank -%}
-  <div class="product-specs-table">
+  <div class="product-specs-table trupesh">
     {%- for item in features -%}
       {%- assign colon_index = item | split: ':' -%}
       {%- assign label = colon_index[0] -%}
