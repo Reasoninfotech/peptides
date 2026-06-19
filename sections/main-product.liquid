@@ -193,7 +193,7 @@
 
 			{% comment %} Summary {% endcomment %}
 			{%- render 'product-summary' -%}
-{{product.metafields.custom.chemical_properties.value | json }}
+{{product.metafields.custom.chemical_properties.value | metafield_tag }}
 			
 		</div>
 	</div>
