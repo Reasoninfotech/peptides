@@ -276,18 +276,7 @@
                         endif
                       endif
                     endfor
-                  else
-                    assign rows = m_value | newline_to_br | split: '<br />'
-                    for row in rows
-                      if row contains ':'
-                        assign parts = row | split: ':'
-                        assign label = parts[0] | strip
-                        assign value = row | split: ':' | last | strip
-                        if label != blank
-                          echo '<tr class="pdp-tabs__table-row"><td class="pdp-tabs__table-label">' | append: label | append: '</td><td class="pdp-tabs__table-value">' | append: value | append: '</td></tr>'
-                        endif
-                      endif
-                    endfor
+                  
                   endif
              
                 endif
