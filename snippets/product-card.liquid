@@ -513,36 +513,12 @@
       endif
     -%}
     {% comment %} features {% endcomment %}
-    {% assign properties = product.metafields.custom.chemical_properties.value %}
-    {% assign purity_value = '' %}
-    {% assign show_weight = false %}
-
-    {% if properties != blank %}
-      {% for item in properties %}
-        {% assign parts = item | split: ':' %}
-        {% assign label = parts[0] | strip %}
-        {% assign value = parts[1] | strip %}
-
-        {% if label == 'Purity' %}
-          {% assign purity_value = value %}
-        {% endif %}
-
-        {% if label == 'Weight' %}
-          {% assign show_weight = true %}
-        {% endif %}
-      {% endfor %}
+    {% if product.metafields.custom.purity != blank %}
+      <p class="product-card__purity" style="color:oklch(55.1% .027 264.364);font-size: 14px;margin:4px 0px">{{ product.metafields.custom.purity }}</p>
     {% endif %}
 
-    {% if purity_value != blank %}
-      <p class="product-card__purity" style="color:oklch(55.1% .027 264.364);font-size:14px;margin:4px 0;">
-        {{ purity_value }}
-      </p>
-    {% endif %}
-
-    {% if show_weight and product.metafields.custom.weight != blank %}
-      <p class="product-card__weight" style="color:oklch(55.1% .027 264.364);font-size:14px;margin:0 0 12px;">
-        {{ product.metafields.custom.weight }}
-      </p>
+    {% if product.metafields.custom.weight != blank %}
+      <p class="product-card__weight" style="color:oklch(55.1% .027 264.364);font-size: 14px;margin: 0px 0px 12px 0px">{{ product.metafields.custom.weight }}</p>
     {% endif %}
 
     {% if product.metafields.custom.short_description != blank %}
@@ -557,16 +533,16 @@
 </div>
 
 <style>
-  	.product-card__short_description {
-    font-size: 12px;
-    color: oklch(55.1% .027 264.364);
-    line-height: 1.5;
-    margin: 0;
+	.product-card__short_description {
+  font-size: 12px;
+  color: oklch(55.1% .027 264.364);
+  line-height: 1.5;
+  margin: 0;
 
-    /* Maximum 2 lines */
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
+  /* Maximum 2 lines */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
 </style>
