@@ -1,29 +1,12 @@
 {%- assign features = product.metafields.custom.chemical_properties.value -%}
 
-{{ features | json }}
-
 {%- if features != blank -%}
   <div class="product-specs-table">
     {%- for item in features -%}
-      {%- assign clean_item = item | strip -%}
-
-      {%- assign parts = clean_item | split: '.' -%}
-      {%- assign first_part = parts[0] | strip -%}
-      {%- assign first_part_size = first_part | size -%}
-
-      {%- if parts.size > 1 and first_part_size <= 2 -%}
-        {%- assign clean_item = clean_item | remove_first: first_part | remove_first: '.' | strip -%}
-      {%- endif -%}
-
-      {%- assign colon_parts = clean_item | split: ':' -%}
-      {%- if colon_parts.size > 1 -%}
-        {%- assign label = colon_parts[0] | strip -%}
-        {%- assign label_with_colon = label | append: ':' -%}
-        {%- assign value = clean_item | remove_first: label_with_colon | strip -%}
-      {%- else -%}
-        {%- assign label = blank -%}
-        {%- assign value = blank -%}
-      {%- endif -%}
+      {%- assign colon_index = item | split: ':' -%}
+      {%- assign label = colon_index[0] -%}
+      {%- assign label_with_colon = label | append: ':' -%}
+      {%- assign value = item | remove_first: label_with_colon -%}
 
       {%- if label != blank and value != blank -%}
         <div class="spec-row">
@@ -34,6 +17,7 @@
     {%- endfor -%}
   </div>
 {%- endif -%}
+
 <style>
   .product-specs-table {
     width: 100%;
