@@ -513,11 +513,11 @@
       endif
     -%}
     {% comment %} features {% endcomment %}
-    {% if product.metafields.custom.purity != blank %}
+    {% if product.metafields.custom.chemical_properties.value != blank %}
       <p class="product-card__purity" style="color:oklch(55.1% .027 264.364);font-size: 14px;margin:4px 0px">{{ product.metafields.custom.purity }}</p>
     {% endif %}
 
-    {% if product.metafields.custom.weight != blank %}
+    {% if product.metafields.custom.chemical_properties.value != blank %}
       <p class="product-card__weight" style="color:oklch(55.1% .027 264.364);font-size: 14px;margin: 0px 0px 12px 0px">{{ product.metafields.custom.weight }}</p>
     {% endif %}
 
