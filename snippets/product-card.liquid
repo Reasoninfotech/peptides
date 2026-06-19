@@ -513,9 +513,22 @@
       endif
     -%}
     {% comment %} features {% endcomment %}
-    {% if product.metafields.custom.chemical_properties.value != blank %}
-      <p class="product-card__purity" style="color:oklch(55.1% .027 264.364);font-size: 14px;margin:4px 0px">{{ product.metafields.custom.purity }}</p>
-    {% endif %}
+  {% assign properties = product.metafields.custom.chemical_properties.value %}
+
+			{% if properties != blank %}
+			{% for item in properties %}
+				{% assign parts = item | split: ':' %}
+				{% assign label = parts[0] | strip %}
+				{% assign value = parts[1] | strip %}
+
+				{% if label == 'Purity' %}
+				<p class="product-card__purity" style="color:oklch(55.1% .027 264.364); font-size:14px; margin:4px 0;">
+					{{ value }}
+				</p>
+				{% break %}
+				{% endif %}
+			{% endfor %}
+			{% endif %}
 
     {% if product.metafields.custom.chemical_properties.value != blank %}
       <p class="product-card__weight" style="color:oklch(55.1% .027 264.364);font-size: 14px;margin: 0px 0px 12px 0px">{{ product.metafields.custom.weight }}</p>
