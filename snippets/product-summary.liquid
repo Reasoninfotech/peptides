@@ -11,8 +11,6 @@
   endunless
 -%}
 
-
-
 <div class="product-summary{% if class != blank %} {{ class }}{% endif %}">
   <div
     class="product-summary-inner text-{{ section.settings.alignment }}"
@@ -708,7 +706,6 @@
 
           {%- when 'fetures' -%}
             {%- assign features = product.metafields.custom.fetures.value -%}
-           
             {%- if features != blank -%}
               {%- render 'product-specs' -%}
             {%- endif -%}
