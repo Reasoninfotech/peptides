@@ -3,10 +3,24 @@
 {%- if features != blank -%}
   <div class="product-specs-table">
     {%- for item in features -%}
-      {%- assign colon_index = item | split: ':' -%}
-      {%- assign label = colon_index[0] -%}
-      {%- assign label_with_colon = label | append: ':' -%}
-      {%- assign value = item | remove_first: label_with_colon -%}
+      {%- assign clean_item = item | strip -%}
+
+      {%- comment -%} Remove leading number+dot if present, e.g. "1.Purity: 99%" -> "Purity: 99%" {%- endcomment -%}
+      {%- assign parts = clean_item | split: '.' -%}
+      {%- if parts.size > 1 and parts[0] | strip_newlines | strip | size <= 2 -%}
+        {%- assign clean_item = clean_item | remove_first: parts[0] | append: '.' -%}
+        {%- assign clean_item = clean_item | remove_first: '.' | strip -%}
+      {%- endif -%}
+
+      {%- assign colon_parts = clean_item | split: ':' -%}
+      {%- if colon_parts.size > 1 -%}
+        {%- assign label = colon_parts[0] | strip -%}
+        {%- assign label_with_colon = label | append: ':' -%}
+        {%- assign value = clean_item | remove_first: label_with_colon | strip -%}
+      {%- else -%}
+        {%- assign label = blank -%}
+        {%- assign value = blank -%}
+      {%- endif -%}
 
       {%- if label != blank and value != blank -%}
         <div class="spec-row">
