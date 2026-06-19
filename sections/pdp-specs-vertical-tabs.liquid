@@ -259,68 +259,68 @@
           
           <div class="pdp-tabs__table-wrapper">
             <table class="pdp-tabs__table" style="margin: 0px;">
-              {%- liquid
-                assign t_key = block.settings.table_metafield_key
-                assign m_obj = product.metafields.custom[t_key]
-                assign m_value = m_obj.value
-                if t_key != blank and m_value != blank
-                  if m_obj.type contains 'list'
-                    for item in m_value
-                      if item contains ':'
-                        assign parts = item | split: ':'
-                        assign label = parts[0] | strip
-                        assign value = item | split: ':' | last | strip
-                        if label != blank
-                          echo '<tr class="pdp-tabs__table-row"><td class="pdp-tabs__table-label">' | append: label | append: '</td><td class="pdp-tabs__table-value">' | append: value | append: '</td></tr>'
-                        endif
-                      endif
-                    endfor
-                  else
-                    assign rows = m_value | newline_to_br | split: '<br />'
-                    for row in rows
-                      if row contains ':'
-                        assign parts = row | split: ':'
-                        assign label = parts[0] | strip
-                        assign value = row | split: ':' | last | strip
-                        if label != blank
-                          echo '<tr class="pdp-tabs__table-row"><td class="pdp-tabs__table-label">' | append: label | append: '</td><td class="pdp-tabs__table-value">' | append: value | append: '</td></tr>'
-                        endif
-                      endif
-                    endfor
-                  endif
-                else
-                  if block.settings.row_1_label != blank
-                    echo '<tr class="pdp-tabs__table-row"><td class="pdp-tabs__table-label">' | append: block.settings.row_1_label | append: '</td><td class="pdp-tabs__table-value">' | append: block.settings.row_1_value | append: '</td></tr>'
-                  endif
-                  if block.settings.row_2_label != blank
-                    echo '<tr class="pdp-tabs__table-row"><td class="pdp-tabs__table-label">' | append: block.settings.row_2_label | append: '</td><td class="pdp-tabs__table-value">' | append: block.settings.row_2_value | append: '</td></tr>'
-                  endif
-                  if block.settings.row_3_label != blank
-                    echo '<tr class="pdp-tabs__table-row"><td class="pdp-tabs__table-label">' | append: block.settings.row_3_label | append: '</td><td class="pdp-tabs__table-value">' | append: block.settings.row_3_value | append: '</td></tr>'
-                  endif
-                  if block.settings.row_4_label != blank
-                    echo '<tr class="pdp-tabs__table-row"><td class="pdp-tabs__table-label">' | append: block.settings.row_4_label | append: '</td><td class="pdp-tabs__table-value">' | append: block.settings.row_4_value | append: '</td></tr>'
-                  endif
-                  if block.settings.row_5_label != blank
-                    echo '<tr class="pdp-tabs__table-row"><td class="pdp-tabs__table-label">' | append: block.settings.row_5_label | append: '</td><td class="pdp-tabs__table-value">' | append: block.settings.row_5_value | append: '</td></tr>'
-                  endif
-                  if block.settings.row_6_label != blank
-                    echo '<tr class="pdp-tabs__table-row"><td class="pdp-tabs__table-label">' | append: block.settings.row_6_label | append: '</td><td class="pdp-tabs__table-value">' | append: block.settings.row_6_value | append: '</td></tr>'
-                  endif
-                  if block.settings.row_7_label != blank
-                    echo '<tr class="pdp-tabs__table-row"><td class="pdp-tabs__table-label">' | append: block.settings.row_7_label | append: '</td><td class="pdp-tabs__table-value">' | append: block.settings.row_7_value | append: '</td></tr>'
-                  endif
-                  if block.settings.row_8_label != blank
-                    echo '<tr class="pdp-tabs__table-row"><td class="pdp-tabs__table-label">' | append: block.settings.row_8_label | append: '</td><td class="pdp-tabs__table-value">' | append: block.settings.row_8_value | append: '</td></tr>'
-                  endif
-                  if block.settings.row_9_label != blank
-                    echo '<tr class="pdp-tabs__table-row"><td class="pdp-tabs__table-label">' | append: block.settings.row_9_label | append: '</td><td class="pdp-tabs__table-value">' | append: block.settings.row_9_value | append: '</td></tr>'
-                  endif
-                  if block.settings.row_10_label != blank
-                    echo '<tr class="pdp-tabs__table-row"><td class="pdp-tabs__table-label">' | append: block.settings.row_10_label | append: '</td><td class="pdp-tabs__table-value">' | append: block.settings.row_10_value | append: '</td></tr>'
-                  endif
-                endif
-              -%}
+       {%- liquid
+  assign t_key = block.settings.table_metafield_key
+  assign m_obj = product.metafields.custom[t_key]
+  assign m_value = m_obj.value
+  if t_key != blank and m_value != blank
+    if m_obj.type contains 'list'
+      for item in m_value
+        if item contains ':'
+          assign parts = item | split: ':'
+          assign label = parts[0] | strip
+          assign value = item | remove_first: parts[0] | remove_first: ':' | strip
+          if label != blank
+            echo '<tr class="pdp-tabs__table-row"><td class="pdp-tabs__table-label">' | append: label | append: '</td><td class="pdp-tabs__table-value">' | append: value | append: '</td></tr>'
+          endif
+        endif
+      endfor
+    else
+      assign rows = m_value | newline_to_br | split: '<br />'
+      for row in rows
+        if row contains ':'
+          assign parts = row | split: ':'
+          assign label = parts[0] | strip
+          assign value = row | remove_first: parts[0] | remove_first: ':' | strip
+          if label != blank
+            echo '<tr class="pdp-tabs__table-row"><td class="pdp-tabs__table-label">' | append: label | append: '</td><td class="pdp-tabs__table-value">' | append: value | append: '</td></tr>'
+          endif
+        endif
+      endfor
+    endif
+  else
+    if block.settings.row_1_label != blank
+      echo '<tr class="pdp-tabs__table-row"><td class="pdp-tabs__table-label">' | append: block.settings.row_1_label | append: '</td><td class="pdp-tabs__table-value">' | append: block.settings.row_1_value | append: '</td></tr>'
+    endif
+    if block.settings.row_2_label != blank
+      echo '<tr class="pdp-tabs__table-row"><td class="pdp-tabs__table-label">' | append: block.settings.row_2_label | append: '</td><td class="pdp-tabs__table-value">' | append: block.settings.row_2_value | append: '</td></tr>'
+    endif
+    if block.settings.row_3_label != blank
+      echo '<tr class="pdp-tabs__table-row"><td class="pdp-tabs__table-label">' | append: block.settings.row_3_label | append: '</td><td class="pdp-tabs__table-value">' | append: block.settings.row_3_value | append: '</td></tr>'
+    endif
+    if block.settings.row_4_label != blank
+      echo '<tr class="pdp-tabs__table-row"><td class="pdp-tabs__table-label">' | append: block.settings.row_4_label | append: '</td><td class="pdp-tabs__table-value">' | append: block.settings.row_4_value | append: '</td></tr>'
+    endif
+    if block.settings.row_5_label != blank
+      echo '<tr class="pdp-tabs__table-row"><td class="pdp-tabs__table-label">' | append: block.settings.row_5_label | append: '</td><td class="pdp-tabs__table-value">' | append: block.settings.row_5_value | append: '</td></tr>'
+    endif
+    if block.settings.row_6_label != blank
+      echo '<tr class="pdp-tabs__table-row"><td class="pdp-tabs__table-label">' | append: block.settings.row_6_label | append: '</td><td class="pdp-tabs__table-value">' | append: block.settings.row_6_value | append: '</td></tr>'
+    endif
+    if block.settings.row_7_label != blank
+      echo '<tr class="pdp-tabs__table-row"><td class="pdp-tabs__table-label">' | append: block.settings.row_7_label | append: '</td><td class="pdp-tabs__table-value">' | append: block.settings.row_7_value | append: '</td></tr>'
+    endif
+    if block.settings.row_8_label != blank
+      echo '<tr class="pdp-tabs__table-row"><td class="pdp-tabs__table-label">' | append: block.settings.row_8_label | append: '</td><td class="pdp-tabs__table-value">' | append: block.settings.row_8_value | append: '</td></tr>'
+    endif
+    if block.settings.row_9_label != blank
+      echo '<tr class="pdp-tabs__table-row"><td class="pdp-tabs__table-label">' | append: block.settings.row_9_label | append: '</td><td class="pdp-tabs__table-value">' | append: block.settings.row_9_value | append: '</td></tr>'
+    endif
+    if block.settings.row_10_label != blank
+      echo '<tr class="pdp-tabs__table-row"><td class="pdp-tabs__table-label">' | append: block.settings.row_10_label | append: '</td><td class="pdp-tabs__table-value">' | append: block.settings.row_10_value | append: '</td></tr>'
+    endif
+  endif
+-%}
             </table>
           </div>
           
