@@ -1,22 +1,28 @@
 {%- assign features = product.metafields.custom.chemical_properties.value -%}
 
-{%- assign allowed_labels = "CAS Number|Storage|Weight|Molecular Mass|Quantity|Purity" | split: "|" -%}
+{%- assign display_order = "Purity|Quantity|Molecular Weight|Storage|CAS Number" | split: "|" -%}
 
 {%- if features != blank -%}
   <div class="product-specs-table trupesh">
-    {%- for item in features -%}
-      {%- assign parts = item | split: ':' -%}
-      {%- assign label = parts[0] | strip -%}
-      {%- assign label_with_colon = label | append: ':' -%}
-      {%- assign value = item | remove_first: label_with_colon | strip -%}
 
-      {%- if allowed_labels contains label and value != blank -%}
-        <div class="spec-row">
-          <span class="spec-label">{{ label }}</span>
-          <span class="spec-value">{{ value }}</span>
-        </div>
-      {%- endif -%}
+    {%- for desired_label in display_order -%}
+
+      {%- for item in features -%}
+        {%- assign parts = item | split: ':' -%}
+        {%- assign label = parts[0] | strip -%}
+        {%- assign value = item | remove_first: label | remove_first: ':' | strip -%}
+
+        {%- if label == desired_label and value != blank -%}
+          <div class="spec-row">
+            <span class="spec-label">{{ label }}</span>
+            <span class="spec-value">{{ value }}</span>
+          </div>
+        {%- endif -%}
+
+      {%- endfor -%}
+
     {%- endfor -%}
+
   </div>
 {%- endif -%}
 <style>
