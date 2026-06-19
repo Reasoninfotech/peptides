@@ -260,6 +260,21 @@
           <div class="pdp-tabs__table-wrapper">
             <table class="pdp-tabs__table" style="margin: 0px;">
               {%- liquid
+  assign t_key = block.settings.table_metafield_key
+  assign m_obj = product.metafields.custom[t_key]
+  assign m_value = m_obj.value
+-%}
+
+{% if t_key != blank and m_value != blank %}
+  {% if m_obj.type contains 'list' %}
+    {% for item in m_value %}
+      {{ item }}<br>
+    {% endfor %}
+  {% else %}
+    {{ m_value }}
+  {% endif %}
+{% endif %}
+              {%- liquid
                 assign t_key = block.settings.table_metafield_key
                 assign m_obj = product.metafields.custom[t_key]
                 assign m_value = m_obj.value
